@@ -1,0 +1,70 @@
+extends ../layouts/base.jade
+
+block head
+  title DC/OS
+
+block content
+  
+  .content-block.content-block--dark-background
+    .hero-heading-block
+      h1 The easiest way to run containers in production
+      a.button Get Started
+      a.video-cta Watch The Video
+    
+    hr
+      
+    ul.hero-list
+      li.hero-list__item
+        img(src="assets/images/icons/scalable@2x.png")
+        h4 Scalable
+        p Two­-layer scheduling unlocks the highly scalable container orchestration required for running apps with microservices.
+      
+      li.hero-list__item
+        img(src="assets/images/icons/mature@2x.png")
+        h4 Mature
+        p Battle-hardened frameworks like Spark and Cassandra unlock the processing of big-data in real-time.
+      
+      li.hero-list__item
+        img(src="assets/images/icons/flexible@2x.png")
+        h4 Flexible
+        p Lifecycle management of both high-level web applications and low-level distributed systemson a single platform.      
+      
+      li.hero-list__item
+        img(src="assets/images/icons/efficient@2x.png")
+        h4 Efficient
+        p Collocation of diverse tasks on the same hardware ensures minimum wasted expense and energy efficiency.
+  
+  .content-block
+    h2 Run containerized applications
+    p  DC/OS is the only mature and highly scalable open­-source platform for modern datacenter applications. It features everything to effortlessly run containerized applications, including battle hardened services like Spark and Cassandra.
+    a.button Learn More
+    img(src="assets/images/containerized-applications.png")
+  
+  .content-block.content-block--full-width
+    .case-study-block__logo-container
+      img(src="assets/images/logos/microsoft.svg")
+    .case-study-block__content-container
+      h3 Azure Container Service Powered by DC/OS
+      p Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+      a.text-cta Read full case study &rarr;
+      
+  .content-block
+    .partner-quote
+      blockquote “DC/OS is so awesome. I can’t imagine life without it, and I’m grateful that I don’t have to. We’re excited to have Mantl running on DC/OS because the platform is just so damn good.”
+      cite Maia Distrafiso, Lead Developer Microsoft
+    
+    ul.partner-quote-logo-list
+      li.partner-quote-logo-list__partner-quote-logo
+        img(src="assets/images/logos/coreos.svg")
+      li.partner-quote-logo-list__partner-quote-logo
+        img(src="assets/images/logos/vmware.svg")
+      li.partner-quote-logo-list__partner-quote-logo
+        img(src="assets/images/logos/microsoft.svg")
+      li.partner-quote-logo-list__partner-quote-logo
+        img(src="assets/images/logos/aws.svg")
+      li.partner-quote-logo-list__partner-quote-logo
+        img(src="assets/images/logos/redhat.svg")
+        
+    .content-block.content-block--dark-background
+       h2 You'll be running DC/OS in less than 10 minutes
+       a.button Get Started
