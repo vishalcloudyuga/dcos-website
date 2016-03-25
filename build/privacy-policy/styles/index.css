@@ -409,7 +409,60 @@ body {
   color: #110823;
 }
 
-.content-block {
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.cta {
+  margin: 1rem 0;
+}
+
+.cta--text {
+  color: #442484;
+  font-weight: 600;
+}
+
+.cta--button {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  background-color: #9351E5;
+  color: white;
+}
+
+.cta--video {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cta--video__icon {
+  width: 28px;
+  margin-right: 0.5rem;
+}
+
+.container {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -418,12 +471,74 @@ body {
           flex-flow: column nowrap;
 }
 
-.content-block--dark-background {
+.container__content {
+  padding: 1rem;
+}
+
+.container--dark-background {
   background-color: #110823;
   color: white;
+}
+
+.container__content--hero-heading {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero-divider {
+  width: 100%;
 }
 
 .hero-list {
   padding: 0;
   list-style: none;
+}
+
+.hero-list__item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.hero-list__item__image {
+  width: 42px;
+  height: 42px;
+  margin-right: 1rem;
+}
+
+.hero-list__item__copy__title {
+  margin-top: 0;
+}
+
+.container__content--case-study-copy {
+  background-color: #FAFAFA;
+}
+
+.container__content--case-study-image {
+  background-color: #F3F3F3;
+}
+
+.partner-quote-block {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }

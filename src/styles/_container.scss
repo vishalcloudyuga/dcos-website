@@ -1,0 +1,15 @@
+// Container variants
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.container__content {
+  padding: 1rem;
+}
+
+.container--dark-background {
+  background-color: $black;
+  color: white;
+}

@@ -1,6 +1,33 @@
-.hero-list
-{
-    padding: 0;
+// Styling of the hero block
 
-    list-style: none;
+.container__content--hero-heading {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+
+.hero-divider {
+  width: 100%;
+}
+
+.hero-list {
+	padding: 0;
+	list-style: none;
+}
+
+.hero-list__item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.hero-list__item__image {
+	width: 42px;
+  height: 42px;
+  margin-right: 1rem;
+}
+
+.hero-list__item__copy__title {
+  margin-top: 0;
 }

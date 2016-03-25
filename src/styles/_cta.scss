@@ -1,0 +1,32 @@
+// Call To Action variants
+
+.cta {
+  margin: 1rem 0;
+}
+
+.cta--text {
+  color: $purple;
+  font-weight: 600;
+}
+
+.cta--button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  background-color: $indigo;
+  color: white;
+}
+
+.cta--video {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.cta--video__icon {
+  width: 28px;
+  margin-right: 0.5rem;
+}
