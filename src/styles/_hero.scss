@@ -1,33 +1,141 @@
 // Styling of the hero block
 
-.container__content--hero-heading {
+.container__content--hero-heading, .container__content--hero-list {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	text-align: left;
+}
+
+.hero-image {
+	align-self: center;;
+	width: 200px;
+	margin: 1rem 0;
+}
+
+.hero-cta-container {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
 }
 
 .hero-divider {
-  width: 100%;
+	width: 100%;
+	margin: 2rem 0;
+	border: 0;
+	height: 0;
+	border-top: 0.5px solid $white10;
 }
 
-.hero-list {
-	padding: 0;
+.container__content--hero-list {
 	list-style: none;
 }
 
 .hero-list__item {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-start;
-  justify-content: space-between;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 2rem;
 }
 
 .hero-list__item__image {
-	width: 42px;
-  height: 42px;
-  margin-right: 1rem;
+	min-width: 21px;
+	height: 21px;
+	margin: 0 0 1rem 0;
 }
 
 .hero-list__item__copy__title {
-  margin-top: 0;
+	margin: 0 0 0.5rem 0;
+}
+
+.hero-list__item__copy__paragraph {
+	margin: 0;
+	opacity: 0.8;
+	letter-spacing: 0.03rem;
+}
+
+// Media queries
+
+@include break($mobile-small-landscape) {
+	.container__content--hero-heading {
+		align-items: flex-start;
+	}
+
+	.hero-cta-container {
+		flex-flow: row nowrap;
+
+		.cta {
+			width: auto;
+		}
+	}
+
+	.cta--video {
+		margin: 0 0 0 2rem;
+	}
+}
+
+@include break($mobile-large-portrait) {
+	.container__content--hero-list {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+
+	.hero-list__item {
+		flex-basis: 48%;
+	}
+
+	.hero-list__item__image {
+		margin: 0 0 1.5rem 0;
+	}
+}
+
+@include break($mobile-large-landscape) {
+	.container__content--hero-heading {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+
+	.hero-title-cta-container, .hero-image {
+		align-items: center;
+	}
+
+	.hero-title-cta-container {
+		flex-basis: 56%;
+	}
+
+	.hero-image {
+		flex-basis: 40%;
+	}
+
+	.hero-list__item__image {
+		min-width: 42px;
+		height: 42px;
+	}
+}
+
+@include break($tablet-landscape) {
+	.hero-title-cta-container {
+		flex-basis: 50%;
+	}
+
+	.hero-image {
+		flex-basis: 48%;
+	}
+}
+
+@include break($desktop-small) {
+	.hero-list__item {
+		flex-basis: 22%;
+		align-self: flex-start;
+	}
+
+	.hero-list__item__copy__paragraph {
+		font-size: 0.75rem;
+		font-weight: 300;
+		letter-spacing: 0.06rem;
+		line-height: 1.5;
+	}
 }

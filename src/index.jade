@@ -6,74 +6,80 @@ block head
 block content
   
   .container.container--dark-background
-    .container__content.container__content--hero-heading
-      h1 The easiest way to run containers in production
-      a.cta.cta--button Get Started
-      a.cta.cta--video
-        img.cta--video__icon(src='assets/images/icons/playbutton@2x.png')
-        p.cta--video__text Watch The Video
+  
+    .container__content
+      .container__content--hero-heading
+        .hero-title-cta-container
+          h1.hero-title The easiest way to run containers in production
+          .hero-cta-container
+            a.cta.cta--button Get Started
+            a.cta.cta--video
+              img.cta--video__icon(src='assets/images/icons/playbutton@2x.png')
+              p.cta--video__text Play Video
+        img.hero-image(src='assets/images/hero-image.png')
     
       hr.hero-divider
         
-      ul.hero-list
+      ul.container__content--hero-list
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/scalable@2x.png")
           .hero-list__item__copy
-            h4.hero-list__item__copy__title Scalable
-            p Two­-layer scheduling unlocks the highly scalable container orchestration required for running apps with microservices.
+            h5.hero-list__item__copy__title Scalable
+            p.hero-list__item__copy__paragraph Two­-layer scheduling unlocks the highly scalable container orchestration required for running apps with microservices.
         
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/mature@2x.png")
           .hero-list__item__copy
-            h4.hero-list__item__copy__title Mature
-            p Battle-hardened frameworks like Spark and Cassandra unlock the processing of big-data in real-time.
+            h5.hero-list__item__copy__title Mature
+            p.hero-list__item__copy__paragraph Battle-hardened frameworks like Spark and Cassandra unlock the processing of big-data in real-time.
         
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/flexible@2x.png")
           .hero-list__item__copy
-            h4.hero-list__item__copy__title Flexible
-            p Lifecycle management of both high-level web applications and low-level distributed systemson a single platform.      
+            h5.hero-list__item__copy__title Flexible
+            p.hero-list__item__copy__paragraph Lifecycle management of both high-level web applications and low-level distributed systemson a single platform.      
         
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/efficient@2x.png")
           .hero-list__item__copy
-            h4.hero-list__item__copy__title Efficient
-            p Collocation of diverse tasks on the same hardware ensures minimum wasted expense and energy efficiency.
-  
+            h5.hero-list__item__copy__title Efficient
+            p.hero-list__item__copy__paragraph Collocation of diverse tasks on the same hardware ensures minimum wasted expense and energy efficiency.
+    
   .container
     .container__content
       h2 Run containerized applications
       p  DC/OS is the only mature and highly scalable open­-source platform for modern datacenter applications. It features everything to effortlessly run containerized applications, including battle hardened services like Spark and Cassandra.
-      a.cta.cta--button Learn More
-      img(src="assets/images/containerized-applications.png")
+      a.cta.cta--button.button--secondary Learn More
+      figure.full-width-image
+        img(src="assets/images/containerized-applications.png")
   
-  .container.container--full-width
+  .container.container--case-study
     .container__content.container__content--case-study-copy
-        h3 Azure Container Service Powered by DC/OS
-        p Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
-        a.cta.cta--text Read full case study &rarr;
+        h3.case-study-copy Azure Container Service Powered&nbsp;by&nbsp;DC/OS
+        p.case-study-copy Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+        a.cta.cta--text.case-study-copy Read full case study &rarr;
         
-    .container__content.container__content--case-study-image
-        img(src="assets/images/logos/microsoft.svg")
+    .container__content.container__content--case-study-image-wrapper
+        img.case-study-image(src="assets/images/logos/microsoft.svg")
     
       
   .container
     .container__content
       .partner-quote-block
         blockquote.partner-quote-block__quote “DC/OS is so awesome. I can’t imagine life without it, and I’m grateful that I don’t have to. We’re excited to have Mantl running on DC/OS because the platform is just so damn good.”
-        cite.partner-quote-block__cite Maia Distrafiso, Lead Developer Microsoft
+        cite.partner-quote-block__cite Maia&nbsp;Distrafiso, Lead&nbsp;Developer&nbsp;Microsoft
     
-    ul.partner-quote-logo-list
-      li.partner-quote-logo-list__partner-quote-logo
-        img(src="assets/images/logos/coreos.svg")
-      li.partner-quote-logo-list__partner-quote-logo
-        img(src="assets/images/logos/vmware.svg")
-      li.partner-quote-logo-list__partner-quote-logo
-        img(src="assets/images/logos/microsoft.svg")
-      li.partner-quote-logo-list__partner-quote-logo
-        img(src="assets/images/logos/aws.svg")
-      li.partner-quote-logo-list__partner-quote-logo
-        img(src="assets/images/logos/redhat.svg")
+      ul.partner-quote-logo-list
+        //- li.partner-quote-logo-list__partner-quote-logo
+        //-   img(src="assets/images/logos/coreos.svg")
+        //- li.partner-quote-logo-list__partner-quote-logo
+        //-   img(src="assets/images/logos/vmware.svg")
+        li.partner-quote-logo-list__partner-quote-logo
+          img(src="assets/images/logos/microsoft.svg")
+        //- li.partner-quote-logo-list__partner-quote-logo
+        //-   img(src="assets/images/logos/aws.svg")
+        //- li.partner-quote-logo-list__partner-quote-logo
+        //-   img(src="assets/images/logos/redhat.svg")
         
   .container.container--dark-background
     .container__content

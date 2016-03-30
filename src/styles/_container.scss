@@ -1,15 +1,49 @@
-// Container variants
+  // Container variants
 
 .container {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
 }
 
 .container__content {
-  padding: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: $max-width;
+  padding: 4rem 1rem;
+}
+
+.container--hero-background {
+  background-color: $black;
+  background-image: linear-gradient($black60, $black60), url(/assets/images/hero-image.png), linear-gradient(to top, $black, $persian-indigo);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 .container--dark-background {
+  text-align: center;
   background-color: $black;
+  background-image: linear-gradient(to top, $black, $persian-indigo);
   color: white;
+}
+
+
+@include break($mobile-large-portrait) {
+  .container__content {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@include break($mobile-large-landscape) {
+  .container__content {
+    padding: 4rem 2rem;
+  }
+}
+
+@include break($desktop-large) {
+  .container__content {
+    padding: 6rem 2rem;
+  }
 }

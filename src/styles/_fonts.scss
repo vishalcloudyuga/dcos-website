@@ -1,3 +1,89 @@
-body {
-  color: $black;
+// Base font styling
+
+html {
+	font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+	color: $black;
+	font-size: 16px;
+}
+
+h1, h2, h3 {
+	font-family: $clio-light;
+}
+
+// Vertical rythm: Major Third
+h1 {
+	font-size: 2.4rem;
+	font-weight: 300;
+	line-height: 1.4;
+	letter-spacing: -0.03rem;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.4;
+	letter-spacing: -0.01rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
+	font-family: $clio-medium;
+	font-weight: 500;
+	letter-spacing: 0.03rem;
+}
+
+h5 {
+	font-size: 1rem;
+	font-family: $clio-medium;
+	font-weight: 500;
+	letter-spacing: 0.06rem;
+}
+
+p {
+	letter-spacing: 0.015rem;
+	line-height: 1.55;
+}
+
+blockquote {
+	letter-spacing: 0.015rem;
+	line-height: 1.4;
+}
+
+cite {
+	letter-spacing: 0.015rem;
+	line-height: 1.4;
+	font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, img, figure, blockquote, cite, ul {
+	margin: 1rem 0;
+}
+
+// Breakpoints
+
+@include break($tablet-landscape) {
+	html {
+		font-size: 20px;
+	}
+
+	// Vertical rythm: Perfect Fourth
+	h1 {
+		font-size: 3.1rem;
+	}
+
+	h2 {
+		font-size: 2.3rem;
+	}
+
+	h3 {
+		font-size: 1.7rem;
+	}
+
+	h4 {
+		font-size: 1.3rem;
+	}
 }

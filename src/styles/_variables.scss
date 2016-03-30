@@ -1,7 +1,26 @@
-// Colors
-
+// Solid colors
 $snow: #FAFAFA; // “You know nothing, Jon Snow.”
 $smoke: #F3F3F3;
 $black: #110823;
+$persian-indigo: #2A1457;
 $purple: #442484;
-$indigo: #9351E5;
+$heliotrope: #9351E5;
+
+// Transparent colors
+$white10: rgba(255, 255, 255, 0.1);
+$black60: rgba(0, 0, 0, 0.6);
+
+// Web fonts
+$clio-light: 'clio_c_lightlight';
+$clio-medium: 'clio_c_mediummedium';
+
+// Breakpoints
+$mobile-small-landscape: 380px; // iPhone 5 landscape
+$mobile-large-portrait: 420px; // iPhone 6 Plus portrait
+$mobile-large-landscape: 736px; // iPhone 6 Plus landscape
+$tablet-landscape: 890px; // iPad landscape
+$desktop-small: 1024px; // Larger than iPad landscape
+$desktop-large: 1444px; // Larger than MacBook Pro 15"
+
+// Sizes
+$max-width: 1024px; // Maximum width for content

@@ -1,4 +1,39 @@
 .partner-quote-block {
-  display: flex;
-  flex-flow: column nowrap;
+	display: flex;
+	flex-flow: column nowrap;
+	text-align: center
 }
+
+.partner-quote-block__quote {
+	font-family: $clio-medium;
+	font-size: 1.3rem;
+	line-height: 1.6;
+	letter-spacing: -0.02rem;
+}
+
+.partner-quote-block__cite {
+	font-size: 0.75rem;
+	margin: 0 0 2rem 0;
+}
+
+.partner-quote-logo-list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.partner-quote-logo-list__partner-quote-logo {
+	max-width: 200px;
+}
+
+@include break($mobile-large-landscape) {
+	.partner-quote-block {
+		width: 80%;
+	}
+}
+
+// @include break($b1444) {
+// 	blockquote {
+// 		font-size:
+// 	}
+// }

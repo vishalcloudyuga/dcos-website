@@ -1,10 +1,45 @@
 // Case Study block
 
 .container__content--case-study-copy {
-  background-color: $snow;
+  background-color: $smoke;
 }
 
+.container__content--case-study-image-wrapper {
+  display: none;
+  align-self: stretch;
+}
 
-.container__content--case-study-image {
-  background-color: $smoke;
+@include break($mobile-large-portrait) {
+  .container__content--case-study-copy {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@include break($mobile-large-landscape) {
+  .container--case-study {
+    flex-flow: row;
+    justify-content: center;
+  }
+  .container__content--case-study-image-wrapper {
+    justify-content: center;
+    order: 1;
+    flex-basis: 50%;
+    display: flex;
+    background-color: $smoke;
+  }
+
+  .case-study-image {
+    width: 50%;
+  }
+
+  .case-study-copy {
+    max-width: 720px;
+  }
+
+  .container__content--case-study-copy {
+    order: 2;
+    flex-basis: 50%;
+    background-color: $snow;
+  }
 }

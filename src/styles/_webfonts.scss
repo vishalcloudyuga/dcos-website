@@ -1,0 +1,25 @@
+// Web fonts
+
+@font-face {
+	font-family: 'clio_c_lightlight';
+	src: url('/assets/fonts/letype_-_clioclight-light-webfont.eot');
+	src: url('/assets/fonts/letype_-_clioclight-light-webfont.eot?#iefix') format('embedded-opentype'),
+	url('/assets/fonts/letype_-_clioclight-light-webfont.woff2') format('woff2'),
+	url('/assets/fonts/letype_-_clioclight-light-webfont.woff') format('woff'),
+	url('/assets/fonts/letype_-_clioclight-light-webfont.ttf') format('truetype'),
+	url('/assets/fonts/letype_-_clioclight-light-webfont.svg#clio_c_lightlight') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'clio_c_mediummedium';
+	src: url('/assets/fonts/letype_-_cliocmedium-medium-webfont.eot');
+	src: url('/assets/fonts/letype_-_cliocmedium-medium-webfont.eot?#iefix') format('embedded-opentype'),
+	url('/assets/fonts/letype_-_cliocmedium-medium-webfont.woff2') format('woff2'),
+	url('/assets/fonts/letype_-_cliocmedium-medium-webfont.woff') format('woff'),
+	url('/assets/fonts/letype_-_cliocmedium-medium-webfont.ttf') format('truetype'),
+	url('/assets/fonts/letype_-_cliocmedium-medium-webfont.svg#clio_c_mediummedium') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

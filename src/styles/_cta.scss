@@ -1,32 +1,53 @@
 // Call To Action variants
 
 .cta {
-  margin: 1rem 0;
+  display: block;
+  font-weight: 500;
 }
 
 .cta--text {
   color: $purple;
-  font-weight: 600;
 }
 
 .cta--button {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   border-radius: 0.25rem;
   text-transform: uppercase;
-  background-color: $indigo;
+  letter-spacing: 0.05rem;
+  font-weight: 400;
+  background-color: $heliotrope;
   color: white;
+}
+
+.button--secondary {
+  background-color: transparent;
+  border: 1px solid $heliotrope;
+  color: $heliotrope;
 }
 
 .cta--video {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  margin: 0;
 }
 
 .cta--video__icon {
   width: 28px;
   margin-right: 0.5rem;
+}
+
+.cta--video__text {
+  letter-spacing: 0.03rem;
+  font-weight: 400;
+}
+
+@include break($mobile-large-portrait) {
+	.cta--button {
+    width: auto;
+  }
+
 }
