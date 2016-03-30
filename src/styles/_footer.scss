@@ -1,0 +1,34 @@
+// Universal footer styling
+
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $max-width;
+  padding: 0 1rem;
+  color: $white60;
+  font-size: 0.75rem;
+  letter-spacing: 0.02rem;
+}
+
+.footer-main, .footer-secondary {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.footer-item__icon {
+  width: 16px;
+  margin-right: 0.25rem;
+  opacity: 0.6;
+}

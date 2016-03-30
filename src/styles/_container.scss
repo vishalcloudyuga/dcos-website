@@ -1,4 +1,4 @@
-  // Container variants
+// Container variants
 
 .container {
   display: flex;
@@ -27,7 +27,6 @@
   background-image: linear-gradient(to top, $black, $persian-indigo);
   color: white;
 }
-
 
 @include break($mobile-large-portrait) {
   .container__content {

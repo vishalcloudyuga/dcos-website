@@ -1,3 +1,6 @@
+include ../mixins/header.jade
+include ../mixins/footer.jade
+
 <!doctype html>
 html 
   head
@@ -6,7 +9,9 @@ html
 
     block head
       title DC/OS 
+    
   body
+      
     block content
 
   script(src='/scripts/main.js')

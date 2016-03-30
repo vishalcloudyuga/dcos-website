@@ -1,0 +1,39 @@
+.navigation {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $max-width;
+  padding: 0 1rem;
+  color: $white60;
+  font-size: 0.75rem;
+  letter-spacing: 0.02rem;
+}
+
+.logo {
+  width: 5rem;
+  align-self: center;
+}
+
+.main-nav-container, .menu, .secondary-menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu-item {
+  padding: 0 1rem;
+}
+
+@include break($mobile-large-landscape) {
+  .navigation {
+    padding: 0 2rem;
+  }
+}
+
+@include break($desktop-large) {
+  .navigation {
+    padding: 0 2rem;
+  }
+}
