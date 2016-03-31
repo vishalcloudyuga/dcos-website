@@ -1,0 +1,33 @@
+.card-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.card {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 2rem;
+  background-color: $snow;
+  border: 0.5px solid $black10;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 $black05
+}
+
+.card-logo {
+  width: 66px;
+  height: 66px;
+}
+
+@include break($mobile-small-landscape) {
+  .card-container {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex-basis: 47%;
+  }
+
+}

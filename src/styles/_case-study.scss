@@ -1,6 +1,8 @@
 // Case Study block
 
 .container__content--case-study-copy {
+  align-items: flex-start;
+  text-align: left;
   background-color: $smoke;
 }
 
@@ -9,12 +11,12 @@
   align-self: stretch;
 }
 
-@include break($mobile-large-portrait) {
-  .container__content--case-study-copy {
-    align-items: flex-start;
-    text-align: left;
-  }
-}
+// @include break($mobile-large-portrait) {
+//   .container__content--case-study-copy {
+//     align-items: flex-start;
+//     text-align: left;
+//   }
+// }
 
 @include break($mobile-large-landscape) {
   .container--case-study {

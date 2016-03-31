@@ -1,15 +1,19 @@
 // Universal footer styling
 
 .footer {
-  display: flex;
+  display: none;
   flex-flow: row nowrap;
   justify-content: space-between;
   width: 100%;
   max-width: $max-width;
   padding: 0 1rem;
-  color: $white60;
+  color: $black60;
   font-size: 0.75rem;
   letter-spacing: 0.02rem;
+
+  a {
+    color: $black60;
+  }
 }
 
 .footer-main, .footer-secondary {
@@ -31,4 +35,20 @@
   width: 16px;
   margin-right: 0.25rem;
   opacity: 0.6;
+}
+
+// Dark background exception
+
+.container--dark-background {
+  .footer {
+    a {
+      color: $white60;
+    }
+  }
+}
+
+@include break($mobile-small-landscape) {
+  .footer {
+    display: flex;
+  }
 }

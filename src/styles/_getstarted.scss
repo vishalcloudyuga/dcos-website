@@ -1,0 +1,80 @@
+.getstarted-form {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.getstarted-form__element, .getstarted-form__input {
+  margin: 1rem 0;
+}
+
+.getstarted-form__element {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  font-family: $clio-light;
+  font-size: 2.4rem;
+	font-weight: 300;
+	line-height: 1.4;
+	letter-spacing: -0.03rem;
+  text-transform: uppercase;
+  color: $white60;
+}
+
+
+
+.getstarted-form__select {
+  width: 200px;
+  padding: 0 1rem 0 0;
+  border-bottom: 1px solid $white60;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  background-image: url('/assets/images/icons/chevron.svg');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right;
+  text-transform: uppercase;
+  color: white;
+  -webkit-appearance: none;
+}
+
+.getstarted-form__input {
+  display: block;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+@include break($mobile-small-landscape) {
+  .getstarted-form__select {
+    flex-basis: 80%;
+  }
+
+  .getstarted-form__input {
+    width: 100%;
+  }
+}
+
+@include break($tablet-landscape) {
+  .getstarted-form {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  .getstarted-form__input {
+    width: auto;
+  }
+
+  .getstarted-form__select {
+    flex-basis: none;
+  }
+}

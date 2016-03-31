@@ -6,6 +6,11 @@ html {
 	font-size: 16px;
 }
 
+a {
+	color: white;
+	text-decoration: none;
+}
+
 h1, h2, h3 {
 	font-family: $clio-light;
 }
@@ -85,5 +90,9 @@ h1, h2, h3, h4, h5, h6, p, a, img, figure, blockquote, cite, ul {
 
 	h4 {
 		font-size: 1.3rem;
+	}
+
+	h5 {
+		font-size: 1rem;
 	}
 }

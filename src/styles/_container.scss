@@ -9,8 +9,10 @@
 .container__content {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
   max-width: $max-width;
-  padding: 4rem 1rem;
+  padding: 1rem 1.5rem;
 }
 
 .container--hero-background {
@@ -28,12 +30,11 @@
   color: white;
 }
 
-@include break($mobile-large-portrait) {
-  .container__content {
-    align-items: center;
-    text-align: center;
-  }
-}
+// @include break($mobile-large-portrait) {
+//   .container__content {
+//     padding: 1rem 1rem;
+//   }
+// }
 
 @include break($mobile-large-landscape) {
   .container__content {
