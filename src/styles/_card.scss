@@ -8,16 +8,48 @@
   flex-flow: column nowrap;
   align-items: center;
   margin: 1rem 0;
-  padding: 2rem;
   background-color: $snow;
   border: 0.5px solid $black10;
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 $black05
 }
 
+.card-content {
+  padding: 2rem;
+}
+
+.card-header {
+  display: flex;
+  width: 100%;
+  background-image: url('http://iv1.lisimg.com/image/9122845/740full-ai-shinozaki.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card-header__date {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  padding: 0 0.5rem;
+  align-items: center;
+  background: white;
+  border-radius: 2px;
+
+  p {
+    margin: 0;
+    font-family: $clio-light;
+    font-size: 1.5rem;
+  }
+}
+
 .card-logo {
   width: 66px;
   height: 66px;
+}
+
+@include break($mobile-large-portrait) {
+
+
 }
 
 @include break($mobile-small-landscape) {
@@ -29,5 +61,4 @@
   .card {
     flex-basis: 47%;
   }
-
 }

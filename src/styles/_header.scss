@@ -27,17 +27,27 @@
 
 .menu-item {
   padding: 0 1rem;
+
+  &:last-child {
+    padding: 0 0 0 1rem;
+  }
 }
 
 @include break ($mobile-small-landscape) {
   .navigation {
     display: flex;
+    .cta--button {
+      padding: 0.8rem 0.6rem;
+    }
   }
 }
 
 @include break($mobile-large-landscape) {
   .navigation {
     padding: 0 2rem;
+    .cta--button {
+      padding: 0.8rem 2rem;
+    }
   }
 }
 

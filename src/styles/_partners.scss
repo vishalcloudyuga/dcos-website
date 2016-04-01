@@ -1,0 +1,16 @@
+.partner-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.partner-grid__logo {
+  flex-basis: 42%;
+  margin: 0;
+}
+
+@include break($mobile-large-portrait) {
+  .partner-grid__logo {
+    flex-basis: 27%;
+  }
+}

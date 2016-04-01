@@ -15,14 +15,6 @@
   padding: 1rem 1.5rem;
 }
 
-.container--hero-background {
-  background-color: $black;
-  background-image: linear-gradient($black60, $black60), url(/assets/images/hero-image.png), linear-gradient(to top, $black, $persian-indigo);
-  background-size: contain;
-  background-repeat: no-repeat;
-  color: white;
-}
-
 .container--dark-background {
   text-align: center;
   background-color: $black;

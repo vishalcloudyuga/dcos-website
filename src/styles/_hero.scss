@@ -7,6 +7,10 @@
 	text-align: center;
 }
 
+.hero-subtitle {
+	opacity: 0.8;
+}
+
 .hero-image {
 	display: none;
 	align-self: center;
@@ -42,8 +46,8 @@
 }
 
 .hero-list__item__image {
-	min-width: 42px;
-	height: 42px;
+	min-width: 21px;
+	height: 21px;
 	margin: 0 0 1rem 0;
 }
 
@@ -58,12 +62,34 @@
 	letter-spacing: 0.03rem;
 }
 
+
 // Media queries
 
-@include break($mobile-small-landscape) {
-	.container__content--hero-list, .container__content--hero-heading {
+@include break($mobile-large-portrait) {
+	.container__content--hero-list {
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+
+	.hero-list__item {
 		align-items: flex-start;
 		text-align: left;
+		flex-basis: 48%;
+	}
+
+	.hero-list__item__image {
+		margin: 0 0 1.5rem 0;
+	}
+}
+
+@include break($mobile-small-landscape) {
+	.container__content--hero-heading, .container__content--hero-list {
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.container__content--hero-list {
+		align-items: flex-start;
 	}
 
 	.hero-image {
@@ -82,22 +108,24 @@
 	.cta--video {
 		margin: 0 0 0 2rem;
 	}
-}
-
-@include break($mobile-large-portrait) {
-	.container__content--hero-list {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-between;
-	}
 
 	.hero-list__item {
-		align-items: flex-start;
-		flex-basis: 48%;
+		text-align: center;
 	}
 
-	.hero-list__item__image {
-		margin: 0 0 1.5rem 0;
+	// Styling the Hero of the Community page
+
+	.community-hero {
+		.container__content--hero-list {
+			flex-flow: column;
+			align-items: center;
+		}
+
+		.hero-list__item {
+			align-items: center;
+			flex-basis: auto;
+			width: 80%;
+		}
 	}
 }
 

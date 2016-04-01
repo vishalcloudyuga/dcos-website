@@ -9,6 +9,10 @@
   color: $purple;
 }
 
+.container--dark-background .cta--text {
+  color: white;
+}
+
 .cta--button {
   display: flex;
   justify-content: center;
