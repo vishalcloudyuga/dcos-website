@@ -12,5 +12,13 @@
 @include break($mobile-large-portrait) {
   .partner-grid__logo {
     flex-basis: 27%;
+    width: 27%;
+  }
+}
+
+@include break($mobile-small-landscape) {
+  .partner-grid__logo {
+    flex-basis: 20%;
+    width: 20%;
   }
 }

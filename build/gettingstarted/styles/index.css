@@ -945,6 +945,26 @@ img {
   .hero-list__item__image {
     margin: 0 0 1.5rem 0;
   }
+  .community-hero .container__content--hero-list {
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+  }
+  .community-hero .hero-list__item {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+    -webkit-flex-basis: auto;
+        -ms-flex-preferred-size: auto;
+            flex-basis: auto;
+    width: 80%;
+    text-align: center;
+  }
 }
 
 @media (min-width: 560px) {
@@ -980,28 +1000,6 @@ img {
   .cta--video {
     margin: 0 0 0 2rem;
   }
-  .hero-list__item {
-    text-align: center;
-  }
-  .community-hero .container__content--hero-list {
-    -webkit-flex-flow: column;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-                -ms-grid-row-align: center;
-            align-items: center;
-  }
-  .community-hero .hero-list__item {
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-                -ms-grid-row-align: center;
-            align-items: center;
-    -webkit-flex-basis: auto;
-        -ms-flex-preferred-size: auto;
-            flex-basis: auto;
-    width: 80%;
-  }
 }
 
 @media (min-width: 736px) {
@@ -1035,6 +1033,29 @@ img {
   .hero-list__item__image {
     min-width: 42px;
     height: 42px;
+  }
+}
+
+@media (min-width: 768px) {
+  .community-hero .container__content--hero-list {
+    -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-align-items: left;
+        -ms-flex-align: left;
+                -ms-grid-row-align: left;
+            align-items: left;
+  }
+  .community-hero .hero-list__item {
+    -webkit-align-items: left;
+        -ms-flex-align: left;
+                -ms-grid-row-align: left;
+            align-items: left;
+    -webkit-flex-basis: 32%;
+        -ms-flex-preferred-size: 32%;
+            flex-basis: 32%;
+    width: auto;
+    text-align: left;
   }
 }
 
@@ -1393,5 +1414,15 @@ img {
     -webkit-flex-basis: 27%;
         -ms-flex-preferred-size: 27%;
             flex-basis: 27%;
+    width: 27%;
+  }
+}
+
+@media (min-width: 560px) {
+  .partner-grid__logo {
+    -webkit-flex-basis: 20%;
+        -ms-flex-preferred-size: 20%;
+            flex-basis: 20%;
+    width: 20%;
   }
 }
