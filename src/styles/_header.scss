@@ -1,6 +1,6 @@
 .navigation {
-  display: none;
-  flex-flow: row nowrap;
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: space-between;
   width: 100%;
   max-width: $max-width;
@@ -9,7 +9,7 @@
   letter-spacing: 0.02rem;
 
   a {
-    color: $white60;
+    color: $black60;
   }
 }
 
@@ -20,7 +20,7 @@
 
 .main-nav-container, .menu, .secondary-menu {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
 }
@@ -33,12 +33,23 @@
   }
 }
 
+.container--dark-background {
+  .navigation a {
+    color: $white60;
+  }
+}
+
 @include break ($mobile-small-landscape) {
   .navigation {
     display: flex;
+    flex-flow: row;
     .cta--button {
       padding: 0.8rem 0.6rem;
     }
+  }
+
+  .main-nav-container, .menu, .secondary-menu {
+    flex-flow: row nowrap;
   }
 }
 

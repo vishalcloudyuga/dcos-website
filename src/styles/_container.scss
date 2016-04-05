@@ -20,13 +20,19 @@
   background-color: $black;
   background-image: linear-gradient(to top, $black, $persian-indigo);
   color: white;
+
+  a {
+    color: white;
+  }
 }
 
-// @include break($mobile-large-portrait) {
-//   .container__content {
-//     padding: 1rem 1rem;
-//   }
-// }
+.container--grey-background {
+  background-color: $snow;
+}
+
+.container--docs-header {
+    border-bottom: 1px solid $smoke;
+}
 
 @include break($mobile-large-landscape) {
   .container__content {

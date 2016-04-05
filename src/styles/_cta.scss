@@ -25,18 +25,19 @@
   color: white;
 }
 
-.button--secondary {
+a.button--secondary {
   background-color: transparent;
   border: 1px solid $heliotrope;
   color: $heliotrope;
 }
 
-.button--header {
-   background-color: transparent;
-   border: 1px solid $white60;
-   color: $white60;
-   text-transform: none;
+.container--dark-background {
+  .button--secondary {
+     border: 1px solid $white60;
+     color: $white60;
+  }
 }
+
 
 .cta--video {
   display: flex;

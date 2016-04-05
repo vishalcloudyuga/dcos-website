@@ -7,7 +7,7 @@ html {
 }
 
 a {
-	color: white;
+	color: $heliotrope;
 	text-decoration: none;
 }
 
@@ -64,7 +64,7 @@ cite {
 	font-weight: 500;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, img, figure, blockquote, cite, ul {
+h1, h2, h3, h4, h5, h6, p, a, img, figure, blockquote, cite, ul, ol, pre, code {
 	margin: 1rem 0;
 }
 

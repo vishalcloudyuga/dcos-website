@@ -1,8 +1,20 @@
+include ../mixins/header-docs.jade
+include ../mixins/footer.jade
+
 <!doctype html>
 html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
-    title!= title
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    
+    block head
+      title!= title
+      
   body
+  
     block content
+    
       article!= contents
+
+  script(src='/scripts/main.js')
+  block scripts
