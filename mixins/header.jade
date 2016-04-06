@@ -2,19 +2,18 @@ mixin header()
 
   nav.navigation
     .main-nav-container
-      a(href='/')
+      a(href='/').nav-logo
         img.logo(src='/assets/images/logo.svg')
       
-      ul.menu
-        li.menu-item 
-          a(href='/why-dcos') Why
-        li.menu-item 
-          a(href='/documentation') Documentation
-        li.menu-item 
-          a(href='/community') Community
-      
-    .secondary-menu
-      .menu-item 
+    ul.menu
+      li.menu-item 
+        a(href='/why-dcos') Why
+      li.menu-item 
+        a(href='/documentation') Documentation
+      li.menu-item 
+        a(href='/community') Community      
+      li.menu-item 
+        img.header-item__icon(src='assets/images/icons/github.svg')
         a(href='http://github.com') GitHub
-      .menu-item
+      li.menu-item
         a(href='/gettingstarted').cta.cta--button.button--secondary Get Started

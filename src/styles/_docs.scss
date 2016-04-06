@@ -98,15 +98,25 @@
   border-top: 1px solid $smoke;
 }
 
-ul.docs-content__actions {
+ul.docs-content__footer__actions {
   display: flex;
   flex-flow: row nowrap;
   margin: 0;
   list-style: none;
+}
 
-  .docs-content__action {
-    margin-right: 1rem;
-  }
+.docs-content__footer__action {
+  font-size: 0.75rem;
+}
+
+.docs-content__footer__share-icon {
+  width: 10px;
+  margin-right: 1rem;
+}
+
+.docs-content__footer__feedback-icon {
+  width: 16px;
+  margin-right: 1rem;
 }
 
 .desktop-only {

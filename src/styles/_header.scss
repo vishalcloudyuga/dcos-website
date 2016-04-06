@@ -5,32 +5,45 @@
   width: 100%;
   max-width: $max-width;
   padding: 0 1.5rem;
-  font-size: 0.75rem;
   letter-spacing: 0.02rem;
+  // background-color: $black;
+
+  ul {
+    margin: 0;
 
   a {
     color: $black60;
   }
 }
 
+  .cta {
+    color: $black60;
+    margin: 0;
+  }
+
+  .cta--button {
+    border-color: $black60;
+  }
+}
+
 .logo {
   width: 5rem;
-  align-self: center;
+  align-self: flex-start;
 }
 
 .main-nav-container, .menu, .secondary-menu {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .menu-item {
-  padding: 0 1rem;
-
-  &:last-child {
-    padding: 0 0 0 1rem;
-  }
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 .container--dark-background {
@@ -39,26 +52,36 @@
   }
 }
 
-@include break ($mobile-small-landscape) {
+
+.header-item__icon {
+  width: 16px;
+  margin-right: 0.5rem;
+  opacity: 0.6;
+}
+
+@include break($mobile-large-landscape) {
   .navigation {
     display: flex;
     flex-flow: row;
+    padding: 0 2rem;
+    font-size: 0.75rem;
+    background-color: transparent;
+
     .cta--button {
-      padding: 0.8rem 0.6rem;
+      padding: 0.8rem 2rem;
     }
   }
 
   .main-nav-container, .menu, .secondary-menu {
     flex-flow: row nowrap;
   }
-}
 
-@include break($mobile-large-landscape) {
-  .navigation {
-    padding: 0 2rem;
-    .cta--button {
-      padding: 0.8rem 2rem;
-    }
+  .menu-item {
+    padding: 1rem;
+  }
+
+  .menu-item:last-child {
+    // padding: 0 0 0 1rem;
   }
 }
 

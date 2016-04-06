@@ -8,17 +8,14 @@
   <body>
     <div class="container container--dark-background">
       <nav class="navigation">
-        <div class="main-nav-container"><a href="/"><img src="/assets/images/logo.svg" class="logo"/></a>
-          <ul class="menu">
-            <li class="menu-item"> <a href="/why-dcos">Why</a></li>
-            <li class="menu-item"> <a href="/documentation">Documentation</a></li>
-            <li class="menu-item"> <a href="/community">Community</a></li>
-          </ul>
-        </div>
-        <div class="secondary-menu">
-          <div class="menu-item"> <a href="http://github.com">GitHub</a></div>
-          <div class="menu-item"><a href="/gettingstarted" class="cta cta--button button--secondary">Get Started</a></div>
-        </div>
+        <div class="main-nav-container"><a href="/" class="nav-logo"><img src="/assets/images/logo.svg" class="logo"/></a></div>
+        <ul class="menu">
+          <li class="menu-item"> <a href="/why-dcos">Why</a></li>
+          <li class="menu-item"> <a href="/documentation">Documentation</a></li>
+          <li class="menu-item"> <a href="/community">Community      </a></li>
+          <li class="menu-item"> <img src="assets/images/icons/github.svg" class="header-item__icon"/><a href="http://github.com">GitHub</a></li>
+          <li class="menu-item"><a href="/gettingstarted" class="cta cta--button button--secondary">Get Started</a></li>
+        </ul>
       </nav>
       <div class="container__content">
         <div class="container__content--hero-heading">
@@ -58,10 +55,30 @@
       </div>
     </div>
     <div class="container">
-      <div class="container__content">
+      <div class="container__content community-hero">
         <h2>Run containerized applications</h2>
         <p> DC/OS is the only mature and highly scalable open­-source platform for modern datacenter applications. It features everything to effortlessly run containerized applications, including battle hardened services like Spark and Cassandra.</p><a class="cta cta--button button--secondary">Learn More</a>
         <figure class="full-width-image"><img src="assets/images/containerized-applications.png"/></figure>
+        <ul class="container__content--hero-list">
+          <li class="hero-list__item"><img src="assets/images/icons/github.svg" class="hero-list__item__image"/>
+            <div class="hero-list__item__copy">
+              <h5 class="hero-list__item__copy__title">GitHub</h5>
+              <p class="hero-list__item__copy__paragraph">Are you interested in helping us make DC/OS even better? Let’s work together! Read up on our GitHub repository to help you on your way.</p><a class="cta cta--text">Visit repository &rarr;</a>
+            </div>
+          </li>
+          <li class="hero-list__item"><img src="assets/images/icons/slack.svg" class="hero-list__item__image"/>
+            <div class="hero-list__item__copy">
+              <h5 class="hero-list__item__copy__title">Slack</h5>
+              <p class="hero-list__item__copy__paragraph">Have any questions? Our Slack channel is the best place to get help. Just send us a request to automatically receive your invitation.</p><a class="cta cta--text">Join chat &rarr;</a>
+            </div>
+          </li>
+          <li class="hero-list__item"><img src="assets/images/icons/twitter.svg" class="hero-list__item__image"/>
+            <div class="hero-list__item__copy">
+              <h5 class="hero-list__item__copy__title">Twitter</h5>
+              <p class="hero-list__item__copy__paragraph">Want to stay in the loop? Get the latest news and updates surrounding DC/OS and join in the discussion by following our official Twitter account.</p><a class="cta cta--text">Follow us &rarr;</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="container container--case-study">

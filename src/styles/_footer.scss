@@ -1,15 +1,20 @@
 // Universal footer styling
 
 .footer {
-  display: none;
-  flex-flow: row nowrap;
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: space-between;
   width: 100%;
   max-width: $max-width;
-  padding: 0 1rem;
+  padding: 1rem;
   color: $black60;
   font-size: 0.75rem;
   letter-spacing: 0.02rem;
+  // box-shadow: 0 -1px 0 0 $white10;
+
+  ul {
+    margin: 0;
+  }
 
   a {
     color: $black60;
@@ -18,9 +23,18 @@
 
 .footer-main, .footer-secondary {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.footer-secondary {
+  order: 1;
+}
+
+.footer-main {
+  flex-flow: column-reverse;
+  order: 2;
 }
 
 .footer-item {
@@ -33,7 +47,7 @@
 
 .footer-item__icon {
   width: 16px;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
   opacity: 0.6;
 }
 
@@ -47,8 +61,39 @@
   }
 }
 
-@include break($mobile-small-landscape) {
+@include break($mobile-large-portrait) {
   .footer {
     display: flex;
+    flex-flow: row;
+  }
+
+  .footer-secondary {
+    align-items: flex-start;
+  }
+
+  .footer-main {
+    align-items: flex-end;
+  }
+}
+
+@include break($mobile-large-landscape) {
+  .footer-main, .footer-secondary {
+    flex-flow: row;
+  }
+
+  .footer-secondary {
+    order: 2;
+
+    .footer-item:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .footer-main {
+    order: 1;
+
+    .footer-item:first-child {
+      padding-left: 0;
+    }
   }
 }
