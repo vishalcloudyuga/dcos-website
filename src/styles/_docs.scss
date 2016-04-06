@@ -29,8 +29,14 @@
 }
 
 .docs-layout__docs-content {
+  display: flex;
+  flex-flow: column nowrap;
   max-width: 100%;
   text-align: left;
+
+  h4, h5 {
+    margin: 1rem 0 0 0;
+  }
 
   ul, ol {
     margin-left: 1.5rem;
@@ -53,6 +59,10 @@
     color: $black60;
   }
 
+  cite {
+    margin: 0 0 1rem 0;
+  }
+
   em {
     font-style: italic;
   }
@@ -62,6 +72,7 @@
   }
 
   img {
+    margin: 1rem 0;
     border-radius: 2px;
   }
 
@@ -109,14 +120,17 @@ ul.docs-content__footer__actions {
   font-size: 0.75rem;
 }
 
+.docs-content__footer__action img {
+  margin: 0 0.5rem 0 0;
+  border-radius: 0;
+}
+
 .docs-content__footer__share-icon {
   width: 10px;
-  margin-right: 1rem;
 }
 
 .docs-content__footer__feedback-icon {
   width: 16px;
-  margin-right: 1rem;
 }
 
 .desktop-only {

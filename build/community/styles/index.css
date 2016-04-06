@@ -1594,8 +1594,18 @@ a.button--secondary {
 }
 
 .docs-layout__docs-content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   max-width: 100%;
   text-align: left;
+}
+
+.docs-layout__docs-content h4, .docs-layout__docs-content h5 {
+  margin: 1rem 0 0 0;
 }
 
 .docs-layout__docs-content ul, .docs-layout__docs-content ol {
@@ -1619,6 +1629,10 @@ a.button--secondary {
   color: rgba(0, 0, 0, 0.6);
 }
 
+.docs-layout__docs-content cite {
+  margin: 0 0 1rem 0;
+}
+
 .docs-layout__docs-content em {
   font-style: italic;
 }
@@ -1628,6 +1642,7 @@ a.button--secondary {
 }
 
 .docs-layout__docs-content img {
+  margin: 1rem 0;
   border-radius: 2px;
 }
 
@@ -1686,14 +1701,17 @@ ul.docs-content__footer__actions {
   font-size: 0.75rem;
 }
 
+.docs-content__footer__action img {
+  margin: 0 0.5rem 0 0;
+  border-radius: 0;
+}
+
 .docs-content__footer__share-icon {
   width: 10px;
-  margin-right: 1rem;
 }
 
 .docs-content__footer__feedback-icon {
   width: 16px;
-  margin-right: 1rem;
 }
 
 .desktop-only {
