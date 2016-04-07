@@ -1,0 +1,15 @@
+branches:
+  only:
+  - develop
+  - master
+deploy:
+  provider: s3
+  access_key_id: AKIAJRYGUJVO3GO77TIQ
+  secret_access_key:
+    secure: OJHiB0EfXG1oteieh8Pfx/TokTXrg3jfT5h0h/sj3O8x7jPJ3aQwF1eVDdXPrcpdU4s1XnbV2qfY6Oz+oXPXHJIWUdiinJl7vmsJYTumS/be4Vc3YcFBu6iKMxApYTzcpqYHBPenBJSVaJtF5UzzmueEkW5sHfghtTTJQL6kMRFo3/92CoiudAuaYHpjzYqeGFmxbwODiUXFU81p/E3vb+PZhmIf9YjZ6yhUI/dYazdpbQua7DMiOPoGFWmm7rAMs8r0E57/6gCWWR4TAx1JbaDDiRnNSnYNni0SSiq5trHdyveCOrfT5zRFzQh/aWr4vSqrvr53qyB/w3LUweUSL7MoW6WOtQ6QJtZTBg45GzS6u9AIKQIipji3/osMT6EzvGLRo/oJTwlKwvxu+1F1YIaAlymxINtsXsEI1gKQz7C+O8Mz2I/a9EkRD1XZcYKwvQ3XfaAkujgi7Id5n7/wVAtz7QhCshmVCfvxnR1gf11nGLy+MsviG2AWqZgNgUFxXdrYpa61HJCPBbsCrlpp5j+cZbqyKTluzcPbXL9FV3QfX+MFtWfm6OFLT5dSg6s1+WHDcec8Lfn8FZGb58y5BVCx3DJ8HyppSGuvFGZSMj76t1zy/x6uzGu/a0ZDQjb4+/pnfxjJID4jWEHeGCZUXOTSxpsCZmhFhdwDC+RZF9c=
+  bucket: dcos-static-site
+  local-dir: "./build"
+  acl: public_read
+  on:
+    repo: awkward/dcos-site
+    branch: develop
