@@ -1,0 +1,23 @@
+.overlay {
+  background-color: $black;
+  background-image: linear-gradient(to top, $black, $persian-indigo);
+
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: -100;
+}
+.overlay-close {
+  text-align: right;
+  font-size: 20pt;
+  color: white;
+}
+.overlay-visible {
+  opacity:    1;
+  z-index:    100;
+  transition: opacity 100ms ease-in;
+}

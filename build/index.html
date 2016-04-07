@@ -21,7 +21,7 @@
         <div class="container__content--hero-heading">
           <div class="hero-title-cta-container">
             <h1 class="hero-title">The easiest way to run containers in production</h1>
-            <div class="hero-cta-container"><a class="cta cta--button">Get Started</a><a class="cta cta--video"><img src="assets/images/icons/playbutton@2x.png" class="cta--video__icon"/>
+            <div class="hero-cta-container"><a class="cta cta--button">Get Started</a><a href="#" data-overlay-toggle="video-overlay" class="cta cta--video"><img src="assets/images/icons/playbutton@2x.png" class="cta--video__icon"/>
                 <p class="cta--video__text">Play Video</p></a></div>
           </div><img src="assets/images/hero-image.png" class="hero-image"/>
         </div>
@@ -116,6 +116,11 @@
         </ul>
       </div>
     </div>
+    <div data-overlay="video-overlay" class="overlay"><a href="#" class="overlay-close">x</a>
+      <h1>some video should be shown here..</h1>
+      <p>also the X to close it again and stuff..</p>
+    </div>
   </body>
   <script src="/scripts/main.js"></script>
+  <script src="scripts/overlay.js"></script>
 </html>
