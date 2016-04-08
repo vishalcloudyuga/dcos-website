@@ -1398,10 +1398,20 @@ a.button--secondary {
   }
 }
 
+<<<<<<< Updated upstream
 @media (min-width: 1025px) {
   .container__content--case-study-copy {
     padding: 8rem 6rem;
   }
+=======
+.partner-quote-block-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+>>>>>>> Stashed changes
 }
 
 .partner-quote-block {
@@ -1411,7 +1421,27 @@ a.button--secondary {
   -webkit-flex-flow: column nowrap;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
+  transition: opacity 200ms;
+  min-width: 100%;
+  opacity: 0;
+}
+
+.partner-quote-block.active {
+  -webkit-order: 0;
+      -ms-flex-order: 0;
+          order: 0;
+  opacity: 1;
+}
+
+.partner-quote-block.hidden {
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+  opacity: 0;
 }
 
 .partner-quote-block__quote {
@@ -1441,6 +1471,13 @@ a.button--secondary {
 
 .partner-quote-logo-list__partner-quote-logo img {
   width: 120px;
+  opacity: 0.3;
+  transition: opacity 200ms;
+}
+
+.partner-quote-logo-list__partner-quote-logo.active img, .partner-quote-logo-list__partner-quote-logo:hover img {
+  width: 120px;
+  opacity: 1;
 }
 
 @media (min-width: 736px) {

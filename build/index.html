@@ -97,16 +97,34 @@
     </div>
     <div class="container">
       <div class="container__content">
-        <div class="partner-quote-block">
-          <blockquote class="partner-quote-block__quote">“DC/OS is so awesome. I can’t imagine life without it, and I’m grateful that I don’t have to. We’re excited to have Mantl running on DC/OS because the platform is just so damn good.”</blockquote>
-          <cite class="partner-quote-block__cite">Maia&nbsp;Distrafiso, Lead&nbsp;Developer&nbsp;Microsoft</cite>
+        <div class="partner-quote-block-container">
+          <div class="partner-quote-block active">
+            <blockquote class="partner-quote-block__quote">“DC/OS is so awesome. I can’t imagine life without it, and I’m grateful that I don’t have to. We’re excited to have Mantl running on DC/OS because the platform is just so damn good.”</blockquote>
+            <cite class="partner-quote-block__cite">Maia&nbsp;Distrafiso, Lead&nbsp;Developer&nbsp;Microsoft</cite>
+          </div>
+          <div class="partner-quote-block hidden">
+            <blockquote class="partner-quote-block__quote">“DC/OS is pretty good. Good stuff.”</blockquote>
+            <cite class="partner-quote-block__cite">Simple&nbsp;Guy, Random&nbsp;guy&nbsp;Awkward</cite>
+          </div>
+          <div class="partner-quote-block hidden">
+            <blockquote class="partner-quote-block__quote">“DC/OS. yep. It works.”</blockquote>
+            <cite class="partner-quote-block__cite">Bob, Huisbaas&nbsp;at&nbsp;Awkward</cite>
+          </div>
+          <div class="partner-quote-block hidden">
+            <blockquote class="partner-quote-block__quote">“DC/OS is great, but have you looked at these quotes? AMAZING!”</blockquote>
+            <cite class="partner-quote-block__cite">Tony&nbsp;Wie?, Guy&nbsp;who&nbsp;owns&nbsp;money&nbsp;to&nbsp;Bob</cite>
+          </div>
+          <div class="partner-quote-block hidden">
+            <blockquote class="partner-quote-block__quote">“DC/OS. I have it for breakfast!”</blockquote>
+            <cite class="partner-quote-block__cite">Swag&nbsp;Mc.&nbsp;Swaggiepants, Breakfast&nbsp;dude&nbsp;at&nbsp;Awkward</cite>
+          </div>
         </div>
         <ul class="partner-quote-logo-list">
-          <li class="partner-quote-logo-list__partner-quote-logo"><img src="assets/images/logos/coreos.svg"/></li>
-          <li class="partner-quote-logo-list__partner-quote-logo"><img src="assets/images/logos/vmware.svg"/></li>
-          <li class="partner-quote-logo-list__partner-quote-logo"><img src="assets/images/logos/microsoft.svg"/></li>
-          <li class="partner-quote-logo-list__partner-quote-logo"><img src="assets/images/logos/aws.svg"/></li>
-          <li class="partner-quote-logo-list__partner-quote-logo"><img src="assets/images/logos/redhat.svg"/></li>
+          <li class="partner-quote-logo-list__partner-quote-logo active"><a href="#" data-activate-quote="0"><img src="assets/images/logos/coreos.svg"/></a></li>
+          <li class="partner-quote-logo-list__partner-quote-logo"><a href="#" data-activate-quote="1"><img src="assets/images/logos/vmware.svg"/></a></li>
+          <li class="partner-quote-logo-list__partner-quote-logo"><a href="#" data-activate-quote="2"><img src="assets/images/logos/microsoft.svg"/></a></li>
+          <li class="partner-quote-logo-list__partner-quote-logo"><a href="#" data-activate-quote="3"><img src="assets/images/logos/aws.svg"/></a></li>
+          <li class="partner-quote-logo-list__partner-quote-logo"><a href="#" data-activate-quote="4"><img src="assets/images/logos/redhat.svg"/></a></li>
         </ul>
       </div>
     </div>
@@ -130,4 +148,5 @@
     </div>
   </body>
   <script src="/scripts/main.js"></script>
+  <script src="/scripts/quotes-carousel.js"></script>
 </html>
