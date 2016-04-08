@@ -7,8 +7,7 @@ branches:
   - develop
   - master
 before_deploy:
-- npm rebuild node-sass
-- npm start
+- npm rebuild node-sass && npm start
 deploy:
   provider: s3
   access_key_id: AKIAJRYGUJVO3GO77TIQ
