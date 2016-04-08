@@ -1219,24 +1219,27 @@ a.button--secondary {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: column;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  max-width: 1024px;
-  overflow-x: visible;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: column nowrap;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  -webkit-flex-flow: column;
+      -ms-flex-flow: column;
+          flex-flow: column;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 300px;
   margin: 1rem;
   background-color: #FAFAFA;
   border: 0.5px solid rgba(0, 0, 0, 0.1);
@@ -1301,11 +1304,19 @@ a.button--secondary {
   height: 66px;
 }
 
+.card--events {
+  overflow-x: visible;
+}
+
+.card--events .card {
+  min-width: 300px;
+}
+
 @media (min-width: 560px) {
   .card-container {
-    -webkit-flex-flow: row nowrap;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
