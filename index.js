@@ -12,7 +12,7 @@ const postcss = require('metalsmith-postcss')
 const autoprefixer = require('autoprefixer')
 const copy = require('metalsmith-copy')
 
-const msmith = Metalsmith(__dirname)
+Metalsmith(__dirname)
   .use(markdown())
   .use(layouts({
     engine: 'jade',
@@ -39,10 +39,14 @@ const msmith = Metalsmith(__dirname)
     directory: 'assets'
   }))
   .use(permalinks('documentation/:title'))
-  .use(browserSync({
-    server: './build',
-    files: ['./src/**/*']
-  }))
+  .use((() => {
+    if(!process.env.CI) {
+      return browserSync({
+        server: './build',
+        files: ['./src/**/*']
+      })
+    }
+  })())
   .build((err) => {
     if (err) throw err
   })
