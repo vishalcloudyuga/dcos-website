@@ -8,22 +8,9 @@ block content
   .container.container--dark-background
     +header
     
-    .container__content.getstarted-form
-      .getstarted-form__element
-        label.getstarted-form__label(for='service') Run
-        
-        select.getstarted-form__select(name='service')
-          option(value='Spark') Cassandra
-          option(value='Jenkins') Jenkins
-      
-      .getstarted-form__element
-        label.getstarted-form__label(for='platform') on
-      
-        select.getstarted-form__select(name='platform')
-          option(value='Azure') Cassandra
-          option(value='VMware') VMware
-          
-      input.cta.cta--button.getstarted-form__input(type='submit' value='Go')
+    .container__content
+      h1.getstarted-heading Run <img src='assets/images/icons/spark.png'><span>Spark</span> on <img src='assets/images/icons/spark.png'><span>Spark</span>
+      p Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
       
   .container
     .container__content

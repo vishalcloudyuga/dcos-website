@@ -23,25 +23,25 @@ block content
         
       ul.container__content--hero-list
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/scalable@2x.png")
+          img.hero-list__item__image(src="assets/images/icons/scalable.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Scalable
             p.hero-list__item__copy__paragraph Two­-layer scheduling unlocks the highly scalable container orchestration required for running apps with microservices.
         
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/mature@2x.png")
+          img.hero-list__item__image(src="assets/images/icons/mature.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Mature
             p.hero-list__item__copy__paragraph Battle-hardened frameworks like Spark and Cassandra unlock the processing of big-data in real-time.
         
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/flexible@2x.png")
+          img.hero-list__item__image(src="assets/images/icons/flexible.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Flexible
             p.hero-list__item__copy__paragraph Lifecycle management of both high-level web applications and low-level distributed systemson a single platform.      
         
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/efficient@2x.png")
+          img.hero-list__item__image(src="assets/images/icons/efficient.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Efficient
             p.hero-list__item__copy__paragraph Collocation of diverse tasks on the same hardware ensures minimum wasted expense and energy efficiency.
@@ -81,6 +81,16 @@ block content
         h3.case-study-copy Azure Container Service Powered&nbsp;by&nbsp;DC/OS
         p.case-study-copy Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
         a.cta.cta--text.case-study-copy Read full case study &rarr;
+        
+        ul.bullet-list
+          li.bullet-list__item
+            a.bullet-list__bullet.active
+          li.bullet-list__item
+            a.bullet-list__bullet
+          li.bullet-list__item
+            a.bullet-list__bullet
+          li.bullet-list__item
+            a.bullet-list__bullet
         
     .container__content.container__content--case-study-image-wrapper
         img.case-study-image(src="assets/images/logos/microsoft.svg")
@@ -129,7 +139,7 @@ block content
   .container.container--dark-background
     .container__content
        h2 You'll be running DC/OS in less than 10 minutes
-       a.cta.cta--button Get Started
+       a(href='/get-started').cta.cta--button Get Started
     
     +footer
 block scripts

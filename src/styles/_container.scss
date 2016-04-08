@@ -26,7 +26,7 @@
   }
 }
 
-.container--grey-background {
+.container--gray-background {
   background-color: $snow;
 }
 
@@ -36,12 +36,12 @@
 
 @include break($mobile-large-landscape) {
   .container__content {
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
   }
 }
 
 @include break($desktop-large) {
   .container__content {
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
   }
 }

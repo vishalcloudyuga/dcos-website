@@ -11,12 +11,27 @@
   align-self: stretch;
 }
 
-// @include break($mobile-large-portrait) {
-//   .container__content--case-study-copy {
-//     align-items: flex-start;
-//     text-align: left;
-//   }
-// }
+.bullet-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.bullet-list__item {
+  margin:0 1rem 0 0;
+}
+
+.bullet-list__bullet {
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: $light-gray;
+  border-radius: 50%;
+}
+
+.bullet-list__bullet.active {
+  background-color: $dark-gray;
+}
 
 @include break($mobile-large-landscape) {
   .container--case-study {
@@ -33,6 +48,7 @@
 
   .case-study-image {
     width: 50%;
+    max-width: 256px;
   }
 
   .case-study-copy {
@@ -43,5 +59,11 @@
     order: 2;
     flex-basis: 50%;
     background-color: $snow;
+  }
+}
+
+@include break($desktop-small) {
+  .container__content--case-study-copy {
+    padding: 8rem 6rem;
   }
 }
