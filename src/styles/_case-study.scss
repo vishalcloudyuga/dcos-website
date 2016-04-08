@@ -11,6 +11,28 @@
   align-self: stretch;
 }
 
+.bullet-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.bullet-list__item {
+  margin:0 1rem 0 0;
+}
+
+.bullet-list__bullet {
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: $light-gray;
+  border-radius: 50%;
+}
+
+.bullet-list__bullet.active {
+  background-color: $dark-gray;
+}
+
 // @include break($mobile-large-portrait) {
 //   .container__content--case-study-copy {
 //     align-items: flex-start;

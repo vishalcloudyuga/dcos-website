@@ -1315,6 +1315,34 @@ a.button--secondary {
           align-self: stretch;
 }
 
+.bullet-list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bullet-list__item {
+  margin: 0 1rem 0 0;
+}
+
+.bullet-list__bullet {
+  display: block;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: #E5E5E5;
+  border-radius: 50%;
+}
+
+.bullet-list__bullet.active {
+  background-color: #A1A1A1;
+}
+
 @media (min-width: 736px) {
   .container--case-study {
     -webkit-flex-flow: row;
