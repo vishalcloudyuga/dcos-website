@@ -9,6 +9,7 @@ branches:
 before_deploy:
 - npm rebuild node-sass && npm start
 deploy:
+  skip_cleanup: true
   provider: s3
   access_key_id: AKIAJRYGUJVO3GO77TIQ
   secret_access_key:
