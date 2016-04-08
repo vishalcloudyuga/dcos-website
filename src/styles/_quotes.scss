@@ -5,25 +5,28 @@
 }
 
 .partner-quote-block__quote {
+	max-width: 52rem;
 	font-family: $clio-medium;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	line-height: 1.6;
-	letter-spacing: -0.02rem;
+	letter-spacing: 0.01rem;
 }
 
 .partner-quote-block__cite {
-	font-size: 0.75rem;
-	margin: 0 0 2rem 0;
+	font-size: 1rem;
+	margin: 0.5rem 0 2rem 0;
 }
 
 .partner-quote-logo-list {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column nowrap;
 	justify-content: center;
 }
 
 .partner-quote-logo-list__partner-quote-logo {
-	max-width: 200px;
+	img {
+		width: 120px;
+	}
 }
 
 @include break($mobile-large-landscape) {
@@ -32,8 +35,14 @@
 	}
 }
 
-// @include break($b1444) {
-// 	blockquote {
-// 		font-size:
-// 	}
-// }
+@include break($tablet-portrait) {
+	.partner-quote-logo-list {
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.partner-quote-logo-list__partner-quote-logo {
+		margin: 0 1.5rem;
+	}
+}

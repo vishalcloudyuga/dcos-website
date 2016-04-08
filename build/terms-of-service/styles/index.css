@@ -489,7 +489,7 @@ h1, h2, h3 {
 h1 {
   font-size: 2.4rem;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.3;
   letter-spacing: -0.03rem;
 }
 
@@ -502,6 +502,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
+  letter-spacing: 0.05rem;
 }
 
 h4 {
@@ -519,12 +520,16 @@ h5 {
 }
 
 p {
-  letter-spacing: 0.015rem;
+  max-width: 45rem;
+  font-weight: 400;
+  letter-spacing: 0.04rem;
   line-height: 1.55;
+  opacity: 0.8;
 }
 
 blockquote {
-  letter-spacing: 0.015rem;
+  max-width: 45rem;
+  letter-spacing: 0.04rem;
   line-height: 1.4;
 }
 
@@ -540,10 +545,10 @@ h1, h2, h3, h4, h5, h6, p, a, img, figure, blockquote, cite, ul, ol, pre, code {
 
 @media (min-width: 890px) {
   html {
-    font-size: 20px;
+    font-size: 16px;
   }
   h1 {
-    font-size: 3.1rem;
+    font-size: 4rem;
   }
   h2 {
     font-size: 2.3rem;
@@ -585,7 +590,8 @@ img {
   width: 100%;
   max-width: 1024px;
   padding: 0 1.5rem;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.04rem;
+  font-size: 0.9rem;
 }
 
 .navigation ul {
@@ -674,11 +680,7 @@ img {
         -ms-flex-flow: row;
             flex-flow: row;
     padding: 0 2rem;
-    font-size: 0.75rem;
     background-color: transparent;
-  }
-  .navigation .cta--button {
-    padding: 0.8rem 2rem;
   }
   .main-nav-container, .menu, .secondary-menu {
     -webkit-flex-flow: row nowrap;
@@ -827,11 +829,13 @@ img {
 
 .cta {
   display: block;
+  font-size: 0.9rem;
   font-weight: 500;
+  letter-spacing: 0.03rem;
 }
 
 .cta--text {
-  color: #442484;
+  color: #9351E5;
 }
 
 .container--dark-background .cta--text {
@@ -846,7 +850,7 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 0.25rem;
   letter-spacing: 0.05rem;
   font-weight: 400;
@@ -1029,13 +1033,17 @@ a.button--secondary {
 
 .hero-list__item__copy__title {
   margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .hero-list__item__copy__paragraph {
   margin: 0;
-  opacity: 0.8;
   letter-spacing: 0.03rem;
+}
+
+.container--dark-background .hero-list__item__copy__paragraph {
+  font-weight: 300;
+  opacity: 0.8;
 }
 
 @media (min-width: 414px) {
@@ -1196,17 +1204,11 @@ a.button--secondary {
         -ms-flex-item-align: start;
             align-self: flex-start;
   }
-  .hero-list__item__copy__title {
-    font-size: 1rem;
-  }
   .hero-list__item__copy__paragraph {
-    font-size: 0.75rem;
-    font-weight: 300;
     letter-spacing: 0.05rem;
     line-height: 1.5;
   }
   .hero-list__item__copy a {
-    font-size: 0.75rem;
     letter-spacing: 0.05rem;
     line-height: 1.5;
   }
@@ -1341,7 +1343,7 @@ a.button--secondary {
     width: 50%;
   }
   .case-study-copy {
-    max-width: 720px;
+    max-width: 24rem;
   }
   .container__content--case-study-copy {
     -webkit-order: 2;
@@ -1365,31 +1367,32 @@ a.button--secondary {
 }
 
 .partner-quote-block__quote {
+  max-width: 52rem;
   font-family: "ClioRegular";
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 1.6;
-  letter-spacing: -0.02rem;
+  letter-spacing: 0.01rem;
 }
 
 .partner-quote-block__cite {
-  font-size: 0.75rem;
-  margin: 0 0 2rem 0;
+  font-size: 1rem;
+  margin: 0.5rem 0 2rem 0;
 }
 
 .partner-quote-logo-list {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.partner-quote-logo-list__partner-quote-logo {
-  max-width: 200px;
+.partner-quote-logo-list__partner-quote-logo img {
+  width: 120px;
 }
 
 @media (min-width: 736px) {
@@ -1398,11 +1401,29 @@ a.button--secondary {
   }
 }
 
+@media (min-width: 768px) {
+  .partner-quote-logo-list {
+    -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+  }
+  .partner-quote-logo-list__partner-quote-logo {
+    margin: 0 1.5rem;
+  }
+}
+
 .full-width-image {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  margin: 1rem 0;
+  margin: 6rem 0;
 }
 
 .getstarted-form {

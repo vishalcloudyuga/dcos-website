@@ -5,8 +5,8 @@
   width: 100%;
   max-width: $max-width;
   padding: 0 1.5rem;
-  letter-spacing: 0.02rem;
-  // background-color: $black;
+  letter-spacing: 0.04rem;
+  font-size: 0.9rem;
 
   ul {
     margin: 0;
@@ -70,12 +70,7 @@
     display: flex;
     flex-flow: row;
     padding: 0 2rem;
-    font-size: 0.75rem;
     background-color: transparent;
-
-    .cta--button {
-      padding: 0.8rem 2rem;
-    }
   }
 
   .main-nav-container, .menu, .secondary-menu {
