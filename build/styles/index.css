@@ -1,17 +1,13 @@
 @font-face {
-  font-family: 'clio_c_lightlight';
-  src: url("/assets/fonts/letype_-_clioclight-light-webfont.eot");
-  src: url("/assets/fonts/letype_-_clioclight-light-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/letype_-_clioclight-light-webfont.woff2") format("woff2"), url("/assets/fonts/letype_-_clioclight-light-webfont.woff") format("woff"), url("/assets/fonts/letype_-_clioclight-light-webfont.ttf") format("truetype"), url("/assets/fonts/letype_-_clioclight-light-webfont.svg#clio_c_lightlight") format("svg");
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'ClioRegular';
+  src: url("/assets/fonts/30CF6F_17_0.eot");
+  src: url("/assets/fonts/30CF6F_17_0.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/30CF6F_17_0.woff2") format("woff2"), url("/assets/fonts/30CF6F_17_0.woff") format("woff"), url("/assets/fonts/30CF6F_17_0.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'clio_c_mediummedium';
-  src: url("/assets/fonts/letype_-_cliocmedium-medium-webfont.eot");
-  src: url("/assets/fonts/letype_-_cliocmedium-medium-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/letype_-_cliocmedium-medium-webfont.woff2") format("woff2"), url("/assets/fonts/letype_-_cliocmedium-medium-webfont.woff") format("woff"), url("/assets/fonts/letype_-_cliocmedium-medium-webfont.ttf") format("truetype"), url("/assets/fonts/letype_-_cliocmedium-medium-webfont.svg#clio_c_mediummedium") format("svg");
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'ClioLight-Light';
+  src: url("/assets/fonts/30CF6F_F_0.eot");
+  src: url("/assets/fonts/30CF6F_F_0.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/30CF6F_F_0.woff2") format("woff2"), url("/assets/fonts/30CF6F_F_0.woff") format("woff"), url("/assets/fonts/30CF6F_F_0.ttf") format("truetype");
 }
 
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
@@ -487,7 +483,7 @@ a {
 }
 
 h1, h2, h3 {
-  font-family: "clio_c_lightlight";
+  font-family: "ClioLight-Light";
 }
 
 h1 {
@@ -510,14 +506,14 @@ h3 {
 
 h4 {
   font-size: 1.25rem;
-  font-family: "clio_c_mediummedium";
+  font-family: "ClioRegular";
   font-weight: 500;
   letter-spacing: 0.03rem;
 }
 
 h5 {
   font-size: 1rem;
-  font-family: "clio_c_mediummedium";
+  font-family: "ClioRegular";
   font-weight: 500;
   letter-spacing: 0.06rem;
 }
@@ -610,13 +606,13 @@ img {
 }
 
 .logo {
-  width: 5rem;
+  width: 4rem;
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
           align-self: flex-start;
 }
 
-.main-nav-container, .menu, .secondary-menu {
+.menu {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -629,6 +625,18 @@ img {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.nav-logo-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .menu-item {
@@ -1264,7 +1272,7 @@ a.button--secondary {
 
 .card-header__date p {
   margin: 0;
-  font-family: "clio_c_lightlight";
+  font-family: "ClioLight-Light";
   font-size: 1.5rem;
 }
 
@@ -1357,7 +1365,7 @@ a.button--secondary {
 }
 
 .partner-quote-block__quote {
-  font-family: "clio_c_mediummedium";
+  font-family: "ClioRegular";
   font-size: 1.3rem;
   line-height: 1.6;
   letter-spacing: -0.02rem;
@@ -1426,7 +1434,7 @@ a.button--secondary {
           justify-content: space-between;
   text-align: center;
   width: 100%;
-  font-family: "clio_c_lightlight";
+  font-family: "ClioLight-Light";
   font-size: 2.4rem;
   font-weight: 300;
   line-height: 1.4;

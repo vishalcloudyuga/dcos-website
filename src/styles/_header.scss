@@ -27,15 +27,21 @@
 }
 
 .logo {
-  width: 5rem;
+  width: 4rem;
   align-self: flex-start;
 }
 
-.main-nav-container, .menu, .secondary-menu {
+.menu {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: flex-start;
+}
+
+.nav-logo-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .menu-item {
