@@ -13,19 +13,13 @@ const path = require('path')
 const postcss = require('metalsmith-postcss')
 const autoprefixer = require('autoprefixer')
 const copy = require('metalsmith-copy')
+const each = require('metalsmith-each')
 
-
-const updatePaths = function(files, metalsmith, done){
-  Object.keys(files).forEach(function (file) {
-    if(file.substr(file.length-5, file.length) === '.html' && file.substr(0, 5) !== 'docs/') {
-      let newName = file.substr(0, file.length-5);
-      files[file].original_filename = file.substr(0, file.length-5);
-      files[newName] = file;
-    } else {
-      files[file].original_filename = file;
-    }
-  });
-  done();
+const updatePaths = function(file, filename){
+  if(filename.substr(filename.length-5, filename.length) === '.html' && filename.substr(0, 5) !== 'docs/') {
+    return filename = filename.substr(0, filename.length-5);
+  }
+  return filename;
 };
 
 Metalsmith(__dirname)
@@ -80,7 +74,7 @@ Metalsmith(__dirname)
       });
     }
   })())
-  .use(updatePaths)
+  .use(each(updatePaths))
   .build((err) => {
     if (err) throw err
   })
