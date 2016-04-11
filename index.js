@@ -17,6 +17,7 @@ const each = require('metalsmith-each')
 
 const updatePaths = function(file, filename){
   if(filename.substr(filename.length-5, filename.length) === '.html' && filename.substr(0, 5) !== 'docs/') {
+    console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
     return filename = filename.substr(0, filename.length-5);
   }
   return filename;
