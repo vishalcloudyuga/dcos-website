@@ -16,7 +16,7 @@ const copy = require('metalsmith-copy')
 const each = require('metalsmith-each')
 
 const updatePaths = function(file, filename){
-  if(filename.substr(filename.length-5, filename.length) === '.html' && filename.substr(0, 5) !== 'docs/') {
+  if(filename.substr(filename.length-5, filename.length) === '.html' && filename.substr(0, 5) !== 'docs/' && process.env.CI) {
     console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
     return filename = filename.substr(0, filename.length-5);
   }
@@ -62,9 +62,9 @@ Metalsmith(__dirname)
           baseDir: './build',
           middleware: function(req, res, next) {
             if (req.originalUrl.indexOf('.') === -1) {
-              var file = './build' + req.originalUrl;
+              var file = `./build${req.originalUrl}.html`;
               require('fs').exists(file, function(exists) {
-                if (exists) req.url;
+                if (exists) req.url += '.html';
                 next();
               });
             } else {
