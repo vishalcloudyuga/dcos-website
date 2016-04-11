@@ -1,3 +1,5 @@
+'use strict';
+
 const Metalsmith = require('metalsmith')
 const jade = require('metalsmith-jade')
 const sass = require('metalsmith-sass')
@@ -12,6 +14,20 @@ const postcss = require('metalsmith-postcss')
 const autoprefixer = require('autoprefixer')
 const copy = require('metalsmith-copy')
 
+
+const updatePaths = function(files, metalsmith, done){
+  Object.keys(files).forEach(function (file) {
+    if(file.substr(file.length-5, file.length) === '.html') {
+      console.log(files)
+      let newName = file.substr(0, file.length-5);
+      files[file].original_filename = file.substr(0, file.length-5);
+      files[newName] = file;
+    } else {
+      files[file].original_filename = file;
+    }
+  });
+  done();
+};
 
 Metalsmith(__dirname)
   .use(markdown({
@@ -51,9 +67,9 @@ Metalsmith(__dirname)
           baseDir: './build',
           middleware: function(req, res, next) {
             if (req.originalUrl.indexOf('.') === -1) {
-              var file = './build' + req.originalUrl + '.html';
+              var file = './build' + req.originalUrl;
               require('fs').exists(file, function(exists) {
-                if (exists) req.url += '.html';
+                if (exists) req.url;
                 next();
               });
             } else {
@@ -65,6 +81,7 @@ Metalsmith(__dirname)
       });
     }
   })())
+  .use(updatePaths)
   .build((err) => {
     if (err) throw err
   })
