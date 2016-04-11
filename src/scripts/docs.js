@@ -12,7 +12,6 @@
     $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
   }, 1000)
 
-
   // Steps with Markdown docs
   let initialSetup = function (links, type) {
     for (let i = links.length - 1; i >= 0; i--) {
@@ -27,6 +26,42 @@
 
   initialSetup(serviceLinks, 'service');
   initialSetup(platformLinks, 'platform');
+
+  $('.step1').setAttribute('style', 'pointer-events: none;');
+  $('.step2').setAttribute('style', 'pointer-events: none;');
+
+  $('.step1').addEventListener('click', function(e) {
+    e.preventDefault();
+    $('.step1').setAttribute('style', 'pointer-events: none;');
+    $('.step2').setAttribute('style', 'pointer-events: none;');
+    $('.step1 h3').innerHTML = 'Select a service';
+    $('.step2 h3').innerHTML = 'Select a platform';
+
+    $('.service-select').removeAttribute('style');
+    $('.platform-select').setAttribute('style', 'display: none;');
+    $('.install').setAttribute('style', 'display: none;');
+
+    $('.step1').removeClassName('step-inactive');
+    $('.step2').addClassName('step-inactive');
+    $('.step3').addClassName('step-inactive');
+
+    currentService = undefined;
+    currentPlatform = undefined;
+  });
+
+  $('.step2').addEventListener('click', function(e) {
+    e.preventDefault();
+    $('.step2').setAttribute('style', 'pointer-events: none;');
+    $('.step2 h3').innerHTML = 'Select a platform';
+
+    $('.platform-select').removeAttribute('style');
+    $('.install').setAttribute('style', 'display: none;');
+
+    $('.step2').removeClassName('step-inactive');
+    $('.step3').addClassName('step-inactive');
+
+    currentPlatform = undefined;
+  });
 
   let getDocs = function(servicePath, platformPath) {
     return new Promise(function(resolve, reject) {
@@ -57,6 +92,7 @@
       $('.service-select').setAttribute('style', 'display: none;');
       $('.platform-select').removeAttribute('style');
       $('.install').setAttribute('style', 'display: none;');
+      $('.step1').removeAttribute('style');
 
       $('.step1').addClassName('step-inactive');
       $('.step2').removeClassName('step-inactive');
@@ -66,6 +102,7 @@
       $('.service-select').setAttribute('style', 'display: none;');
       $('.platform-select').setAttribute('style', 'display: none;');
       $('.install').removeAttribute('style');
+      $('.step2').removeAttribute('style');
 
       $('.step2').addClassName('step-inactive');
       $('.step3').removeClassName('step-inactive');
