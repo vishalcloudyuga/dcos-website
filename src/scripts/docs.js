@@ -1,3 +1,20 @@
+Element.prototype.hasClassName = function(name) {
+  return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
+};
+
+Element.prototype.addClassName = function(name) {
+  if (!this.hasClassName(name)) {
+    this.className = this.className ? [this.className, name].join(' ') : name;
+  }
+};
+
+Element.prototype.removeClassName = function(name) {
+  if (this.hasClassName(name)) {
+    var c = this.className;
+    this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
+  }
+};
+
 (function() {
   let currentService, currentPlatform;
 
@@ -13,7 +30,7 @@
   }, 1000)
 
   // Steps with Markdown docs
-  let initialSetup = function (links, type) {
+  let addClickHandlers = function(links, type) {
     for (let i = links.length - 1; i >= 0; i--) {
       links[i].addEventListener('click', function (e) {
         e.preventDefault();
@@ -24,11 +41,20 @@
     }
   }
 
-  initialSetup(serviceLinks, 'service');
-  initialSetup(platformLinks, 'platform');
-
+  addClickHandlers(serviceLinks, 'service');
+  addClickHandlers(platformLinks, 'platform');
   $('.step1').setAttribute('style', 'pointer-events: none;');
   $('.step2').setAttribute('style', 'pointer-events: none;');
+
+  let findItemIn = function(links, term) {
+    for (let i = links.length - 1; i >= 0; i--) {
+      if(links[i].getAttribute('data-name').toLowerCase() === term) {
+        return links[i];
+      } else {
+        return undefined;
+      }
+    }
+  }
 
   $('.step1').addEventListener('click', function(e) {
     e.preventDefault();
@@ -47,6 +73,7 @@
 
     currentService = undefined;
     currentPlatform = undefined;
+    window.location.hash = '!';
   });
 
   $('.step2').addEventListener('click', function(e) {
@@ -61,6 +88,8 @@
     $('.step3').addClassName('step-inactive');
 
     currentPlatform = undefined;
+
+    window.location.hash = `${currentService.name}`.toLowerCase();
   });
 
   let getDocs = function(servicePath, platformPath) {
@@ -86,8 +115,8 @@
     })
   }
 
-  let nextStep = function () {
-    if(currentService != undefined && currentPlatform === undefined) {
+  let step = function(c) {
+    if(c === 1) {
       // show platform
       $('.service-select').setAttribute('style', 'display: none;');
       $('.platform-select').removeAttribute('style');
@@ -96,17 +125,23 @@
 
       $('.step1').addClassName('step-inactive');
       $('.step2').removeClassName('step-inactive');
+
       $('.step1 h3').innerHTML = currentService.name;
-    } else if(currentService != undefined && currentPlatform != undefined) {
+      window.location.hash = `${currentService.name}`.toLowerCase();
+    } else if(c === 2) {
       // show docs
       $('.service-select').setAttribute('style', 'display: none;');
       $('.platform-select').setAttribute('style', 'display: none;');
       $('.install').removeAttribute('style');
       $('.step2').removeAttribute('style');
 
+      $('.step1').addClassName('step-inactive');
       $('.step2').addClassName('step-inactive');
       $('.step3').removeClassName('step-inactive');
+
+      $('.step1 h3').innerHTML = currentService.name;
       $('.step2 h3').innerHTML = currentPlatform.name;
+      window.location.hash = `${currentService.name}#${currentPlatform.name}`.toLowerCase();
 
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
@@ -115,21 +150,28 @@
     }
   }
 
+  let nextStep = function () {
+    if(currentService != undefined && currentPlatform === undefined) {
+      step(1);
+    } else if(currentService != undefined && currentPlatform != undefined) {
+      step(2);
+    }
+  }
+
+  if(window.location.hash != "") {
+    let serviceHash = window.location.hash.split('#')[1];
+    let platformHash = window.location.hash.split('#')[2];
+    if(serviceHash) {
+      let result = findItemIn(serviceLinks, serviceHash);
+      if(result) currentService = {name: result.getAttribute('data-name'), doc: result.getAttribute('data-doc')};
+      $('.step1').removeAttribute('style');
+    }
+    if(platformHash) {
+       let result = findItemIn(platformLinks, platformHash);
+       if(result) currentPlatform = {name: result.getAttribute('data-name'), doc: result.getAttribute('data-doc')};
+       $('.step2').removeAttribute('style');
+    }
+    nextStep();
+  }
+
 })();
-
-Element.prototype.hasClassName = function(name) {
-  return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
-};
-
-Element.prototype.addClassName = function(name) {
-  if (!this.hasClassName(name)) {
-    this.className = this.className ? [this.className, name].join(' ') : name;
-  }
-};
-
-Element.prototype.removeClassName = function(name) {
-  if (this.hasClassName(name)) {
-    var c = this.className;
-    this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
-  }
-};
