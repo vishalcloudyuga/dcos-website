@@ -9,14 +9,33 @@ block content
     +header
 
     .container__content
-      h1.getstarted-heading Run <img src='assets/images/icons/spark.png'><span>Spark</span> on <img src='assets/images/icons/spark.png'><span>Spark</span>
+      .getstarted-heading
+        span.getstarted-heading__copy Run:
+        .getstarted-heading__service
+          img(src='assets/images/icons/spark.png')
+          span Spark
+        span.getstarted-heading__copy on
+        .getstarted-heading__service
+          img(src='assets/images/icons/spark.png')
+          span.getstarted-heading__service Spark
       p Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
-
-  .container
+      
     .container__content
-      h2 Try some services
-      p  With DC/OS you don’t just get a world­-class datacenter operating system, you also have a rich repository of services that you can install and run with a single command (and uninstall just as easily). Give one a try!
-
+      .getstarted-tabs
+        .getstarted-tabs__step1
+          p Step 1
+          h3 Select a service
+          
+        .getstarted-tabs__step2
+          p Step 2
+          h3 Select a platform
+          
+        .getstarted-tabs__step3
+          p Step 3
+          h3 Install
+      
+  .container
+    .container__content.service-select
       .card-container
         .card
           .card-content
@@ -59,7 +78,55 @@ block content
             h3.card-title Marathon
             p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             a.cta.cta--button.button--secondary Give it a try
+            
+    .container__content.platform-select
+      .card-container
+        .card
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            a.cta.cta--button.button--secondary Give it a try
+          
+        .card
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            a.cta.cta--button.button--secondary Give it a try
+          
+        .card
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            a.cta.cta--button.button--secondary Give it a try
+          
+        .card
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            a.cta.cta--button.button--secondary Give it a try
+          
+        .card
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            a.cta.cta--button.button--secondary Give it a try
+          
+        .card
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            a.cta.cta--button.button--secondary Give it a try
+            
+    .container__content.install
 
+    
+  
   .container
     .container__content
       +footer
