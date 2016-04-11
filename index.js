@@ -12,12 +12,17 @@ const postcss = require('metalsmith-postcss')
 const autoprefixer = require('autoprefixer')
 const copy = require('metalsmith-copy')
 
+
 Metalsmith(__dirname)
-  .use(markdown())
-  .use(layouts({
-    engine: 'jade',
-    directory: 'layouts'
+  .use(markdown({
+    smartypants: true,
+    gfm: true,
+    tables: true
   }))
+  // .use(layouts({
+  //   engine: 'jade',
+  //   directory: './layouts'
+  // }))
   .use(jade({
     pretty: true
   }))
@@ -38,13 +43,26 @@ Metalsmith(__dirname)
     pattern: 'assets/*',
     directory: 'assets'
   }))
-  .use(permalinks('documentation/:title'))
+  // .use(permalinks('documentation/:title'))
   .use((() => {
     if(!process.env.CI) {
       return browserSync({
-        server: './build',
+        server: {
+          baseDir: './build',
+          middleware: function(req, res, next) {
+            if (req.originalUrl.indexOf('.') === -1) {
+              var file = './build' + req.originalUrl + '.html';
+              require('fs').exists(file, function(exists) {
+                if (exists) req.url += '.html';
+                next();
+              });
+            } else {
+              next();
+            }
+          }
+        },
         files: ['./src/**/*']
-      })
+      });
     }
   })())
   .build((err) => {
