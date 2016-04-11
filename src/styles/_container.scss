@@ -2,13 +2,15 @@
 
 .container {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
 .container__content {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
   text-align: center;
   max-width: $max-width;
