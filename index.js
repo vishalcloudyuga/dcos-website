@@ -54,6 +54,7 @@ Metalsmith(__dirname)
     directory: 'assets'
   }))
   // .use(permalinks('documentation/:title'))
+  .use(each(updatePaths))
   .use((() => {
     if(!process.env.CI) {
       return browserSync({
@@ -75,7 +76,6 @@ Metalsmith(__dirname)
       });
     }
   })())
-  .use(each(updatePaths))
   .build((err) => {
     if (err) throw err
   })
