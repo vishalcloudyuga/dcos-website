@@ -11,6 +11,12 @@
   background-color: white;
   z-index: -100;
 }
+
+.overlay--translucent {
+  background-image: none;
+  background-color: rgba(0,0,0,.5);
+}
+
 .overlay-close {
   text-align: right;
   font-size: 20pt;
