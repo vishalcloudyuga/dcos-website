@@ -1,7 +1,26 @@
+.partner-quote-block-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
 .partner-quote-block {
-	display: flex;
-	flex-flow: column nowrap;
-	text-align: center
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    transition: opacity 200ms;
+    min-width: 100%;
+    opacity: 0;
+
+    &.active {
+      order: 0;
+      opacity: 1;
+    }
+
+    &.hidden {
+      order: 1;
+      opacity: 0;
+    }
 }
 
 .partner-quote-block__quote {
@@ -26,6 +45,15 @@
 .partner-quote-logo-list__partner-quote-logo {
 	img {
 		width: 120px;
+    opacity: 0.3;
+    transition: opacity 200ms;
+	}
+}
+
+.partner-quote-logo-list__partner-quote-logo.active, .partner-quote-logo-list__partner-quote-logo:hover {
+	img {
+		width: 120px;
+    opacity: 1;
 	}
 }
 
