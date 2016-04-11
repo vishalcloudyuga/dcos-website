@@ -89,6 +89,10 @@
 
 	// Styling the Hero of the Community page
 	.community-hero {
+		.hero-divider {
+			opacity: 0;
+		}
+
 		.container__content--hero-list {
 			flex-flow: column;
 			align-items: center;
@@ -99,6 +103,11 @@
 			flex-basis: auto;
 			width: 80%;
 			text-align: center;
+		}
+
+		.hero-list__item__image {
+			width: 32px;
+			min-width: 32px;
 		}
 	}
 }
