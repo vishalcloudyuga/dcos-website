@@ -141,7 +141,7 @@ Element.prototype.removeClassName = function(name) {
 
       $('.step1 h3').innerHTML = currentService.name;
       $('.step2 h3').innerHTML = currentPlatform.name;
-      window.location.hash = `${currentService.name}#${currentPlatform.name}`.toLowerCase();
+      window.location.hash = `${currentService.name}+${currentPlatform.name}`.toLowerCase();
 
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
@@ -161,8 +161,8 @@ Element.prototype.removeClassName = function(name) {
 
   // Set the steps according to the location hash
   if(window.location.hash != "") {
-    let serviceHash = window.location.hash.split('#')[1];
-    let platformHash = window.location.hash.split('#')[2];
+    let serviceHash = window.location.hash.split('+')[0].substr(1);
+    let platformHash = window.location.hash.split('+')[1];
     if(serviceHash) {
       let result = findItemIn(serviceLinks, serviceHash);
       if(result) currentService = {name: result.getAttribute('data-name'), doc: result.getAttribute('data-doc')};
