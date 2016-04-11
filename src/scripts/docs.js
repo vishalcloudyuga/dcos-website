@@ -4,12 +4,13 @@
     const serviceLinks = $$('.service-select a');
     const platformLinks = $$('.platform-select a');
 
+
     let initialSetup = function (links, type) {
       for (let i = links.length - 1; i >= 0; i--) {
         links[i].addEventListener('click', function (e) {
           e.preventDefault();
-          if(type === 'service') currentService = e.target.getAttribute(`data-${type}`);
-          if(type === 'platform') currentPlatform = e.target.getAttribute(`data-${type}`);
+          if(type === 'service') currentService = e.currentTarget.getAttribute(`data-${type}`);
+          if(type === 'platform') currentPlatform = e.currentTarget.getAttribute(`data-${type}`);
           nextStep();
         });
       }
