@@ -29,33 +29,30 @@ Element.prototype.removeClassName = function(name) {
     $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
   }, 1000)
 
-  // Steps with Markdown docs
+  // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
-    for (let i = links.length - 1; i >= 0; i--) {
-      links[i].addEventListener('click', function (e) {
+    Array.prototype.forEach.call(links, link => {
+      link.addEventListener('click', function (e) {
         e.preventDefault();
         if(type === 'service') currentService = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         if(type === 'platform') currentPlatform = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         nextStep();
       });
-    }
+    })
   }
 
+  // Setup initial values
   addClickHandlers(serviceLinks, 'service');
   addClickHandlers(platformLinks, 'platform');
   $('.step1').setAttribute('style', 'pointer-events: none;');
   $('.step2').setAttribute('style', 'pointer-events: none;');
 
+  // Convenience method to find a link
   let findItemIn = function(links, term) {
-    for (let i = links.length - 1; i >= 0; i--) {
-      if(links[i].getAttribute('data-name').toLowerCase() === term) {
-        return links[i];
-      } else {
-        return undefined;
-      }
-    }
+    return Array.prototype.find.call(links, link => { return link.getAttribute('data-name').toLowerCase() === term});
   }
 
+  // Set values back when you click on the first step
   $('.step1').addEventListener('click', function(e) {
     e.preventDefault();
     $('.step1').setAttribute('style', 'pointer-events: none;');
@@ -76,6 +73,7 @@ Element.prototype.removeClassName = function(name) {
     window.location.hash = '!';
   });
 
+  // Set values back when you click on the second step
   $('.step2').addEventListener('click', function(e) {
     e.preventDefault();
     $('.step2').setAttribute('style', 'pointer-events: none;');
@@ -92,6 +90,7 @@ Element.prototype.removeClassName = function(name) {
     window.location.hash = `${currentService.name}`.toLowerCase();
   });
 
+  // Returns the actual md files
   let getDocs = function(servicePath, platformPath) {
     return new Promise(function(resolve, reject) {
       let serviceDoc, platformDoc;
@@ -115,8 +114,9 @@ Element.prototype.removeClassName = function(name) {
     })
   }
 
-  let step = function(c) {
-    if(c === 1) {
+  // Go to a specific step
+  let step = function(cur) {
+    if(cur === 1) {
       // show platform
       $('.service-select').setAttribute('style', 'display: none;');
       $('.platform-select').removeAttribute('style');
@@ -128,7 +128,7 @@ Element.prototype.removeClassName = function(name) {
 
       $('.step1 h3').innerHTML = currentService.name;
       window.location.hash = `${currentService.name}`.toLowerCase();
-    } else if(c === 2) {
+    } else if(cur === 2) {
       // show docs
       $('.service-select').setAttribute('style', 'display: none;');
       $('.platform-select').setAttribute('style', 'display: none;');
@@ -150,6 +150,7 @@ Element.prototype.removeClassName = function(name) {
     }
   }
 
+  // Set the next step depending on what has been selected
   let nextStep = function () {
     if(currentService != undefined && currentPlatform === undefined) {
       step(1);
@@ -158,6 +159,7 @@ Element.prototype.removeClassName = function(name) {
     }
   }
 
+  // Set the steps according to the location hash
   if(window.location.hash != "") {
     let serviceHash = window.location.hash.split('#')[1];
     let platformHash = window.location.hash.split('#')[2];
