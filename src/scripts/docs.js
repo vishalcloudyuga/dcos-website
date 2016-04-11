@@ -8,8 +8,8 @@
       for (let i = links.length - 1; i >= 0; i--) {
         links[i].addEventListener('click', function (e) {
           e.preventDefault();
-          if(type === 'service') currentService = e.currentTarget.getAttribute(`data-${type}`);
-          if(type === 'platform') currentPlatform = e.currentTarget.getAttribute(`data-${type}`);
+          if(type === 'service') currentService = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
+          if(type === 'platform') currentPlatform = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
           nextStep();
         });
       }
@@ -44,24 +44,26 @@
     let nextStep = function () {
       if(currentService != undefined && currentPlatform === undefined) {
         // show platform
-        $('.service-select').setAttribute('style', 'display: none;')
-        $('.platform-select').removeAttribute('style')
-        $('.install').setAttribute('style', 'display: none;')
+        $('.service-select').setAttribute('style', 'display: none;');
+        $('.platform-select').removeAttribute('style');
+        $('.install').setAttribute('style', 'display: none;');
 
-        $('.step1').addClassName('step-inactive')
-        $('.step2').removeClassName('step-inactive')
+        $('.step1').addClassName('step-inactive');
+        $('.step2').removeClassName('step-inactive');
+        $('.step1 h3').innerHTML = currentService.name;
       } else if(currentService != undefined && currentPlatform != undefined) {
         // show docs
-        $('.service-select').setAttribute('style', 'display: none;')
-        $('.platform-select').setAttribute('style', 'display: none;')
-        $('.install').removeAttribute('style')
+        $('.service-select').setAttribute('style', 'display: none;');
+        $('.platform-select').setAttribute('style', 'display: none;');
+        $('.install').removeAttribute('style');
 
-        $('.step2').addClassName('step-inactive')
-        $('.step3').removeClassName('step-inactive')
+        $('.step2').addClassName('step-inactive');
+        $('.step3').removeClassName('step-inactive');
+        $('.step2 h3').innerHTML = currentPlatform.name;
 
-        getDocs(`service/${currentService}`, `platform/${currentPlatform}`)
+        getDocs(currentService.doc, currentPlatform.doc)
           .then(docs => {
-            $('.install').innerHTML = `${docs.service}\n${docs.platform}`
+            $('.install').innerHTML = `${docs.service}\n${docs.platform}`;
           })
 
       }
