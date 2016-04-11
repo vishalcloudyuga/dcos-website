@@ -14,8 +14,8 @@
 }
 
 .getstarted-heading__copy {
-	opacity: 0.8;
 	margin-right: 1.25rem;
+	opacity: 0.8;
 }
 
 .getstarted-heading__service {
@@ -37,6 +37,10 @@
 
 	h3 {
 		display: none;
+	}
+
+	p {
+			font-size: 0.9rem;
 	}
 }
 
