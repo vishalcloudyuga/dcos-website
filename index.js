@@ -17,8 +17,7 @@ const copy = require('metalsmith-copy')
 
 const updatePaths = function(files, metalsmith, done){
   Object.keys(files).forEach(function (file) {
-    if(file.substr(file.length-5, file.length) === '.html') {
-      console.log(files)
+    if(file.substr(file.length-5, file.length) === '.html' && file.substr(0, 5) !== 'docs/') {
       let newName = file.substr(0, file.length-5);
       files[file].original_filename = file.substr(0, file.length-5);
       files[newName] = file;
