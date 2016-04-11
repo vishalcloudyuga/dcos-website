@@ -4,7 +4,6 @@
     const serviceLinks = $$('.service-select a');
     const platformLinks = $$('.platform-select a');
 
-
     let initialSetup = function (links, type) {
       for (let i = links.length - 1; i >= 0; i--) {
         links[i].addEventListener('click', function (e) {
@@ -48,11 +47,17 @@
         $('.service-select').setAttribute('style', 'display: none;')
         $('.platform-select').removeAttribute('style')
         $('.install').setAttribute('style', 'display: none;')
+
+        $('.step1').addClassName('step-inactive')
+        $('.step2').removeClassName('step-inactive')
       } else if(currentService != undefined && currentPlatform != undefined) {
         // show docs
         $('.service-select').setAttribute('style', 'display: none;')
         $('.platform-select').setAttribute('style', 'display: none;')
         $('.install').removeAttribute('style')
+
+        $('.step2').addClassName('step-inactive')
+        $('.step3').removeClassName('step-inactive')
 
         getDocs(`service/${currentService}`, `platform/${currentPlatform}`)
           .then(docs => {
@@ -63,3 +68,20 @@
     }
 
 })();
+
+Element.prototype.hasClassName = function(name) {
+  return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
+};
+
+Element.prototype.addClassName = function(name) {
+  if (!this.hasClassName(name)) {
+    this.className = this.className ? [this.className, name].join(' ') : name;
+  }
+};
+
+Element.prototype.removeClassName = function(name) {
+  if (this.hasClassName(name)) {
+    var c = this.className;
+    this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
+  }
+};
