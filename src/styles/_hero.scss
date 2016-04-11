@@ -209,6 +209,10 @@
 		align-self: flex-start;
 	}
 
+	.hero-list__item__copy {
+		width: 100%;
+	}
+
 	.hero-list__item__copy__paragraph {
 		letter-spacing: 0.05rem;
 		line-height: 1.5;
@@ -223,9 +227,13 @@
 
 // IE 11
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-	.container__content--hero-heading, .container__content--hero-list {
+	.container__content--hero-heading {
 		width: 1024px;
+		height: 450px;
 	}
 
+	.container__content--hero-list{
+		width: 1024px;
+	}
 
 }
