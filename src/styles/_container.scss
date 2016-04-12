@@ -45,9 +45,3 @@
     padding: 6rem 2rem;
   }
 }
-
-@include break($desktop-large) {
-  .container__content {
-    padding: 8rem 2rem;
-  }
-}
