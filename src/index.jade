@@ -13,7 +13,7 @@ block content
           h1.hero-title The easiest way to run containers in production
           .hero-cta-container
             a(href='/get-started').cta.cta--button Get Started
-            a.cta.cta--video
+            a.cta.cta--video(href='#', data-overlay-toggle='video-overlay')
               img.cta--video__icon(src='assets/images/icons/playbutton@2x.png')
               p.cta--video__text Play Video
         img.hero-image(src='assets/images/hero-image.png')
@@ -138,6 +138,16 @@ block content
     .container__content
        h2 You'll be running DC/OS in less than 10 minutes
        a(href='/get-started').cta.cta--button Get Started
+       
+  .overlay(data-overlay='video-overlay')
+    .overlay__close-cta
+      a(href='#', data-overlay-toggle='video-overlay')
+        img(src='assets/images/icons/cancel.svg')
+    .overlay__video
+      iframe(src="https://www.youtube-nocookie.com/embed/0I6qG9RQUnY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen)
+    
+block scripts  
+  script(src='scripts/overlay.js')
 
     +footer
 block scripts
