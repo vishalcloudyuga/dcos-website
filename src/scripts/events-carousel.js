@@ -1,10 +1,10 @@
 (function () {
   let currentIndex = 0;
 
-  const carousel = $$('.events-carousel .card-container')[0];
+  const carousel = $('.events-carousel .card-container');
   const eventCards = $$('.events-carousel .card');
-  const nextBtn = $$('.events-carousel-btn--next')[0];
-  const prevBtn = $$('.events-carousel-btn--prev')[0];
+  const nextBtn = $('.events-carousel-btn--next');
+  const prevBtn = $('.events-carousel-btn--prev');
 
   prevBtn.style.display = 'none'; // Hide prev button initially
 
