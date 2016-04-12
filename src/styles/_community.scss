@@ -1,0 +1,9 @@
+.community-container .container__content {
+  padding-bottom: 0;
+}
+
+.community-container .events-carousel-container {
+  @include container-padding-vertical(false);
+
+  padding-top: 0;
+}
