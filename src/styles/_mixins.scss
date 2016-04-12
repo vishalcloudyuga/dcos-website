@@ -5,28 +5,3 @@
   }
 
 }
-
-@mixin container-padding-vertical ($top: true, $bottom: true) {
-  @if $top == true { padding-top: 1rem; }
-  @if $bottom == true { padding-bottom: 1rem; }
-
-  @include break($mobile-large-landscape) {
-    @if $top == true { padding-top: 6rem; }
-    @if $bottom == true { padding-bottom: 6rem; }
-  }
-
-  @include break($desktop-large) {
-    @if $top == true { padding-top: 8rem; }
-    @if $bottom == true { padding-bottom: 8rem; }
-  }
-}
-
-@mixin container-padding-horizontal () {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-
-  @include break($mobile-large-landscape) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}

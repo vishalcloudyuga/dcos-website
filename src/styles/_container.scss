@@ -8,15 +8,13 @@
 }
 
 .container__content {
-  @include container-padding-vertical;
-  @include container-padding-horizontal;
-
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   text-align: center;
   max-width: $max-width;
+  padding: 1rem 1.5rem;
 }
 
 .container--dark-background {
@@ -40,4 +38,10 @@
 
 .partner-quote-container {
   overflow: hidden;
+}
+
+@include break($mobile-large-landscape) {
+  .container__content {
+    padding: 6rem 2rem;
+  }
 }
