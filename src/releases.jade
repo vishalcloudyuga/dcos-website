@@ -1,0 +1,41 @@
+extends ../layouts/base.jade
+
+block head
+  title DC/OS
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      h1 Release Versions
+      p.hero-subtitle DC/OS releases are built from source and hosted by Mesosphere, Inc.
+
+  .container
+    .container__content.community-hero
+
+      table.releases
+        thead
+          tr
+            th Version
+            th Download
+            th Release Notes
+            th Documentation
+        tbody
+          tr
+            td
+              a.cta.cta--text(href='https://github.com/dcos/dcos/tree/1.7.0-EA') 1.7.0
+            td
+              a.cta.cta--text(href='https://downloads.dcos.io/dcos/dcos_generate_config-1.7.0.sh') dcos_generate_config-1.7.0.sh
+            td
+              a.cta.cta--text(href='/documentation/1.7/') /releases/1.7.0/
+            td
+              a.cta.cta--text(href='/documentation/1.7/') /documentation/1.7/
+
+  .container.container--dark-background
+    .container__content
+       h2 Install on any virtual or physical machines
+       a(href='/documentation/installing/').cta.cta--button Install
+
+    +footer
