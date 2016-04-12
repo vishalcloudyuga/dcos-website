@@ -9,12 +9,34 @@ block content
     +header
 
     .container__content
-      h1 Release Versions
+      h1 Download All The Things!
       p.hero-subtitle DC/OS releases are built from source and hosted by Mesosphere, Inc.
 
   .container
-    .container__content.community-hero
+    .container__content
 
+      .community-hero
+        h2 Release Channels
+        ul.container__content--hero-list
+          li.hero-list__item
+            .hero-list__item__copy
+              h5.hero-list__item__copy__title Stable
+              p.hero-list__item__copy__paragraph Latest stable release. Ready for production use.
+              a.cta.cta--text(href='/releases/1.7.0/') 1.7.0 &rarr;
+
+          li.hero-list__item
+            .hero-list__item__copy
+              h5.hero-list__item__copy__title Early Access
+              p.hero-list__item__copy__paragraph Upcoming release. Ready for development and testing.
+              a.cta.cta--text(href='/releases/1.7.1/') 1.7.1 &rarr;
+
+          li.hero-list__item
+            .hero-list__item__copy
+              h5.hero-list__item__copy__title Master
+              p.hero-list__item__copy__paragraph Bleeding edge automated release. Only tested with automated tests.
+              a.cta.cta--text(href='/releases/1.7.0/') 1.7.1++ &rarr;
+
+      h2 Release Versions
       table.releases
         thead
           tr
@@ -29,9 +51,9 @@ block content
             td
               a.cta.cta--text(href='https://downloads.dcos.io/dcos/dcos_generate_config-1.7.0.sh') dcos_generate_config-1.7.0.sh
             td
-              a.cta.cta--text(href='/documentation/1.7/') /releases/1.7.0/
+              a.cta.cta--text(href='/releases/1.7.0/') /releases/1.7.0/
             td
-              a.cta.cta--text(href='/documentation/1.7/') /documentation/1.7/
+              a.cta.cta--text(href='/docs/1.7/') /docs/1.7/
 
   .container.container--dark-background
     .container__content
