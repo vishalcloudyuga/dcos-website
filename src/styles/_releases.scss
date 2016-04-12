@@ -20,3 +20,18 @@ table.releases {
 		}
 	}
 }
+
+.container__content--release-notes {
+  align-items: flex-start;
+  text-align: left;
+  background-color: $smoke;
+  padding: 2rem;
+
+  p {
+    max-width: none;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
