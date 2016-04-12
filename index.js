@@ -79,19 +79,14 @@ Metalsmith(__dirname)
     if (err) throw err
   })
 
-
-
-
-// ----------- compiling navigation --------------- //
-
-
 // --------- figuring out the navigation ---------- //
 const navConfig = {
-  includeDirs: true,
-  // pathProperty: docsVersion,
-  pathProperty: 'nav_path',
-  childrenProperty: 'nav_children',
-
+    header: {
+      includeDirs: true,
+      // pathProperty: docsVersion,
+      pathProperty: 'nav_path',
+      childrenProperty: 'nav_children',
+    }
 }
 
 const navSettings = {

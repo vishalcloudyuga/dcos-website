@@ -19,6 +19,8 @@ html
       .container
         .container__content.docs-layout
           .docs-layout__docs-nav
+            each n in locals.navs
+              p= n
             ul
               li.docs-nav__item
                 a Installing
