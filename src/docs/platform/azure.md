@@ -1,3 +1,3 @@
 ## Install DC/OS on Azure
 
-Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
+In order to install DC/OS on Azure, use the Azure Marketplace. Search for DC/OS, select the template and walk through the steps as outlined in the setup wizard.

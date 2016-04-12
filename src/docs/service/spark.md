@@ -1,3 +1,5 @@
 ## Run Spark on DC/OS
 
-Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
+Apache Spark is a general-purpose data processing engine. It supports batch and stream processing and comes with built-in APIs for SQL, machine learning and graph workloads. Spark is storage-layer agnostic, meaning it doesn't come with its own storage system but provides connectors to read data from and write data into, for example, the local filesystem, HDFS, Kafka, Cassandra, Elasticsearch, and HBase.
+
+Continue [here](http://dcos.io/docs/usage/tutorials/spark] to learn about how to use Spark on DC/OS, from the simple first steps of how to launch a Spark job to using Spark interactively with Apache Zeppelin.
