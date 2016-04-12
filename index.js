@@ -1,19 +1,23 @@
 'use strict';
 
-const Metalsmith = require('metalsmith')
-const jade = require('metalsmith-jade')
-const sass = require('metalsmith-sass')
-const browserSync = require('metalsmith-browser-sync')
-const markdown = require('metalsmith-markdown')
-const layouts = require('metalsmith-layouts')
-const permalinks = require('metalsmith-permalinks')
-const babel = require('metalsmith-babel')
-const bourbon = require('node-bourbon')
-const path = require('path')
-const postcss = require('metalsmith-postcss')
+const Metalsmith   = require('metalsmith')
+const jade         = require('metalsmith-jade')
+const sass         = require('metalsmith-sass')
+const browserSync  = require('metalsmith-browser-sync')
+const markdown     = require('metalsmith-markdown')
+const layouts      = require('metalsmith-layouts')
+const permalinks   = require('metalsmith-permalinks')
+const babel        = require('metalsmith-babel')
+const bourbon      = require('node-bourbon')
+const path         = require('path')
+const postcss      = require('metalsmith-postcss')
 const autoprefixer = require('autoprefixer')
-const copy = require('metalsmith-copy')
-const each = require('metalsmith-each')
+const copy         = require('metalsmith-copy')
+const each         = require('metalsmith-each')
+const navigation   = require('metalsmith-navigation')
+
+// --- general build settings --- //
+const docsVersion = 'latest';
 
 const updatePaths = function(file, filename){
   if(filename.substr(filename.length-5, filename.length) === '.html' && filename.substr(0, 5) !== 'docs/' && process.env.CI) {
@@ -29,10 +33,6 @@ Metalsmith(__dirname)
     gfm: true,
     tables: true
   }))
-  // .use(layouts({
-  //   engine: 'jade',
-  //   directory: './layouts'
-  // }))
   .use(jade({
     pretty: true
   }))
@@ -53,7 +53,6 @@ Metalsmith(__dirname)
     pattern: 'assets/*',
     directory: 'assets'
   }))
-  // .use(permalinks('documentation/:title'))
   .use(each(updatePaths))
   .use((() => {
     if(!process.env.CI) {
@@ -76,6 +75,50 @@ Metalsmith(__dirname)
       });
     }
   })())
+  .build((err) => {
+    if (err) throw err
+  })
+
+
+
+
+// ----------- compiling navigation --------------- //
+
+
+// --------- figuring out the navigation ---------- //
+const navConfig = {
+  includeDirs: true,
+  // pathProperty: docsVersion,
+  pathProperty: 'nav_path',
+  childrenProperty: 'nav_children',
+
+}
+
+const navSettings = {
+  navListProperty: 'navs',
+  permalinks: false,
+}
+
+let nav = navigation(navConfig, navSettings);
+
+// --------- Compiling the Markdown files to HTML --------//
+Metalsmith(path.join(__dirname, 'dcos-docs'))
+  .source(docsVersion)
+  .use(markdown({
+    smartypants: true,
+    gfm: true,
+    tables: true
+  }))
+  .use(nav)
+  .use(layouts({
+    engine: 'jade',
+    directory: path.join('..', 'layouts'),
+    default: 'docs.jade',
+  }))
+  .use(jade({
+    pretty: true
+  }))
+  .destination(path.join('..', 'build', 'docs', docsVersion))
   .build((err) => {
     if (err) throw err
   })
