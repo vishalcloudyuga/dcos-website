@@ -19,8 +19,17 @@ html
       .container
         .container__content.docs-layout
           .docs-layout__docs-nav
-            each n in locals.navs
-              p= n
+            script.
+              console.log(!{locals.navs.header})
+            each n in locals.navs.header
+              if(n.file)
+                p= n.file.post_title
+                
+                if(n.children)
+                  each c in n.children
+                    if(c.file)
+                      p= c.file.post_title
+              
             ul
               li.docs-nav__item
                 a Installing
