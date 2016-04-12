@@ -138,6 +138,8 @@ block content
     .container__content
        h2 You'll be running DC/OS in less than 10 minutes
        a(href='/get-started').cta.cta--button Get Started
+    
+    +footer
        
   .overlay(data-overlay='video-overlay')
     .overlay__close-cta
@@ -145,10 +147,7 @@ block content
         img(src='assets/images/icons/cancel.svg')
     .overlay__video
       iframe(src="https://www.youtube-nocookie.com/embed/0I6qG9RQUnY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen)
-    
-block scripts  
-  script(src='scripts/overlay.js')
 
-    +footer
 block scripts
+  script(src='scripts/overlay.js')
   script(src='/scripts/quotes-carousel.js')
