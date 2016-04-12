@@ -1,0 +1,41 @@
+.events-carousel-container {
+	overflow-x: hidden;
+	width: 100%;
+}
+
+.events-carousel {
+	position: relative;
+}
+
+.events-carousel .card {
+	min-width: 300px;
+}
+
+.events-carousel-next-btn {
+	display: none;
+	height: 90px;
+	width: 56px;
+	background: rgba(#F3F3F3, 0.9);
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.events-carousel-next-btn img {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+@include break($mobile-small-landscape) {
+	.events-carousel-next-btn {
+		display: block;
+	}
+
+	.events-carousel {
+		flex-flow: row nowrap;
+	}
+}
