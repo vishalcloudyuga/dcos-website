@@ -7,22 +7,41 @@
 	position: relative;
 }
 
+.events-carousel .card-container {
+    transition: all 0.5s;
+}
+
 .events-carousel .card {
 	min-width: 300px;
 }
 
-.events-carousel-next-btn {
+.events-carousel-btn {
 	display: none;
 	height: 90px;
 	width: 56px;
-	background: rgba(#F3F3F3, 0.9);
+	background: #F3F3F3;
+	opacity: 0.9;
 	position: absolute;
 	right: 0;
 	top: 50%;
 	transform: translateY(-50%);
+	cursor: pointer;
+	transition: opacity 0.2s;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
-.events-carousel-next-btn img {
+.events-carousel-btn--next {
+    right: 0;
+}
+
+.events-carousel-btn--prev {
+    left: 0;
+}
+
+.events-carousel-btn img {
 	display: block;
 	position: absolute;
 	top: 50%;
@@ -31,11 +50,16 @@
 }
 
 @include break($mobile-small-landscape) {
-	.events-carousel-next-btn {
+	.events-carousel-btn {
 		display: block;
+        z-index: 1000;
 	}
 
-	.events-carousel {
+	.events-carousel .card-container {
 		flex-flow: row nowrap;
 	}
+
+    .events-carousel .card {
+        width: 300px;
+    }
 }
