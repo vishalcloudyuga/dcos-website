@@ -2,13 +2,15 @@
 
 .container {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
 .container__content {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
   text-align: center;
   max-width: $max-width;
@@ -26,7 +28,7 @@
   }
 }
 
-.container--grey-background {
+.container--gray-background {
   background-color: $snow;
 }
 
@@ -34,13 +36,11 @@
     border-bottom: 1px solid $smoke;
 }
 
-@include break($mobile-large-landscape) {
-  .container__content {
-    padding: 4rem 2rem;
-  }
+.partner-quote-container {
+  overflow: hidden;
 }
 
-@include break($desktop-large) {
+@include break($mobile-large-landscape) {
   .container__content {
     padding: 6rem 2rem;
   }

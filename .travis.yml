@@ -1,10 +1,16 @@
 language: node_js
+node_js:
+- 5.10.1
 script: echo ready
 branches:
   only:
   - develop
   - master
+before_deploy:
+- npm rebuild node-sass && npm start
 deploy:
+  skip_cleanup: true
+  detect_encoding: true
   provider: s3
   access_key_id: AKIAJRYGUJVO3GO77TIQ
   secret_access_key:

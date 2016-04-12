@@ -2,7 +2,8 @@
 
 .container__content--hero-heading, .container__content--hero-list {
 	display: flex;
-	flex-flow: column nowrap;
+	flex-direction: column;
+	flex-wrap: nowrap;
 	justify-content: space-between;
 	text-align: center;
 }
@@ -20,7 +21,8 @@
 
 .hero-cta-container {
 	display: flex;
-	flex-flow: column nowrap;
+	flex-direction: column;
+	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
 }
@@ -39,7 +41,8 @@
 
 .hero-list__item {
 	display: flex;
-	flex-flow: column nowrap;
+	flex-direction: column;
+	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 2rem;
@@ -53,13 +56,19 @@
 
 .hero-list__item__copy__title {
 	margin: 0 0 0.5rem 0;
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 }
 
 .hero-list__item__copy__paragraph {
 	margin: 0;
-	opacity: 0.8;
 	letter-spacing: 0.03rem;
+}
+
+.container--dark-background {
+	.hero-list__item__copy__paragraph {
+		font-weight: 400;
+		opacity: 0.8;
+	}
 }
 
 
@@ -74,6 +83,7 @@
 	.hero-list__item {
 		align-items: flex-start;
 		text-align: left;
+		width: 48%;
 		flex-basis: 48%;
 	}
 
@@ -83,6 +93,10 @@
 
 	// Styling the Hero of the Community page
 	.community-hero {
+		.hero-divider {
+			opacity: 0;
+		}
+
 		.container__content--hero-list {
 			flex-flow: column;
 			align-items: center;
@@ -93,6 +107,11 @@
 			flex-basis: auto;
 			width: 80%;
 			text-align: center;
+		}
+
+		.hero-list__item__image {
+			width: 32px;
+			min-width: 32px;
 		}
 	}
 }
@@ -112,7 +131,8 @@
 	}
 
 	.hero-cta-container {
-		flex-flow: row nowrap;
+		flex-direction: row;
+		flex-wrap: nowrap;
 		justify-content: flex-start;
 
 		.cta {
@@ -128,7 +148,8 @@
 @include break($mobile-large-landscape) {
 	.container__content--hero-heading {
 		display: flex;
-		flex-flow: row wrap;
+		flex-direction: row;
+		flex-wrap: wrap;
 		justify-content: space-between;
 	}
 
@@ -138,10 +159,12 @@
 
 	.hero-title-cta-container {
 		flex-basis: 56%;
+		width: 56%;
 	}
 
 	.hero-image {
 		flex-basis: 40%;
+		width: 40%;
 	}
 
 	.hero-list__item__image {
@@ -154,7 +177,7 @@
 	// Styling the Hero of the Community page
 	.community-hero {
 		.container__content--hero-list {
-			flex-flow: row;
+			flex-direction: row;
 			align-items: flex-start;
 		}
 
@@ -170,33 +193,57 @@
 @include break($tablet-landscape) {
 	.hero-title-cta-container {
 		flex-basis: 50%;
+		width: 50%;
 	}
 
 	.hero-image {
 		flex-basis: 48%;
+		width: 48%;
 	}
 }
 
 @include break($desktop-small) {
 	.hero-list__item {
 		flex-basis: 22%;
+		width: 22%;
 		align-self: flex-start;
 	}
 
-	.hero-list__item__copy__title {
-		font-size: 1rem;
+	.hero-list__item__copy {
+		width: 100%;
 	}
 
 	.hero-list__item__copy__paragraph {
-		font-size: 0.75rem;
-		font-weight: 300;
 		letter-spacing: 0.05rem;
 		line-height: 1.5;
 	}
 
 	.hero-list__item__copy a {
-		font-size: 0.75rem;
+		// font-size: 0.75rem;
 		letter-spacing: 0.05rem;
 		line-height: 1.5;
+	}
+}
+
+// Retina display
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.container--dark-background {
+		.hero-list__item__copy__paragraph {
+			font-weight: 300;
+		}
+	}
+}
+
+
+// Internet Explorer 11
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.container__content--hero-heading {
+		width: 1024px;
+		height: 450px;
+	}
+
+	.container__content--hero-list {
+		width: 1024px;
 	}
 }

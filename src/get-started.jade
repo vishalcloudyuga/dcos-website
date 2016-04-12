@@ -1,0 +1,67 @@
+extends ../layouts/base.jade
+
+block head
+  title DC/OS
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      .getstarted-heading
+        span.getstarted-heading__copy Run:
+        .getstarted-heading__service
+          img(src='assets/images/icons/spark.png')
+          span Spark
+        span.getstarted-heading__copy on
+        .getstarted-heading__platform
+          img(src='assets/images/icons/spark.png')
+          span Spark
+      p Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+
+    .container__content.getstarted-tabs
+        a.getstarted-tabs__step.step1(href='#')
+          p Step 1
+          h3 Select a service
+
+        a.getstarted-tabs__step.step2.step-inactive(href='#')
+          p Step 2
+          h3 Select a platform
+
+        .getstarted-tabs__step.step3.step-inactive
+          p Step 3
+          h3 Install
+
+    .arrow-up
+
+  .container
+    .container__content.service-select
+      h2 Select a service
+
+      .card-container
+        a.card(href="#", data-name="Marathon", data-doc="service/marathon")
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Marathon
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+
+    .container__content.platform-select(style='display: none;')
+      h2 Select a platform
+
+      .card-container
+        a.card(href="#", data-name="AWS", data-doc="platform/aws")
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title AWS
+            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+
+    .container__content.install(style='display: none;')
+
+
+  .container
+    .container__content
+      +footer
+block scripts
+  script(src='/scripts/fetch.js')
+  script(src='/scripts/docs.js')

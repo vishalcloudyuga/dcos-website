@@ -2,16 +2,17 @@ include ../mixins/header.jade
 include ../mixins/footer.jade
 
 <!doctype html>
-html 
+html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset="UTF-8")
+    link(rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico")
 
     block head
-      title DC/OS 
-    
+      title DC/OS
+
   body
-      
     block content
 
   script(src='/scripts/main.js')

@@ -1,87 +1,98 @@
-.getstarted-form {
+.getstarted-heading {
 	display: flex;
-	flex-flow: column;
+	flex-flow: row wrap;
 	justify-content: space-between;
-	width: 100%;
+
+	font-family: $clio-light;
+	font-size: 2.4rem;
+
+	line-height: 1.3;
+	letter-spacing: -0.03rem;
+	text-transform: uppercase;
+
+	line-height: 2;
 }
 
-.getstarted-form__element, .getstarted-form__input {
-	margin: 1rem 0;
+.getstarted-heading__copy {
+	margin-right: 1.25rem;
+	opacity: 0.8;
 }
 
-.getstarted-form__element {
+.getstarted-heading__service {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+
+	img {
+		width: 42px;
+		margin-right: 1.25rem;
+	}
+}
+
+.getstarted-tabs {
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
-	text-align: center;
 	width: 100%;
-	font-family: $clio-light;
-	font-size: 2.4rem;
-	font-weight: 300;
-	line-height: 1.4;
-	letter-spacing: -0.03rem;
-	text-transform: uppercase;
-	color: $white60;
+
+	h3 {
+		display: none;
+	}
+
+	p {
+			font-size: 0.9rem;
+	}
 }
 
-.getstarted-form__select {
-	width: 200px;
-	padding: 0 1rem 0 0;
-	border-bottom: 1px solid $white60;
-	border-top: none;
-	border-right: none;
-	border-left: none;
-	border-radius: 0;
-	box-shadow: none;
-	outline: none;
-	background-image: url('/assets/images/icons/chevron.svg');
-	background-color: transparent;
-	background-repeat: no-repeat;
-	background-position: right;
-	text-transform: uppercase;
-	color: white;
-	-webkit-appearance: none;
-	cursor: pointer;
-}
-
-.getstarted-form__input {
-	display: block;
-	outline: none;
-	border: none;
-	-webkit-appearance: none;
-	box-shadow: none;
+.getstarted-tabs__step {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	width: 30%;
 	text-align: center;
+}
+
+.step-inactive {
+	opacity: 0.6;
+}
+
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+
+	border-bottom: 1rem solid white;
 }
 
 @include break($mobile-small-landscape) {
-	.getstarted-form__select {
-		flex-basis: 80%;
-	}
+	.getstarted-heading__service {
+		margin-right: 1rem;
+		}
+}
 
-	.getstarted-form__input {
-		width: 100%;
+@include break($tablet-portrait) {
+	.getstarted-tabs {
+		padding: 4rem 2rem;
+		p {
+			opacity: 0.6;
+		}
+
+		h3 {
+			display: flex;
+		}
 	}
 }
 
 @include break($tablet-landscape) {
-	.getstarted-form {
-		flex-flow: row nowrap;
-		justify-content: space-between;
+	.getstarted-heading {
+		font-size: 4rem;
 	}
 
-	.getstarted-form__element {
-		justify-content: flex-start;
-	}
-
-	.getstarted-form__label, .getstarted-form__select {
-		margin: 0 2rem 0 0;
-	}
-
-	.getstarted-form__select {
-		flex-basis: 65%;
-	}
-
-	.getstarted-form__input {
-		width: 15%;
+	.getstarted-heading__service {
+		img {
+			width: 60px;
+			margin-top: -8px;
+		}
 	}
 }
