@@ -1,31 +1,61 @@
 .overlay {
 	display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: -100;
 	background-color: $black;
 	background-image: linear-gradient(to top, $black, $persian-indigo);
 	opacity: 0;
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: white;
-	z-index: -100;
+}
 
-  iframe {
-    align-self: center;
-    width: 960px;
-    height: 720px;
-  }
+.overlay__close-cta {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+
+	a {
+		margin: 0;
+	}
 }
-.overlay-close {
-  align-self: center;
-	font-size: 32pt;
-	color: white;
+
+.overlay__video {
+	iframe {
+		width: 320px;
+		height: 240px;
+	}
 }
+
 .overlay-visible {
 	opacity: 1;
 	z-index: 100;
 	transition: opacity 100ms ease-in;
+}
+
+@include break($tablet-portrait) {
+	.overlay__video {
+		iframe {
+			width: 640px;
+			height: 480px;
+		}
+	}
+}
+
+@include break($desktop-small) {
+	.overlay__close-cta {
+		top: 3rem;
+		right: 3rem;
+	}
+
+	.overlay__video {
+		iframe {
+			width: 960px;
+			height: 720px;
+		}
+	}
 }

@@ -1,11 +1,12 @@
 (function(){
 
   // grab data-toggle buttons
-  let btns = $$('[data-overlay-toggle');
+  let btns = $$('[data-overlay-toggle]');
 
   // attach eventlisteners to the buttons
   Array.prototype.map.call(btns, (btn) => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       // grab reference to overlay based on data-attribute
       let overlay = $(`[data-overlay=${btn.dataset.overlayToggle}]`)
 
