@@ -1,15 +1,13 @@
 mixin footer()
   .footer
     ul.footer-main
-      li.footer-item 
-        a ©2016&nbsp;Mesosphere,&nbsp;Inc.
-      li.footer-item 
-        a Terms&nbsp;of&nbsp;Service
-      li.footer-item 
-        a Privacy&nbsp;Policy
-      li.footer-item 
-        a Press&nbsp;Kit
-    
+      li.footer-item
+        a(href='/tos') Terms&nbsp;of&nbsp;Service
+      li.footer-item
+        a(href='/privacy') Privacy&nbsp;Policy
+      li.footer-item
+        a(href='https://mesosphere.invisionapp.com/boards/U61L5GZM5CYG3/') Press&nbsp;Kit
+
     ul.footer-secondary
       li.footer-item
         img.footer-item__icon(src='assets/images/icons/twitter.svg')
