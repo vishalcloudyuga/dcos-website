@@ -145,13 +145,13 @@ ul.docs-content__footer__actions {
   }
 
   .docs-layout__docs-nav {
+    min-width: 20%;
     flex-basis: 20%;
-    width: 20%;
     border-right: 1px solid $smoke;
   }
 
   .docs-layout__docs-content {
-    width: 75%;
+    min-width: 75%;
     flex-basis: 75%;
   }
 
