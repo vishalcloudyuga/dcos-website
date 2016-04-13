@@ -21,7 +21,7 @@ const changed      = require('metalsmith-changed')
 const docsVersion = 'latest';
 
 const updatePaths = function(file, filename){
-  if(filename.substr(filename.length-5, filename.length) === '.html' && filename.substr(0, 5) !== 'docs/' && process.env.CI) {
+  if(path.extname(filename) === '.html' && filename.substr(0, 12) !== 'get-started/' && process.env.CI) {
     console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
     return filename = filename.substr(0, filename.length-5);
   }
@@ -69,6 +69,7 @@ let createDocs = function (event, file) {
         '.md': '.html' // build if src/file.md is newer than build/file.html
       }
     }))
+    .use(each(updatePaths))
     .destination(path.join('..', 'build', 'docs', docsVersion))
     .build((err) => {
       if (err) throw err
