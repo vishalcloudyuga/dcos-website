@@ -16,6 +16,7 @@ const copy         = require('metalsmith-copy')
 const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
 const changed      = require('metalsmith-changed')
+const lunr         = require('metalsmith-lunr')
 
 // --- general build settings --- //
 const docsVersion = 'latest';
@@ -70,6 +71,16 @@ let createDocs = function (event, file) {
       }
     }))
     .use(each(updatePaths))
+    .use(lunr({
+      indexPath: 'lunr.json',
+      fields: {
+        contents: 1,
+        tags: 10
+      },
+      pipelineFunctions: [
+        lunr_.trimmer
+      ]
+    }))
     .destination(path.join('..', 'build', 'docs', docsVersion))
     .build((err) => {
       if (err) throw err
@@ -96,7 +107,8 @@ Metalsmith(__dirname)
     autoprefixer({ browsers: ['last 4 versions'] })
   ]))
   .use(babel({
-    presets: ['es2015']
+    presets: ['es2015'],
+    only: '/src/scripts/**/*'
   }))
   .use(copy({
     pattern: 'assets/*',
