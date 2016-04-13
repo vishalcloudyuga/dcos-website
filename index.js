@@ -17,6 +17,7 @@ const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
 const changed      = require('metalsmith-changed')
 const lunr         = require('metalsmith-lunr')
+const lunr_        = require('lunr')
 
 // --- general build settings --- //
 const docsVersion = 'latest';
