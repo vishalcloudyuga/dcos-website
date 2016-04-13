@@ -1,3 +1,9 @@
-## Install Marathon
+## Run Marathon on DC/OS
 
-This document describes how you install marathon on your infrastructure.
+Estimated time: 20min
+
+Requirements: At least 1 node
+
+This tutorial covers the basics to get you started with Marathon on DC/OS.
+
+[Start Tutorial](https://dcos.io/docs/latest/usage/tutorials/marathon.html)
