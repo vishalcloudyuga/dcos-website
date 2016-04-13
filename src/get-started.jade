@@ -4,62 +4,64 @@ block head
   title DC/OS
 
 block content
-  
+
   .container.container--dark-background
     +header
-    
+
     .container__content
-      h1.getstarted-heading Run <img src='assets/images/icons/spark.png'><span>Spark</span> on <img src='assets/images/icons/spark.png'><span>Spark</span>
+      .getstarted-heading
+        span.getstarted-heading__copy Run:
+        .getstarted-heading__service
+          img(src='assets/images/icons/spark.png')
+          span Spark
+        span.getstarted-heading__copy on
+        .getstarted-heading__platform
+          img(src='assets/images/icons/spark.png')
+          span Spark
       p Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
-      
+
+    .container__content.getstarted-tabs
+        a.getstarted-tabs__step.step1(href='#')
+          p Step 1
+          h3 Select a service
+
+        a.getstarted-tabs__step.step2.step-inactive(href='#')
+          p Step 2
+          h3 Select a platform
+
+        .getstarted-tabs__step.step3.step-inactive
+          p Step 3
+          h3 Install
+
+    .arrow-up
+
   .container
-    .container__content
-      h2 Try some services
-      p  With DC/OS you don’t just get a world­-class datacenter operating system, you also have a rich repository of services that you can install and run with a single command (and uninstall just as easily). Give one a try!
+    .container__content.service-select
+      h2 Select a service
 
       .card-container
-        .card
+        a.card(href="#", data-name="Marathon", data-doc="service/marathon")
           .card-content
             img.card-logo(src='assets/images/icons/spark.png')
             h3.card-title Marathon
             p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            a.cta.cta--button.button--secondary Give it a try
-          
-        .card
+
+    .container__content.platform-select(style='display: none;')
+      h2 Select a platform
+
+      .card-container
+        a.card(href="#", data-name="AWS", data-doc="platform/aws")
           .card-content
             img.card-logo(src='assets/images/icons/spark.png')
-            h3.card-title Marathon
+            h3.card-title AWS
             p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            a.cta.cta--button.button--secondary Give it a try
-          
-        .card
-          .card-content
-            img.card-logo(src='assets/images/icons/spark.png')
-            h3.card-title Marathon
-            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            a.cta.cta--button.button--secondary Give it a try
-          
-        .card
-          .card-content
-            img.card-logo(src='assets/images/icons/spark.png')
-            h3.card-title Marathon
-            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            a.cta.cta--button.button--secondary Give it a try
-          
-        .card
-          .card-content
-            img.card-logo(src='assets/images/icons/spark.png')
-            h3.card-title Marathon
-            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            a.cta.cta--button.button--secondary Give it a try
-          
-        .card
-          .card-content
-            img.card-logo(src='assets/images/icons/spark.png')
-            h3.card-title Marathon
-            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            a.cta.cta--button.button--secondary Give it a try
-  
+
+    .container__content.install(style='display: none;')
+
+
   .container
     .container__content
       +footer
+block scripts
+  script(src='/scripts/fetch.js')
+  script(src='/scripts/docs.js')
