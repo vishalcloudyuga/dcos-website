@@ -1,13 +1,16 @@
 language: node_js
 node_js:
 - 5.10.1
-script: echo ready
 branches:
   only:
   - develop
   - master
-before_deploy:
-- npm rebuild node-sass && npm start
+install:
+- npm install
+before_script:
+- npm rebuild node-sass
+script:
+- CI=true npm start
 deploy:
   skip_cleanup: true
   detect_encoding: true
