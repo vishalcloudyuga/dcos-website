@@ -1,7 +1,8 @@
 # Marketing site for DCOS
 
-## getting started 
+## getting started
 
+- `git submodule update --init --recursive`
 - `npm install`
 - `npm start`
 
