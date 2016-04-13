@@ -1,13 +1,15 @@
+include ./footer-libraries.jade
+
 mixin footer()
   .footer
     ul.footer-main
-      li.footer-item 
+      li.footer-item
         a © 2016 Mesosphere, Inc.
-      li.footer-item 
+      li.footer-item
         a Terms of Service
-      li.footer-item 
+      li.footer-item
         a Privacy Policy
-    
+
     ul.footer-secondary
       li.footer-item
         img.footer-item__icon(src='assets/images/icons/twitter-dark.svg')
@@ -17,4 +19,6 @@ mixin footer()
         a Slack
       li.footer-item
         img.footer-item__icon(src='assets/images/icons/github-dark.svg')
-        a(href='https://github.com/dcos') GitHub  
+        a(href='https://github.com/dcos') GitHub
+
+  +libraries
