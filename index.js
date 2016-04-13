@@ -71,6 +71,7 @@ let createDocs = function (event, file) {
         '.md': '.html' // build if src/file.md is newer than build/file.html
       }
     }))
+    .use(each(updatePaths))
     .use(lunr({
       indexPath: 'lunr.json',
       fields: {
