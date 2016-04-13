@@ -98,14 +98,14 @@ Element.prototype.removeClassName = function(name) {
         if(serviceDoc != undefined && platformDoc != undefined) resolve({service: serviceDoc, platform: platformDoc});
       }
 
-      fetch(`/docs/${servicePath}.html`)
+      fetch(`/get-started/${servicePath}.html`)
         .then(response => response.text())
         .then(body => {
           serviceDoc = body;
           gotADoc()
         })
 
-      fetch(`/docs/${platformPath}.html`)
+      fetch(`/get-started/${platformPath}.html`)
         .then(response => response.text())
         .then(body => {
           platformDoc = body;
