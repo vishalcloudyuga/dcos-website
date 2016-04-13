@@ -1,3 +1,9 @@
 ## Run Marathon on DC/OS
 
-Continue [here](http://dcos.io/docs/usage/tutorials/marathon) to learn about how to use Marathon on DC/OS.
+Estimated time: 20min
+
+Requirements: At least 1 node
+
+This tutorial covers the basics to get you started with Marathon on DC/OS.
+
+[Start Tutorial](https://dcos.io/docs/latest/usage/tutorials/marathon.html)
