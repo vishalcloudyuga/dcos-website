@@ -9,12 +9,6 @@ mixin renderMenu(tree)
           a(href='/docs/latest/#{child.path}') #{child.file.post_title}
           if(child.children)
             +renderMenu(child.children)
-      else
-        li.docs-nav__item__child
-          p #{child.name}
-          if(child.children)
-            +renderMenu(child.children)
-
 <!doctype html>
 html
   head
