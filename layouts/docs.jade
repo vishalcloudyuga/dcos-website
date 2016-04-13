@@ -9,6 +9,13 @@ mixin renderMenu(tree)
           a(href='/docs/latest/#{child.path}') #{child.file.post_title}
           if(child.children)
             +renderMenu(child.children)
+      else
+        if(child.name !== 'img')
+          li.docs-nav__item
+            span #{child.name}
+            if(child.children)
+              +renderMenu(child.children)
+
 <!doctype html>
 html
   head
