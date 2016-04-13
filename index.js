@@ -23,7 +23,7 @@ const lunr_        = require('lunr')
 const docsVersion = 'latest';
 
 const updatePaths = function(file, filename){
-  if(path.extname(filename) === '.html' && filename.substr(0, 12) !== 'get-started/' && process.env.CI) {
+  if(path.extname(filename) === '.html' && path.extname(filename) !== '' && filename.substr(0, 12) !== 'get-started/' && process.env.CI) {
     console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
     return filename = filename.substr(0, filename.length-5);
   }
