@@ -118,9 +118,12 @@ Metalsmith(__dirname)
           }
         },
         files: ['./src/**/*', './dcos-docs/**/*', './layouts/**/*', './mixins/**/*']
-      }, createDocs, createDocs);
+      }, null, createDocs);
     }
   })())
   .build((err) => {
     if (err) throw err
   })
+
+
+createDocs();
