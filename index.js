@@ -15,6 +15,7 @@ const autoprefixer = require('autoprefixer')
 const copy         = require('metalsmith-copy')
 const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
+const changed      = require('metalsmith-changed')
 
 // --- general build settings --- //
 const docsVersion = 'latest';
@@ -26,6 +27,53 @@ const updatePaths = function(file, filename){
   }
   return filename;
 };
+
+// --------- figuring out the navigation ---------- //
+const navConfig = {
+    header: {
+      includeDirs: true,
+      // pathProperty: docsVersion,
+      pathProperty: 'nav_path',
+      childrenProperty: 'nav_children',
+    }
+}
+
+const navSettings = {
+  navListProperty: 'navs',
+  permalinks: false,
+}
+
+let nav = navigation(navConfig, navSettings);
+
+// --------- Compiling the Markdown files to HTML --------//
+let createDocs = function (event, file) {
+  Metalsmith(path.join(__dirname, 'dcos-docs'))
+    .source(docsVersion)
+    .use(markdown({
+      smartypants: true,
+      gfm: true,
+      tables: true
+    }))
+    .use(nav)
+    .use(layouts({
+      engine: 'jade',
+      directory: path.join('..', 'layouts'),
+      default: 'docs.jade',
+    }))
+    .use(jade({
+      pretty: true
+    }))
+    .clean(false)
+    .use(changed({
+      extnames: {
+        '.md': '.html' // build if src/file.md is newer than build/file.html
+      }
+    }))
+    .destination(path.join('..', 'build', 'docs', docsVersion))
+    .build((err) => {
+      if (err) throw err
+    })
+}
 
 Metalsmith(__dirname)
   .use(markdown({
@@ -54,66 +102,28 @@ Metalsmith(__dirname)
     directory: 'assets'
   }))
   .use(each(updatePaths))
+  .clean(false)
+  .use(changed())
   .use((() => {
     if(!process.env.CI) {
       return browserSync({
         server: {
           baseDir: './build',
           middleware: function(req, res, next) {
-            if (req.originalUrl.indexOf('.') === -1) {
-              var file = `./build${req.originalUrl}.html`;
-              require('fs').exists(file, function(exists) {
-                if (exists) req.url += '.html';
-                next();
-              });
-            } else {
+            var file = `./build${req.originalUrl}.html`;
+            require('fs').exists(file, function(exists) {
+              if (exists) req.url += '.html';
               next();
-            }
+            });
           }
         },
-        files: ['./src/**/*']
-      });
+        files: ['./src/**/*', './dcos-docs/**/*', './layouts/**/*', './mixins/**/*']
+      }, null, createDocs);
     }
   })())
   .build((err) => {
     if (err) throw err
   })
 
-// --------- figuring out the navigation ---------- //
-const navConfig = {
-    header: {
-      includeDirs: true,
-      // pathProperty: docsVersion,
-      pathProperty: 'nav_path',
-      childrenProperty: 'nav_children',
-    }
-}
 
-const navSettings = {
-  navListProperty: 'navs',
-  permalinks: false,
-}
-
-let nav = navigation(navConfig, navSettings);
-
-// --------- Compiling the Markdown files to HTML --------//
-Metalsmith(path.join(__dirname, 'dcos-docs'))
-  .source(docsVersion)
-  .use(markdown({
-    smartypants: true,
-    gfm: true,
-    tables: true
-  }))
-  .use(nav)
-  .use(layouts({
-    engine: 'jade',
-    directory: path.join('..', 'layouts'),
-    default: 'docs.jade',
-  }))
-  .use(jade({
-    pretty: true
-  }))
-  .destination(path.join('..', 'build', 'docs', docsVersion))
-  .build((err) => {
-    if (err) throw err
-  })
+createDocs();
