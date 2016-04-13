@@ -37,6 +37,46 @@
 	transition: opacity 100ms ease-in;
 }
 
+// Feedback modal
+
+.overlay--feedback {
+	background-color: $black70;
+	background-image: none;
+}
+
+.overlay__modal {
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 3em;
+	background-color: white;
+}
+
+.overlay__modal__label {
+	padding-bottom: 0.5rem;
+	font-family: $clio-medium;
+	font-size: 1.125rem;
+}
+
+.overlay__modal__text-input {
+	border: 1px solid $black30;
+	border-radius: 2px;
+	line-height: 2;
+}
+
+.overlay__modal__input-identity {
+	display: flex;
+	flex-flow: row;
+	margin: 0.75rem 0;
+}
+
+.input-name, .overlay__modal__input-comment {
+	display: flex;
+	flex-flow: column;
+	margin: 0.75rem 0;
+}
+
 @include break($tablet-portrait) {
 	.overlay__video {
 		iframe {
