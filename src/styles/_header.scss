@@ -65,7 +65,7 @@
   opacity: 0.6;
 }
 
-@include break($mobile-large-landscape) {
+@include break($tablet-portrait) {
   .navigation {
     display: flex;
     flex-flow: row;

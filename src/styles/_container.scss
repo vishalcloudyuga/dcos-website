@@ -37,3 +37,13 @@
 .container--docs-header {
     border-bottom: 1px solid $smoke;
 }
+
+.partner-quote-container {
+  overflow: hidden;
+}
+
+@include break($mobile-large-landscape) {
+  .container__content {
+    padding: 6rem 2rem;
+  }
+}

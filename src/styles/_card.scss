@@ -26,6 +26,16 @@
   text-align: center;
 }
 
+.hero-list__item {
+  .card {
+    margin: 0.5rem 0;
+  }
+
+  .card-content {
+    padding: 1rem 3.5rem;
+  }
+}
+
 .card-title {
   margin: 1rem 0 0 0;
   letter-spacing: 0.01rem;

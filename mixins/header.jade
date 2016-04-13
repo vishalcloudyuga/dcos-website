@@ -4,16 +4,20 @@ mixin header()
     .nav-logo-container
       a(href='/').nav-logo
         img.logo(src='/assets/images/logo.svg')
-      
+
     ul.menu
-      li.menu-item 
-        a(href='/why-dcos') Why
-      li.menu-item 
-        a(href='/documentation') Documentation
-      li.menu-item 
-        a(href='/community') Community      
-      li.menu-item 
-        img.header-item__icon(src='assets/images/icons/github.svg')
-        a(href='https://github.com/dcos') GitHub
       li.menu-item
-        a(href='/get-started').cta.cta--button.button--secondary Get Started
+        a(href='/why-dcos') Learn&nbsp;More
+      li.menu-item
+        a(href='/releases') Releases
+      li.menu-item
+        a(href='/install') Install
+      li.menu-item
+        a(href='/documentation') Documentation
+      li.menu-item
+        a(href='/community') Community
+      li.menu-item
+        img.header-item__icon(src='/assets/images/icons/github.svg')
+        a(href='https://github.com/dcos', target='_blank') GitHub
+      li.menu-item
+        a(href='/get-started').cta.cta--button.button--secondary Get&nbsp;Started

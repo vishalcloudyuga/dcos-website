@@ -10,10 +10,10 @@ block content
     .container__content
       .container__content--hero-heading
         .hero-title-cta-container
-          h1.hero-title The easiest way to run containers in production
+          h1.hero-title The easiest way to run containers in production.
           .hero-cta-container
             a(href='/get-started').cta.cta--button Get Started
-            a.cta.cta--video
+            a.cta.cta--video(href='#', data-overlay-toggle='video-overlay')
               img.cta--video__icon(src='assets/images/icons/playbutton@2x.png')
               p.cta--video__text Play Video
         img.hero-image(src='assets/images/hero-image.png')
@@ -24,31 +24,31 @@ block content
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/scalable.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title Scalable
-            p.hero-list__item__copy__paragraph Two­-layer scheduling unlocks the highly scalable container orchestration required for running apps with microservices.
+            h5.hero-list__item__copy__title Containers & Big Data
+            p.hero-list__item__copy__paragraph Easily deploy and run stateful or stateless distributed workloads including Docker containers, big data, and traditional apps.
 
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/mature.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title Mature
-            p.hero-list__item__copy__paragraph Battle-hardened frameworks like Spark and Cassandra unlock the processing of big-data in real-time.
+            h5.hero-list__item__copy__title 100% Open Source
+            p.hero-list__item__copy__paragraph Run DC/OS in production without any scale or performance limitations, with any technology or cloud.
 
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/flexible.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title Flexible
-            p.hero-list__item__copy__paragraph Lifecycle management of both high-level web applications and low-level distributed systemson a single platform.
+            h5.hero-list__item__copy__title Production Proven
+            p.hero-list__item__copy__paragraph Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
 
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/efficient.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title Efficient
-            p.hero-list__item__copy__paragraph Collocation of diverse tasks on the same hardware ensures minimum wasted expense and energy efficiency.
+            h5.hero-list__item__copy__title App Services Ecosystem
+            p.hero-list__item__copy__paragraph Build apps quickly using a rich ecosystem of datacenter-scale application services.
 
   .container
     .container__content.community-hero
-      h2 Run containerized applications
-      p  DC/OS is the only mature and highly scalable open­-source platform for modern datacenter applications. It features everything to effortlessly run containerized applications, including battle hardened services like Spark and Cassandra.
+      h2 The Definitive Platform for Modern Apps - Production Experience Built-in.
+      p Modern apps include containers of microservices and stateful big-data services.  DC/OS is the world’s first and only fully open source platform enabling enterprises to easily build and run modern apps in production.  Built on Apache Mesos, DC/OS abstracts your datacenter into a single computer, pooling distributed workloads and simplifying rollout and operations.
       a(href='/why-dcos').cta.cta--button.button--secondary Learn More
       figure.full-width-image
         img(src="assets/images/containerized-applications.png")
@@ -57,27 +57,27 @@ block content
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/github.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title GitHub
-            p.hero-list__item__copy__paragraph Are you interested in helping us make DC/OS even better? Let’s work together! Read up on our GitHub repository to help you on your way.
-            a.cta.cta--text Visit repository &rarr;
+            h5.hero-list__item__copy__title Build Amazing Apps
+            p.hero-list__item__copy__paragraph Combine the power of microservices, containers and big data to quickly build and ship modern state of the art applications.
+            a.cta.cta--text Learn More &rarr;
 
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/slack.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title Slack
-            p.hero-list__item__copy__paragraph Have any questions? Our Slack channel is the best place to get help. Just send us a request to automatically receive your invitation.
-            a.cta.cta--text Join chat &rarr;
+            h5.hero-list__item__copy__title Operate with Confidence
+            p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot modern technologies with efficiency, ease, and flexibility.
+            a.cta.cta--text Learn More &rarr;
 
         li.hero-list__item
           img.hero-list__item__image(src="assets/images/icons/twitter.svg")
           .hero-list__item__copy
-            h5.hero-list__item__copy__title Twitter
-            p.hero-list__item__copy__paragraph Want to stay in the loop? Get the latest news and updates surrounding DC/OS and join in the discussion by following our official Twitter account.
-            a.cta.cta--text Follow us &rarr;
+            h5.hero-list__item__copy__title Outpace the Competition
+            p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
+            a.cta.cta--text Learn More &rarr;
 
   .container.container--case-study
     .container__content.container__content--case-study-copy
-        h3.case-study-copy Azure Container Service Powered&nbsp;by&nbsp;DC/OS
+        h3.case-study-copy Azure Container Service Powered by DC/OS
         p.case-study-copy Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
         a.cta.cta--text.case-study-copy Read full case study &rarr;
 
@@ -95,7 +95,7 @@ block content
         img.case-study-image(src="assets/images/logos/microsoft.svg")
 
 
-  .container
+  .container.partner-quote-container
     .container__content
       .partner-quote-block-container
         .partner-quote-block.active
@@ -136,10 +136,18 @@ block content
 
   .container.container--dark-background
     .container__content
-       h2 You'll be running DC/OS in less than 10 minutes
+       h2 You'll be running DC/OS in less than 10 minutes.
        a(href='/get-started').cta.cta--button Get Started
 
     +footer
 
+  .overlay(data-overlay='video-overlay')
+    .overlay__close-cta
+      a(href='#', data-overlay-toggle='video-overlay')
+        img(src='assets/images/icons/cancel.svg')
+    .overlay__video
+      iframe(src="https://www.youtube-nocookie.com/embed/0I6qG9RQUnY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen)
+
   script(src='/scripts/main.js')
+  script(src='scripts/overlay.js')
   script(src='/scripts/quotes-carousel.js')
