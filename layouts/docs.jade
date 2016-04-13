@@ -6,12 +6,12 @@ mixin renderMenu(tree)
     each child in tree
       if(child.file)
         li.docs-nav__item
-          a(href='#') #{child.file.post_title}
+          a(href='/docs/latest/#{child.path}') #{child.file.post_title}
           if(child.children)
             +renderMenu(child.children)
       else
         li.docs-nav__item__child
-          a(href='#') #{child.name}
+          p #{child.name}
           if(child.children)
             +renderMenu(child.children)
     
