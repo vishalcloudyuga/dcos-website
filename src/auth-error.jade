@@ -1,0 +1,78 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Something went wrong
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    link(rel='stylesheet', href='//downloads.mesosphere.io/auth0/71d9137dee7199908caed84fda45d364dc208796/dcos-canvas.css')
+    style.
+      .alert-panel {
+        padding: 70px 30px 15px 30px;
+        display: none;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+      }
+      .error-key {
+        flex: 1;
+        text-align: left;
+        display: block;
+      }
+      .error-value {
+        flex: 2;
+        text-align: left;
+        display: block;
+        color: #d6d8dc;
+      }
+
+  body
+    .flex-container-col.fill-height
+      .page-content.container-scrollable.inverse
+        .container.container-fluid.container-pod.flex-container-col
+          .container.container-fluid.container-pod
+            .column-small-offset-2.column-small-8.column-medium-offset-3.column-medium-6.column-large-offset-4.column-large-4
+              #alert-panel.panel.vertical-center.horizontal-center.text-align-center.flush.alert-panel
+                .panel-header.flush
+                  i.icon.icon-sprite.icon-sprite-jumbo.icon-sprite-jumbo-white.icon-lost-planet.flush-top
+                .panel-content
+                  h3.inverse Something Went Wrong
+                  p
+                    span There could be a misconfiguration in the system or service outage. We track these errors automatically, but if the problem persists free to contact us. Please try again.
+                  br
+                  .container-pod.container-pod-super-short.container-pod-divider-bottom.container-pod-divider-inverse.flex-container
+                    .error-key  Error Details
+                    #error-details.error-value  Yes this is it
+                  .container-pod.container-pod-super-short.flex-container
+                    .error-key  token ID
+                    #token-id.error-value
+                  br
+                  a(class='button button-primary button-wide', href='support.mesosphere.com') Get Help
+    script.
+      (function(){
+        var tracking = getParameterByName('tracking') || 'N/A',
+            errorDescription = getParameterByName('error_description') || 'N/A';
+
+        document.getElementById('error-details').textContent = errorDescription;
+        document.getElementById('token-id').textContent = tracking;
+        document.getElementById('alert-panel').style.display = 'flex';
+
+        function getParameterByName(name) {
+          name = name.replace(/[\[\]]/g, "\\$&");
+
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+            results = regex.exec(window.location.href);
+
+          if (!results) {
+            return null;
+          }
+
+          if (!results[2]) {
+            return '';
+          }
+
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+      })();
