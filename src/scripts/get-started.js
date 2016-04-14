@@ -81,14 +81,14 @@
         if(serviceDoc != undefined && platformDoc != undefined) resolve({service: serviceDoc, platform: platformDoc});
       }
 
-      fetch(`/get-started-docs/${servicePath}.html`)
+      fetch(`/get-started-docs/${servicePath}/`)
         .then(response => response.text())
         .then(body => {
           serviceDoc = body;
           gotADoc()
         })
 
-      fetch(`/get-started-docs/${platformPath}.html`)
+      fetch(`/get-started-docs/${platformPath}/`)
         .then(response => response.text())
         .then(body => {
           platformDoc = body;
