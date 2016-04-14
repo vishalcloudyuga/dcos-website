@@ -17,7 +17,10 @@ mixin header()
       li.menu-item
         a(href='/community') Community
       li.menu-item
-        img.header-item__icon(src='/assets/images/icons/github.svg')
-        a(href='https://github.com/dcos', target='_blank') GitHub
+        
+        a(href='https://github.com/dcos', target='_blank').menu-item__github
+          img.header-item__icon(src='/assets/images/icons/github.svg')
+          span GitHub
+          
       li.menu-item
         a(href='/get-started').cta.cta--button.button--secondary Get&nbsp;Started

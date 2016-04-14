@@ -16,7 +16,7 @@
     margin: 0;
   }
 
-  a, .footer-item {
+  a{
     color: $black60;
     transition: .1s;
 
@@ -53,27 +53,32 @@
   align-items: center;
   padding: 0 1rem;
   cursor: pointer;
+
+  a {
+    vertical-align: top;
+  }
 }
 
 .footer-item__icon {
   width: 16px;
   margin-right: 0.5rem;
+  margin-bottom: -3px;
   opacity: 0.6;
+}
+
+.twitter-icon {
+  margin-top: 3px;
 }
 
 // Dark background exception
 
 .container--dark-background {
   .footer {
-    a, .footer-item {
+    a {
       color: $white60;
 
       &:hover {
         color: white;
-
-        .footer-item__icon {
-          opacity: 1;
-        }
       }
     }
   }

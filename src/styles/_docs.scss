@@ -152,6 +152,8 @@
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     vertical-align: text-top;
+    border-radius: 4px;
+    padding: 1rem;
     // color: $heliotrope;
     // background-color: $heliotrope20;
   }
@@ -160,8 +162,6 @@
     max-width: 100%;
     overflow-x: auto;
     word-wrap: break-word;
-    padding: 1rem;
-    border-radius: 2px;
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     line-height: 1.7;
@@ -228,12 +228,6 @@ ul.docs-content__footer__actions {
   .docs-layout__docs-content {
     min-width: 65%;
     flex-basis: 65%;
-  }
-
-  .docs-layout__docs-content {
-    ul, ol {
-      margin-left: 0;
-    }
   }
 
   .docs-content__footer {

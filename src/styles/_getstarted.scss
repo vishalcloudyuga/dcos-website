@@ -13,6 +13,10 @@
 	line-height: 2;
 }
 
+.getstarted-subheading {
+	opacity: 0.8;
+}
+
 .getstarted-heading__copy {
 	margin-right: 1.25rem;
 	opacity: 0.8;
@@ -80,6 +84,7 @@
 	display: flex;
 	flex-flow: row;
 	justify-content: center;
+	transition: 5s;
 	width: 30%;
 }
 
@@ -93,10 +98,36 @@
 }
 
 // Step 3 Install styling
+.get-started-content {
+	.install {
+	}
 
-.getstarted-install {
-	p:nth-child(1) {
-		font-size: 50px;
+	.install-time, .install-requirements {
+		margin: 0;
+	}
+
+	.install-time {
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+	}
+
+	.install-requirements {
+		font-size: 0.9rem;
+		color: $black60;
+	}
+
+	.install-description {
+
+	}
+
+	.install-cta-container {
+		display: flex;
+		flex-flow: row;
+		margin: 1rem 0;
+		.cta {
+			margin: 0 0.5rem;
+		}
 	}
 }
 
@@ -121,7 +152,7 @@
 
 @include break($tablet-landscape) {
 	.getstarted-heading {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	.getstarted-heading__service {
