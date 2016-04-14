@@ -1,6 +1,7 @@
 .events-container {
   overflow: hidden;
   position: relative;
+  align-items: flex-start;
 }
 
 .events-container .container__content {
@@ -72,6 +73,12 @@
 @include break($tablet-landscape) {
   .events-static-container .card-container {
     flex-flow: row nowrap;
+    align-items: center;
+  }
+}
+
+@include break($desktop-small) {
+  .events-container {
     align-items: center;
   }
 }
