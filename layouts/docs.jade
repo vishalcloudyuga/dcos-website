@@ -84,7 +84,21 @@ html
             .docs-search
               input(type='search').docs-search__input
             +renderMenu(locals.navs.header)
-
+            
+          // Search results  
+          .docs-layout__docs-content
+            .search-result
+              a.results-title Fusce Mollis Fermentum Sit Euismod
+              p.results-snippet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+            
+            .search-result
+              a.results-title Fusce Mollis Fermentum Sit Euismod
+              p.results-snippet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+            
+            .search-result
+              a.results-title Fusce Mollis Fermentum Sit Euismod
+              p.results-snippet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+            
           .docs-layout__docs-content
             article!= contents
 
