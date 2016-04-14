@@ -139,7 +139,10 @@ ul.docs-content__footer__actions {
 }
 
 .docs-content__footer__action {
-  font-size: 0.75rem;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-size: 0.9rem;
 }
 
 .docs-content__footer__action img {
@@ -148,7 +151,7 @@ ul.docs-content__footer__actions {
 }
 
 .docs-content__footer__share-icon {
-  width: 10px;
+  width: 14px;
 }
 
 .docs-content__footer__feedback-icon {
