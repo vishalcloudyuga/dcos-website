@@ -19,6 +19,10 @@
 	margin: 1rem 0;
 }
 
+.typer {
+  // define selected color
+}
+
 .hero-cta-container {
 	display: flex;
 	flex-direction: column;
@@ -234,6 +238,9 @@
 		letter-spacing: 0.05rem;
 		line-height: 1.5;
 	}
+  .hero-title {
+    font-size: 3.9rem;
+  }
 }
 
 // Retina display

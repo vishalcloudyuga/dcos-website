@@ -29,16 +29,9 @@
   }
 }
 
-// @include break($tablet-landscape) {
-//   .partner-grid__logo {
-//     width: 16%;
-//     margin: 2rem;
-//   }
-// }
-//
-// @include break($desktop-small) {
-//   .partner-grid__logo {
-//     width: 12%;
-//     margin: 0 2rem;
-//   }
-// }
+@include break($desktop-small) {
+  .partner-grid__logo {
+    width: 12%;
+    margin: 0 2rem;
+  }
+}

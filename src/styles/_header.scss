@@ -11,26 +11,28 @@
   ul {
     margin: 0;
 
-  a, .menu-item {
+  a {
     color: black;
-    transition: .1s;
+    transition: .2s;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.active {
+      opacity: 1;
+    }
   }
-
-
 }
 
   .cta {
     color: black;
     margin: 0;
-    opacity: 1;
   }
 
   .cta--button {
     border-color: black;
-
-    &:hover {
-      background: transparent;
-    }
   }
 }
 
@@ -58,29 +60,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  opacity: 0.6;
+}
 
-  &:hover, .active {
-    opacity: 1;
+.menu-item__github {
+  span {
+    vertical-align: top;
   }
 }
 
 .container--dark-background {
-  .navigation a, .menu-item {
+  .navigation a {
     color: white;
-  }
-
-  .menu-item {
-    opacity: 0.6;
-
-    &:hover, .active {
-      opacity: 1;
-    }
   }
 }
 
 .header-item__icon {
   width: 16px;
+  margin-top: -1px;
   margin-right: 0.5rem;
 }
 
