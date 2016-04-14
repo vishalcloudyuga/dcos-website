@@ -12,6 +12,7 @@ before_script:
 script:
 - CI=true npm start
 deploy:
+  skip_cleanup: true
   detect_encoding: true
   provider: s3
   access_key_id: AKIAJJRIX446OQFCZDXA
