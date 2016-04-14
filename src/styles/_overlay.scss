@@ -1,3 +1,7 @@
+body.overlay-active {
+  overflow: hidden;
+}
+
 .overlay {
 	display: flex;
 	flex-flow: column nowrap;
