@@ -3,7 +3,7 @@ body.modal-open {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   background: #fff;
   z-index: 9999;
   top: 50%;
@@ -18,7 +18,7 @@ body.modal-open {
 }
 
 .modal-overlay {
-  position: absolute;
+  position: fixed;
   background: rgba(#000, 0.5);
   top: 0;
   left: 0;
