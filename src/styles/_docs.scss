@@ -125,7 +125,7 @@
 }
 
 .docs-content__footer {
-  display: flex;
+  display: none;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
@@ -188,6 +188,10 @@ ul.docs-content__footer__actions {
     ul, ol {
       margin-left: 0;
     }
+  }
+
+  .docs-content__footer {
+    display: flex;
   }
 }
 

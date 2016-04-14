@@ -81,30 +81,29 @@ html
 
       .container
         +footer
-        
 
       .overlay.overlay--feedback.overlay-visible(data-overlay='feedback')
         .overlay__close-cta
           a(href='#', data-overlay-toggle='feedback')
-            img(src='assets/images/icons/cancel.svg')
-            
+            img(src='/assets/images/icons/cancel.svg')
+              
         .overlay__modal
           h2 Submit feedback
-          .overlay__modal__input-identity
+          form.overlay__modal__input-identity
             .input-name
               label(for='name').overlay__modal__label Full Name
               input(type='text' name='name' tabindex='1').overlay__modal__text-input
             .input-name
               label(for='name').overlay__modal__label Email
-              input(type='text' name='name' tabindex='1').overlay__modal__text-input
+              input(type='text' name='name').overlay__modal__text-input
           
           .overlay__modal__input-comment
             label(for='comment').overlay__modal__label Your feedback
-            input(type='text' name='name' tabindex='1').overlay__modal__text-input
+            textarea(placeholder='Write your feedback').overlay__modal__text-input
           
           .overlay__modal__input-cta
-            input(type='submit' value='Submit').cta.cta--button
-            a(href='#', data-overlay-toggle='feedback').cta.cta--button.button--secondary Cancel
+              input(type='submit' value='Submit').cta.cta--button
+              input(type='submit' value='Cancel' data-overlay-toggle='feedback').cta.cta--button.button--secondary
                                 
   script(src='/scripts/main.js')
   script(src='/assets/scripts/lunr.min.js')

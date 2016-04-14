@@ -50,13 +50,12 @@
 	flex-flow: column;
 	justify-content: space-around;
 	align-items: center;
-	width: 100%;
+	// width: 100%;
 	padding: 1.5rem 2rem;
 	background-color: white;
 }
 
 .overlay__modal__label {
-	margin-bottom: 1rem;
 	font-family: $clio-medium;
 	font-size: 1.125rem;
 }
@@ -64,7 +63,6 @@
 .overlay__modal__text-input {
 	border: 1px solid $black30;
 	border-radius: 2px;
-	line-height: 3;
 	-webkit-appearance: none;
 	   -moz-appearance: none;
 	        appearance: none;
@@ -72,28 +70,34 @@
 
 .overlay__modal__input-identity {
 	display: flex;
-	flex-flow: column;
+	flex-flow: row;
 	align-items: center;
 	width: 100%;
 	margin: 0.75rem 0;
 }
 
+.overlay__modal__text-input {
+	margin: 2rem 0;
+	// padding: 1rem 0.5rem;
+	// line-height: 1.5;
+}
+
 .input-name, .overlay__modal__input-comment {
 	display: flex;
 	flex-flow: column;
-	width: 100%;
-	margin: 0.75rem 0;
+	// width: 100%;
+	// margin: 0.75rem 0;
 }
 
 .input-name {
-	// width: 220px;
-	margin: 0.75rem 0.625rem;
+	width: 220px;
+	margin: 1rem 0.625rem;
 }
 
 .overlay__modal__input-comment {
 	.overlay__modal__text-input {
-		// width: 460px;
-		height: 128px;
+		width: 460px;
+		min-height: 100px;
 	}
 }
 
@@ -101,17 +105,20 @@
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
-	margin-top: 2.5rem;
-	//
-	// input {
-	// 	margin: 0 0.5rem;
-	// 	overflow: visible;
-	// 	-webkit-appearance: button; /* for input */
-	// 	-webkit-user-select: none; /* for button */
-	// 	   -moz-user-select: none;
-	// 	    -ms-user-select: none;
-	// }
+
+	input {
+		-webkit-appearance: button; /* for input */
+		-webkit-user-select: none; /* for button */
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+	}
+
 }
+
+.overlay__modal__input-cta__submit {
+	margin-right: 1rem;
+}
+
 
 @include break($tablet-portrait) {
 	.overlay__video {
