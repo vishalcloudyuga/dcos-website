@@ -1,11 +1,12 @@
 include ../mixins/header-docs.jade
 include ../mixins/footer-docs.jade
 
+//- XXX - This needs to be refactored.
 - var path = locals.nav_path.split('/')
 - var findPath = function (childPath) { return path.find(function(item) { return item === childPath}) };
 - var stripExtname = function(file) {
 -   if(file.substr(file.length-10, file.length) === 'index.html') return file.substr(0, file.length-10);
--   return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) : file;
+-   return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) + "/" : file;
 - }
 - var routeForIndexPath = function(child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
 - var nameForIndexPath = function(child) {
