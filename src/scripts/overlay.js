@@ -49,7 +49,6 @@
   function toggleVideoState (state, element) {
     // if state === 'pause', pause video. Else: play video
     const iframe = element.querySelector('iframe').contentWindow;
-    console.log(element, iframe);
     const func = state === 'pause' ? 'pauseVideo' : 'playVideo';
     iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*'); // for some reason this doesn't work with ES6 interpolation
   }
