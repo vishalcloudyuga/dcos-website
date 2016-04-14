@@ -41,13 +41,32 @@ const navConfig = {
       includeDirs: true,
       // pathProperty: docsVersion,
       pathProperty: 'nav_path',
-      childrenProperty: 'nav_children',
+      childrenProperty: 'nav_children'
     }
+}
+
+let createDocsJSON = function(obj) {
+  var newObj = {
+    name: obj.type,
+    path: obj.path
+  };
+
+  if(obj.file) {
+    newObj.file = {
+      post_title: obj.file.post_title,
+      menu_order: obj.file.menu_order,
+      hide_from_navigation: obj.file.hide_from_navigation
+    }
+  }
+  newObj.children = obj.children.map(createDocsJSON);
+
+  return newObj;
 }
 
 const navSettings = {
   navListProperty: 'navs',
   permalinks: false,
+  formatJSONfn: createDocsJSON
 }
 
 let nav = navigation(navConfig, navSettings);
