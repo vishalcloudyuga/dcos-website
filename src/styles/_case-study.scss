@@ -17,12 +17,9 @@
 }
 
 .bullet-list {
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;
-	position: absolute;
-	bottom: 0;
-	left: calc(50% + 6rem);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 .bullet-list__item {
@@ -32,8 +29,8 @@
 
 .bullet-list__bullet {
 	display: block;
-	height: 0.5rem;
-	width: 0.5rem;
+	height: 1.0rem;
+	width: 1.0rem;
 	background-color: $light-gray;
 	border-radius: 50%;
 	transition: background-color 0.5s;
@@ -45,7 +42,7 @@
 
 .case-study-item {
 	display: flex;
-	height: 500px;
+	height: 300px;
 	width: 100%;
 }
 
@@ -83,6 +80,10 @@
 		background-color: $smoke;
 	}
 
+  .case-study-item {
+    height: 500px;
+  }
+
 	.case-study-image {
 		max-width: 256px;
 	}
@@ -96,6 +97,17 @@
 		flex-basis: 50%;
 		background-color: $snow;
 	}
+
+  .bullet-list {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% + 6rem);
+  }
+
+  .bullet-list__bullet {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
 }
 
 @include break($desktop-small) {

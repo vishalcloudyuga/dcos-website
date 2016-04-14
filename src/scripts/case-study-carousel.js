@@ -1,6 +1,7 @@
 (function () {
   let currentIndex = 0;
 
+  const nextSlideTimeout = 5000;
   const container = $('.container--case-study');
   const caseStudies = Array.prototype.slice.call(container.querySelectorAll('.case-study-item'));
   const bulletList = container.querySelector('.bullet-list');
@@ -27,7 +28,10 @@
   }
 
   function navigate (index) {
-    if (currentIndex === index) return;
+    if (index === currentIndex) return;
+    else if (index >= caseStudies.length) {
+      index = 0;
+    }
 
     let bullets =  bulletList.querySelectorAll('.bullet-list__bullet');
     let previousCase = caseStudies[currentIndex];
@@ -47,6 +51,8 @@
 
     currentIndex = index;
   }
+
+  setInterval(() => navigate(currentIndex + 1), nextSlideTimeout);
 
   init();
 })();
