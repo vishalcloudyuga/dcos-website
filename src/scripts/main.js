@@ -10,6 +10,7 @@ const addClassName = function(name) {
   if (!this.hasClassName(name)) {
     this.className = this.className ? [this.className, name].join(' ') : name;
   }
+  return this;
 };
 
 const removeClassName = function(name) {
@@ -17,6 +18,7 @@ const removeClassName = function(name) {
     var c = this.className;
     this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
   }
+  return this;
 };
 
 Element.prototype.hasClassName = hasClassName;

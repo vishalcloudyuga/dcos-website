@@ -51,6 +51,8 @@
     $('.step2').addClassName('step-inactive');
     $('.step3').addClassName('step-inactive');
 
+    $('.arrow-container').removeClassName('step2').removeClassName('step3').addClassName('step1')
+
     currentService = undefined;
     currentPlatform = undefined;
     window.location.hash = '!';
@@ -67,6 +69,8 @@
 
     $('.step2').removeClassName('step-inactive');
     $('.step3').addClassName('step-inactive');
+
+    $('.arrow-container').removeClassName('step3').addClassName('step2')
 
     currentPlatform = undefined;
 
@@ -109,6 +113,8 @@
       $('.step1').addClassName('step-inactive');
       $('.step2').removeClassName('step-inactive');
 
+      $('.arrow-container').removeClassName('step1').addClassName('step2')
+
       $('.step1 h3').innerHTML = currentService.name;
       window.location.hash = `${currentService.name}`.toLowerCase();
     } else if(cur === 2) {
@@ -121,6 +127,8 @@
       $('.step1').addClassName('step-inactive');
       $('.step2').addClassName('step-inactive');
       $('.step3').removeClassName('step-inactive');
+
+      $('.arrow-container').removeClassName('step2').addClassName('step3')
 
       $('.step1 h3').innerHTML = currentService.name;
       $('.step2 h3').innerHTML = currentPlatform.name;
