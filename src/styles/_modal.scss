@@ -1,0 +1,41 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: absolute;
+  background: #fff;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  max-width: 90%;
+  max-height: 90%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.modal .modal-content {
+  padding: 25px;
+}
+
+.modal-overlay {
+  position: absolute;
+  background: rgba(#000, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay .close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+@include break($desktop-small) {
+  .modal-overlay .close {
+    top: 3rem;
+    right: 3rem;
+  }
+}
