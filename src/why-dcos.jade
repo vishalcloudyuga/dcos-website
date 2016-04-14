@@ -41,7 +41,7 @@ block content
         h2 Operate with Confidence.
         p Operate your apps and services with highest uptime and resource utilization with DC/OS’s mature, battle-tested architecture. Benefit from advanced monitoring and troubleshooting tools with best practices built-in.
 
-    
+
         .why-content-image
           .why-content-image__copy.mirrored
             ul.why-content__copy-list
@@ -57,10 +57,10 @@ block content
                 img(src='/assets/images/icons/advanced-troubleshooting.svg').why-content__icon
                 h5.why-content__copy-list__title Advanced Troubleshooting
                 p Combine advanced monitoring and troubleshooting tools with built-in best practices to debug any process in your datacenter.
-                
+
           .why-content-image__icon-container
-            img(src='/assets/images/application-illustration.svg')      
-      
+            img(src='/assets/images/application-illustration.svg')
+
 
   .container
     .container__content
@@ -87,23 +87,29 @@ block content
           img(src='/assets/images/application-illustration.svg')
 
   .container.container--case-study
-    .container__content.container__content--case-study-copy
-        h3.case-study-copy Azure Container Service Powered&nbsp;by&nbsp;DC/OS
-        p.case-study-copy Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
-        a.cta.cta--text.case-study-copy Read full case study &rarr;
+    .case-study-item.active
+      .container__content.container__content--case-study-copy
+        .copy-wrapper
+          h3.case-study-title Azure Container Service Powered&nbsp;by&nbsp;DC/OS
+          p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+          a.cta.cta--text.case-study-link Read full case study &rarr;
 
-        ul.bullet-list
-          li.bullet-list__item
-            a.bullet-list__bullet.active
-          li.bullet-list__item
-            a.bullet-list__bullet
-          li.bullet-list__item
-            a.bullet-list__bullet
-          li.bullet-list__item
-            a.bullet-list__bullet
+      .container__content.container__content--case-study-image-wrapper
+        .image-wrapper
+          img.case-study-image(src="/assets/images/logos/microsoft.svg")
 
-    .container__content.container__content--case-study-image-wrapper
-        img.case-study-image(src="/assets/images/logos/microsoft.svg")
+    .case-study-item
+      .container__content.container__content--case-study-copy
+        .copy-wrapper
+          h3.case-study-title Lorem ipsum Amazon stuff
+          p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+          a.cta.cta--text.case-study-link Read full case study &rarr;
+
+      .container__content.container__content--case-study-image-wrapper
+        .image-wrapper
+          img.case-study-image(src="/assets/images/logos/aws.svg")
+
+    ul.bullet-list
 
   .container
     .container__content
@@ -117,3 +123,6 @@ block content
        a(href='/get-started').cta.cta--button Get Started
 
     +footer
+
+  script(src='/scripts/main.js')
+  script(src='/scripts/case-study-carousel.js')
