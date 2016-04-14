@@ -1,4 +1,6 @@
 (function() {
+
+  // Search
   const version = 'latest';
 
   let debounce = function (fn) {
@@ -31,5 +33,15 @@
         // compare results with bootstrapped data
       }))
     })
+
+
+  // Navigation
+  Array.prototype.forEach.call($$('.docs-nav__item a[data-path]'), el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log(e.target.parentNode)
+      e.target.parentNode.hasClassName('docs-nav__item--closed') ? e.target.parentNode.removeClassName('docs-nav__item--closed') : e.target.parentNode.addClassName('docs-nav__item--closed')
+    })
+  })
 
 })()

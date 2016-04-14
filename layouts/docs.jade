@@ -5,7 +5,7 @@ mixin renderMenu(tree)
   ul
     each child in tree
       if(child.file)
-        li.docs-nav__item
+        li.docs-nav__item.docs-nav__item--closed
           if(locals.nav_path === child.path)
             a(href='/docs/latest/#{child.path}').active #{child.file.post_title}
           else
@@ -14,8 +14,8 @@ mixin renderMenu(tree)
             +renderMenu(child.children)
       else
         if(child.name !== 'img')
-          li.docs-nav__item
-            span #{child.name}
+          li.docs-nav__item.docs-nav__item--closed
+            a(href='#', data-path='#{child.name}') #{child.name}
             if(child.children)
               +renderMenu(child.children)
 
@@ -87,4 +87,4 @@ html
 
   script(src='/scripts/main.js')
   script(src='/assets/scripts/lunr.min.js')
-  script(src='/scripts/search.js')
+  script(src='/scripts/docs.js')

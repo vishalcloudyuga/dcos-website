@@ -11,6 +11,12 @@
   align-items: flex-start;
   text-align: left;
 
+  .docs-nav__item--closed {
+    ul {
+      display: none;
+    }
+  }
+
   ul {
     ul {
       margin-left: 20px;
