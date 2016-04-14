@@ -1,0 +1,39 @@
+extends ../../../layouts/base.jade
+
+block head
+  title DC/OS Release 1.7.0
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      h1 DC/OS Release 1.7.0
+
+  .container
+    .container__content
+
+      table.releases
+        thead
+          tr
+            th Download
+            th Documentation
+        tbody
+          tr
+            td
+              a.cta.cta--text(href='https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh') dcos_generate_config-1.7.0.sh
+            td
+              a.cta.cta--text(href='/docs/1.7/') /docs/1.7/
+
+      h2 Release Notes
+      .container__content--release-notes
+        include:markdown notes.md
+
+
+  .container.container--dark-background
+    .container__content
+       h2 Install on any virtual or physical machines
+       a(href='/install/').cta.cta--button Install
+
+    +footer

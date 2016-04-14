@@ -1,30 +1,29 @@
+include ./footer-libraries.jade
+
 mixin footer()
   .footer
     ul.footer-main
-      li.footer-item 
-        a ©2016&nbsp;Mesosphere,&nbsp;Inc.
-      li.footer-item 
-        a(href='/terms-of-service.html') Terms&nbsp;of&nbsp;Service
-      li.footer-item 
-        a(href='/privacy-policy.html') Privacy&nbsp;Policy
-      li.footer-item 
-        a Press&nbsp;Kit
-    
+      li.footer-item
+        a(href='/tos') Terms&nbsp;of&nbsp;Service
+      li.footer-item
+        a(href='/privacy') Privacy&nbsp;Policy
+      li.footer-item
+        a(href='/releases') Releases
+      li.footer-item
+        a(href='https://mesosphere.invisionapp.com/boards/U61L5GZM5CYG3/') Press&nbsp;Kit
+
     ul.footer-secondary
       li.footer-item
-        img.footer-item__icon(src='assets/images/icons/twitter.svg')
-        a Twitter
+        a(href='http://www.twitter.com/dcos_io')
+          img.footer-item__icon.twitter-icon(src='/assets/images/icons/twitter.svg')
+          span Twitter
       li.footer-item
-        img.footer-item__icon(src='assets/images/icons/slack.svg')
-        a Slack
+        a(href='http://chat.mesosphere.com')
+          img.footer-item__icon(src='/assets/images/icons/slack.svg')
+          span Slack
       li.footer-item
-        img.footer-item__icon(src='assets/images/icons/github.svg')
-        a(href='https://github.com/dcos') GitHub
+        a(href='https://github.com/dcos')
+          img.footer-item__icon(src='/assets/images/icons/github.svg')
+          span GitHub
 
-  script(type='text/javascript').
-    (function (d, t) {
-    var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
-    bh.type = 'text/javascript';
-    bh.src = 'https://www.bugherd.com/sidebarv2.js?apikey=jurafhzvh7xfkx0z8ruyww';
-    s.parentNode.insertBefore(bh, s);
-    })(document, 'script');
+  +libraries

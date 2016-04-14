@@ -1,0 +1,92 @@
+extends ../layouts/base.jade
+
+block head
+  title DC/OS
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content.community-hero
+      h1 Install DC/OS
+      p How do you want to deploy DC/OS today?
+
+  .container
+    .container__content
+      ul.container__content--hero-list
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/local.png")
+          .hero-list__item__copy
+            h3.install-bullets-title Local
+            p A Vagrant-based installer for local installation.
+            h4.install-bullets-title Requirements
+            p A single machine with at least 16GB of memory.
+            h6 Install on:
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/local/') Install…
+              img(src='/assets/images/icons/vagrant.png')
+
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/cloud.png")
+          .hero-list__item__copy
+            h3.install-bullets-title Cloud
+            p Configurable cloud provisioning templates.
+            h4.install-bullets-title Requirements
+            p An active cloud subscription with your favorite provider.
+            h6 Install on:
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/cloud/aws/') Install…
+              img(src='/assets/images/icons/aws.png')
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/cloud/azure/') Install…
+              img(src='/assets/images/icons/azure.png')
+
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/custom-cloud.png")
+          .hero-list__item__copy
+            h3.install-bullets-title Custom Cloud
+            p Custom installers for existing cloud setups.
+            h4.install-bullets-title Requirements
+            p An active cloud subscription; an existing cluster with at least 4 nodes: 1 master and 3 agents.
+            h6 Install on:
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/') Install…
+              img(src='/assets/images/icons/aws.png')
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/') Install…
+              img(src='/assets/images/icons/azure.png')
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/') Install…
+              img(src='/assets/images/icons/packet.png')
+
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/on-prem.png")
+          .hero-list__item__copy
+            h3.install-bullets-title On-Premise
+            p Custom installers for on-premises setups.
+            h4.install-bullets-title Requirements
+            p At least 4 nodes: 1 master and 3 agents, each 4GB and 2 CPUs.
+            h6 Install on:
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/') Install…
+              img(src='/assets/images/icons/ubuntu.png')
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/') Install…
+              img(src='/assets/images/icons/coreos.png')
+          .card
+            .card-content
+              a(href='/docs/latest/administration/installing/') Install…
+              img(src='/assets/images/icons/centos.png')
+
+  .container
+    .container__content
+      +footer

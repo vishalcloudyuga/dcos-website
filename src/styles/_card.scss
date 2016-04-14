@@ -9,7 +9,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 1rem;
+  margin: 0.8rem;
   background-color: $snow;
   border: 0.5px solid $black10;
   border-radius: 2px;
@@ -22,13 +22,27 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: center;
+}
+
+.hero-list__item {
+  .card {
+    margin: 0.5rem 0;
+  }
+
+  .card-content {
+    padding: 1rem 3.5rem;
+  }
 }
 
 .card-title {
   margin: 1rem 0 0 0;
   letter-spacing: 0.01rem;
+}
+
+.card-logo {
+  border-radius: 8px;
 }
 
 
@@ -63,21 +77,27 @@
   height: 66px;
 }
 
-.card--events {
-  overflow-x: visible;
-
-  .card {
-    min-width: 300px;
-  }
-}
-
 @include break($mobile-small-landscape) {
   .card-container {
     flex-flow: row wrap;
     justify-content: space-between;
+    align-items: flex-start;
   }
+}
 
-  .card--events {
-    flex-flow: row nowrap;
+@include break($desktop-small) {
+  .service-select, .platform-select {
+    // padding-left: 1.25rem;
+    // padding-right: 1.25rem;
+
+    h2 {
+      display: none;
+    }
+
+    .card {
+      width: 220px;
+      // height: 270px;
+      margin: 0 0 1.5rem 0;
+    }
   }
 }

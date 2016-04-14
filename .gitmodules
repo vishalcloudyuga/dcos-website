@@ -1,0 +1,3 @@
+[submodule "dcos-docs"]
+	path = dcos-docs
+	url = git@github.com:dcos/dcos-docs.git

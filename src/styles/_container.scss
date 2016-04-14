@@ -8,19 +8,21 @@
 }
 
 .container__content {
+  @include container-padding-vertical;
+  @include container-padding-horizontal;
+
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   text-align: center;
   max-width: $max-width;
-  padding: 1rem 1.5rem;
 }
 
 .container--dark-background {
   text-align: center;
   background-color: $black;
-  background-image: linear-gradient(to top, $black, $persian-indigo);
+  background-image: linear-gradient(to top right, $dark-purple, $persian-indigo);
   color: white;
 
   a {

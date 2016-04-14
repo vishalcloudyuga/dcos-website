@@ -54,6 +54,11 @@
 	margin: 0 0 1rem 0;
 }
 
+.hero-list__item__copy {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
 .hero-list__item__copy__title {
 	margin: 0 0 0.5rem 0;
 	font-size: 1.125rem;
@@ -70,7 +75,6 @@
 		opacity: 0.8;
 	}
 }
-
 
 // Media queries
 
@@ -174,11 +178,16 @@
 }
 
 @include break($tablet-portrait) {
+	.container__content--hero-list {
+		margin-bottom: 0;
+	}
+
 	// Styling the Hero of the Community page
 	.community-hero {
 		.container__content--hero-list {
 			flex-direction: row;
 			align-items: flex-start;
+			margin-bottom: 0;
 		}
 
 		.hero-list__item {
@@ -186,6 +195,7 @@
 			flex-basis: 32%;
 			width: auto;
 			text-align: left;
+			margin-bottom: 0;
 		}
 	}
 }
@@ -207,6 +217,7 @@
 		flex-basis: 22%;
 		width: 22%;
 		align-self: flex-start;
+		margin-bottom: 0;
 	}
 
 	.hero-list__item__copy {
@@ -234,7 +245,6 @@
 		}
 	}
 }
-
 
 // Internet Explorer 11
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

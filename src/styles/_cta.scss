@@ -1,4 +1,4 @@
-// Call To Action variants
+  // Call To Action variants
 
 .cta {
   display: block;
@@ -9,6 +9,10 @@
 
 .cta--text {
   color: $heliotrope;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .container--dark-background .cta--text {
@@ -25,18 +29,33 @@
   font-weight: 400;
   background-color: $heliotrope;
   color: white;
+  border: 1px solid $heliotrope;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
-a.button--secondary {
+.button--secondary, a.button--secondary {
   background-color: transparent;
   border: 1px solid $heliotrope;
   color: $heliotrope;
+
+  &:hover {
+    background-color: $heliotrope;
+  }
 }
 
 .container--dark-background {
   .button--secondary {
      border: 1px solid $white60;
      color: $white60;
+
+     &:hover {
+       color: white;
+       background-color: transparent;
+       border: 1px solid white;
+     }
   }
 }
 
@@ -46,6 +65,10 @@ a.button--secondary {
   flex-flow: row nowrap;
   align-items: center;
   margin: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .cta--video__icon {

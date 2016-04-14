@@ -29,13 +29,16 @@
     this.classList.remove('overlay-visible');
     document.removeEventListener('keydown', escapePressed);
     document.removeEventListener('click', closeOverlay);
+    toggleVideoState('pause', this.querySelector('.overlay__video'));
+    $('body').classList.remove('overlay-active');
   }
 
   // overlay is shown
   function showOverlay() {
     // both esc or close button closes the overlay
     document.addEventListener('keydown', escapePressed.bind(this));
-    this.querySelector('a.overlay-close').addEventListener('click', closeOverlay.bind(this));
+    toggleVideoState('play', this.querySelector('.overlay__video'));
+    $('body').classList.add('overlay-active');
   }
 
   function escapePressed(e) {
@@ -43,6 +46,13 @@
     if ( e.keyCode === 27 ) {
       closeOverlay.call(this);
     }
+  }
+
+  function toggleVideoState (state, element) {
+    // if state === 'pause', pause video. Else: play video
+    const iframe = element.querySelector('iframe').contentWindow;
+    const func = state === 'pause' ? 'pauseVideo' : 'playVideo';
+    iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*'); // for some reason this doesn't work with ES6 interpolation
   }
 
 })();

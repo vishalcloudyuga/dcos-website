@@ -1,21 +1,137 @@
 include ../mixins/header-docs.jade
 include ../mixins/footer-docs.jade
 
+- var path = locals.nav_path.split('/')
+- var findPath = function (childPath) { return path.find(function(item) { return item === childPath}) };
+- var stripExtname = function(file) {
+-   if(file.substr(file.length-10, file.length) === 'index.html') return file.substr(0, file.length-10);
+-   return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) : file;
+- }
+- var routeForIndexPath = function(child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
+- var nameForIndexPath = function(child) {
+-   var result = child.children.find(function(n) { return n.name === 'index.html'});
+-   if(result) return result.file.post_title;
+-   return child.name;
+- }
+
+mixin renderMenu(tree)
+  ul
+    each child in tree
+      if(child.path.substr(child.path.length-10, child.path.length) !== 'index.html')
+        if(child.file)
+          if(findPath(child.path))
+            li.docs-nav__item.docs-nav__item_file
+              if(locals.nav_path === child.path)
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
+              else
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
+              if(child.children)
+                +renderMenu(child.children)
+          else
+            li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
+              if(locals.nav_path === child.path)
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
+              else
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
+              if(child.children)
+                +renderMenu(child.children)
+
+        else
+          if(findPath(child.name))
+            if(child.name !== 'img')
+              li.docs-nav__item.docs-nav__item_folder
+                a.docs-nav__item__arrow(href='#') >
+                if(findPath(child.path.split('/').pop()))
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
+                else
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
+                if(child.children)
+                  +renderMenu(child.children)
+          else
+            if(child.name !== 'img')
+              li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
+                a.docs-nav__item__arrow(href='#') >&nbsp;
+                if(findPath(child.path.split('/').pop()))
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
+                else
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
+                if(child.children)
+                  +renderMenu(child.children)
+
 <!doctype html>
 html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico")
-    
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/railscasts.min.css')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js')
+    link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon.ico")
+
+    script.
+      var __dcos_docs = !{JSON.stringify(locals.navs.json)};
+
     block head
       title!= title
-      
+
   body
-  
     block content
-    
-      article!= contents
+      .container.container--docs-header
+        +header
+
+      .container
+        .container__content.docs-layout
+          .docs-layout__docs-nav
+            .docs-search
+              input(type='search').docs-search__input
+            +renderMenu(locals.navs.header)
+
+          // Search results
+          .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
+
+
+          .docs-layout__docs-content.docs-layout__docs-article
+            article!= contents
+
+            .docs-content__footer
+              ul.docs-content__footer__actions
+                li.docs-content__footer__action
+                  a(href='#').addthis_button_expanded
+                    img.docs-content__footer__share-icon(src='/assets/images/icons/share.svg')
+                    span Share
+
+              ul.docs-content__footer__actions
+                li.docs-content__footer__action
+                  img.docs-content__footer__feedback-icon(src='/assets/images/icons/feedback.svg')
+                  a(href='#', data-overlay-toggle='feedback') Submit feedback
+
+      .container
+        +footer
+
+      .overlay.overlay--feedback(data-overlay='feedback')
+        .overlay__close-cta
+          a(href='#', data-overlay-toggle='feedback')
+            img(src='/assets/images/icons/cancel.svg')
+
+        .overlay__modal
+          h2 Submit feedback
+          form.overlay__modal__input-identity
+            .input-name
+              label(for='name').overlay__modal__label Full Name
+              input(type='text' name='name' tabindex='1').overlay__modal__text-input
+            .input-name
+              label(for='name').overlay__modal__label Email
+              input(type='text' name='name').overlay__modal__text-input
+
+          .overlay__modal__input-comment
+            label(for='comment').overlay__modal__label Your feedback
+            textarea(placeholder='Write your feedback').overlay__modal__text-input
+
+          .overlay__modal__input-cta
+              input(type='submit' value='Submit').cta.cta--button
+              input(type='submit' value='Cancel' data-overlay-toggle='feedback').cta.cta--button.button--secondary
 
   script(src='/scripts/main.js')
-  block scripts
+  script(src='/assets/scripts/lunr.min.js')
+  script(src='/scripts/docs.js')
+  script(src='/scripts/overlay.js')
+  script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570558ee2719a9f0')
