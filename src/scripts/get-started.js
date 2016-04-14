@@ -5,12 +5,12 @@
   const platformLinks = $$('.platform-select a');
 
   // Header animation
-  setInterval(function() {
-    let serviceLink = serviceLinks[Math.floor(Math.random()*serviceLinks.length)];
-    let platformLink = platformLinks[Math.floor(Math.random()*platformLinks.length)];
-    $('.getstarted-heading__service').innerHTML = serviceLink.getAttribute('data-name');
-    $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
-  }, 1000)
+  // setInterval(function() {
+  //   let serviceLink = serviceLinks[Math.floor(Math.random()*serviceLinks.length)];
+  //   let platformLink = platformLinks[Math.floor(Math.random()*platformLinks.length)];
+  //   $('.getstarted-heading__service').innerHTML = serviceLink.getAttribute('data-name');
+  //   $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
+  // }, 1000)
 
   // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
