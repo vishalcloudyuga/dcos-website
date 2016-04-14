@@ -1,5 +1,7 @@
 # Marketing site for DCOS
 
+[![Build Status](https://travis-ci.com/dcos/dcos-website.svg?token=yAREgxuvuzZLg282ZE3m&branch=develop)](https://travis-ci.com/dcos/dcos-website)
+
 ## getting started
 
 - `git submodule update --init --recursive`

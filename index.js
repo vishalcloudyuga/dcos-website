@@ -16,12 +16,19 @@ const copy         = require('metalsmith-copy')
 const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
 const changed      = require('metalsmith-changed')
+const lunr         = require('metalsmith-lunr')
+const lunr_        = require('lunr')
 
 // --- general build settings --- //
 const docsVersion = 'latest';
 
-const updatePaths = function(file, filename){
-  if(path.extname(filename) === '.html' && filename.substr(0, 12) !== 'get-started/' && process.env.CI) {
+const updatePaths = function(file, filename) {
+  if (path.basename(filename) === "index.html" ) { return filename; }
+
+  if (path.extname(filename) === '.html' &&
+      path.extname(filename) !== '' &&
+      filename.substr(0, 17) !== 'get-started-docs/' &&
+      process.env.CI) {
     console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
     return filename = filename.substr(0, filename.length-5);
   }
@@ -70,6 +77,16 @@ let createDocs = function (event, file) {
       }
     }))
     .use(each(updatePaths))
+    .use(lunr({
+      indexPath: 'lunr.json',
+      fields: {
+        contents: 1,
+        tags: 10
+      },
+      pipelineFunctions: [
+        lunr_.trimmer
+      ]
+    }))
     .destination(path.join('..', 'build', 'docs', docsVersion))
     .build((err) => {
       if (err) throw err
@@ -96,7 +113,8 @@ Metalsmith(__dirname)
     autoprefixer({ browsers: ['last 4 versions'] })
   ]))
   .use(babel({
-    presets: ['es2015']
+    presets: ['es2015'],
+    only: '/src/scripts/**/*'
   }))
   .use(copy({
     pattern: 'assets/*',
