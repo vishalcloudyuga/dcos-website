@@ -63,7 +63,7 @@
           }).join('\n');
         } else {
           $('.docs-layout__docs-content').innerHTML = `
-            <div class='search-results--none'>Sorry, no results found. Please try your search again.</div>
+            <article><p>Sorry, no results found for your search query. Try searching for something else.</p></article>
           `;
         }
 
