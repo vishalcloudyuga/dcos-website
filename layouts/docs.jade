@@ -40,13 +40,19 @@ mixin renderMenu(tree)
           if(findPath(child.name))
             if(child.name !== 'img')
               li.docs-nav__item.docs-nav__item_folder
-                a(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
+                if(findPath(child.path.split('/').pop()))
+                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
+                else
+                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
                 if(child.children)
                   +renderMenu(child.children)
           else
             if(child.name !== 'img')
               li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
-                a(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
+                if(findPath(child.path.split('/').pop()))
+                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
+                else
+                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
                 if(child.children)
                   +renderMenu(child.children)
 
