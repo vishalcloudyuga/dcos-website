@@ -1,19 +1,39 @@
 mixin header()
-
+  p #{locals.filename}
   nav.navigation
     .nav-logo-container
       a(href='/').nav-logo
-        img.logo(src='/assets/images/dcos-logo-white.svg')
-
+        img.logo(src='/assets/images/logo.svg')
+    
+    
     ul.menu
       li.menu-item
-        a(href='/why-dcos') Why&nbsp;DC/OS
+        if(locals.filename === 'why-dcos.html')
+          a(href='/why-dcos/').active Learn&nbsp;More
+        else
+          a(href='/why-dcos/') Learn&nbsp;More
+          
       li.menu-item
-        a(href='/install/') Install
+        if(locals.filename === 'releases/index.html')
+          a(href='/releases/').active Releases  
+        else
+          a(href='/releases/') Releases  
+          
       li.menu-item
-        a(href='/docs/latest/usage') Docs
+        if(locals.filename === 'install/index.html')
+          a(href='/install/').active Install
+        else
+          a(href='/install/') Install
+          
       li.menu-item
-        a(href='/community') Community
+        a(href='/docs/latest/usage/') Documentation
+        
+      li.menu-item
+        if(locals.filename === 'community.html')
+          a(href='/community/').active Community
+        else
+          a(href='/community/') Community
+        
       li.menu-item
         
         a(href='https://github.com/dcos', target='_blank').menu-item__github
@@ -21,4 +41,7 @@ mixin header()
           span GitHub
           
       li.menu-item
-        a(href='/get-started').cta.cta--button.button--secondary Get&nbsp;Started
+        if(locals.filename === 'get-started.html')
+          a(href='/get-started').cta.cta--button.button--secondary.active Get&nbsp;Started
+        else
+          a(href='/get-started').cta.cta--button.button--secondary Get&nbsp;Started

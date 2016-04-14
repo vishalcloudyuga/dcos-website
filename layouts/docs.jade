@@ -1,11 +1,12 @@
 include ../mixins/header-docs.jade
 include ../mixins/footer-docs.jade
 
+//- XXX - This needs to be refactored.
 - var path = locals.nav_path.split('/')
 - var findPath = function (childPath) { return path.find(function(item) { return item === childPath}) };
 - var stripExtname = function(file) {
 -   if(file.substr(file.length-10, file.length) === 'index.html') return file.substr(0, file.length-10);
--   return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) : file;
+-   return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) + "/" : file;
 - }
 - var routeForIndexPath = function(child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
 - var nameForIndexPath = function(child) {
@@ -71,7 +72,7 @@ html
       var __dcos_docs = !{JSON.stringify(locals.navs.json)};
 
     block head
-      title!= title
+      title!= post_title
 
   body
     block content
@@ -102,33 +103,10 @@ html
               ul.docs-content__footer__actions
                 li.docs-content__footer__action
                   img.docs-content__footer__feedback-icon(src='/assets/images/icons/feedback.svg')
-                  a(href='#', data-overlay-toggle='feedback') Submit feedback
+                  a(href='https://github.com/dcos/dcos-docs/issues/new' id='submit-feedback' target='blank') Submit feedback
 
       .container
         +footer
-
-      .overlay.overlay--feedback(data-overlay='feedback')
-        .overlay__close-cta
-          a(href='#', data-overlay-toggle='feedback')
-            img(src='/assets/images/icons/cancel.svg')
-
-        .overlay__modal
-          h2 Submit feedback
-          form.overlay__modal__input-identity
-            .input-name
-              label(for='name').overlay__modal__label Full Name
-              input(type='text' name='name' tabindex='1').overlay__modal__text-input
-            .input-name
-              label(for='name').overlay__modal__label Email
-              input(type='text' name='name').overlay__modal__text-input
-
-          .overlay__modal__input-comment
-            label(for='comment').overlay__modal__label Your feedback
-            textarea(placeholder='Write your feedback').overlay__modal__text-input
-
-          .overlay__modal__input-cta
-              input(type='submit' value='Submit').cta.cta--button
-              input(type='submit' value='Cancel' data-overlay-toggle='feedback').cta.cta--button.button--secondary
 
   script(src='/scripts/main.js')
   script(src='/assets/scripts/lunr.min.js')
