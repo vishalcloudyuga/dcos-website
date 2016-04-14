@@ -34,11 +34,12 @@
   a {
     font-weight: 500;
     color: $black;
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   a:active, a.active {
     color: $heliotrope;
+    opacity: 1;
   }
 }
 
@@ -53,11 +54,33 @@
 .docs-layout__docs-content {
   display: flex;
   flex-flow: column nowrap;
+  align-items: left;
   max-width: 100%;
   text-align: left;
 
-  h2 {
-    margin: 2rem 0 1rem 0;
+	h1 {
+		font-size: 2.3rem;
+	}
+
+	h2 {
+		font-size: 1.7rem;
+	}
+
+	h3 {
+		font-size: 1.3rem;
+	}
+
+	h4 {
+		font-size: 1rem;
+	}
+
+	h5 {
+		font-size: 0.9rem;
+	}
+
+
+  h1, h2, h3, p, pre {
+    margin: 2rem 0;
   }
 
   h4, h5 {
@@ -78,6 +101,8 @@
 
   li {
     margin: 0 0 1rem 0;
+  	letter-spacing: 0.04rem;
+  	line-height: 1.55;
   }
 
   blockquote {
