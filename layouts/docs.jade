@@ -63,6 +63,8 @@ html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/railscasts.min.css')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js')
     link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon.ico")
 
     script.
@@ -104,7 +106,7 @@ html
         .overlay__close-cta
           a(href='#', data-overlay-toggle='feedback')
             img(src='/assets/images/icons/cancel.svg')
-              
+
         .overlay__modal
           h2 Submit feedback
           form.overlay__modal__input-identity
@@ -114,15 +116,15 @@ html
             .input-name
               label(for='name').overlay__modal__label Email
               input(type='text' name='name').overlay__modal__text-input
-          
+
           .overlay__modal__input-comment
             label(for='comment').overlay__modal__label Your feedback
             textarea(placeholder='Write your feedback').overlay__modal__text-input
-          
+
           .overlay__modal__input-cta
               input(type='submit' value='Submit').cta.cta--button
               input(type='submit' value='Cancel' data-overlay-toggle='feedback').cta.cta--button.button--secondary
-                                
+
   script(src='/scripts/main.js')
   script(src='/assets/scripts/lunr.min.js')
   script(src='/scripts/docs.js')
