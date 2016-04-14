@@ -20,6 +20,11 @@
 }
 
 @include break($desktop-small) {
+
+  .why-content__copy-list {
+    margin-bottom: 0;
+  }
+
   .why-content-image {
     flex-flow: row;
     justify-content: space-between;
@@ -41,6 +46,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     margin-top: 4rem;
+    margin-bottom: 0;
     width: 100%;
     text-align: left;
   }
