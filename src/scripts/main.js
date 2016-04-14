@@ -1,7 +1,14 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
+// Mobile menu
+const snapper = new Snap({
+  element: $('.snap-content'),
+  hyperextensible: false,
+  disable: 'right'
+});
 
+// Convenience methods
 const hasClassName = function(name) {
   return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
 };
