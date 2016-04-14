@@ -22,8 +22,13 @@ const lunr_        = require('lunr')
 // --- general build settings --- //
 const docsVersion = 'latest';
 
-const updatePaths = function(file, filename){
-  if(path.extname(filename) === '.html' && filename.substr(0, 12) !== 'get-started/' && process.env.CI) {
+const updatePaths = function(file, filename) {
+  if (path.basename(filename) === "index.html" ) { return filename; }
+
+  if (path.extname(filename) === '.html' &&
+      path.extname(filename) !== '' &&
+      filename.substr(0, 17) !== 'get-started-docs/' &&
+      process.env.CI) {
     console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
     return filename = filename.substr(0, filename.length-5);
   }
