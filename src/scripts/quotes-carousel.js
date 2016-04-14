@@ -9,9 +9,12 @@
   let interval;
 
   // setup listeners for logos
-  Array.prototype.map.call(links, (link) => {
+  Array.prototype.forEach.call(links, (link) => {
     link.addEventListener('click', logoClicked);
   });
+
+  let maxHeight = Math.max(...Array.prototype.map.call(quotes, quote =>  quote.offsetHeight));
+  $('.partner-quote-block-container').setAttribute('style', `height: ${maxHeight}px;`);
 
   function logoClicked(e) {
     e.preventDefault();
