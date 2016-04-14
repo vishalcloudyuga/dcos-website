@@ -40,7 +40,13 @@
     el.addEventListener('click', function(e) {
       if(e.target.hasClassName('docs-nav__item__arrow')) e.preventDefault();
       e.target.parentNode.hasClassName('docs-nav__item--closed') ? e.target.parentNode.removeClassName('docs-nav__item--closed') : e.target.parentNode.addClassName('docs-nav__item--closed')
-    })
-  })
+    });
+  });
+
+
+  Array.prototype.forEach.call($$('pre code'), el => {
+    console.log(el)
+    hljs.highlightBlock(el);
+  });
 
 })()
