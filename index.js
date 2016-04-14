@@ -54,8 +54,7 @@ let createDocsJSON = function(obj) {
   if(obj.file) {
     newObj.file = {
       post_title: obj.file.post_title,
-      menu_order: obj.file.menu_order,
-      hide_from_navigation: obj.file.hide_from_navigation
+      search_blurb: obj.file.search_blurb
     }
   }
   newObj.children = obj.children.map(createDocsJSON);
