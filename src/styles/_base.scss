@@ -1,5 +1,10 @@
 html {
 	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	text-rendering: optimizeLegibility;
 }
 
 *, *:before, *:after {

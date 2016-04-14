@@ -12,22 +12,28 @@
     margin: 0;
 
   a {
-    color: $black60;
+    color: black;
+    transition: .2s;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
   .cta {
-    color: $black60;
+    color: black;
     margin: 0;
   }
 
   .cta--button {
-    border-color: $black60;
+    border-color: black;
   }
 }
 
 .logo {
-  width: 4rem;
+  width: 6rem;
   align-self: flex-start;
 }
 
@@ -52,17 +58,22 @@
   padding: 1rem 0;
 }
 
-.container--dark-background {
-  .navigation a {
-    color: $white60;
+.menu-item__github {
+  span {
+    vertical-align: top;
   }
 }
 
+.container--dark-background {
+  .navigation a {
+    color: white;
+  }
+}
 
 .header-item__icon {
   width: 16px;
+  margin-top: -1px;
   margin-right: 0.5rem;
-  opacity: 0.6;
 }
 
 @include break($tablet-portrait) {
@@ -71,6 +82,10 @@
     flex-flow: row;
     padding: 0 2rem;
     background-color: transparent;
+
+    .logo, .cta--button {
+      margin-top: 2px;
+    }
   }
 
   .main-nav-container, .menu, .secondary-menu {

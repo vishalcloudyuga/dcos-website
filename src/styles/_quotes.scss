@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: row nowrap;
   overflow: hidden;
+  align-items: center;
 }
 
 .partner-quote-block {
@@ -51,6 +52,10 @@
     opacity: 0.3;
     transition: opacity 200ms;
   }
+}
+
+.partner-quote-logo-list__partner-quote-logo a {
+  cursor: pointer;
 }
 
 .partner-quote-logo-list__partner-quote-logo:last-child {
