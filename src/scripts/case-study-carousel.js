@@ -6,6 +6,8 @@
   const caseStudies = Array.prototype.slice.call(container.querySelectorAll('.case-study-item'));
   const bulletList = container.querySelector('.bullet-list');
 
+  let interval = setInterval(() => navigate(currentIndex + 1), nextSlideTimeout);
+
   function init () {
     caseStudies.forEach((el, index) => {
       el.querySelector('.copy-wrapper').classList.add('animated');
@@ -50,9 +52,10 @@
     currentCase.querySelector('.image-wrapper').classList.add('fadeIn');
 
     currentIndex = index;
-  }
 
-  setInterval(() => navigate(currentIndex + 1), nextSlideTimeout);
+    clearInterval(interval);
+    interval = setInterval(() => navigate(currentIndex + 1), nextSlideTimeout);
+  }
 
   init();
 })();
