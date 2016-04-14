@@ -13,7 +13,7 @@
 
   .docs-nav__item--closed {
     ul {
-      display: none;
+      display: flex;
     }
   }
 
@@ -55,6 +55,10 @@
   flex-flow: column nowrap;
   max-width: 100%;
   text-align: left;
+
+  h2 {
+    margin: 2rem 0 1rem 0;
+  }
 
   h4, h5 {
     margin: 1rem 0 0 0;
@@ -99,7 +103,7 @@
   }
 
   code {
-    padding: 0.2rem 0.3rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 2px;
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     color: $heliotrope;
@@ -121,7 +125,7 @@
 }
 
 .docs-content__footer {
-  display: flex;
+  display: none;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
@@ -184,6 +188,10 @@ ul.docs-content__footer__actions {
     ul, ol {
       margin-left: 0;
     }
+  }
+
+  .docs-content__footer {
+    display: flex;
   }
 }
 
