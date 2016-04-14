@@ -36,9 +36,9 @@
 
 
   // Navigation
-  Array.prototype.forEach.call($$('.docs-nav__item a[data-path]'), el => {
+  Array.prototype.forEach.call($$('.docs-nav__item_folder a'), el => {
     el.addEventListener('click', function(e) {
-      // e.preventDefault();
+      if(e.target.hasClassName('docs-nav__item__arrow')) e.preventDefault();
       e.target.parentNode.hasClassName('docs-nav__item--closed') ? e.target.parentNode.removeClassName('docs-nav__item--closed') : e.target.parentNode.addClassName('docs-nav__item--closed')
     })
   })

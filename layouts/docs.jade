@@ -22,17 +22,17 @@ mixin renderMenu(tree)
           if(findPath(child.path))
             li.docs-nav__item.docs-nav__item_file
               if(locals.nav_path === child.path)
-                a(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
               else
-                a(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
               if(child.children)
                 +renderMenu(child.children)
           else
             li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
               if(locals.nav_path === child.path)
-                a(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
               else
-                a(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
+                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
               if(child.children)
                 +renderMenu(child.children)
 
@@ -40,19 +40,21 @@ mixin renderMenu(tree)
           if(findPath(child.name))
             if(child.name !== 'img')
               li.docs-nav__item.docs-nav__item_folder
+                a.docs-nav__item__arrow(href='#') >
                 if(findPath(child.path.split('/').pop()))
-                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                 else
-                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
                 if(child.children)
                   +renderMenu(child.children)
           else
             if(child.name !== 'img')
               li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
+                a.docs-nav__item__arrow(href='#') >&nbsp;
                 if(findPath(child.path.split('/').pop()))
-                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                 else
-                  a(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
+                  a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
                 if(child.children)
                   +renderMenu(child.children)
 
