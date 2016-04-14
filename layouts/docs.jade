@@ -1,21 +1,90 @@
 include ../mixins/header-docs.jade
 include ../mixins/footer-docs.jade
 
+mixin renderMenu(tree)
+  ul
+    each child in tree
+      if(child.file)
+        li.docs-nav__item
+          if(locals.nav_path === child.path)
+            a(href='/docs/latest/#{child.path}').active #{child.file.post_title}
+          else
+            a(href='/docs/latest/#{child.path}') #{child.file.post_title}
+          if(child.children)
+            +renderMenu(child.children)
+      else
+        if(child.name !== 'img')
+          li.docs-nav__item
+            span #{child.name}
+            if(child.children)
+              +renderMenu(child.children)
+
 <!doctype html>
 html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="shortcut icon" type="image/x-icon" href="assets/images/icons/favicon.ico")
-    
+    link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon.ico")
+
+    script.
+      var __dcos_docs = !{JSON.stringify(locals.navs.json)};
+
     block head
       title!= title
-      
+
   body
-  
     block content
-    
-      article!= contents
+      .container.container--docs-header
+        +header
+
+      .container
+        .container__content.docs-layout
+          .docs-layout__docs-nav
+            .docs-search
+              input(type='search').docs-search__input
+            +renderMenu(locals.navs.header)
+
+            //- ul
+            //-   li.docs-nav__item
+            //-     a Installing
+            //-     ul
+            //-       li.docs-nav__item__child
+            //-         a Let's go
+            //-       li.docs-nav__item__child
+            //-         a Let's go
+            //-       li.docs-nav__item__child
+            //-         a Let's go
+            //-   li.docs-nav__item
+            //-     a First run
+            //-   li.docs-nav__item
+            //-     a First run
+            //-     ul
+            //-       li.docs-nav__item__child
+            //-         a Let's go
+            //-       li.docs-nav__item__child
+            //-         a Let's go
+            //-       li.docs-nav__item__child
+            //-         a Let's go
+            //-   li.docs-nav__item
+            //-     a First run
+
+          .docs-layout__docs-content
+            article!= contents
+
+            .docs-content__footer
+              ul.docs-content__footer__actions
+                li.docs-content__footer__action
+                  img.docs-content__footer__share-icon(src='/assets/images/icons/share.svg')
+                  a Share
+
+              ul.docs-content__footer__actions
+                li.docs-content__footer__action
+                  img.docs-content__footer__feedback-icon(src='/assets/images/icons/feedback.svg')
+                  a Submit feedback
+
+      .container
+        +footer
 
   script(src='/scripts/main.js')
-  block scripts
+  script(src='/assets/scripts/lunr.min.js')
+  script(src='/scripts/search.js')

@@ -54,6 +54,11 @@
 	margin: 0 0 1rem 0;
 }
 
+.hero-list__item__copy {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
 .hero-list__item__copy__title {
 	margin: 0 0 0.5rem 0;
 	font-size: 1.125rem;

@@ -18,7 +18,7 @@ block content
         .getstarted-heading__platform
           img(src='assets/images/icons/spark.png')
           span Spark
-      p Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna.
+      p Get started by selecting a service you want to run on a platform.
 
     .container__content.getstarted-tabs
         a.getstarted-tabs__step.step1(href='#')
@@ -31,7 +31,7 @@ block content
 
         .getstarted-tabs__step.step3.step-inactive
           p Step 3
-          h3 Install
+          h3 Run it
 
     .arrow-up
 
@@ -42,19 +42,85 @@ block content
       .card-container
         a.card(href="#", data-name="Marathon", data-doc="service/marathon")
           .card-content
-            img.card-logo(src='assets/images/icons/spark.png')
+            img.card-logo(src='assets/images/icons/marathon.png')
             h3.card-title Marathon
-            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            p.card-copy Use to launch long-running apps, for example a webserver.
+        a.card(href="#", data-name="Spark", data-doc="service/spark")
+          .card-content
+            img.card-logo(src='assets/images/icons/spark.png')
+            h3.card-title Spark
+            p.card-copy Use for elastic data processing, batch or streaming.
+        a.card(href="#", data-name="ArangoDB", data-doc="service/arangodb")
+          .card-content
+            img.card-logo(src='assets/images/icons/arangodb.png')
+            h3.card-title ArangoDB
+            p.card-copy Use to store and query tree-like data as well as graphs.
+        a.card(href="#", data-name="Cassandra", data-doc="service/cassandra")
+          .card-content
+            img.card-logo(src='assets/images/icons/cassandra.png')
+            h3.card-title Cassandra
+            p.card-copy Use to store and query semi-structured data in wide tables.
+        a.card(href="#", data-name="Chronos", data-doc="service/chronos")
+          .card-content
+            img.card-logo(src='assets/images/icons/chronos.png')
+            h3.card-title Chronos
+            p.card-copy Use to launch scheduled batch jobs in a distributed way.
+        a.card(href="#", data-name="Jenkins", data-doc="service/jenkins")
+          .card-content
+            img.card-logo(src='assets/images/icons/jenkins.png')
+            h3.card-title Jenkins
+            p.card-copy Use to build your scalable and fault-tolerant CI/CD pipeline.
+          a.card(href="#", data-name="Kafka", data-doc="service/chronos")
+            .card-content
+              img.card-logo(src='assets/images/icons/kafka.png')
+              h3.card-title Kafka
+              p.card-copy Use to queue messages and distributed to others.
+          a.card(href="#", data-name="Jenkins", data-doc="service/kafka")
 
     .container__content.platform-select(style='display: none;')
       h2 Select a platform
 
       .card-container
-        a.card(href="#", data-name="AWS", data-doc="platform/aws")
+        a.card(href="#", data-name="Local", data-doc="platform/local")
           .card-content
-            img.card-logo(src='assets/images/icons/spark.png')
-            h3.card-title AWS
-            p.card-copy Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            img.card-logo(src="assets/images/icons/local.png")
+            h3.card-title Local
+            p.card-copy A Vagrant-based installer for local installation.
+            h4 Requirements
+            p A single machine with at least 16GB of memory.
+            img(src='assets/images/icons/vagrant.png')
+
+        a.card(href="#", data-name="Cloud", data-doc="platform/cloud")
+          .card-content
+            img.card-logo(src='assets/images/icons/cloud.png')
+            h3.card-title Cloud
+            p.card-copy Configurable cloud provisioning templates.
+            h4 Requirements
+            p An active cloud subscription with your favorite provider.
+            img(src='assets/images/icons/aws.png')
+            img(src='assets/images/icons/azure.png')
+
+        a.card(href="#", data-name="Custom Cloud", data-doc="platform/custom-cloud")
+          .card-content
+            img.card-logo(src='assets/images/icons/custom-cloud.png')
+            h3.card-title Custom Cloud
+            p.card-copy Custom installers for existing cloud setups.
+            h4 Requirements
+            p An active cloud subscription; an existing cluster.
+            img(src='assets/images/icons/aws.png')
+            img(src='assets/images/icons/azure.png')
+            img(src='assets/images/icons/packet.png')
+            
+        a.card(href="#", data-name="On-Premises", data-doc="platform/on-premises")
+          .card-content
+            img.card-logo(src='assets/images/icons/on-prem.png')
+            h3.card-title On-Premises
+            p.card-copy Custom installers for on-premises setups.
+            h4 Requirements
+            p At least 4 nodes: 1 master and 3 agents.
+            img(src='assets/images/icons/ubuntu.png')
+            img(src='assets/images/icons/coreos.png')
+            img(src='assets/images/icons/centos.png')
 
     .container__content.install(style='display: none;')
 
@@ -62,6 +128,7 @@ block content
   .container
     .container__content
       +footer
-block scripts
+
+  script(src='/scripts/main.js')
   script(src='/scripts/fetch.js')
-  script(src='/scripts/docs.js')
+  script(src='/scripts/get-started.js')
