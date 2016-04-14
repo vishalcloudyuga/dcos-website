@@ -16,8 +16,17 @@
     margin: 0;
   }
 
-  a {
+  a, .footer-item {
     color: $black60;
+    transition: .1s;
+
+    &:hover {
+      color: black;
+
+      .footer-item__icon {
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -43,6 +52,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  cursor: pointer;
 }
 
 .footer-item__icon {
@@ -55,8 +65,16 @@
 
 .container--dark-background {
   .footer {
-    a {
+    a, .footer-item {
       color: $white60;
+
+      &:hover {
+        color: white;
+
+        .footer-item__icon {
+          opacity: 1;
+        }
+      }
     }
   }
 }

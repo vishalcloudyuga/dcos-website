@@ -1,20 +1,3 @@
-Element.prototype.hasClassName = function(name) {
-  return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
-};
-
-Element.prototype.addClassName = function(name) {
-  if (!this.hasClassName(name)) {
-    this.className = this.className ? [this.className, name].join(' ') : name;
-  }
-};
-
-Element.prototype.removeClassName = function(name) {
-  if (this.hasClassName(name)) {
-    var c = this.className;
-    this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
-  }
-};
-
 (function() {
   let currentService, currentPlatform;
 
@@ -22,12 +5,12 @@ Element.prototype.removeClassName = function(name) {
   const platformLinks = $$('.platform-select a');
 
   // Header animation
-  setInterval(function() {
-    let serviceLink = serviceLinks[Math.floor(Math.random()*serviceLinks.length)];
-    let platformLink = platformLinks[Math.floor(Math.random()*platformLinks.length)];
-    $('.getstarted-heading__service').innerHTML = serviceLink.getAttribute('data-name');
-    $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
-  }, 1000)
+  // setInterval(function() {
+  //   let serviceLink = serviceLinks[Math.floor(Math.random()*serviceLinks.length)];
+  //   let platformLink = platformLinks[Math.floor(Math.random()*platformLinks.length)];
+  //   $('.getstarted-heading__service').innerHTML = serviceLink.getAttribute('data-name');
+  //   $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
+  // }, 1000)
 
   // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
@@ -68,6 +51,8 @@ Element.prototype.removeClassName = function(name) {
     $('.step2').addClassName('step-inactive');
     $('.step3').addClassName('step-inactive');
 
+    $('.arrow-container').removeClassName('step2').removeClassName('step3').addClassName('step1')
+
     currentService = undefined;
     currentPlatform = undefined;
     window.location.hash = '!';
@@ -85,6 +70,8 @@ Element.prototype.removeClassName = function(name) {
     $('.step2').removeClassName('step-inactive');
     $('.step3').addClassName('step-inactive');
 
+    $('.arrow-container').removeClassName('step3').addClassName('step2')
+
     currentPlatform = undefined;
 
     window.location.hash = `${currentService.name}`.toLowerCase();
@@ -98,14 +85,14 @@ Element.prototype.removeClassName = function(name) {
         if(serviceDoc != undefined && platformDoc != undefined) resolve({service: serviceDoc, platform: platformDoc});
       }
 
-      fetch(`/get-started-docs/${servicePath}.html`)
+      fetch(`/get-started-docs/${servicePath}/`)
         .then(response => response.text())
         .then(body => {
           serviceDoc = body;
           gotADoc()
         })
 
-      fetch(`/get-started-docs/${platformPath}.html`)
+      fetch(`/get-started-docs/${platformPath}/`)
         .then(response => response.text())
         .then(body => {
           platformDoc = body;
@@ -126,6 +113,8 @@ Element.prototype.removeClassName = function(name) {
       $('.step1').addClassName('step-inactive');
       $('.step2').removeClassName('step-inactive');
 
+      $('.arrow-container').removeClassName('step1').addClassName('step2')
+
       $('.step1 h3').innerHTML = currentService.name;
       window.location.hash = `${currentService.name}`.toLowerCase();
     } else if(cur === 2) {
@@ -139,13 +128,15 @@ Element.prototype.removeClassName = function(name) {
       $('.step2').addClassName('step-inactive');
       $('.step3').removeClassName('step-inactive');
 
+      $('.arrow-container').removeClassName('step2').addClassName('step3')
+
       $('.step1 h3').innerHTML = currentService.name;
       $('.step2 h3').innerHTML = currentPlatform.name;
       window.location.hash = `${currentService.name}+${currentPlatform.name}`.toLowerCase();
 
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
-          $('.install').innerHTML = `${docs.service}\n${docs.platform}`;
+          $('.install').innerHTML = `${docs.platform}\n${docs.service}`;
         })
     }
   }

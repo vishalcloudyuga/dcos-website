@@ -26,11 +26,9 @@ const updatePaths = function(file, filename) {
   if (path.basename(filename) === "index.html" ) { return filename; }
 
   if (path.extname(filename) === '.html' &&
-      path.extname(filename) !== '' &&
-      filename.substr(0, 17) !== 'get-started-docs/' &&
-      process.env.CI) {
-    console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
-    return filename = filename.substr(0, filename.length-5);
+      path.extname(filename) !== '') {
+
+    return filename.split(".html")[0] + "/index.html";
   }
   return filename;
 };
@@ -39,15 +37,33 @@ const updatePaths = function(file, filename) {
 const navConfig = {
     header: {
       includeDirs: true,
-      // pathProperty: docsVersion,
       pathProperty: 'nav_path',
       childrenProperty: 'nav_children',
+      sortBy: 'menu_order'
     }
+}
+
+let createDocsJSON = function(obj) {
+  var newObj = {
+    name: obj.type,
+    path: obj.path
+  };
+
+  if(obj.file) {
+    newObj.file = {
+      post_title: obj.file.post_title,
+      search_blurb: obj.file.search_blurb
+    }
+  }
+  newObj.children = obj.children.map(createDocsJSON);
+
+  return newObj;
 }
 
 const navSettings = {
   navListProperty: 'navs',
   permalinks: false,
+  formatJSONfn: createDocsJSON
 }
 
 let nav = navigation(navConfig, navSettings);
@@ -114,7 +130,7 @@ Metalsmith(__dirname)
   ]))
   .use(babel({
     presets: ['es2015'],
-    only: '/src/scripts/**/*'
+    only: './src/scripts/**'
   }))
   .use(copy({
     pattern: 'assets/*',

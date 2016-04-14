@@ -14,33 +14,33 @@ block content
           .hero-cta-container
             a(href='/get-started').cta.cta--button Get Started
             a.cta.cta--video(href='#', data-overlay-toggle='video-overlay')
-              img.cta--video__icon(src='assets/images/icons/playbutton@2x.png')
+              img.cta--video__icon(src='/assets/images/icons/playbutton@2x.png')
               p.cta--video__text Play Video
-        img.hero-image(src='assets/images/hero-image.png')
+        img.hero-image(src='/assets/images/hero-image.png')
 
       hr.hero-divider
 
       ul.container__content--hero-list
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/scalable.svg")
+          img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Containers & Big Data
             p.hero-list__item__copy__paragraph Easily deploy and run stateful or stateless distributed workloads including Docker containers, big data, and traditional apps.
 
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/mature.svg")
+          img.hero-list__item__image(src="/assets/images/icons/opensource.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title 100% Open Source
             p.hero-list__item__copy__paragraph Run DC/OS in production without any scale or performance limitations, on any on-premises or cloud platform.
 
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/flexible.svg")
+          img.hero-list__item__image(src="/assets/images/icons/productionproven.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Production Proven
             p.hero-list__item__copy__paragraph Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
 
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/efficient.svg")
+          img.hero-list__item__image(src="/assets/images/icons/serviceecosystem.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title App Services Ecosystem
             p.hero-list__item__copy__paragraph Build apps quickly using a rich ecosystem of datacenter-scale application services.
@@ -51,48 +51,54 @@ block content
       p Modern apps include containers of microservices and stateful big-data services.  DC/OS is the world’s first and only fully open source platform enabling enterprises to easily build and run modern apps in production.  Built on Apache Mesos, DC/OS abstracts your datacenter into a single computer, pooling distributed workloads and simplifying rollout and operations.
       a(href='/why-dcos').cta.cta--button.button--secondary Learn More
       figure.full-width-image
-        img(src="assets/images/containerized-applications.png")
+        img(src="/assets/images/containerized-applications.png")
 
       ul.container__content--hero-list
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/github.svg")
+          img.hero-list__item__image(src="/assets/images/icons/buildamazingapps.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Build Amazing Apps
             p.hero-list__item__copy__paragraph Combine the power of microservices, containers and big data to quickly build and ship modern state of the art applications.
             a.cta.cta--text Learn More &rarr;
 
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/slack.svg")
+          img.hero-list__item__image(src="/assets/images/icons/operatewithconfidence.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Operate with Confidence
             p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot your datacenter with efficiency, ease, and flexibility.
             a.cta.cta--text Learn More &rarr;
 
         li.hero-list__item
-          img.hero-list__item__image(src="assets/images/icons/twitter.svg")
+          img.hero-list__item__image(src="/assets/images/icons/outpacethecompetition.svg")
           .hero-list__item__copy
             h5.hero-list__item__copy__title Outpace the Competition
             p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
             a.cta.cta--text Learn More &rarr;
 
   .container.container--case-study
-    .container__content.container__content--case-study-copy
-        h3.case-study-copy Azure Container Service Powered by DC/OS
-        p.case-study-copy Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
-        a.cta.cta--text.case-study-copy Read full case study &rarr;
+    .case-study-item.active
+      .container__content.container__content--case-study-copy
+        .copy-wrapper
+          h3.case-study-title Azure Container Service Powered&nbsp;by&nbsp;DC/OS
+          p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+          a.cta.cta--text.case-study-link Read full case study &rarr;
 
-        ul.bullet-list
-          li.bullet-list__item
-            a.bullet-list__bullet.active
-          li.bullet-list__item
-            a.bullet-list__bullet
-          li.bullet-list__item
-            a.bullet-list__bullet
-          li.bullet-list__item
-            a.bullet-list__bullet
+      .container__content.container__content--case-study-image-wrapper
+        .image-wrapper
+          img.case-study-image(src="/assets/images/logos/microsoft.svg")
 
-    .container__content.container__content--case-study-image-wrapper
-        img.case-study-image(src="assets/images/logos/microsoft.svg")
+    .case-study-item
+      .container__content.container__content--case-study-copy
+        .copy-wrapper
+          h3.case-study-title Lorem ipsum Amazon stuff
+          p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+          a.cta.cta--text.case-study-link Read full case study &rarr;
+
+      .container__content.container__content--case-study-image-wrapper
+        .image-wrapper
+          img.case-study-image(src="/assets/images/logos/aws.svg")
+
+    ul.bullet-list
 
 
   .container.partner-quote-container
@@ -119,20 +125,20 @@ block content
 
       ul.partner-quote-logo-list
         li.partner-quote-logo-list__partner-quote-logo.active
-          a(href='#', data-activate-quote='0')
-            img(src="assets/images/logos/coreos.svg")
+          a(data-activate-quote='0')
+            img(src="/assets/images/logos/coreos.svg")
         li.partner-quote-logo-list__partner-quote-logo
-          a(href='#', data-activate-quote='1')
-            img(src="assets/images/logos/vmware.svg")
+          a(data-activate-quote='1')
+            img(src="/assets/images/logos/vmware.svg")
         li.partner-quote-logo-list__partner-quote-logo
-          a(href='#', data-activate-quote='2')
-            img(src="assets/images/logos/microsoft.svg")
+          a(data-activate-quote='2')
+            img(src="/assets/images/logos/microsoft.svg")
         li.partner-quote-logo-list__partner-quote-logo
-          a(href='#', data-activate-quote='3')
-            img(src="assets/images/logos/aws.svg")
+          a(data-activate-quote='3')
+            img(src="/assets/images/logos/aws.svg")
         li.partner-quote-logo-list__partner-quote-logo
-          a(href='#', data-activate-quote='4')
-            img(src="assets/images/logos/redhat.svg")
+          a(data-activate-quote='4')
+            img(src="/assets/images/logos/redhat.svg")
 
   .container.container--dark-background
     .container__content
@@ -144,10 +150,11 @@ block content
   .overlay(data-overlay='video-overlay')
     .overlay__close-cta
       a(href='#', data-overlay-toggle='video-overlay')
-        img(src='assets/images/icons/cancel.svg')
+        img(src='/assets/images/icons/cancel.svg')
     .overlay__video
-      iframe(src="https://www.youtube-nocookie.com/embed/0I6qG9RQUnY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen)
+      iframe(src="https://www.youtube-nocookie.com/embed/0I6qG9RQUnY?rel=0&enablejsapi=1&amp;showinfo=0;" frameborder="0" allowfullscreen)
 
   script(src='/scripts/main.js')
   script(src='scripts/overlay.js')
   script(src='/scripts/quotes-carousel.js')
+  script(src='/scripts/case-study-carousel.js')

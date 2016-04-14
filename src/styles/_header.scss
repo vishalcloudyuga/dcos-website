@@ -11,23 +11,31 @@
   ul {
     margin: 0;
 
-  a {
-    color: $black60;
+  a, .menu-item {
+    color: black;
+    transition: .1s;
   }
+
+
 }
 
   .cta {
-    color: $black60;
+    color: black;
     margin: 0;
+    opacity: 1;
   }
 
   .cta--button {
-    border-color: $black60;
+    border-color: black;
+
+    &:hover {
+      background: transparent;
+    }
   }
 }
 
 .logo {
-  width: 4rem;
+  width: 6rem;
   align-self: flex-start;
 }
 
@@ -50,19 +58,30 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-}
+  opacity: 0.6;
 
-.container--dark-background {
-  .navigation a {
-    color: $white60;
+  &:hover, .active {
+    opacity: 1;
   }
 }
 
+.container--dark-background {
+  .navigation a, .menu-item {
+    color: white;
+  }
+
+  .menu-item {
+    opacity: 0.6;
+
+    &:hover, .active {
+      opacity: 1;
+    }
+  }
+}
 
 .header-item__icon {
   width: 16px;
   margin-right: 0.5rem;
-  opacity: 0.6;
 }
 
 @include break($tablet-portrait) {
@@ -71,6 +90,10 @@
     flex-flow: row;
     padding: 0 2rem;
     background-color: transparent;
+
+    .logo, .cta--button {
+      margin-top: 2px;
+    }
   }
 
   .main-nav-container, .menu, .secondary-menu {
