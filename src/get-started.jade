@@ -18,7 +18,7 @@ block content
         .getstarted-heading__platform
           img(src='/assets/images/icons/spark.png')
           span Spark
-        
+
       p.getstarted-subheading Get started by selecting a service you want to run on a platform.
 
     .container__content.getstarted-tabs
@@ -74,53 +74,53 @@ block content
             img.card-logo(src='/assets/images/icons/jenkins.png')
             h3.card-title Jenkins
             p.card-copy Use to build your scalable and fault-tolerant CI/CD pipeline.
-          a.card(href="#", data-name="Kafka", data-doc="service/chronos")
-            .card-content
-              img.card-logo(src='/assets/images/icons/kafka.png')
-              h3.card-title Kafka
-              p.card-copy Use to queue messages and distributed to others.
-          a.card(href="#", data-name="Jenkins", data-doc="service/kafka")
+        a.card(href="#", data-name="Kafka", data-doc="service/chronos")
+          .card-content
+            img.card-logo(src='/assets/images/icons/kafka.png')
+            h3.card-title Kafka
+            p.card-copy Use to queue messages and distributed to others.
+        a.card(href="#", style='opacity: 0;')
 
     .container__content.platform-select(style='display: none;')
       h2 Select a platform
 
       .card-container
-        a.card(href="#", data-name="Marathon", data-doc="service/marathon")
+        a.card(href="#", data-name="AWS", data-doc="platform/aws")
           .card-content
-            img.card-logo(src='/assets/images/icons/marathon.png')
-            h3.card-title Marathon
+            img.card-logo(src='/assets/images/icons/aws.png')
+            h3.card-title AWS
             p.card-copy Use to launch long-running apps, for example a webserver.
-        a.card(href="#", data-name="Spark", data-doc="service/spark")
+        a.card(href="#", data-name="Azure", data-doc="platform/azure")
           .card-content
-            img.card-logo(src='/assets/images/icons/spark.png')
-            h3.card-title Spark
+            img.card-logo(src='/assets/images/icons/azure.png')
+            h3.card-title Azure
             p.card-copy Use for elastic data processing, batch or streaming.
-        a.card(href="#", data-name="ArangoDB", data-doc="service/arangodb")
+        a.card(href="#", data-name="Azure", data-doc="platform/centos")
           .card-content
-            img.card-logo(src='/assets/images/icons/arangodb.png')
-            h3.card-title ArangoDB
+            img.card-logo(src='/assets/images/icons/centos.png')
+            h3.card-title CentOS
             p.card-copy Use to store and query tree-like data as well as graphs.
-        a.card(href="#", data-name="Cassandra", data-doc="service/cassandra")
+        a.card(href="#", data-name="coreos", data-doc="platform/coreos")
           .card-content
-            img.card-logo(src='/assets/images/icons/cassandra.png')
-            h3.card-title Cassandra
+            img.card-logo(src='/assets/images/icons/coreos.png')
+            h3.card-title CoreOS
             p.card-copy Use to store and query semi-structured data in wide tables.
-        a.card(href="#", data-name="Chronos", data-doc="service/chronos")
+        a.card(href="#", data-name="Packet", data-doc="platform/packet")
           .card-content
-            img.card-logo(src='/assets/images/icons/chronos.png')
-            h3.card-title Chronos
+            img.card-logo(src='/assets/images/icons/packet.png')
+            h3.card-title Packet
             p.card-copy Use to launch scheduled batch jobs in a distributed way.
-        a.card(href="#", data-name="Jenkins", data-doc="service/jenkins")
+        a.card(href="#", data-name="Ubuntu", data-doc="platform/ubuntu")
           .card-content
-            img.card-logo(src='/assets/images/icons/jenkins.png')
-            h3.card-title Jenkins
+            img.card-logo(src='/assets/images/icons/ubuntu.png')
+            h3.card-title Ubuntu
             p.card-copy Use to build your scalable and fault-tolerant CI/CD pipeline.
-          a.card(href="#", data-name="Kafka", data-doc="service/chronos")
-            .card-content
-              img.card-logo(src='/assets/images/icons/kafka.png')
-              h3.card-title Kafka
-              p.card-copy Use to queue messages and distributed to others.
-          a.card(href="#", data-name="Jenkins", data-doc="service/kafka")
+        a.card(href="#", data-name="Vagrant", data-doc="platform/vagrant")
+          .card-content
+            img.card-logo(src='/assets/images/icons/vagrant.png')
+            h3.card-title Vagrant
+            p.card-copy Use to queue messages and distributed to others.
+        a.card(href="#", style='opacity: 0;')
 
     .container__content.install(style='display: none;')
 
