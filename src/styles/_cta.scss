@@ -1,4 +1,4 @@
-// Call To Action variants
+  // Call To Action variants
 
 .cta {
   display: block;
@@ -25,9 +25,10 @@
   font-weight: 400;
   background-color: $heliotrope;
   color: white;
+  border: none;
 }
 
-a.button--secondary {
+.button--secondary, a.button--secondary {
   background-color: transparent;
   border: 1px solid $heliotrope;
   color: $heliotrope;
