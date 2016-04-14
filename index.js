@@ -26,11 +26,9 @@ const updatePaths = function(file, filename) {
   if (path.basename(filename) === "index.html" ) { return filename; }
 
   if (path.extname(filename) === '.html' &&
-      path.extname(filename) !== '' &&
-      filename.substr(0, 17) !== 'get-started-docs/' &&
-      process.env.CI) {
-    console.log(`Change filename ${filename} to ${filename.substr(0, filename.length-5)}`);
-    return filename = filename.substr(0, filename.length-5);
+      path.extname(filename) !== '') {
+
+    return filename.split(".html")[0] + "/index.html";
   }
   return filename;
 };
