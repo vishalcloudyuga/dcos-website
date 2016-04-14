@@ -79,9 +79,10 @@ let createDocs = function (event, file) {
     }))
     .use(nav)
     .use(layouts({
+      pattern: '**/*.html',
       engine: 'jade',
       directory: path.join('..', 'layouts'),
-      default: 'docs.jade',
+      default: 'docs.jade'
     }))
     .use(jade({
       pretty: true
