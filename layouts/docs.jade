@@ -1,23 +1,44 @@
 include ../mixins/header-docs.jade
 include ../mixins/footer-docs.jade
 
+- var path = locals.nav_path.split('/')
+- var findPath = function (childPath) { return path.find(function(item) { return item === childPath} ) };
+- var stripExtname = function(file) { return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) : file }
+
 mixin renderMenu(tree)
   ul
     each child in tree
       if(child.file)
-        li.docs-nav__item.docs-nav__item--closed
-          if(locals.nav_path === child.path)
-            a(href='/docs/latest/#{child.path}').active #{child.file.post_title}
-          else
-            a(href='/docs/latest/#{child.path}') #{child.file.post_title}
-          if(child.children)
-            +renderMenu(child.children)
-      else
-        if(child.name !== 'img')
-          li.docs-nav__item.docs-nav__item--closed
-            a(href='#', data-path='#{child.name}') #{child.name}
+        if(findPath(child.path))
+          li.docs-nav__item.docs-nav__item_file
+            if(locals.nav_path === child.path)
+              a(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
+            else
+              a(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
             if(child.children)
               +renderMenu(child.children)
+        else
+          li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
+            if(locals.nav_path === child.path)
+              a(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
+            else
+              a(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
+            if(child.children)
+              +renderMenu(child.children)
+
+      else
+        if(findPath(child.name))
+          if(child.name !== 'img')
+            li.docs-nav__item.docs-nav__item_folder
+              a(href='#', data-path='#{child.name}') #{child.name}
+              if(child.children)
+                +renderMenu(child.children)
+        else
+          if(child.name !== 'img')
+            li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
+              a(href='#', data-path='#{child.name}') #{child.name}
+              if(child.children)
+                +renderMenu(child.children)
 
 <!doctype html>
 html
@@ -43,30 +64,6 @@ html
             .docs-search
               input(type='search').docs-search__input
             +renderMenu(locals.navs.header)
-
-            //- ul
-            //-   li.docs-nav__item
-            //-     a Installing
-            //-     ul
-            //-       li.docs-nav__item__child
-            //-         a Let's go
-            //-       li.docs-nav__item__child
-            //-         a Let's go
-            //-       li.docs-nav__item__child
-            //-         a Let's go
-            //-   li.docs-nav__item
-            //-     a First run
-            //-   li.docs-nav__item
-            //-     a First run
-            //-     ul
-            //-       li.docs-nav__item__child
-            //-         a Let's go
-            //-       li.docs-nav__item__child
-            //-         a Let's go
-            //-       li.docs-nav__item__child
-            //-         a Let's go
-            //-   li.docs-nav__item
-            //-     a First run
 
           .docs-layout__docs-content
             article!= contents
