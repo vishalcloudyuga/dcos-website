@@ -8,6 +8,27 @@ const snapper = new Snap({
   disable: 'right'
 });
 
+let checkForSnap = function() {
+  if(window.outerWidth <= 768) {
+    snapper.enable();
+  } else {
+    snapper.close();
+    snapper.disable();
+  }
+}
+
+window.addEventListener('resize', checkForSnap);
+checkForSnap();
+
+$('a.nav-hamburger').addEventListener('click', function(e) {
+  e.preventDefault();
+  if(snapper.state().state === 'left') {
+    snapper.close();
+  } else {
+    snapper.open('left');
+  }
+});
+
 // Convenience methods
 const hasClassName = function(name) {
   return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
