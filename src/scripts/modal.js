@@ -18,13 +18,9 @@
     * - closeButtonImage (required) - image url
     * */
     constructor (options = {}) {
-      this.modal = null;
-      this.overlay = null;
-      this.closeButton = null;
-      this.fragment = null;
+      this.modal, this.overlay, this.closeButton, this.fragment;
 
       this.options = options;
-
       this.content = this.options.content;
 
       this.options.button.addEventListener('click', this.open.bind(this));
@@ -34,18 +30,17 @@
       this._buildModal();
       this._initEvents();
 
-      document.querySelector('body').classList.add('modal-open');
+      $('body').classList.add('modal-open');
     }
 
     close () {
       this.modal.parentNode.removeChild(this.modal);
       this.overlay.parentNode.removeChild(this.overlay);
 
-      document.querySelector('body').classList.remove('modal-open');
+      $('body').classList.remove('modal-open');
     }
 
     // private
-
     _buildModal () {
       this.fragment = document.createDocumentFragment();
 
@@ -59,7 +54,6 @@
       this.modal.appendChild(container);
 
       // close button
-
       const closeButtonImage = new Image();
       closeButtonImage.src = this.options.closeButtonImage;
 
@@ -68,7 +62,6 @@
       this.closeButton.appendChild(closeButtonImage);
 
       // overlay
-
       this.overlay = document.createElement('div');
       this.overlay.classList.add('modal-overlay', 'modal-overlay-visible');
       this.overlay.appendChild(this.closeButton);
@@ -89,11 +82,11 @@
   const modals = Array.prototype.slice.call(document.querySelectorAll('[data-modal]'));
 
   modals.forEach(button => {
-    const content = document.querySelector(button.dataset.modal);
-    const parent = document.querySelector(button.dataset.modal).parentNode;
+    const content = $(button.dataset.modal);
+    const parent  = $(button.dataset.modal).parentNode;
 
     parent.removeChild(content);
 
-    const modal = new Modal({ button, content, closeButtonImage: 'assets/images/icons/cancel.svg' })
+    const modal = new Modal({button, content, closeButtonImage: '/assets/images/icons/cancel.svg'})
   });
 })();
