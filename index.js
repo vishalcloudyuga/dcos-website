@@ -39,9 +39,9 @@ const updatePaths = function(file, filename) {
 const navConfig = {
     header: {
       includeDirs: true,
-      // pathProperty: docsVersion,
       pathProperty: 'nav_path',
-      childrenProperty: 'nav_children'
+      childrenProperty: 'nav_children',
+      sortBy: 'menu_order'
     }
 }
 
@@ -133,7 +133,7 @@ Metalsmith(__dirname)
   ]))
   .use(babel({
     presets: ['es2015'],
-    only: '/src/scripts/**/*'
+    only: './src/scripts/**'
   }))
   .use(copy({
     pattern: 'assets/*',
