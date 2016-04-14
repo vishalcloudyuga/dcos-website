@@ -30,6 +30,7 @@
     document.removeEventListener('keydown', escapePressed);
     document.removeEventListener('click', closeOverlay);
     toggleVideoState('pause', this.querySelector('.overlay__video'));
+    $('body').classList.remove('overlay-active');
   }
 
   // overlay is shown
@@ -37,6 +38,7 @@
     // both esc or close button closes the overlay
     document.addEventListener('keydown', escapePressed.bind(this));
     toggleVideoState('play', this.querySelector('.overlay__video'));
+    $('body').classList.add('overlay-active');
   }
 
   function escapePressed(e) {

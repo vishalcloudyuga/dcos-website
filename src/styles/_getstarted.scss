@@ -92,6 +92,14 @@
 	border-bottom: 1rem solid white;
 }
 
+// Step 3 Install styling
+
+.getstarted-install {
+	p:nth-child(1) {
+		font-size: 50px;
+	}
+}
+
 @include break($mobile-small-landscape) {
 	.getstarted-heading__service {
 		margin-right: 1rem;
