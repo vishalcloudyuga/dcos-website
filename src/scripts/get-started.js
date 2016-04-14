@@ -51,6 +51,8 @@
     $('.step2').addClassName('step-inactive');
     $('.step3').addClassName('step-inactive');
 
+    $('.arrow-container').removeClassName('step2').removeClassName('step3').addClassName('step1')
+
     currentService = undefined;
     currentPlatform = undefined;
     window.location.hash = '!';
@@ -68,6 +70,8 @@
     $('.step2').removeClassName('step-inactive');
     $('.step3').addClassName('step-inactive');
 
+    $('.arrow-container').removeClassName('step3').addClassName('step2')
+
     currentPlatform = undefined;
 
     window.location.hash = `${currentService.name}`.toLowerCase();
@@ -81,14 +85,14 @@
         if(serviceDoc != undefined && platformDoc != undefined) resolve({service: serviceDoc, platform: platformDoc});
       }
 
-      fetch(`/get-started-docs/${servicePath}.html`)
+      fetch(`/get-started-docs/${servicePath}/`)
         .then(response => response.text())
         .then(body => {
           serviceDoc = body;
           gotADoc()
         })
 
-      fetch(`/get-started-docs/${platformPath}.html`)
+      fetch(`/get-started-docs/${platformPath}/`)
         .then(response => response.text())
         .then(body => {
           platformDoc = body;
@@ -109,6 +113,8 @@
       $('.step1').addClassName('step-inactive');
       $('.step2').removeClassName('step-inactive');
 
+      $('.arrow-container').removeClassName('step1').addClassName('step2')
+
       $('.step1 h3').innerHTML = currentService.name;
       window.location.hash = `${currentService.name}`.toLowerCase();
     } else if(cur === 2) {
@@ -122,13 +128,15 @@
       $('.step2').addClassName('step-inactive');
       $('.step3').removeClassName('step-inactive');
 
+      $('.arrow-container').removeClassName('step2').addClassName('step3')
+
       $('.step1 h3').innerHTML = currentService.name;
       $('.step2 h3').innerHTML = currentPlatform.name;
       window.location.hash = `${currentService.name}+${currentPlatform.name}`.toLowerCase();
 
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
-          $('.install').innerHTML = `${docs.service}\n${docs.platform}`;
+          $('.install').innerHTML = `${docs.platform}\n${docs.service}`;
         })
     }
   }

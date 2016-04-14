@@ -9,15 +9,15 @@ mixin header()
     ul.menu
       li.menu-item
         if(locals.filename === 'why-dcos.html')
-          a(href='/why-dcos').active Learn&nbsp;More
+          a(href='/why-dcos/').active Learn&nbsp;More
         else
-          a(href='/why-dcos') Learn&nbsp;More
+          a(href='/why-dcos/') Learn&nbsp;More
           
       li.menu-item
         if(locals.filename === 'releases/index.html')
-          a(href='/releases').active Releases  
+          a(href='/releases/').active Releases  
         else
-          a(href='/releases') Releases  
+          a(href='/releases/') Releases  
           
       li.menu-item
         if(locals.filename === 'install/index.html')
@@ -26,13 +26,13 @@ mixin header()
           a(href='/install/') Install
           
       li.menu-item
-        a(href='/docs/latest/usage') Documentation
+        a(href='/docs/latest/usage/') Documentation
         
       li.menu-item
         if(locals.filename === 'community.html')
-          a(href='/community').active Community
+          a(href='/community/').active Community
         else
-          a(href='/community') Community
+          a(href='/community/') Community
         
       li.menu-item
         img.header-item__icon(src='/assets/images/icons/github.svg')

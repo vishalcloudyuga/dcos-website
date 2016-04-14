@@ -9,6 +9,10 @@
 
 .cta--text {
   color: $heliotrope;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .container--dark-background .cta--text {
@@ -26,18 +30,31 @@
   background-color: $heliotrope;
   color: white;
   border: 1px solid $heliotrope;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .button--secondary, a.button--secondary {
   background-color: transparent;
   border: 1px solid $heliotrope;
   color: $heliotrope;
+
+  &:hover {
+    background-color: $heliotrope;
+  }
 }
 
 .container--dark-background {
   .button--secondary {
      border: 1px solid $white60;
      color: $white60;
+
+     &:hover {
+       background-color: transparent;
+       border: 1px solid white;
+     }
   }
 }
 
@@ -47,6 +64,10 @@
   flex-flow: row nowrap;
   align-items: center;
   margin: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .cta--video__icon {
