@@ -11,6 +11,11 @@ before_script:
 - npm rebuild node-sass
 script:
 - CI=true npm start
+before_install:
+- pip install --user awscli
+- export PATH=$PATH:$HOME/.local/bin
+before_deploy:
+- aws s3 rm s3://dcos.io --recursive --region us-west-2
 deploy:
   skip_cleanup: true
   detect_encoding: true
