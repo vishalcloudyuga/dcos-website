@@ -136,7 +136,7 @@
 
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
-          $('.install').innerHTML = `${docs.platform}\n${docs.service}`;
+          $('.install').innerHTML = `${docs.platform}<div class="install-arrow"></div>${docs.service}`;
         })
     }
   }
