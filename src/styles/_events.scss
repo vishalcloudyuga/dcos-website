@@ -2,6 +2,10 @@
   overflow: hidden;
   position: relative;
   align-items: flex-start;
+
+  .container__content:first-child {
+    padding-bottom: 2rem;
+  }
 }
 
 .events-container .container__content {
