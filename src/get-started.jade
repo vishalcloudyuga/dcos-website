@@ -10,17 +10,19 @@ block content
 
     .container__content
       .getstarted-heading
-        span.getstarted-heading__copy Run:
         .getstarted-heading__service
-          img(src='/assets/images/icons/spark.png')
-          span Spark
-        span.getstarted-heading__copy on
+          span.getstarted-heading__copy Run:
+          .service-name
+            .service-name-content
+              img(src='/assets/images/icons/spark.png')
+              span dd
         .getstarted-heading__platform
-          img(src='/assets/images/icons/spark.png')
-          span Spark
-
-      p.getstarted-subheading Get started by selecting a service you want to run on a platform.
-
+          span.getstarted-heading__copy On:
+          .service-name
+            .service-name-content
+              img(src='/assets/images/icons/spark.png')
+              span dd
+        
     .container__content.getstarted-tabs
         a.getstarted-tabs__step.step1(href='#')
           p Step 1
