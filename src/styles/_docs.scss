@@ -31,7 +31,7 @@
     opacity: 0.5;
   }
 
-  a:active {
+  a:active, a.active {
     color: $heliotrope;
   }
 }
