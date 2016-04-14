@@ -114,7 +114,7 @@ Metalsmith(__dirname)
   ]))
   .use(babel({
     presets: ['es2015'],
-    only: '/src/scripts/**/*'
+    only: './src/scripts/**'
   }))
   .use(copy({
     pattern: 'assets/*',
