@@ -30,25 +30,26 @@ html
   body
     .flex-container-col.fill-height
       .page-content.container-scrollable.inverse
-        .container.container-fluid.container-pod.flex-container-col
-          .container.container-fluid.container-pod
-            .column-small-offset-2.column-small-8.column-medium-offset-3.column-medium-6.column-large-offset-4.column-large-4
-              #alert-panel.panel.vertical-center.horizontal-center.text-align-center.flush.alert-panel
-                .panel-header.flush
-                  i.icon.icon-sprite.icon-sprite-jumbo.icon-sprite-jumbo-white.icon-lost-planet.flush-top
-                .panel-content
-                  h3.inverse Something Went Wrong
-                  p
-                    span There could be a misconfiguration in the system or service outage. We track these errors automatically, but if the problem persists feel free to contact us. Please try again.
-                  br
-                  .container-pod.container-pod-super-short.container-pod-divider-bottom.container-pod-divider-inverse.flex-container
-                    .error-key  Error Details
-                    #error-details.error-value  Yes this is it
-                  .container-pod.container-pod-super-short.flex-container
-                    .error-key  token ID
-                    #token-id.error-value
-                  br
-                  a(class='button button-primary button-wide', onClick='window.top.location.href="http://support.mesosphere.com";') Get Help
+        .container.container-pod.flex-container-col
+          .column-small-offset-2.column-small-8.column-medium-offset-3.column-medium-6.column-large-offset-3.column-large-6
+            #alert-panel.panel.vertical-center.horizontal-center.text-align-center.flush.alert-panel
+              .panel-header.flush
+                i.icon.icon-sprite.icon-sprite-jumbo.icon-sprite-jumbo-white.icon-lost-planet.flush-top
+              .panel-content
+                h3.inverse Something Went Wrong
+                p
+                  span There could be a misconfiguration in the system or service outage. We track these errors automatically, but if the problem persists feel free to contact us. Please try again.
+                br
+                .container-pod.container-pod-super-short.container-pod-divider-bottom.container-pod-divider-inverse.flex-container
+                  .error-key  Error Details
+                  #error-details.error-value  Yes this is it
+                .container-pod.container-pod-super-short.flex-container
+                  .error-key  token ID
+                  #token-id.error-value
+                br
+                a(class='button button-primary button-wide', onClick='window.top.location.href="http://support.mesosphere.com";') Get Help
+
+
     script.
       (function(){
         var tracking = getParameterByName('tracking') || 'N/A',
