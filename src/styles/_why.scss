@@ -2,6 +2,10 @@
   display: flex;
   flex-flow: column-reverse;
   margin-top: 4rem;
+
+  .mirrored {
+    order: 1;
+  }
 }
 
 .why-content__copy-list {
@@ -17,6 +21,12 @@
 .why-dcos-icon {
   width: 60px;
   margin: 1rem 0;
+}
+
+.why-content__icon {
+  position: absolute;
+  margin-left: -3rem;
+  margin-top: 0.5rem;
 }
 
 @include break($desktop-small) {
