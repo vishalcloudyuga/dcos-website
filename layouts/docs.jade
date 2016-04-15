@@ -32,7 +32,7 @@ mixin renderMenu(tree)
           else
             li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
               if(locals.nav_path === child.path)
-                
+
                 a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
               else
                 a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
@@ -70,6 +70,7 @@ html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset="UTF-8")
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/railscasts.min.css')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js')
     link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon/favicon.ico")
