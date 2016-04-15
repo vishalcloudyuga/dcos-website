@@ -20,7 +20,22 @@
 }
 
 .typer {
-  // define selected color
+  border-right: 2px solid rgba(255, 255, 255, 1);
+
+  &.animating {
+    animation-name: blink;
+    animation-duration: 750ms;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-right: 2px solid rgba(256, 256, 256, 1)
+  }
+  50% {
+    border-right: 2px solid rgba(256,256,256,0)
+  }
 }
 
 .hero-cta-container {

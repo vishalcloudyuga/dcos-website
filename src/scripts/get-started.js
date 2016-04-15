@@ -1,16 +1,51 @@
 (function() {
   let currentService, currentPlatform;
 
-  const serviceLinks = $$('.service-select a');
-  const platformLinks = $$('.platform-select a');
+  const serviceLinks = $$('.service-select a[data-doc]');
+  const platformLinks = $$('.platform-select a[data-doc]');
 
   // Header animation
-  // setInterval(function() {
-  //   let serviceLink = serviceLinks[Math.floor(Math.random()*serviceLinks.length)];
-  //   let platformLink = platformLinks[Math.floor(Math.random()*platformLinks.length)];
-  //   $('.getstarted-heading__service').innerHTML = serviceLink.getAttribute('data-name');
-  //   $('.getstarted-heading__platform').innerHTML = platformLink.getAttribute('data-name');
-  // }, 1000)
+  let createServiceElement = function(link) {
+    return `
+      <div class="service-name" data-current="false">
+        <div class="service-name-content"><img src="${link.getElementsByTagName('img')[0].src}"/><span>${link.getAttribute('data-name')}</span></div>
+      </div>
+    `
+  }
+
+  $('.services-list').innerHTML = Array.prototype.map.call(serviceLinks, createServiceElement).join('');
+  $('.platform-list').innerHTML = Array.prototype.map.call(platformLinks, createServiceElement).join('');
+  $('.services-list').children[0].setAttribute('data-current', 'true')
+  $('.platform-list').children[0].setAttribute('data-current', 'true')
+
+  // Fadeout current, and fadein random item by changing data-current
+  let animateItem = function(options) {
+    let item;
+    let getRandomItem = function() {
+      item = options.list[Math.floor(Math.random()*options.list.length)];
+      if(options.current === item) getRandomItem(options);
+    }
+    getRandomItem();
+    options.current.setAttribute('data-current', 'false');
+    item.setAttribute('data-current', 'true');
+  }
+
+  // Random timing and call the animation again
+  let randomNumber = function() { return Math.floor(Math.random() * 4000) + 2500};
+  let startSequence = (fn) => {
+    setTimeout(() => {
+      animateItem(fn());
+      startSequence(fn);
+    }, randomNumber())
+  }
+
+  startSequence(() => { return {list: $('.services-list').children, current: $('.services-list [data-current="true"]')} });
+
+  // Start later than the first sequence
+  setTimeout(() => {
+    startSequence(() => { return {list: $('.platform-list').children, current: $('.platform-list [data-current="true"]')} });
+  }, randomNumber())
+
 
   // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
