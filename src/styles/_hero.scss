@@ -20,9 +20,13 @@
 }
 
 .typer {
-  animation-name: blink;
-  animation-duration: 750ms;
-  animation-iteration-count: infinite;
+  border-right: 2px solid rgba(255, 255, 255, 1);
+
+  &.animating {
+    animation-name: blink;
+    animation-duration: 750ms;
+    animation-iteration-count: infinite;
+  }
 }
 
 @keyframes blink {
