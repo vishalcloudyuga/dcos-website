@@ -14,22 +14,25 @@
     }
 
     run() {
-      // configure default timeout
-      var timeout = 200;
+      // pick semi-random timeout to feel more natural
+      var timeout = Math.random() * 50 + 50
 
       if(!this.typing && this.displayedString.length > 0){
         // we're backspacing
         this.removeLastCharacter();
+        this.setAnimating(false);
       } else if(this.typing && this.displayedString.length < this.currentWord.length) {
         // we're typing
         let newChar = this.currentWord[this.displayedString.length]
+        this.setAnimating(false)
         this.addCharacter(newChar)
       } else if(this.typing && this.displayedString.length === this.currentWord.length) {
         // done typing, wait a bit and start removing..
-        this.typing = false
+        this.typing    = false
+        timeout        = 1000;
 
-        // override timeout
-        timeout = 500;
+        // start animating cursor
+        this.setAnimating(true)
       } else if(!this.typing && this.displayedString.length === 0){
         // done backspacing, pick new word and start over
         // increment and loop around
@@ -42,10 +45,15 @@
         // set new word and start typing again
         this.currentWord = this.otherWords[this.currentWordIndex];
         this.typing = true;
+        this.setAnimating(false)
       }
 
       // recursively call itself with given timeout
       setTimeout(this.run.bind(this), timeout);
+    }
+
+    setAnimating(isAnimating) {
+      this.element.classList.toggle('animating', isAnimating)
     }
 
     removeLastCharacter(){
