@@ -9,6 +9,7 @@
 }
 
 .docs-search__input {
+  width: 75%;
   padding: 0.5rem 0.5rem 0.5rem 1.75rem;
   border: 1px solid $light-gray;
   border-radius: 4px;
@@ -21,6 +22,20 @@
     outline: none;
     background-color: $snow;
   }
+}
+
+// .docs-nav__item__arrow {
+//   margin-right: 1rem;
+// }
+//
+// .docs-nav__item--closed {
+//   .docs-nav__item__arrow {
+//     margin-left: 0.3rem;
+//   }
+// }
+
+.docs-nav__item_folder > .docs-nav__item__title {
+  margin-left: 1rem;
 }
 
 .docs-layout__docs-nav {
@@ -38,14 +53,15 @@
 
   ul {
     ul {
-      margin-left: 20px;
+      margin-left: 30px;
 
       .docs-nav__item {
+        line-height: 1.5;
         font-size: 0.9rem;
       }
 
       ul {
-        margin-left: 20px;
+        margin-left: 30px;
       }
     }
   }
@@ -62,8 +78,8 @@
   }
 }
 
-.docs-nav__item {
-  margin: 0 0 1rem 0;
+.docs-nav__item, .docs-nav__item-title {
+  margin: 0 0 1.5rem 0;
 }
 
 .docs-nav__item__child {
@@ -152,21 +168,41 @@
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     vertical-align: text-top;
-    border-radius: 4px;
-    padding: 1rem;
-    // color: $heliotrope;
-    // background-color: $heliotrope20;
+
+    &:not(.hljs) {
+      color: $heliotrope;
+      background-color: $heliotrope20;
+    }
   }
 
   pre {
-    max-width: 100%;
+    // max-width: 65%;
     overflow-x: auto;
     word-wrap: break-word;
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     line-height: 1.7;
-    // color: white;
-    // background-color: $space-gray;
+    code {
+      padding: 1rem;
+      border-radius: 4px;
+    }
+  }
+}
+
+.table {
+  line-height: 1.5;
+
+  tbody, tr, td, th {
+    border: 1px solid $dark-gray;
+    word-wrap: break-word;
+  }
+
+  tr, td, th {
+    padding: 0.5rem;
+  }
+
+  th {
+    font-weight: bold;
   }
 }
 
@@ -226,7 +262,11 @@ img.docs-content__footer__share-icon {
   }
 
   .docs-layout__docs-content {
-    width: 65%;
+    max-width: 65%;
+
+    article {
+      max-width: 100%;
+    }
   }
 
   .docs-content__footer {

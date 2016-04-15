@@ -23,6 +23,7 @@ mixin renderMenu(tree)
           if(findPath(child.path))
             li.docs-nav__item.docs-nav__item_file
               if(locals.nav_path === child.path)
+                img(src='/assets/images/icons/docs-file-active.svg')
                 a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
               else
                 a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
@@ -31,6 +32,7 @@ mixin renderMenu(tree)
           else
             li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
               if(locals.nav_path === child.path)
+                
                 a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active #{child.file.post_title}
               else
                 a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}') #{child.file.post_title}
@@ -41,7 +43,8 @@ mixin renderMenu(tree)
           if(findPath(child.name))
             if(child.name !== 'img')
               li.docs-nav__item.docs-nav__item_folder
-                a.docs-nav__item__arrow(href='#') >
+                a.docs-nav__item__arrow(href='#')
+                  img(src='/assets/images/icons/arrow-down-docs.svg')
                 if(findPath(child.path.split('/').pop()))
                   a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                 else
@@ -51,7 +54,8 @@ mixin renderMenu(tree)
           else
             if(child.name !== 'img')
               li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
-                a.docs-nav__item__arrow(href='#') >&nbsp;
+                a.docs-nav__item__arrow(href='#')
+                  img(src='/assets/images/icons/arrow-right-docs.svg')
                 if(findPath(child.path.split('/').pop()))
                   a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                 else

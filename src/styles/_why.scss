@@ -19,6 +19,11 @@
 
 .why-content-image__icon-container {
   display: flex;
+  align-items: center;
+  img {
+    max-width: 428px;
+    margin-top: 4rem; // compensates for the drop shadow in the image
+  }
 }
 
 .why-content__copy-list__title {
