@@ -1,0 +1,21 @@
+extends ../layouts/base.jade
+
+block head
+  title DC/OS
+
+block content
+  
+  .container.container--dark-background
+    +header
+    
+    .container__content
+      h1 Contribute to DC/OS
+  
+  .container
+    .container__content
+      .docs-layout__docs-content
+        p We are currently in the process of establishing the exact code contrib guidelines. Please #[a(href='mailto:help@dcos.io') send us a message] if you want to learn more about the status.
+
+  .container
+    .container__content
+      +footer
