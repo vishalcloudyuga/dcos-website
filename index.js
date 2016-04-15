@@ -20,7 +20,7 @@ const lunr         = require('metalsmith-lunr')
 const lunr_        = require('lunr')
 
 // --- general build settings --- //
-const docsVersion = 'latest';
+const docsVersions = ['1.7', 'latest'];
 
 const updatePaths = function(file, filename) {
   if (path.basename(filename) === "index.html" ) { return filename; }
@@ -69,9 +69,9 @@ const navSettings = {
 let nav = navigation(navConfig, navSettings);
 
 // --------- Compiling the Markdown files to HTML --------//
-let createDocs = function (event, file) {
+let createDocs = function(version) {
   Metalsmith(path.join(__dirname, 'dcos-docs'))
-    .source(docsVersion)
+    .source(version)
     .use(markdown({
       smartypants: true,
       gfm: true,
@@ -79,9 +79,10 @@ let createDocs = function (event, file) {
     }))
     .use(nav)
     .use(layouts({
+      pattern: '**/*.html',
       engine: 'jade',
       directory: path.join('..', 'layouts'),
-      default: 'docs.jade',
+      default: 'docs.jade'
     }))
     .use(jade({
       pretty: true
@@ -103,10 +104,16 @@ let createDocs = function (event, file) {
         lunr_.trimmer
       ]
     }))
-    .destination(path.join('..', 'build', 'docs', docsVersion))
+    .destination(path.join('..', 'build', 'docs', version))
     .build((err) => {
       if (err) throw err
     })
+}
+
+let allDocs = function() {
+  for (let version of docsVersions) {
+    createDocs(version)
+  }
 }
 
 Metalsmith(__dirname)
@@ -153,7 +160,7 @@ Metalsmith(__dirname)
           }
         },
         files: ['./src/**/*', './dcos-docs/**/*', './layouts/**/*', './mixins/**/*']
-      }, null, createDocs);
+      }, null, allDocs)
     }
   })())
   .build((err) => {
@@ -161,4 +168,4 @@ Metalsmith(__dirname)
   })
 
 
-createDocs();
+allDocs()
