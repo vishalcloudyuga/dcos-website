@@ -80,7 +80,7 @@
   margin-right: 0.5rem;
 }
 
-@include break($tablet-portrait) {
+@include break($tablet-landscape) {
   .navigation {
     display: flex;
     flex-flow: row;
@@ -100,8 +100,9 @@
     padding: 1rem;
   }
 
-  .menu-item:last-child {
-    // padding: 0 0 0 1rem;
+  // Kill the mobile menu
+  .snap-drawers, .nav-hamburger {
+    display: none;
   }
 }
 
