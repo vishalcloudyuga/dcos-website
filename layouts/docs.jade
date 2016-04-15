@@ -94,7 +94,7 @@ html
       var __dcos_docs = !{JSON.stringify(locals.navs.json)};
 
     block head
-      title!= post_title
+      title!= locals.post_title
 
   body
     block content
@@ -113,6 +113,7 @@ html
 
 
           .docs-layout__docs-content.docs-layout__docs-article
+            h1!= locals.post_title
             article!= contents
 
             .docs-content__footer
