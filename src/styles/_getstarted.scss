@@ -21,11 +21,24 @@
 	opacity: 0.6;
 }
 
+.services-list, .platform-list {
+  position: relative;
+  width: 100%;
+}
+
 .service-name {
-	display: flex;
-	flex-flow: row;
-	justify-content: center;
-	width: 100%;
+  position: absolute;
+  top: -45px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.service-name[data-current="true"] {
+  opacity: 1;
+}
+
+.service-name[data-current="false"] {
+  opacity: 0;
 }
 
 .getstarted-heading__service, .getstarted-heading__platform {
