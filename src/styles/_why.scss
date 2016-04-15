@@ -11,6 +11,14 @@
 .why-content__copy-list {
   display: flex;
   flex-flow: column;
+
+  li {
+    margin-bottom: 0.2rem;
+  }
+}
+
+.why-content-image__icon-container {
+  display: flex;
 }
 
 .why-content__copy-list__title {

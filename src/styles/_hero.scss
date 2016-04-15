@@ -75,7 +75,7 @@
 
 .container--dark-background {
 	.hero-list__item__copy__paragraph {
-		font-weight: 400;
+		font-weight: 300;
 		opacity: 0.8;
 	}
 }
@@ -243,15 +243,6 @@
   }
 }
 
-// Retina display
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	.container--dark-background {
-		.hero-list__item__copy__paragraph {
-			font-weight: 300;
-		}
-	}
-}
 
 // Internet Explorer 11
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

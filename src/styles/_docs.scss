@@ -195,17 +195,18 @@ ul.docs-content__footer__actions {
   font-size: 0.9rem;
 }
 
+.docs-content__footer__feedback-icon {
+  width: 16px;
+}
+
 .docs-content__footer__action img {
   margin: 0 0.5rem 0 0;
   border-radius: 0;
 }
 
-.docs-content__footer__share-icon {
+img.docs-content__footer__share-icon {
   width: 14px;
-}
-
-.docs-content__footer__feedback-icon {
-  width: 16px;
+  margin-bottom: -2px;
 }
 
 .desktop-only {
