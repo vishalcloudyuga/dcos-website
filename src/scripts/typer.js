@@ -2,13 +2,12 @@
 
   class Typer {
     constructor(element, otherWords) {
-      this.element         = element;
-      this.otherWords      = otherWords;
-
-      this.currentWord   = element.innerText;
-      this.displayedString = element.innerText;
-
-      this.typing = false;
+      this.element          = element;
+      this.otherWords       = otherWords;
+      this.currentWordIndex = 1;
+      this.currentWord      = element.innerText;
+      this.displayedString  = element.innerText;
+      this.typing           = false;
 
       // start it off
       setTimeout(this.run.bind(this), 200)
@@ -33,9 +32,15 @@
         timeout = 500;
       } else if(!this.typing && this.displayedString.length === 0){
         // done backspacing, pick new word and start over
-        let newIndex = Math.floor(Math.random() * this.otherWords.length)
-        let newWord = this.otherWords[newIndex]
-        this.currentWord = newWord;
+        // increment and loop around
+        if( this.currentWordIndex < this.otherWords.length -1) {
+          this.currentWordIndex++;
+        } else {
+          this.currentWordIndex = 0;
+        }
+
+        // set new word and start typing again
+        this.currentWord = this.otherWords[this.currentWordIndex];
         this.typing = true;
       }
 
@@ -58,5 +63,5 @@
     }
   }
 
-  new Typer($('.typer'), ['big data','Spark','Kafka','Cassandra','microservices']);
+  new Typer($('.typer'), ['containers', 'big data','Spark','Kafka','Cassandra','microservices']);
 })();
