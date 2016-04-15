@@ -3,38 +3,38 @@ mixin header()
     .nav-logo-container
       a(href='/').nav-logo
         img.logo(src='/assets/images/dcos-logo-white.svg')
-    
-    
+
+
     ul.menu
       li.menu-item
         if(locals.filename === 'why-dcos.html')
           a(href='/why-dcos/').active Why&nbsp;DC/OS
         else
-          a(href='/why-dcos/') Why&nbsp;DC/OS 
-          
+          a(href='/why-dcos/') Why&nbsp;DC/OS
+
       li.menu-item
         if(locals.filename === 'install/index.html')
           a(href='/install/').active Install
         else
           a(href='/install/') Install
-          
+
       li.menu-item
         a(href='/docs/latest/usage/') Docs
-        
+
       li.menu-item
         if(locals.filename === 'community.html')
           a(href='/community/').active Community
         else
           a(href='/community/') Community
-        
+
       li.menu-item
-        
+
         a(href='https://github.com/dcos', target='_blank').menu-item__github
           img.header-item__icon(src='/assets/images/icons/github.svg')
           span GitHub
-          
+
       li.menu-item
         if(locals.filename === 'get-started.html')
-          a(href='/get-started').cta.cta--button.button--secondary.active Get&nbsp;Started
+          a(href='/get-started/').cta.cta--button.button--secondary.active Get&nbsp;Started
         else
-          a(href='/get-started').cta.cta--button.button--secondary Get&nbsp;Started
+          a(href='/get-started/').cta.cta--button.button--secondary Get&nbsp;Started
