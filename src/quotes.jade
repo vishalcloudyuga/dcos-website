@@ -1,0 +1,35 @@
+extends ../layouts/base.jade
+
+block head
+  title DC/OS - Quotes
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      h1 Selected Quotes
+
+  .container
+    .container__content
+      p "The world needed a better architecture for all modern apps, not just containers. DC/OS represents a major industry transformation, delivering today’s enterprises an open source datacenter-scale operating system that pools compute resources into what looks like one big computer, running containers, microservices, big data systems and other components of modern applications with ease. The open source community has come together around DC/OS to deliver an amazing ecosystem of products and datacenter services."
+      p <strong>Florian Leibert</strong><br>CEO & Co-Founder, <a href="http://www.mesosphere.com" target="_blank">Mesosphere</a>
+      hr
+      p "Hybrid and multi-cloud deployments are the new reality. We see DC/OS as a critical part of the true hybrid cloud. Equinix is home to 1,100 network providers across 145 datacenters in 21 countries and we will be using DC/OS to form the foundation for an open source ecosystem that innovates around multi-cloud and IoT. We believe that DC/OS, combined with other initiatives like Open Compute, will drive rapid innovation in the manageability, performance, security, and reliability of modern applications in hybrid environments."
+      p <strong>Ihab Tarazi</strong><br>CTO, <a href="http://www.equinix.com" target="_blank">Equinix</a>
+      hr
+      p "We're excited to join the DC/OS community in this launch, as developers and operators can now easily access and deploy NGINX as part of their DC/OS environment through Universe. NGINX is one of the most widely deployed application tools in containerized environments, enabling organizations to confidently build and deliver their next-generation applications at scale. We see a huge opportunity for the DC/OS Universe to bring plug-and-play services and apps such as NGINX and NGINX Plus to the distributed enterprise."
+      p <strong>Gus Robertson</strong><br>CEO, <a href="http://www.nginx.com" target="_blank">NGINX, Inc.</a>
+      hr
+      p "At Cisco we are interested in using DC/OS to deliver Mantl (mantl.io), our batteries included end to end solution for your microservices infrastructure. The design point for Mantl is to focus a community around an end to end solution, not around an individual component; designed to solve business and team challenges, one glue, improved by the community, tested everywhere. We are very excited to be working with Mesosphere on DC/OS as this project that will greatly improve the stability and reliability of the microservices platform deployment and runtime."
+      p <strong>Ken Owens</strong><br>CTO, Cloud Infrastructure Services<a href="http://www.cisco.com/" target="_blank">Cisco Systems</a>
+      hr
+      p "Yelp is a heavy user of DC/OS technologies for managing a large Docker environment that spans our private datacenters and the public cloud. We even built our in house PaaS—PaaSTA—on top of DC/OS’s Marathon. Adopting these technologies has given Yelp’s developers and operators remarkable agility, and we believe DC/OS can bring the same results to all companies as they embrace technologies such as containers and cloud computing."
+      p <strong>Michael Stoppelman</strong><br>SVP of Engineering<a href="http://www.yelp.com/" target="_blank">Yelp</a>
+      hr
+
+
+  .container
+    .container__content
+      +footer
