@@ -20,7 +20,7 @@
 }
 
 .typer {
-  border-right: 2px solid rgba(255, 255, 255, 1);
+  border-right: 2px solid $heliotrope;
 
   &.animating {
     animation-name: blink;
@@ -31,10 +31,10 @@
 
 @keyframes blink {
   from, to {
-    border-right: 2px solid rgba(256, 256, 256, 1)
+    border-right: 2px solid rgba(red($heliotrope), green($heliotrope), blue($heliotrope), 1.0);
   }
   50% {
-    border-right: 2px solid rgba(256,256,256,0)
+    border-right: 2px solid rgba(red($heliotrope), green($heliotrope), blue($heliotrope), 0.0);
   }
 }
 

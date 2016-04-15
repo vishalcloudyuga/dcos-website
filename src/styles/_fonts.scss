@@ -68,6 +68,19 @@ p {
 	font-weight: 400;
 	letter-spacing: 0.03rem;
 	line-height: 1.55;
+
+	&.small {
+		font-size: 0.9rem;
+	}
+}
+
+.small,
+small {
+	font-size: 0.9rem;
+}
+
+strong {
+	font-weight: 600;
 }
 
 blockquote {
@@ -82,6 +95,9 @@ cite {
 	font-weight: 500;
 }
 
+.text-align-left {
+	text-align: left;
+}
 
 // Breakpoints
 
