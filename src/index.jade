@@ -56,8 +56,26 @@ block content
       h2 The Definitive Platform for Modern Apps - Production Experience Built-in.
       p Modern apps include containers of microservices and stateful big-data services.  DC/OS is the world’s first and only fully open source platform enabling enterprises to easily build and run modern apps in production.  Built on Apache Mesos, DC/OS abstracts your datacenter into a single computer, pooling distributed workloads and simplifying rollout and operations.
       a(href='/why-dcos').cta.cta--button.button--secondary Learn More
-      figure.full-width-image
-        img(src="/assets/images/containerized-applications.png")
+
+      .stack-diagram
+        .stack-diagram__top
+          .stack-diagram__top-info.hide
+            h3 Services & Applications
+            p Easily deploy and run datacenter-wide app services (e.g., Docker, Cassandra, Spark) pooled on a single platform
+            .stack-diagram__arrow
+              .stack-diagram__dot
+        .stack-diagram__middle
+          .stack-diagram__middle-info.hide
+            h3 DC/OS + Apache Mesos
+            p Runtime, tools and best practices built-in to simplify operations and deliver a production self-healing infrastructure
+            .stack-diagram__arrow
+              .stack-diagram__dot
+        .stack-diagram__bottom
+          .stack-diagram__bottom-info.hide
+            h3 Run Anywhere
+            p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
+            .stack-diagram__arrow
+              .stack-diagram__dot
 
       ul.container__content--hero-list
         li.hero-list__item
@@ -162,3 +180,4 @@ block content
   script(src='/scripts/quotes-carousel.js')
   script(src='/scripts/case-study-carousel.js')
   script(src='/scripts/typer.js')
+  script(src='/scripts/stackdiagram.js')
