@@ -84,22 +84,13 @@
   }
 }
 
-@include break($mobile-large-portrait) {
-  .footer {
-    display: flex;
-    flex-flow: row;
-  }
-
-  .footer-secondary {
-    align-items: flex-start;
-  }
-
-  .footer-main {
-    align-items: flex-end;
-  }
-}
 
 @include break($mobile-large-landscape) {
+  .footer {
+      display: flex;
+      flex-flow: row;
+    }
+
   .footer-main, .footer-secondary {
     flex-flow: row;
   }
