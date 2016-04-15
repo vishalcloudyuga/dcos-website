@@ -1,10 +1,18 @@
 img(ref="Azure logo" src="/assets/images/icons/azure.png").card-logo
 
-h3 Azure
+h2 Install DC/OS on Azure
 
-p.install-time Estimated time: for a typical sized cluster (5 nodes) ca. 15min
+p.install-time Estimated time: 15min (typical 5 nodes)
 
-p.install-requirements Requirements: An active cloud subscription at Azure.
+p.install-requirements Requires an active cloud subscription with Azure.
+
+p.install-description We currently offer two options to install DC/OS on Azure: an ARM-template based option via the Microsoft Marketplace and a fully managed option via the Azure Container Service.
 
 .install-cta-container
-  a(href="https://dcos.io/docs/latest/administration/installing/cloud/azure").cta.cta--button.button--secondary Install
+  a(href="/docs/latest/administration/installing/cloud/azure").cta.cta--button.button--secondary Marketplace Install
+
+.install-cta-container
+  a(href="https://azure.microsoft.com/en-us/services/container-service/").cta.cta--button.button--secondary Azure Container Service
+  
+  
+  
