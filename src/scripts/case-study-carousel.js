@@ -10,14 +10,14 @@
 
   function init () {
     caseStudies.forEach((el, index) => {
-      el.querySelector('.copy-wrapper').classList.add('animated');
-      el.querySelector('.image-wrapper').classList.add('animated');
+      el.querySelector('.copy-wrapper').addClassName('animated');
+      el.querySelector('.image-wrapper').addClassName('animated');
 
       const listEl = document.createElement('li');
       const bullet = document.createElement('a');
 
-      listEl.classList.add('bullet-list__item');
-      bullet.classList.add('bullet-list__bullet');
+      listEl.addClassName('bullet-list__item');
+      bullet.addClassName('bullet-list__bullet');
 
       listEl.appendChild(bullet);
       bulletList.appendChild(listEl);
@@ -26,30 +26,28 @@
     });
 
     // make first bullet active
-    bulletList.querySelectorAll('.bullet-list__bullet')[0].classList.add('active');
+    bulletList.querySelectorAll('.bullet-list__bullet')[0].addClassName('active');
   }
 
   function navigate (index) {
     if (index === currentIndex) return;
-    else if (index >= caseStudies.length) {
-      index = 0;
-    }
+    else if (index >= caseStudies.length) index = 0;
 
     let bullets =  bulletList.querySelectorAll('.bullet-list__bullet');
     let previousCase = caseStudies[currentIndex];
     let currentCase = caseStudies[index];
 
-    bullets[currentIndex].classList.remove('active');
-    bullets[index].classList.add('active');
+    bullets[currentIndex].removeClassName('active');
+    bullets[index].addClassName('active');
 
-    previousCase.classList.remove('active');
-    currentCase.classList.add('active');
+    previousCase.removeClassName('active');
+    currentCase.addClassName('active');
 
-    previousCase.querySelector('.copy-wrapper').classList.remove('fadeInUp');
-    currentCase.querySelector('.copy-wrapper').classList.add('fadeInUp');
+    previousCase.querySelector('.copy-wrapper').removeClassName('fadeInUp').setAttribute('style', 'z-index: 1;');
+    currentCase.querySelector('.copy-wrapper').addClassName('fadeInUp').setAttribute('style', 'z-index: 2;');
 
-    previousCase.querySelector('.image-wrapper').classList.remove('fadeIn');
-    currentCase.querySelector('.image-wrapper').classList.add('fadeIn');
+    previousCase.querySelector('.image-wrapper').removeClassName('fadeIn');
+    currentCase.querySelector('.image-wrapper').addClassName('fadeIn');
 
     currentIndex = index;
 

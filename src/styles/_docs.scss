@@ -6,7 +6,17 @@
 
 .docs-search {
   margin: 0 0 1rem 0;
+  // position: fixed;
+  // z-index: 2;
 }
+
+// .docs-layout__docs-nav > ul {
+//   position: fixed;
+//   border-right: 1px solid $smoke;
+//   padding: 70px 30px 0 0;
+//   margin-top: 0;
+//   z-index: 1;
+// }
 
 .docs-search__input {
   width: 75%;
@@ -30,11 +40,21 @@
 
 .docs-nav__item__arrow img {
   min-width: 11px;
+  margin-right: 6px;
+}
+
+.docs-nav__item_file {
+  .docs-nav__item__title {
+    img {
+      margin-right: 8px;
+    }
+  }
 }
 
 .docs-nav__item--closed {
   .docs-nav__item__arrow img {
     min-width: 7px;
+    margin-right: 10px;
   }
 }
 
@@ -48,6 +68,10 @@
 
 .nav-wrapper > .docs-nav__item__arrow {
   margin: 0 0 0 1rem;
+}
+
+ul > li > .nav-wrapper > .docs-nav__item__arrow {
+  margin: 0;
 }
 
 .docs-layout__docs-nav {

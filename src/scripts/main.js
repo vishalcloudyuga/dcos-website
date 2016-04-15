@@ -1,34 +1,6 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-// Mobile menu
-const snapper = new Snap({
-  element: $('.snap-content'),
-  hyperextensible: false,
-  disable: 'right'
-});
-
-let checkForSnap = function() {
-  if(window.outerWidth <= 768) {
-    snapper.enable();
-  } else {
-    snapper.close();
-    snapper.disable();
-  }
-}
-
-window.addEventListener('resize', checkForSnap);
-checkForSnap();
-
-$('a.nav-hamburger').addEventListener('click', function(e) {
-  e.preventDefault();
-  if(snapper.state().state === 'left') {
-    snapper.close();
-  } else {
-    snapper.open('left');
-  }
-});
-
 // Convenience methods
 const hasClassName = function(name) {
   return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
@@ -51,9 +23,12 @@ const removeClassName = function(name) {
 
 Element.prototype.hasClassName = hasClassName;
 Node.prototype.hasClassName = hasClassName;
+DocumentFragment.prototype.hasClassName = hasClassName;
 
 Element.prototype.addClassName = addClassName;
 Node.prototype.addClassName = addClassName;
+DocumentFragment.prototype.addClassName = addClassName;
 
 Element.prototype.removeClassName = removeClassName;
 Node.prototype.removeClassName = removeClassName;
+DocumentFragment.prototype.removeClassName = removeClassName;
