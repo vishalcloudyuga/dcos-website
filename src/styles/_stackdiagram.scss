@@ -10,7 +10,7 @@
   margin: auto;
   left: 0; right: 0;
   position: absolute;
-  width: 404px;
+  width: 404pxpx;
 }
 
 .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
@@ -54,7 +54,10 @@
   z-index: 3;
   top: -34px;
   height: 215px;
-  background-image: url('/assets/images/stack/top.png');
+  background-image: url('/assets/images/stack/top@2x.png');
+  background-size: 404px auto;
+  background-repeat: no-repeat;
+  background-position: center;
 
   .stack-diagram__arrow {
     right: -170px;
@@ -67,7 +70,7 @@
 }
 
 .stack-diagram__top-info {
-  left: -270px;
+  left: 60px;
   top: -40px;
 }
 
@@ -75,7 +78,10 @@
   z-index: 2;
   top: 0;
   height: 213px;
-  background-image: url('/assets/images/stack/middle.png');
+  background-image: url('/assets/images/stack/middle@2x.png');
+  background-size: 404px auto;
+  background-repeat: no-repeat;
+  background-position: center;
 
   .stack-diagram__arrow {
     left: -100px;
@@ -88,7 +94,7 @@
 }
 
 .stack-diagram__middle-info {
-  right: -280px;
+  right: -20px;
   top: 20px;
 }
 
@@ -96,7 +102,10 @@
   z-index: 1;
   top: 63px;
   height: 186px;
-  background-image: url('/assets/images/stack/bottom.png');
+  background-image: url('/assets/images/stack/bottom@2x.png');
+  background-size: 404px auto;
+  background-repeat: no-repeat;
+  background-position: center;
 
   .stack-diagram__arrow {
     right: -130px;
@@ -110,6 +119,6 @@
 
 .stack-diagram__bottom-info {
   width: 280px;
-  left: -270px;
+  left: 50px;
   top: 80px;
 }

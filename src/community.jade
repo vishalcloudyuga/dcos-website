@@ -1,4 +1,4 @@
-extends ../layouts/base.jade
+extends ../layouts/base-whitefooter.jade
 
 block head
   title DC/OS
@@ -51,91 +51,77 @@ block content
           img(src='/assets/images/icons/chevron-dark-left.svg')
 
         .card-container
-          .card
+          a(href='https://www.eventbrite.com/e/future-of-enterprise-computing-with-a16z-microsoft-registration-24245414688').card
             .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/3P421g1U1A2o432Q3k3E/microsoft.jpg?v=77813993')
               .card-content
                 .card-header__date
                   p 19
                   p APR
-            .card-content
+            .card-content.card-copy
               h3.card-title Future of enterprise computing with a16z & Microsoft
-              p.card-copy Join Microsoft Azure CTO, Mark Russinovich and Andreessen Horowitz General Partner, Peter Levine at the Mesosphere headquarters
-              a(href='https://www.eventbrite.com/e/future-of-enterprise-computing-with-a16z-microsoft-registration-24245414688').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-          .card
+          a(href='http://progscon.co.uk/').card
             .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/1F3Z0k2R2x0g2Y1V0J0A/london.png?v=7b98178a')
               .card-content
                 .card-header__date
                   p 22
                   p APR
-            .card-content
+            .card-content.card-copy
               h3.card-title ProgScon, London, UK
-              p.card-copy Michael Hausenblas will be giving at talk - Containers, FTW!
-              a(href='http://progscon.co.uk/').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-          .card
-            .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/1y0q340E0k0z3G3O472e/kafka.png?v=eacb087c')
+          a(href='http://kafka-summit.org/').card
+            .card-header              
               .card-content
                 .card-header__date
                   p 26
                   p APR
-            .card-content
+            .card-content.card-copy
               h3.card-title Kafka Summit, San Francisco, CA
-              p.card-copy Come talk to DC/OS Mesosphere and Elodina, community members and Kafka Summit sponsors, in the expo
-              a(href='http://kafka-summit.org/').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-          .card
+          a(href='http://www.meetup.com/Austin-Mesos-Users-Group/events/230056246/').card
             .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/0F1S3X0f3z2T1h2U2g20/austin.png?v=672b081e')
               .card-content
                 .card-header__date
                   p 27
                   p APR
-            .card-content
+            .card-content.card-copy
               h3.card-title Autin Linux Meetup, Austin, TX
-              p.card-copy Come learn about DC/OS and see a demo with Mesosphere CTO Tobi Knaup
-              a(href='http://www.meetup.com/Austin-Mesos-Users-Group/events/230056246/').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-          .card
+          a(href='http://www.meetup.com/linux-85/events/230147694/').card
             .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/1K0g1s2M3j2z1b0g450a/Atlassian.png?v=c2f94065')
               .card-content
                 .card-header__date
                   p 28
                   p APR
-            .card-content
+            .card-content.card-copy
               h3.card-title Austin Mesos User Group, Austin, TX
-              p.card-copy Come learn about DC/OS and see a demo with Mesosphere CTO Tobi Knaup
-              a(href='http://www.meetup.com/linux-85/events/230147694/').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-          .card
-            .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/3u1a0A3r0u2G3u24473i/emc.png?v=98547b11')
+          a(href='http://www.emcworld.com/index.htm').card
+            .card-header          
               .card-content
                 .card-header__date
                   p 2
                   p MAY
-            .card-content
+            .card-content.card-copy
               h3.card-title EMC World, Las Vegas, NV
-              p.card-copy Keynote by Mesosphere CTO Tobi Knaup, breakouts by Somik Behera, Greg Mann and Keith Chambers. If you want to learn more, visit the Mesosphere booth in the expo hall.
-              a(href='http://www.emcworld.com/index.htm').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-          .card
+          a(href='https://gotosthlm.com/').card
             .card-header
-              img(src='https://s3.amazonaws.com/f.cl.ly/items/1e0D0d2C390C261W3V2b/stockholm.png?v=ac130048')
               .card-content
                 .card-header__date
                   p 10
                   p MAY
-            .card-content
+            .card-content.card-copy
               h3.card-title Goto Conf, Stockholm, Sweeden
-              p.card-copy Breakout Talk with Ken Sipe from Meosphere
-              a(href='https://gotosthlm.com/').cta.cta--text More info &rarr;
+              .cta.cta--text More info &rarr;
 
-    .container__content
+    .container__content.event-cta
       a.cta.cta--text Want to host your own DC/OS event? &rarr;
 
   .container.community-logo-container.container--gray-background

@@ -1,0 +1,16 @@
+extends ../layouts/base.jade
+
+block head
+  title 404
+
+block content
+  .container.container--light-background
+    +header(true)
+
+  .container.container--404
+    .container__content.container__content--404
+      h1 Oops
+      p The page you're looking for can't be found.
+      a(href='https://github.com/dcos').cta.cta--button.button--secondary Take Me Home
+
+  script(src='/scripts/main.js')

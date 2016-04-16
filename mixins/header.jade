@@ -1,8 +1,8 @@
-mixin header()
+mixin header(lightHeader)
   nav.navigation
-    
+
     .mobile-nav-container
-      a#nav-icon(href="#")
+      a#nav-icon(href="#" class=lightHeader ? 'dark' : '')
         span
         span
         span
@@ -10,19 +10,28 @@ mixin header()
 
       .nav-logo-container
         a(href='/').nav-logo
-          img.logo(src='/assets/images/dcos-logo-white.svg')
-          
+          div.logo(class=lightHeader ? 'dark' : '')
+
     ul.menu-mobile
       li.menu-item
+        if(locals.filename === 'why-dcos.html')
+          a(href='/why-dcos/').active Why&nbsp;DC/OS
+        else
           a(href='/why-dcos/') Why&nbsp;DC/OS
 
       li.menu-item
+        if(locals.filename === 'install.html')
+          a(href='/install/').active Install
+        else
           a(href='/install/') Install
 
       li.menu-item
         a(href='/docs/latest/') Docs
 
       li.menu-item
+        if(locals.filename === 'community.html')
+          a(href='/community/').active Community
+        else
           a(href='/community/') Community
 
       li.menu-item
@@ -39,7 +48,7 @@ mixin header()
           a(href='/why-dcos/') Why&nbsp;DC/OS
 
       li.menu-item
-        if(locals.filename === 'install/index.html')
+        if(locals.filename === 'install.html')
           a(href='/install/').active Install
         else
           a(href='/install/') Install
@@ -54,7 +63,6 @@ mixin header()
           a(href='/community/') Community
 
       li.menu-item
-
         a(href='https://github.com/dcos', target='_blank').menu-item__github
           img.header-item__icon(src='/assets/images/icons/github.svg')
           span GitHub

@@ -84,8 +84,7 @@
   }
 }
 
-
-@include break($mobile-large-landscape) {
+@include break($tablet-landscape) {
   .footer {
       display: flex;
       flex-flow: row;

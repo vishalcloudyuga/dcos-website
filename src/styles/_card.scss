@@ -9,6 +9,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  width: 100%;
   margin: 0.8rem;
   background-color: $snow;
   border: 0.5px solid $black10;
@@ -21,9 +22,14 @@
 .card-content {
   display: flex;
   flex-flow: column;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   text-align: center;
+
+  &.card-copy {
+    height: 210px;
+  }
 }
 
 .hero-list__item {
@@ -37,7 +43,9 @@
 }
 
 .card-title {
+  height: 113px;
   margin: 0.5rem 0 0 0;
+  overflow: hidden;
   letter-spacing: 0rem;
 }
 
@@ -110,6 +118,12 @@
   }
 }
 
+@include break($tablet-portrait) {
+  .card {
+    width: 48%;
+  }
+}
+
 @include break($desktop-small) {
   .service-select, .platform-select {
     // padding-left: 1.25rem;
@@ -119,9 +133,16 @@
       display: none;
     }
 
+
+  }
+
+  .card {
+    width: 300px;
+  }
+
+  .install-columns {
     .card {
-      width: 300px;
-      height: 290px;
+      width: 100%;
     }
   }
 }

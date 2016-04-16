@@ -36,6 +36,7 @@
 .partner-quote-block__cite {
   font-size: 1rem;
   margin: 0.5rem 0 2rem 0;
+  color: $dark-gray;
 }
 
 .partner-quote-logo-list {
@@ -45,7 +46,12 @@
 }
 
 .partner-quote-logo-list__partner-quote-logo {
+  display: none;
   padding-bottom: 15px;
+
+  &.active {
+    display: block;
+  }
 
   img {
     width: 120px;
@@ -87,6 +93,7 @@
   }
 
   .partner-quote-logo-list__partner-quote-logo {
+    display: flex;
     margin: 0 1.5rem;
   }
 }

@@ -6,17 +6,7 @@
 
 .docs-search {
   margin: 0 0 1rem 0;
-  // position: fixed;
-  // z-index: 2;
 }
-
-// .docs-layout__docs-nav > ul {
-//   position: fixed;
-//   border-right: 1px solid $smoke;
-//   padding: 70px 30px 0 0;
-//   margin-top: 0;
-//   z-index: 1;
-// }
 
 .docs-search__input {
   width: 75%;
@@ -134,6 +124,8 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
   align-items: flex-start;
   max-width: 100%;
   text-align: left;
+
+
 
 	h1 {
 		font-size: 2.3rem;
@@ -305,6 +297,10 @@ img.docs-content__footer__share-icon {
 
   .docs-layout__docs-content {
     max-width: 65%;
+
+    &.container__content--release-notes {
+      max-width: 100%;
+    }
 
     article {
       max-width: 100%;
