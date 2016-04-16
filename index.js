@@ -51,7 +51,7 @@ let createDocsJSON = function(obj) {
 
   if(obj.file) {
     newObj.file = {
-      post_title: obj.file.post_title,
+      post_title: obj.file.nav_title || obj.file.post_title,
       search_blurb: obj.file.search_blurb
     }
   }
