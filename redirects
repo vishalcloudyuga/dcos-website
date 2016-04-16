@@ -3,3 +3,15 @@
 /docs/latest /docs/latest/
 /docs/support/index.html /community/
 /docs/administration/installing/custom/automated-installer/system-requirements/index.html /docs/latest/administration/installing/custom/system-requirements/
+/administration/installing/index.html /docs/latest/administration/installing/
+/administration/security-and-authentication/index.html /docs/latest/overview/security/
+/usage/cli/install/index.html /docs/latest/usage/cli/install/
+/overview/components/index.html /docs/latest/overview/components/
+/getting-started/overview/index.html /docs/latest/usage/
+/administration/dcosarchitecture/security/index.html /docs/latest/administration/architecture/
+/administration/installing/index.html /docs/latest/administration/installing/
+/administration/installing/custom/automated-installer/system-requirements/index.html /docs/latest/administration/installing/custom/system-requirements/
+/support/index.html /community/
+/administration/service-discovery/index.html /docs/latest/overview/service-discovery/
+/advanced-installer/create-a-script-for-ip-address-discovery/index.html /docs/latest/administration/installing/custom/advanced/
+/administration/opt-out /docs/latest/administration/opt-out/
