@@ -91,7 +91,17 @@
   });
 
   // Sticky sidebar
-  Stickyfill.add($('.docs-layout__docs-nav'));
+  addRemoveSticky();
+
+  window.addEventListener('resize', addRemoveSticky, true);
+
+  function addRemoveSticky () {
+    if (window.innerWidth < 768) {
+      Stickyfill.remove($('.docs-layout__docs-nav'));
+    } else {
+      Stickyfill.add($('.docs-layout__docs-nav'));
+    }
+  }
 
   // Highlight.js
   Array.prototype.forEach.call($$('pre code'), el => {
