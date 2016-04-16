@@ -125,6 +125,8 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
   max-width: 100%;
   text-align: left;
 
+
+
 	h1 {
 		font-size: 2.3rem;
 	}
@@ -295,6 +297,10 @@ img.docs-content__footer__share-icon {
 
   .docs-layout__docs-content {
     max-width: 65%;
+
+    &.container__content--release-notes {
+      max-width: 100%;
+    }
 
     article {
       max-width: 100%;
