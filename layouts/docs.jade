@@ -11,7 +11,7 @@ include ../mixins/footer-docs.jade
 - var routeForIndexPath = function(child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
 - var nameForIndexPath = function(child) {
 -   var result = child.children.find(function(n) { return n.name === 'index.html'});
--   if(result) return result.file.post_title;
+-   if(result) return result.file.nav_title || result.file.post_title;
 -   return child.name;
 - }
 
