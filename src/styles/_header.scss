@@ -140,6 +140,16 @@
 
 .menu-mobile {
   background-color: $black60;
+
+  .menu-item {
+    justify-content: space-around;
+    text-align: center;
+
+    a {
+      margin: 0;
+      opacity: 1;
+    }
+  }
 }
 
 .nav-logo-container {
@@ -186,15 +196,7 @@
     }
   }
 
-  .menu {
-    display: flex
-  }
-
-  .menu-mobile {
-    display: none;
-  }
-
-  #nav-icon {
+  .menu, .menu-mobile, #nav-icon {
     display: none;
   }
 
