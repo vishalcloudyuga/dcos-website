@@ -33,10 +33,10 @@
   -moz-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
+}
 
-  &.dark {
-    background: black;
-  }
+#nav-icon.dark span {
+  background: black;
 }
 
 #nav-icon span:nth-child(1) {
@@ -52,6 +52,7 @@
 }
 
 .mobile-menu--open {
+
   #nav-icon.open span:nth-child(1) {
     top: 18px;
     width: 0%;
@@ -153,6 +154,10 @@
   z-index: 998;
   padding: 5rem 0;
   transition: all 0.3s ease;
+
+  &.menu-mobile--docs {
+    background-color: white;
+  }
 
   &.open {
     left: 0vw;
