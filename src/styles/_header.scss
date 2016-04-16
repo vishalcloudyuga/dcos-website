@@ -47,12 +47,6 @@
   top: 16px;
 }
 
-#nav-icon span:nth-child(1) {
-  top: 8px;
-  width: 0%;
-  left: 50%;
-}
-
 .mobile-menu--open {
   #nav-icon span:nth-child(2) {
     -webkit-transform: rotate(45deg);
@@ -147,6 +141,16 @@
   &.open {
     left: 0vw;
   }
+
+  .menu-item {
+    justify-content: space-around;
+    text-align: center;
+
+    a {
+      margin: 0;
+      opacity: 1;
+    }
+  }
 }
 
 .nav-logo-container {
@@ -193,15 +197,7 @@
     }
   }
 
-  .menu {
-    display: flex
-  }
-
-  .menu-mobile {
-    display: none;
-  }
-
-  #nav-icon {
+  .menu, .menu-mobile, #nav-icon {
     display: none;
   }
 
