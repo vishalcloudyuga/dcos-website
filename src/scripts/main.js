@@ -8,10 +8,14 @@ $('#nav-icon').addEventListener('click', function (e) {
     $('.navigation').removeClassName('mobile-menu--open');
     $('.menu-mobile').removeClassName('open');
     $('#nav-icon').removeClassName('open');
+    $('body').removeAttribute('style');
+    $('html').removeAttribute('style');
   } else {
     $('.navigation').addClassName('mobile-menu--open');
     $('.menu-mobile').addClassName('open');
     $('#nav-icon').addClassName('open');
+    $('body').setAttribute('style', 'overflow: hidden;');
+    $('html').setAttribute('style', 'overflow: hidden;');
   }
 })
 
