@@ -8,4 +8,15 @@
 - `npm install`
 - `npm start`
 
+## Setting redirects
+
+- `aws configure --profile dcos`
+- `bin/setup-redirects.bash`
+
+## Adding redirects
+
+Add to `redirects` with the following format:
+
+/from/ /to/
+
 Built using [Metalsmith](http://metalsmith.io).
