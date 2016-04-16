@@ -38,9 +38,10 @@
 
         let results = idx.search(query).map(result => {
           let doc;
+          let ref = result.ref;
 
           let findDoc = function(q) {
-            if(q.path === result.ref) doc = {doc: q, result: result};
+            if(q.path === ref) doc = {doc: q, result: result};
             if(q.children.length) q.children.forEach(findDoc);
           }
 
@@ -54,6 +55,7 @@
 
         if(results.length) {
           $('.docs-layout__docs-content').innerHTML = results.sort((a, b) => { return b.result.score - a.result.score }).map(result => {
+            if(!result) return;
             return `
               <div class='search-result'>
                 <a class='results-title' href='/docs/latest/${stripExtname(result.doc.path)}'>${result.doc.file.post_title}</a>
