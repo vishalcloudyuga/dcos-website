@@ -1,4 +1,11 @@
 (function() {
+
+  // Create equal heights for cards
+  if(window.outerWidth >= 414) {
+    let maxHeight = Math.max(...Array.prototype.map.call($$('.card'), el => el.offsetHeight));
+    Array.prototype.map.call($$('.card'), el => el.setAttribute('style', `height: ${maxHeight}px;`));
+  }
+
   let currentService, currentPlatform;
 
   const serviceLinks = $$('.service-select a[data-doc]');
