@@ -51,7 +51,7 @@ let createDocsJSON = function(obj) {
 
   if(obj.file) {
     newObj.file = {
-      post_title: obj.file.post_title,
+      post_title: obj.file.nav_title || obj.file.post_title,
       search_blurb: obj.file.search_blurb
     }
   }
@@ -97,7 +97,9 @@ let createDocs = function(version) {
     .use(lunr({
       indexPath: 'lunr.json',
       fields: {
-        contents: 1,
+        post_title: 20,
+        nav_title: 20,
+        search_blurb: 1,
         tags: 10
       },
       pipelineFunctions: [
