@@ -77,8 +77,10 @@
   Array.prototype.forEach.call($$('.docs-nav__item_folder a'), el => {
     el.addEventListener('click', function(e) {
       if(e.currentTarget.hasClassName('docs-nav__item__arrow')) e.preventDefault();
+      else if(!e.currentTarget.getAttribute('data-path')) return;
       let parent = e.currentTarget.parentNode.parentNode;
       let img = e.currentTarget.querySelector('img');
+
       parent.hasClassName('docs-nav__item--closed') ? parent.removeClassName('docs-nav__item--closed') : parent.addClassName('docs-nav__item--closed')
       if(parent.hasClassName('docs-nav__item--closed')) {
         parent.querySelector('.docs-nav__item__title').hasClassName('active') ? img.setAttribute('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.setAttribute('src', '/assets/images/icons/arrow-right-docs.svg');
