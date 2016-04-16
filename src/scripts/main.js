@@ -4,7 +4,7 @@ const $$ = document.querySelectorAll.bind(document)
 // Mobile menu
 $('#nav-icon').addEventListener('click', function (e) {
   e.preventDefault();
-  $('.nav-hamburger').hasClassName('open') ? $('.nav-hamburger').removeClassName('open') : $('.nav-hamburger').addClassName('open')
+  $('#nav-icon').hasClassName('open') ? $('#nav-icon').removeClassName('open') : $('#nav-icon').addClassName('open')
 })
 
 // Convenience methods
