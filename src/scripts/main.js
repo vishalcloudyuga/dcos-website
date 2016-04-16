@@ -5,9 +5,11 @@ const $$ = document.querySelectorAll.bind(document)
 $('#nav-icon').addEventListener('click', function (e) {
   e.preventDefault();
   if($('#nav-icon').hasClassName('open')) {
+    $('.navigation').removeClassName('mobile-menu--open');
     $('.menu-mobile').removeClassName('open');
     $('#nav-icon').removeClassName('open');
   } else {
+    $('.navigation').addClassName('mobile-menu--open');
     $('.menu-mobile').addClassName('open');
     $('#nav-icon').addClassName('open');
   }
