@@ -4,7 +4,13 @@ const $$ = document.querySelectorAll.bind(document)
 // Mobile menu
 $('#nav-icon').addEventListener('click', function (e) {
   e.preventDefault();
-  $('#nav-icon').hasClassName('open') ? $('#nav-icon').removeClassName('open') : $('#nav-icon').addClassName('open')
+  if($('#nav-icon').hasClassName('open')) {
+    $('.menu-mobile').removeClassName('open');
+    $('#nav-icon').removeClassName('open');
+  } else {
+    $('.menu-mobile').addClassName('open');
+    $('#nav-icon').addClassName('open');
+  }
 })
 
 // Convenience methods

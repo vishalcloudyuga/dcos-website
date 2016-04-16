@@ -140,6 +140,13 @@
 
 .menu-mobile {
   background-color: $black60;
+  position: fixed;
+  left: 100vw;
+  transition: all 0.4s;
+
+  &.open {
+    left: 0vw;
+  }
 }
 
 .nav-logo-container {
