@@ -2,7 +2,7 @@ const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
 // Mobile menu
-$('.nav-hamburger').addEventListener('click', function (e) {
+$('#nav-icon').addEventListener('click', function (e) {
   e.preventDefault();
   $('.nav-hamburger').hasClassName('open') ? $('.nav-hamburger').removeClassName('open') : $('.nav-hamburger').addClassName('open')
 })
