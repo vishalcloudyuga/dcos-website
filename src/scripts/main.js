@@ -1,6 +1,12 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
+// Mobile menu
+$('#nav-icon').addEventListener('click', function (e) {
+  e.preventDefault();
+  $('.nav-hamburger').hasClassName('open') ? $('.nav-hamburger').removeClassName('open') : $('.nav-hamburger').addClassName('open')
+})
+
 // Convenience methods
 const hasClassName = function(name) {
   return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
