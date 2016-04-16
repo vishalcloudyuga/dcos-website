@@ -97,7 +97,9 @@ let createDocs = function(version) {
     .use(lunr({
       indexPath: 'lunr.json',
       fields: {
-        contents: 1,
+        post_title: 20,
+        nav_title: 20,
+        search_blurb: 1,
         tags: 10
       },
       pipelineFunctions: [
