@@ -80,7 +80,7 @@
 
 .hero-list__item__copy__title {
 	margin: 0 0 0.5rem 0;
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 }
 
 .hero-list__item__copy__paragraph {
@@ -140,20 +140,7 @@
 	}
 }
 
-@include break($mobile-small-landscape) {
-	.container__content--hero-heading, .container__content--hero-list {
-		align-items: flex-start;
-		text-align: left;
-	}
-
-	.container__content--hero-list {
-		align-items: flex-start;
-	}
-
-	.hero-image {
-		display: flex;
-	}
-
+@include break($mobile-large-portrait) {
 	.hero-cta-container {
 		flex-direction: row;
 		flex-wrap: nowrap;
@@ -166,6 +153,21 @@
 
 	.cta--video {
 		margin: 0 0 0 2rem;
+	}
+}
+
+@include break($mobile-large-landscape) {
+	.container__content--hero-heading, .container__content--hero-list {
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.container__content--hero-list {
+		align-items: flex-start;
+	}
+
+	.hero-image {
+		display: flex;
 	}
 }
 

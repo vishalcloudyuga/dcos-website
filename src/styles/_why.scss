@@ -36,16 +36,18 @@
   margin: 1rem 0;
 }
 
-.why-content__icon {
-  position: absolute;
-  margin-left: -3rem;
-  margin-top: 0.5rem;
-}
+
 
 @include break($desktop-small) {
 
   .why-content__copy-list {
     margin-bottom: 0;
+  }
+
+  .why-content__icon {
+    position: absolute;
+    margin-left: -3rem;
+    margin-top: 0.5rem;
   }
 
   .why-content-image {
@@ -57,6 +59,10 @@
 
   .why-content-image__copy {
     flex-basis: 40%;
+  }
+
+  .why-content__copy-list {
+    padding-left: 4rem;
   }
 
   .why-content-image__image-container {

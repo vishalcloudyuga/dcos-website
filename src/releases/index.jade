@@ -1,4 +1,4 @@
-extends ../../layouts/base.jade
+extends ../../layouts/base-whitefooter.jade
 
 block head
   title DC/OS Releases
@@ -15,49 +15,32 @@ block content
   .container
     .container__content
 
-      .community-hero
-        h2 Release Channels
-        ul.container__content--hero-list
-          li.hero-list__item
-            .hero-list__item__copy
-              h5.hero-list__item__copy__title Stable
-              p.hero-list__item__copy__paragraph Latest stable release. Ready for production use.
-              p(style='margin: 2rem 0 0 0') Coming Soon!
+      h2 Release Channels
+      
+      p &nbsp;
+    
+      .card-container
+        .card
+          .card-content
+            h3 Stable
+            p.hero-list__item__copy__paragraph Latest stable release. Ready for production use.
+            p(style='margin: 2rem 0 0 0') Coming Soon!
 
-          li.hero-list__item
-            .hero-list__item__copy
-              h5.hero-list__item__copy__title Early Access
-              p.hero-list__item__copy__paragraph Upcoming release. Ready for development and testing.
-              p(style='margin: 1rem 0 0 0') Version: 1.7.0
-              a(style='margin: 0').cta.cta--text(href='/releases/1.7.0') Release Notes &rarr;
-              a(style='margin: 0').cta.cta--text(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Download &rarr;
+        .card
+          .card-content
+            h3 Early Access
+            p.hero-list__item__copy__paragraph Upcoming release. Ready for development and testing.
+            p(style='margin: 1rem 0 0 0') Version: 1.7.0
+            a.cta.cta--button.button--secondary(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Download &rarr;
+            a.cta.cta--text(href='/releases/1.7.0') Release Notes &rarr;
 
-          li.hero-list__item
-            .hero-list__item__copy
-              h5.hero-list__item__copy__title Master
-              p.hero-list__item__copy__paragraph Bleeding edge automated release. Only tested with automated tests.
-              p(style='margin: 2rem 0 0 0') Coming Soon!
+        .card
+          .card-content
+            h3 Master
+            p.hero-list__item__copy__paragraph Bleeding edge automated release. Only tested with automated tests.
+            p(style='margin: 2rem 0 0 0') Coming Soon!
 
-      //
-        h2 Release Versions
-        table.releases
-          thead
-            tr
-              th Version
-              th Download
-              th Release Notes
-              th Documentation
-          tbody
-            tr
-              td
-                a.cta.cta--text(href='https://github.com/mesosphere/dcos-image/tree/CM.7') 1.7.0
-              td
-                a.cta.cta--text(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') dcos_generate_config-EA-1.7.0.sh
-              td
-                a.cta.cta--text(href='/releases/1.7.0') /releases/1.7.0
-              td
-                a.cta.cta--text(href='/docs/1.7') /docs/1.7
-
+  
   .container.container--dark-background
     .container__content
        h2 Install on any virtual or physical machines.

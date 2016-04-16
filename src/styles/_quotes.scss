@@ -45,7 +45,12 @@
 }
 
 .partner-quote-logo-list__partner-quote-logo {
+  display: none;
   padding-bottom: 15px;
+
+  &.active {
+    display: block;
+  }
 
   img {
     width: 120px;

@@ -21,6 +21,10 @@ h1, h2, h3 {
 	font-family: $clio-light;
 }
 
+h1, h2, h3, p, blockquote {
+	max-width: 42rem;
+}
+
 // Vertical rythm: Major Third
 h1 {
 	font-size: 2.4rem;

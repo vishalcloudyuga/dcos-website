@@ -14,7 +14,7 @@ body.overlay-active {
 	left: 0;
 	z-index: -100;
 	background-color: $black;
-	background-image: linear-gradient(to top, $black, $persian-indigo);
+	background-image: linear-gradient(to top right, $dark-purple, $persian-indigo);
 	opacity: 0;
 }
 

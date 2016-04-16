@@ -1,4 +1,5 @@
-extends ../../../layouts/base.jade
+extends ../../../layouts/base-whitefooter.jade
+
 
 block head
   title DC/OS Release 1.7.0
@@ -11,9 +12,9 @@ block content
     .container__content
       h1 DC/OS Release 1.7.0
       p.hero-subtitle
-        a(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Download
+        a(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh').cta.cta--button Download
         span &nbsp; &nbsp; &nbsp; &nbsp;
-        a(href='/docs/1.7/') Documentation
+        a(href='/docs/1.7/').cta.cta--text Documentation
 
   .container
     .container__content

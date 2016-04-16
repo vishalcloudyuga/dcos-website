@@ -154,9 +154,10 @@
   z-index: 998;
   padding: 5rem 0;
   transition: all 0.3s ease;
+  overflow: hidden;
 
   &.menu-mobile--docs {
-    background-color: white;
+    background-color: $white95;
   }
 
   &.open {
