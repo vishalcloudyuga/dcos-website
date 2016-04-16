@@ -90,6 +90,9 @@
     });
   });
 
+  // Sticky sidebar
+  Stickyfill.add($('.docs-layout__docs-nav'));
+
   // Highlight.js
   Array.prototype.forEach.call($$('pre code'), el => {
     hljs.highlightBlock(el);
