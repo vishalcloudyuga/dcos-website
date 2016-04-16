@@ -1,28 +1,43 @@
 ### Packages installable from the UI
 
-You can now install packages from the DCOS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
+You can now install packages from the DC/OS Universe with a single click in the web interface. The packages can be installed with defaults or customized directly in the UI. For more information, see the [documentation][1].
 
-![alt text][2]
+![alt text][/assets/images/ui-universe-ee.gif]
 
-### DCOS component health available in the UI
+### DC/OS component health available in the UI
 
-You can monitor the health of your cluster components from the DCOS web interface. The component health page provides the health status of all DCOS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][3].
+You can monitor the health of your cluster components from the DC/OS web interface. The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit. For more information, see the [documentation][3].
 
-![alt text][4]
+![alt text][/assets/images/ui-system-health-ee.gif]
 
-### <a name="dcos"></a>Improved DCOS installation
+### <a name="dcos"></a>Improved DC/OS installation
+
+*   Faster automated CLI mode by use of concurrent SSH sessions and fully asynchronous execution. - Improved validation of configuration parameters. <!-- Enterprise -->
+
+*   Distributed DNS Server to enable highly available DNS deployment for service discovery and service availability. <!-- Enterprise -->
 
 *   Simplified process for ZooKeeper Exhibitor orchestration.
 
-### DCOS storage services
+### DC/OS Networking
 
-*   **Stateful applications using Persistent Local Volumes** Configuration, formatting and enablement for DCOS Services. For more information, see the [documentation][5].
+*   DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. You can assign a VIP to your application by using the DC/OS Marathon web interface.
+*   Distributed DNS Server to enable highly available DNS deployment for service discovery and service availability. <!-- where is the documentation for this? -->
 
-*   **Stateful applications using External Volumes** Consumption (attach & detach to containers) support in DCOS for Amazon Web Services EBS, OpenStack Cinder, EMC Isilon, ScaleIO, VMAX, XtremeIO & Google Compute Engine). For more information, see the [documentation][6].
+### DC/OS storage services
 
-### DCOS Marathon Updates
+*   **Stateful applications using Persistent Local Volumes** Configuration, formatting and enablement for DC/OS Services. For more information, see the [documentation][6].
 
-<!-- Open DCOS Edition -->
+*   **Stateful applications using External Volumes** Consumption (attach & detach to containers) support in DC/OS for Amazon Web Services EBS, OpenStack Cinder, EMC Isilon, ScaleIO, VMAX, XtremeIO & Google Compute Engine). For more information, see the [documentation][7].
+
+### Fine-grained DC/OS access control
+
+<!-- Enterprise only. --> You can define fine-grained access to Marathon applications that are running in DC/OS by defining advanced ACL groups. Advanced ACL groups can provide multi-tenancy by isolating application teams, and individual users. For more information, see the
+
+[documentation][8].
+
+### DC/OS Marathon Updates
+
+<!-- Open DC/OS Edition -->
 
 **Applications and Search** Improved global search with better ranking (fuzzy matching). Groups are now shown as part of search results too. Application list supports for browsing empty groups. Create empty groups directly from the UI. A new sidebar filter to match apps with attached volumes.
 
@@ -44,44 +59,52 @@ You can monitor the health of your cluster components from the DCOS web interfac
 
 **Improved Task Kill behavior in deployments by performing kills in batches** When stopping/restarting an application, Marathon will now perform the kills in batches, in order to avoid overwhelming Mesos. Support the `TASK_KILLING` state available in Mesos 0.28
 
-For the full set of changes, please refer to the [Marathon Release Notes][7].
+<!-- Enterprise Edition -->
 
-### <a name="mesos"></a>DCOS Mesos Update
+**Support for Authentication and Authorization** It is now possible to authorize operations to applications in Marathon. The authentication service in DC/OS allows defining actions, that are allowed to perform on applications. Marathon will enforce those rules.
 
-*   The Apache Mesos kernel is now at [version 0.28][8].
+For the full set of changes, please refer to the [Marathon Release Notes][9].
+
+### <a name="mesos"></a>DC/OS Mesos Update
+
+*   The Apache Mesos kernel is now at [version 0.28][10].
 
 ### <a name="known-issues"></a>Known Issues and Limitations
 
-**DCOS general**
+**DC/OS general**
 
-*   You cannot use an NFS mount for Exhibitor storage with the automated command line installation method. To use an NFS mount for Exhibitor storage (`exhibitor_storage_backend: shared_filesystem`), you must use the [Manual command line installation method][9].
-*   The Service and Agent panels of the DCOS Web Interface won't render over 5,000 tasks. If you have a service or agent that has over 5,000 your browser may experience slowness. In this case you can close said browser tab and reopen the DCOS web interface.
+*   You cannot use an NFS mount for Exhibitor storage with the automated command line installation method. To use an NFS mount for Exhibitor storage (`exhibitor_storage_backend: shared_filesystem`), you must use the [Manual command line installation method][11].
+*   The Service and Agent panels of the DC/OS Web Interface won't render over 5,000 tasks. If you have a service or agent that has over 5,000 your browser may experience slowness. In this case you can close said browser tab and reopen the DC/OS web interface.
+*   After providing the **Agent Private IP List**, the automated GUI installer continues to show a warning for **Master Private IP List** that you can ignore: `agent_list must be provided along with master_list`.
+*   The automated GUI installer does not validate whether there are duplicate IPs in the **Master Private IP List** and **Agent Private IP List** until you go back and re-click in the **Master Private IP List** window.
+*   If you stop and restart the automated GUI installer after running pre-flight, the setup page will not show you which IP detect script was selected.
+*   The automated installer only provisions private agents. To install public agents please see the [documentation](/usage/tutorials/public-app/).
+*   Occasionally the system health backend might panic and exit because of [this bug](https://github.com/godbus/dbus/issues/45) in godbus library.
+*   You can sort system health by systemd unit. However, this search can bring up misleading information as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy". Some people find this behavior confusing.
+*   The system health API relies on Mesos DNS to know about all the cluster hosts. It finds these hosts by combining a query from `mesos.master` A records as well as `leader.mesos:5050/slaves` to get the complete list of hosts in the cluster. This system has a known bug where an agent will not show up in the list returned from `leader.mesos:5050/slaves` if the Mesos slave service is not healthy. This means the system health API will not show this host. If you experience this behavior it's most likely your Mesos slave service on the missing host is unhealthy.
 
-**DCOS Marathon**
 
-*   **Persistent local volumes** With Docker, the containerPath must be relative and will always appear in `/mnt/mesos/sandbox/`. If your application (e.g. a DB) needs an absolute directory this won’t work. [CORE-274][10]
+**DC/OS Marathon**
 
-    *   Volume cleanup [MESOS-2408][11]
-    *   If you go above your quota, your task will be killed and that task can never recover. See [INFINITY-86][12]
+*   **Persistent local volumes** With Docker, the containerPath must be relative and will always appear in `/mnt/mesos/sandbox/`. If your application (e.g. a DB) needs an absolute directory this won’t work.
 
-*   **External/network volumes** No RO access from multiple tasks [emccode/dvdcli/issues/15][13]
+    *   Volume cleanup [MESOS-2408][13]
+    *   If you go above your quota, your task will be killed and that task can never recover.
 
-*   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DCOS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials. See [MARATHON-840][14]
+*   **External/network volumes** No RO access from multiple tasks [emccode/dvdcli/issues/15][15]
+
+*   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials.
 
 See additional known issues at <a href="https://support.mesosphere.com" target="_blank">support.mesosphere.com</a>.
 
  [1]: /admin-tutorials/install-service/
- [2]: /assets/images/releases/ui-universe.gif
  [3]: /monitoring-system-health/
- [4]: /assets/images/releases/ui-system-health-relnotes.gif
- [5]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
- [6]: http://mesosphere.github.io/marathon/docs/external-volumes.html
- [7]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
- [8]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
- [9]: /concepts/installing/installing-enterprise-edition/manual-installation/
- [10]: https://mesosphere.atlassian.net/browse/CORE-274
- [11]: https://issues.apache.org/jira/browse/MESOS-2408
- [12]: https://mesosphere.atlassian.net/browse/INFINITY-86
- [13]: https://github.com/emccode/dvdcli/issues/15
- [14]: https://mesosphere.atlassian.net/browse/MARATHON-840
-
+ [5]: /service-discovery/virtual-ip-addresses/
+ [6]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
+ [7]: http://mesosphere.github.io/marathon/docs/external-volumes.html
+ [8]: /security-and-authentication/advanced-acl/
+ [9]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
+ [10]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
+ [11]: /concepts/installing/custom/manual-installation/
+ [13]: https://issues.apache.org/jira/browse/MESOS-2408
+ [15]: https://github.com/emccode/dvdcli/issues/15
