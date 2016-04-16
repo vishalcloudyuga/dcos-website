@@ -1,8 +1,8 @@
 // Nav icon
 
 #nav-icon{
-  width: 60px;
-  height: 45px;
+  width: 20px;
+  height: 18px;
   position: relative;
   margin: 50px auto;
   -webkit-transform: rotate(0deg);
@@ -19,10 +19,10 @@
 #nav-icon span {
   display: block;
   position: absolute;
-  height: 9px;
+  height: 2px;
   width: 100%;
-  background: #d3531a;
-  border-radius: 9px;
+  background: white;
+  border-radius: 2px;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -40,15 +40,15 @@
 }
 
 #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
-  top: 18px;
+  top: 8px;
 }
 
 #nav-icon span:nth-child(4) {
-  top: 36px;
+  top: 16px;
 }
 
 #nav-icon.open span:nth-child(1) {
-  top: 18px;
+  top: 8px;
   width: 0%;
   left: 50%;
 }

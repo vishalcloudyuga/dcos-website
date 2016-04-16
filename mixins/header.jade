@@ -1,7 +1,14 @@
+script
+  $(document).ready(function(){
+  	$('#nav-icon').click(function(){
+  		$(this).toggleClass('open');
+  	});
+  });
+
 mixin header()
   nav.navigation
 
-    a.nav-hamburger#nav-icon(href="#")
+    a#nav-icon(href="#")
       span
       span
       span
