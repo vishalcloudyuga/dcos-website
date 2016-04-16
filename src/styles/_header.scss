@@ -1,6 +1,6 @@
 // Nav icon
 
-#nav-icon{
+#nav-icon {
   width: 20px;
   height: 18px;
   position: relative;
@@ -37,6 +37,10 @@
 
 #nav-icon.dark span {
   background: black;
+}
+
+.navigation.mobile-menu--open #nav-icon span {
+  background: #fff;
 }
 
 #nav-icon span:nth-child(1) {
@@ -124,9 +128,28 @@
   }
 }
 
-.logo {
+.navigation .logo {
+  height: 39px;
   width: 6rem;
   align-self: flex-start;
+  background: url('/assets/images/dcos-logo-white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: background 1s;
+}
+
+.navigation .logo.dark {
+  background: url('/assets/images/dcos-logo-black.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: background 1s;
+}
+
+.navigation.mobile-menu--open .logo {
+  background: url('/assets/images/dcos-logo-white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: background 1s;
 }
 
 .mobile-nav-container {

@@ -2,7 +2,7 @@ mixin header(lightHeader)
   nav.navigation
 
     .mobile-nav-container
-      a#nav-icon(href="#")
+      a#nav-icon(href="#" class=lightHeader ? 'dark' : '')
         span
         span
         span
@@ -10,7 +10,7 @@ mixin header(lightHeader)
 
       .nav-logo-container
         a(href='/').nav-logo
-          img.logo(src=lightHeader ? '/assets/images/dcos-logo-black.svg' : '/assets/images/dcos-logo-white.svg')
+          div.logo(class=lightHeader ? 'dark' : '')
 
     ul.menu-mobile
       li.menu-item
