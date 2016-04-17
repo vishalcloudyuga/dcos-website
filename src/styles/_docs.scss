@@ -326,7 +326,7 @@ img.docs-content__footer__share-icon {
   background-repeat: no-repeat;
   width: 11px;
   height: 7px;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .open-docs-menu.active .docs-menu-arrow {
@@ -344,7 +344,7 @@ img.docs-content__footer__share-icon {
   padding-top: 0;
   padding-bottom: 1rem;
   overflow: hidden;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .docs-menu-mobile-container.hidden {
