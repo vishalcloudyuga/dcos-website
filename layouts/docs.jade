@@ -83,6 +83,8 @@ html
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/yaml.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/powershell.min.js')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css')
+    script(src='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js')
     link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon/favicon.ico")
     link(rel="apple-touch-icon" href="/assets/images/icons/favicon/favicon-apple-57x57.png")
     link(rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/favicon/favicon-apple-72x72.png")
@@ -100,9 +102,6 @@ html
     link(rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/images/icons/favicon/favicon-apple-76x76.png")
     link(rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/icons/favicon/favicon-apple-120x120.png")
     link(rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/icons/favicon/favicon-apple-152x152.png")
-
-    script.
-      var __dcos_docs = !{JSON.stringify(locals.navs.json)};
 
     block head
       title!= locals.post_title
@@ -151,9 +150,15 @@ html
       .container
         +footer
 
+  script.
+    docsearch({
+      apiKey: '83f08047a3b6749bf0256c1f16d7a562',
+      indexName: 'dcos',
+      inputSelector: '.docs-search__input'
+    });
+
   script(src='/scripts/main.js')
   script(src='/bower_components/Stickyfill/dist/stickyfill.min.js')
-  script(src='/assets/scripts/lunr.min.js')
   script(src='/scripts/docs.js')
   script(src='/scripts/overlay.js')
   script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570558ee2719a9f0')
