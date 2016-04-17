@@ -1,0 +1,21 @@
+{
+  "name": "dcos-website",
+  "description": "Website for DC/OS",
+  "main": "index.js",
+  "authors": [
+    "DC/OS (http://www.dcos.io)"
+  ],
+  "homepage": "https://github.com/dcos/dcos-website",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Stickyfill": "^1.1.4"
+  }
+}

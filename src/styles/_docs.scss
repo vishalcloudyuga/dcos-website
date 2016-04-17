@@ -319,3 +319,8 @@ img.docs-content__footer__share-icon {
     width: $max-width;
   }
 }
+
+.docs-layout__docs-nav {
+  top: 20px;
+  position: sticky;
+}

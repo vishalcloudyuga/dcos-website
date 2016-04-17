@@ -31,8 +31,22 @@
       } else {
         parent.querySelector('.docs-nav__item__title').hasClassName('active') ? img.setAttribute('src', '/assets/images/icons/arrow-down-docs.svg') : img.setAttribute('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
       }
+
+      Stickyfill.rebuild();
     });
   });
+
+  // Sticky sidebar
+  const docsSidebar = $('.docs-layout__docs-nav');
+
+  addRemoveSticky();
+
+  window.addEventListener('resize', addRemoveSticky, true);
+
+  function addRemoveSticky () {
+    if (window.innerWidth < 768) Stickyfill.remove($('.docs-layout__docs-nav'));
+    else Stickyfill.add($('.docs-layout__docs-nav'));
+  }
 
   // Highlight.js
   Array.prototype.forEach.call($$('pre code'), el => {
