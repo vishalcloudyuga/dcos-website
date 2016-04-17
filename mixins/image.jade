@@ -1,0 +1,5 @@
+mixin image(path)
+  - var splitPath = path.split('.')
+  - splitPath[0] = splitPath[0] + '@2x'
+  - var path2x = splitPath.join('.')
+  img(src!=path, srcset!='#{path} 1x, #{path2x} 2x')&attributes(attributes)
