@@ -39,15 +39,15 @@
   });
 
   // Sticky sidebar
-  const docsSidebar = $('.docs-layout__docs-nav');
+  const docsSidebar = $('.container--docs-content .docs-layout__docs-nav');
 
   addRemoveSticky();
 
   window.addEventListener('resize', addRemoveSticky, true);
 
   function addRemoveSticky () {
-    if (window.innerWidth < 768) Stickyfill.remove($('.docs-layout__docs-nav'));
-    else Stickyfill.add($('.docs-layout__docs-nav'));
+    if (window.innerWidth < 768) Stickyfill.remove(docsSidebar);
+    else Stickyfill.add(docsSidebar);
   }
 
   // Mobile docs menu
