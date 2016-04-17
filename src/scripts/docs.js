@@ -20,6 +20,8 @@
   // Navigation
   Array.prototype.forEach.call($$('.docs-nav__item_folder a'), el => {
     el.addEventListener('click', function(e) {
+      docsMenu.style.maxHeight = null; // remove max-height set by mobile docs menu
+
       if(e.currentTarget.hasClassName('docs-nav__item__arrow')) e.preventDefault();
       else if(!e.currentTarget.getAttribute('data-path')) return;
       let parent = e.currentTarget.parentNode.parentNode;
@@ -47,6 +49,35 @@
     if (window.innerWidth < 768) Stickyfill.remove($('.docs-layout__docs-nav'));
     else Stickyfill.add($('.docs-layout__docs-nav'));
   }
+
+  // Mobile docs menu
+  let mobileDocsMenu = $('.docs-menu-mobile');
+  let docsMenu = mobileDocsMenu.querySelector('.docs-menu-mobile-container');
+  let docsMenuButton = mobileDocsMenu.querySelector('.open-docs-menu');
+  let docsMenuHeight;
+  let docsMenuActive;
+  initDocsMenu();
+
+  function initDocsMenu () {
+    docsMenuHeight = docsMenu.offsetHeight;
+    docsMenuActive = false;
+
+    docsMenu.classList.add('hidden');
+  }
+
+  docsMenuButton.addEventListener('click', () => {
+    if (docsMenuActive) docsMenuHeight = docsMenu.offsetHeight;
+
+    docsMenu.style.maxHeight = `${docsMenuHeight}px`;
+
+    setTimeout(() => {
+      docsMenu.classList.toggle('hidden');
+      docsMenu.classList.toggle('active');
+      docsMenuButton.classList.toggle('active');
+
+      docsMenuActive = !docsMenuActive;
+    });
+  });
 
   // Highlight.js
   Array.prototype.forEach.call($$('pre code'), el => {
