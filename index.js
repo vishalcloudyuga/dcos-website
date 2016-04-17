@@ -40,7 +40,22 @@ const navConfig = {
       includeDirs: true,
       pathProperty: 'nav_path',
       childrenProperty: 'nav_children',
-      sortBy: 'menu_order'
+      sortBy: function(file, node) {
+        if (file !== undefined) {
+          return file.menu_order
+        } else if (node.type === 'dir') {
+          // for directories find the index.html and grab its menu_order
+          let indexFile = node.children.find((c) => c.name == 'index.html')
+          if (indexFile !== undefined) {
+            return indexFile.file.menu_order || 999
+          }
+
+        } else {
+          return 0;
+        }
+
+      },
+      sortByNameFirst: true
     }
 }
 
