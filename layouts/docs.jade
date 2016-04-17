@@ -15,6 +15,10 @@ include ../mixins/footer-docs.jade
 -   return child.name;
 - }
 
+- var shouldDisplayAsDoc = function(child) {
+-   return (!child.children.length || (child.children.length === 1 && child.children.find(n => n.name === 'index.html')) || (child.children.length === 2 && child.children.find(n => n.name === 'index.html') && child.children.find(n => n.name === 'img')))
+- }
+
 mixin renderMenu(tree)
   ul(class!=attributes.class)
     each child in tree
@@ -53,7 +57,10 @@ mixin renderMenu(tree)
               li.docs-nav__item.docs-nav__item_folder
                 .nav-wrapper
                   a.docs-nav__item__arrow(href='#')
-                    img(src='/assets/images/icons/arrow-down-docs.svg')
+                    if(shouldDisplayAsDoc(child))
+                      img(src='/assets/images/icons/docs-file-active.svg')
+                    else
+                      img(src='/assets/images/icons/arrow-down-docs.svg')
                   if(findPath(child.path.split('/').pop()))
                     a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                   else
@@ -65,7 +72,10 @@ mixin renderMenu(tree)
               li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
                 .nav-wrapper
                   a.docs-nav__item__arrow(href='#')
-                    img(src='/assets/images/icons/arrow-right-docs.svg')
+                    if(shouldDisplayAsDoc(child))
+                      img(src='/assets/images/icons/docs-file-inactive.svg')
+                    else
+                      img(src='/assets/images/icons/arrow-right-docs.svg')
                   if(findPath(child.path.split('/').pop()))
                     a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                   else
