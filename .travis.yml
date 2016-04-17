@@ -25,3 +25,4 @@ deploy:
   on:
     repo: dcos/dcos-website
     branch: develop
+after_deploy: "echo $(env)"

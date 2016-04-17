@@ -16,11 +16,12 @@ const copy         = require('metalsmith-copy')
 const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
 const changed      = require('metalsmith-changed')
-const lunr         = require('metalsmith-lunr')
-const lunr_        = require('lunr')
+const modRewrite   = require('connect-modrewrite');
+
+
 
 // --- general build settings --- //
-const docsVersions = ['1.7', 'latest'];
+const docsVersions = ['1.7'];
 
 const updatePaths = function(file, filename) {
   if (path.basename(filename) === "index.html" ) { return filename; }
@@ -94,18 +95,6 @@ let createDocs = function(version) {
       }
     }))
     .use(each(updatePaths))
-    .use(lunr({
-      indexPath: 'lunr.json',
-      fields: {
-        post_title: 20,
-        nav_title: 20,
-        search_blurb: 1,
-        tags: 10
-      },
-      pipelineFunctions: [
-        lunr_.trimmer
-      ]
-    }))
     .destination(path.join('..', 'build', 'docs', version))
     .build((err) => {
       if (err) throw err
@@ -153,13 +142,18 @@ Metalsmith(__dirname)
       return browserSync({
         server: {
           baseDir: './build',
-          middleware: function(req, res, next) {
-            var file = `./build${req.originalUrl}.html`;
-            require('fs').exists(file, function(exists) {
-              if (exists) req.url += '.html';
-              next();
-            });
-          }
+          middleware: [
+            modRewrite([
+              "^/docs/latest/(.*) /docs/" + docsVersions.slice(-1).pop() + "/$1"
+            ]),
+            function(req, res, next) {
+              var file = `./build${req.originalUrl}.html`;
+              require('fs').exists(file, function(exists) {
+                if (exists) req.url += '.html';
+                next();
+              });
+            }
+          ]
         },
         files: ['./src/**/*', './dcos-docs/**/*', './layouts/**/*', './mixins/**/*']
       }, null, allDocs)
@@ -168,6 +162,5 @@ Metalsmith(__dirname)
   .build((err) => {
     if (err) throw err
   })
-
 
 allDocs()
