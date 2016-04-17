@@ -10,7 +10,7 @@
   let btmElPos = 63;
 
   window.addEventListener('scroll', function(e) {
-    if(window.scrollY+window.outerHeight >= $('.stack-diagram').offsetTop+450 && !isTriggered) {
+    if((window.scrollY||window.pageYOffset)+window.outerHeight >= $('.stack-diagram').offsetTop+450 && !isTriggered) {
       isTriggered = true;
 
       topEl.addClassName('animate');
