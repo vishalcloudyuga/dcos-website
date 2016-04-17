@@ -81,6 +81,21 @@
 .hero-list__item__copy {
 	display: flex;
 	flex-flow: column nowrap;
+
+	.cta--text {
+		color: $heliotrope;
+		margin-top: 1rem;
+		opacity: 1;
+	}
+}
+
+.container--dark-background {
+	.hero-list__item__copy {
+
+		.cta--text {
+			color: white;
+		}
+	}
 }
 
 .hero-list__item__copy__title {

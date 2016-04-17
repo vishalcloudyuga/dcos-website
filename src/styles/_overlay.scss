@@ -37,7 +37,7 @@ body.overlay-active {
 
 .overlay-visible {
 	opacity: 1;
-	z-index: 100;
+	z-index: 9999;
 	transition: opacity 100ms ease-in;
 }
 
