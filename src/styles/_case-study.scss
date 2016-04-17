@@ -21,6 +21,11 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  z-index: 100;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bullet-list__item {
@@ -53,15 +58,20 @@
 	left: 0;
 }
 
+.case-study-fade-wrapper {
+	position: relative;
+}
+
 .case-study-item .container__content--case-study-image-wrapper,
-.case-study-item .container__content--case-study-copy {
+.case-study-item .case-study-fade-wrapper {
 	opacity: 0;
 	transition: all 0.5s;
 }
 
 .case-study-item.active .container__content--case-study-image-wrapper,
-.case-study-item.active .container__content--case-study-copy {
+.case-study-item.active .case-study-fade-wrapper {
 	opacity: 1;
+	z-index: 1;
 }
 
 @include break($mobile-large-landscape) {
@@ -101,8 +111,10 @@
 
   .bullet-list {
     position: absolute;
-    bottom: 0;
-    left: calc(50% + 6rem);
+    bottom: 1rem;
+    z-index: 100;
+    transform: none;
+    left: auto;
   }
 
   .bullet-list__bullet {
