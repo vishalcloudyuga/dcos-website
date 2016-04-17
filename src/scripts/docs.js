@@ -38,18 +38,6 @@
     });
   });
 
-  // Sticky sidebar
-  const docsSidebar = $('.container--docs-content .docs-layout__docs-nav');
-
-  addRemoveSticky();
-
-  window.addEventListener('resize', addRemoveSticky, true);
-
-  function addRemoveSticky () {
-    if (window.innerWidth < 768) Stickyfill.remove(docsSidebar);
-    else Stickyfill.add(docsSidebar);
-  }
-
   // Mobile docs menu
   let mobileDocsMenu = $('.docs-menu-mobile');
   let docsMenu = mobileDocsMenu.querySelector('.docs-menu-mobile-container');

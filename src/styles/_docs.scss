@@ -360,7 +360,9 @@ img.docs-content__footer__share-icon {
   width: 100%;
 }
 
-
+.container.container--docs-content .algolia-autocomplete {
+  width: 100%;
+}
 
 @include break($tablet-portrait) {
   .docs-search__input {
@@ -412,9 +414,4 @@ img.docs-content__footer__share-icon {
   .docs-layout {
     width: $max-width;
   }
-}
-
-.docs-layout__docs-nav {
-  top: 20px;
-  position: sticky;
 }
