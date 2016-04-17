@@ -22,7 +22,7 @@ h1, h2, h3 {
 }
 
 h1, h2, h3, p, blockquote {
-	max-width: 42rem;
+	max-width: 44rem;
 }
 
 // Vertical rythm: Major Third
@@ -102,6 +102,8 @@ cite {
 
 .text-align-left {
 	text-align: left;
+	display: flex;
+	flex-flow: column;
 }
 
 // Breakpoints

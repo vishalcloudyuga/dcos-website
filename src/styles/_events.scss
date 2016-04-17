@@ -2,6 +2,7 @@
   overflow: hidden;
   position: relative;
   align-items: flex-start;
+  margin-top: 2rem;
 
   .container__content:first-child {
     padding-bottom: 2rem;
@@ -22,8 +23,14 @@
 }
 
 .events-carousel .card {
-  min-width: 300px;
-  height: 390px;
+
+  .card-copy {
+    align-items: flex-start;
+  }
+
+  .card-title {
+    text-align: left;
+  }
 }
 
 .events-carousel-btn {
@@ -34,7 +41,7 @@
   opacity: 0.9;
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 32%;
   transform: translateY(-50%);
   cursor: pointer;
   transition: opacity 0.2s;
@@ -83,6 +90,11 @@
   .events-static-container .card-container {
     flex-flow: row nowrap;
     align-items: center;
+  }
+
+  .events-carousel .card {
+    min-width: 300px;
+    height: 390px;
   }
 }
 

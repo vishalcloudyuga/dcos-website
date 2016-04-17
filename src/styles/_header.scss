@@ -43,6 +43,10 @@
   background: #fff;
 }
 
+.navigation.mobile-menu--open #nav-icon.dark span {
+  background: black;
+}
+
 #nav-icon span:nth-child(1) {
   top: 0px;
 }
@@ -118,12 +122,16 @@
     font-size: 0.9rem;
   }
 
-  .cta--button {
-    border-color: black;
+  .menu-item {
 
-    &:hover {
-      color: white;
-      background-color: black;
+    .cta--button {
+      border: 1px solid black;
+      color: black;
+
+      &:hover {
+        color: white;
+        background-color: black;
+      }
     }
   }
 }
@@ -181,6 +189,10 @@
 
   &.menu-mobile--docs {
     background-color: $white95;
+
+    .menu-item a {
+      color: black;
+    }
   }
 
   &.open {
@@ -223,6 +235,20 @@
 .container--dark-background {
   .navigation a {
     color: white;
+  }
+
+  .navigation {
+    .menu-item {
+      a.cta--button {
+        border: 1px solid white;
+        color: white;
+
+        &:hover {
+          color: black;
+          background-color: white;
+        }
+      }
+    }
   }
 }
 
