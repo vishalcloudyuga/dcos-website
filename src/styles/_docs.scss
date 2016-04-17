@@ -309,6 +309,7 @@ img.docs-content__footer__share-icon {
   flex-flow: row;
   justify-content: space-between;
   cursor: pointer;
+  padding: 1rem 1.5rem;
 }
 
 .open-docs-menu span {
@@ -329,7 +330,6 @@ img.docs-content__footer__share-icon {
 }
 
 .open-docs-menu.active .docs-menu-arrow {
-  background: url('/assets/images/icons/arrow-down-docs.svg');
   width: 11px;
   height: 7px;
   transform: rotate(180deg);
@@ -342,6 +342,7 @@ img.docs-content__footer__share-icon {
 
 .docs-menu-mobile-container {
   padding-top: 0;
+  padding-bottom: 1rem;
   overflow: hidden;
   transition: all 1s;
 }
