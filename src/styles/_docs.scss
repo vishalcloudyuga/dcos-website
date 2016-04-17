@@ -223,20 +223,22 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
   }
 }
 
-.table {
-  line-height: 1.5;
+.docs-layout {
+  table {
+    line-height: 1.5;
 
-  tbody, tr, td, th {
-    border: 1px solid $dark-gray;
-    word-wrap: break-word;
-  }
+    tbody, tr, td, th {
+      border: 1px solid $dark-gray;
+      word-wrap: break-word;
+    }
 
-  tr, td, th {
-    padding: 0.5rem;
-  }
+    tr, td, th {
+      padding: 0.5rem;
+    }
 
-  th {
-    font-weight: bold;
+    th {
+      font-weight: bold;
+    }
   }
 }
 
