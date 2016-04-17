@@ -16,8 +16,6 @@ const copy         = require('metalsmith-copy')
 const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
 const changed      = require('metalsmith-changed')
-const lunr         = require('metalsmith-lunr')
-const lunr_        = require('lunr')
 const modRewrite   = require('connect-modrewrite');
 
 
@@ -97,18 +95,6 @@ let createDocs = function(version) {
       }
     }))
     .use(each(updatePaths))
-    .use(lunr({
-      indexPath: 'lunr.json',
-      fields: {
-        post_title: 20,
-        nav_title: 20,
-        search_blurb: 1,
-        tags: 10
-      },
-      pipelineFunctions: [
-        lunr_.trimmer
-      ]
-    }))
     .destination(path.join('..', 'build', 'docs', version))
     .build((err) => {
       if (err) throw err
