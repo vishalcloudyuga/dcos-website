@@ -15,35 +15,41 @@ include ../mixins/footer-docs.jade
 -   return child.name;
 - }
 
+- var shouldDisplayAsDoc = function(child) {
+-   return (!child.children.length || (child.children.length === 1 && child.children.find(n => n.name === 'index.html')) || (child.children.length === 2 && child.children.find(n => n.name === 'index.html') && child.children.find(n => n.name === 'img')))
+- }
+
 mixin renderMenu(tree)
-  ul
+  ul(class!=attributes.class)
     each child in tree
+
       if(child.path.substr(child.path.length-10, child.path.length) !== 'index.html')
         if(child.file)
-          if(findPath(child.path))
-            li.docs-nav__item.docs-nav__item_file
-              if(locals.nav_path === child.path)
-                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active
-                  img(src='/assets/images/icons/docs-file-active.svg')
-                  span #{child.file.nav_title || child.file.post_title}
-              else
-                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}')
-                  img(src='/assets/images/icons/docs-file-inactive.svg')
-                  span #{child.file.nav_title || child.file.post_title}
-              if(child.children)
-                +renderMenu(child.children)
-          else
-            li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
-              if(locals.nav_path === child.path)
-                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active
-                  img(src='/assets/images/icons/docs-file-active.svg')
-                  span #{child.file.nav_title || child.file.post_title}
-              else
-                a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}')
-                  img(src='/assets/images/icons/docs-file-inactive.svg')
-                  span #{child.file.nav_title || child.file.post_title}
-              if(child.children)
-                +renderMenu(child.children)
+          if(child.file.nav_tile !== undefined || child.file.post_title !== undefined)
+            if(findPath(child.path))
+              li.docs-nav__item.docs-nav__item_file
+                if(locals.nav_path === child.path)
+                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active
+                    img(src='/assets/images/icons/docs-file-active.svg')
+                    span #{child.file.nav_title || child.file.post_title}
+                else
+                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}')
+                    img(src='/assets/images/icons/docs-file-inactive.svg')
+                    span #{child.file.nav_title || child.file.post_title}
+                if(child.children)
+                  +renderMenu(child.children)
+            else
+              li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
+                if(locals.nav_path === child.path)
+                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active
+                    img(src='/assets/images/icons/docs-file-active.svg')
+                    span #{child.file.nav_title || child.file.post_title}
+                else
+                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}')
+                    img(src='/assets/images/icons/docs-file-inactive.svg')
+                    span #{child.file.nav_title || child.file.post_title}
+                if(child.children)
+                  +renderMenu(child.children)
 
         else
           if(findPath(child.name))
@@ -51,7 +57,10 @@ mixin renderMenu(tree)
               li.docs-nav__item.docs-nav__item_folder
                 .nav-wrapper
                   a.docs-nav__item__arrow(href='#')
-                    img(src='/assets/images/icons/arrow-down-docs.svg')
+                    if(shouldDisplayAsDoc(child))
+                      img(src='/assets/images/icons/docs-file-active.svg')
+                    else
+                      img(src='/assets/images/icons/arrow-down-docs.svg')
                   if(findPath(child.path.split('/').pop()))
                     a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                   else
@@ -63,7 +72,10 @@ mixin renderMenu(tree)
               li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
                 .nav-wrapper
                   a.docs-nav__item__arrow(href='#')
-                    img(src='/assets/images/icons/arrow-right-docs.svg')
+                    if(shouldDisplayAsDoc(child))
+                      img(src='/assets/images/icons/docs-file-inactive.svg')
+                    else
+                      img(src='/assets/images/icons/arrow-right-docs.svg')
                   if(findPath(child.path.split('/').pop()))
                     a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
                   else
@@ -80,6 +92,10 @@ html
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/railscasts.min.css')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/yaml.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/powershell.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/dockerfile.min.js')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css')
+    script(src='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js')
     link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon/favicon.ico")
     link(rel="apple-touch-icon" href="/assets/images/icons/favicon/favicon-apple-57x57.png")
     link(rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/favicon/favicon-apple-72x72.png")
@@ -98,9 +114,6 @@ html
     link(rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/icons/favicon/favicon-apple-120x120.png")
     link(rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/icons/favicon/favicon-apple-152x152.png")
 
-    script.
-      var __dcos_docs = !{JSON.stringify(locals.navs.json)};
-
     block head
       title!= locals.post_title
 
@@ -109,12 +122,21 @@ html
       .container.container--docs-header
         +header
 
-      .container
+      .container.container--mobile-menu
+        .docs-menu-mobile
+          .open-docs-menu.container__content
+            span!= locals.post_title
+            div.docs-menu-arrow
+          .docs-menu-mobile-container.container__content
+            .docs-layout__docs-nav
+              +renderMenu(locals.navs.header)(class='docs-menu')
+
+      .container.container--docs-content
         .container__content.docs-layout
           .docs-layout__docs-nav
             .docs-search
               input(type='search').docs-search__input
-            +renderMenu(locals.navs.header)
+            +renderMenu(locals.navs.header)(class='docs-menu')
 
           // Search results
           .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
@@ -139,9 +161,14 @@ html
       .container
         +footer
 
+  script.
+    docsearch({
+      apiKey: '83f08047a3b6749bf0256c1f16d7a562',
+      indexName: 'dcos',
+      inputSelector: '.docs-search__input'
+    });
+
   script(src='/scripts/main.js')
-  script(src='/bower_components/Stickyfill/dist/stickyfill.min.js')
-  script(src='/assets/scripts/lunr.min.js')
   script(src='/scripts/docs.js')
   script(src='/scripts/overlay.js')
   script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570558ee2719a9f0')
