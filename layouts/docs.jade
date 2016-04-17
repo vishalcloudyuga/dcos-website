@@ -16,7 +16,7 @@ include ../mixins/footer-docs.jade
 - }
 
 mixin renderMenu(tree)
-  ul
+  ul(class!=attributes.class)
     each child in tree
 
       if(child.path.substr(child.path.length-10, child.path.length) !== 'index.html')
@@ -111,12 +111,21 @@ html
       .container.container--docs-header
         +header
 
-      .container
+      .container.container--mobile-menu
+        .docs-menu-mobile
+          .open-docs-menu.container__content
+            span!= locals.post_title
+            div.docs-menu-arrow
+          .docs-menu-mobile-container.container__content
+            .docs-layout__docs-nav
+              +renderMenu(locals.navs.header)(class='docs-menu')
+
+      .container.container--docs-content
         .container__content.docs-layout
           .docs-layout__docs-nav
             .docs-search
               input(type='search').docs-search__input
-            +renderMenu(locals.navs.header)
+            +renderMenu(locals.navs.header)(class='docs-menu')
 
           // Search results
           .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
