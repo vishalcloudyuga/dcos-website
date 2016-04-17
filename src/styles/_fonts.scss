@@ -63,6 +63,7 @@ h5 {
 
 h6 {
 	font-size: 0.9rem;
+	font-family: $clio-medium;
 	font-weight: 400;
 	letter-spacing: 0.05rem;
 }
@@ -129,5 +130,6 @@ cite {
 
 	h5 {
 		font-size: 1rem;
+		line-height: 1.5;
 	}
 }

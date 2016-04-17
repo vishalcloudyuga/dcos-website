@@ -74,6 +74,10 @@
 	margin: 0 0 1rem 0;
 }
 
+.install-columns .hero-list__item__image {
+	margin-bottom: 0rem;
+}
+
 .hero-list__item__copy {
 	display: flex;
 	flex-flow: column nowrap;
@@ -114,6 +118,8 @@
 	.hero-list__item__image {
 		margin: 0 0 1.5rem 0;
 	}
+
+
 
 	// Styling the Hero of the Community page
 	.community-hero {
