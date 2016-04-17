@@ -1,4 +1,5 @@
 extends ../layouts/base-whitefooter.jade
+include ../mixins/image.jade
 
 block head
   title DC/OS
@@ -44,43 +45,43 @@ block content
         a.card(href="#", data-name="Marathon", data-doc="service/marathon")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/marathon.png')
+              +image('/assets/images/icons/services/marathon.png')
             h3.card-title Marathon
             p.card-copy Use to launch long-running apps, for example a webserver.
         a.card(href="#", data-name="Spark", data-doc="service/spark")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/spark.png')
+              +image('/assets/images/icons/services/spark.png')
             h3.card-title Spark
             p.card-copy Use for elastic data processing, batch or afdsafafsf a fads af asd a af asfd af a a afd af afs adf a as as streaming.
         a.card(href="#", data-name="ArangoDB", data-doc="service/arangodb")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/arangodb.png')
+              +image('/assets/images/icons/services/arangodb.png')
             h3.card-title ArangoDB
             p.card-copy Use to store and query tree-like data as well as graphs.
         a.card(href="#", data-name="Cassandra", data-doc="service/cassandra")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/cassandra.png')
+              +image('/assets/images/icons/services/cassandra.png')
             h3.card-title Cassandra
             p.card-copy Use to store and query semi-structured data in wide tables.
         a.card(href="#", data-name="Chronos", data-doc="service/chronos")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/chronos.png')
+              +image('/assets/images/icons/services/chronos.png')
             h3.card-title Chronos
             p.card-copy Use to launch scheduled batch jobs in a distributed way.
         a.card(href="#", data-name="Jenkins", data-doc="service/jenkins")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/jenkins.png')
+              +image('/assets/images/icons/services/jenkins.png')
             h3.card-title Jenkins
             p.card-copy Use to build your scalable and fault-tolerant CI/CD pipeline.
         a.card(href="#", data-name="Kafka", data-doc="service/chronos")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/services/kafka.png')
+              +image('/assets/images/icons/services/kafka.png')
             h3.card-title Kafka
             p.card-copy Use to queue messages and distributed to others.
 
@@ -91,37 +92,37 @@ block content
         a.card(href="#", data-name="AWS", data-doc="platform/aws")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/platforms/aws.png')
+              +image('/assets/images/icons/platforms/aws.png')
             h3.card-title AWS
             p.card-copy Deploy on AWS using templates or custom install.
         a.card(href="#", data-name="Azure", data-doc="platform/azure")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/platforms/azure.png')
+              +image('/assets/images/icons/platforms/azure.png')
             h3.card-title Azure
             p.card-copy Deploy on Azure using templates or custom install.
         a.card(href="#", data-name="Azure", data-doc="platform/centos")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/platforms/centos.png')
+              +image('/assets/images/icons/platforms/centos.png')
             h3.card-title CentOS
             p.card-copy Deploy on CentOS using custom install.
         a.card(href="#", data-name="Coreos", data-doc="platform/coreos")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/platforms/coreos.png')
+              +image('/assets/images/icons/platforms/coreos.png')
             h3.card-title CoreOS
             p.card-copy Deploy on CoreOS using custom install.
         a.card(href="#", data-name="Packet", data-doc="platform/packet")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/platforms/packet.png')
+              +image('/assets/images/icons/platforms/packet.png')
             h3.card-title Packet
             p.card-copy Deploy on Packet using templates.
         a.card(href="#", data-name="Vagrant", data-doc="platform/vagrant")
           .card-content
             .card-logo
-              img(src='/assets/images/icons/platforms/vagrant.png')
+              +image('/assets/images/icons/platforms/vagrant.png')
             h3.card-title Vagrant
             p.card-copy Deploy on Vagrant using custom install.
 
