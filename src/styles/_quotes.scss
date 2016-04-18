@@ -56,7 +56,7 @@
 
 
   img {
-    width: 120px;
+    height: 50px;
     transition: opacity 0.4s;
     opacity: 0;
   }
@@ -82,14 +82,12 @@
 @include break($tablet-portrait) {
   .partner-quote-logo-list__partner-quote-logo:hover {
     img {
-      width: 120px;
       opacity: 1;
     }
   }
 }
 
 .partner-quote-logo-list__partner-quote-logo.active img {
-  width: 120px;
   opacity: 1;
 }
 
