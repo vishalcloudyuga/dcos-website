@@ -62,6 +62,7 @@
 
 .partner-quote-logo-list__partner-quote-logo a {
   cursor: pointer;
+  opacity: 1;
 }
 
 .partner-quote-logo-list__partner-quote-logo:last-child {
@@ -72,6 +73,21 @@
   img {
     width: 120px;
     opacity: 1;
+  }
+}
+
+.quote-block {
+  margin-bottom: 3rem;
+
+  p {
+    margin-top: 0px;
+  }
+
+  &:last-child {
+    margin-bottom:0px;
+  }
+  .quote-image {
+    height: 50px;
   }
 }
 

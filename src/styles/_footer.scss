@@ -1,4 +1,4 @@
-// Universal footer styling
+  // Universal footer styling
 
 .footer {
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: space-between;
   width: 100%;
   max-width: $max-width;
-  padding: 1rem;
+  padding: 1rem 0;
   color: $black60;
   font-size: 0.9rem;
   letter-spacing: 0.02rem;
@@ -38,12 +38,12 @@
 }
 
 .footer-secondary {
-  order: 1;
+  order: 2;
 }
 
 .footer-main {
   flex-flow: column-reverse;
-  order: 2;
+  order: 1;
 }
 
 .footer-item {
@@ -95,7 +95,7 @@
   }
 
   .footer-secondary {
-    order: 2;
+    order: 1;
 
     .footer-item:last-child {
       padding-right: 0;
@@ -103,7 +103,7 @@
   }
 
   .footer-main {
-    order: 1;
+    order: 2;
 
     .footer-item:first-child {
       padding-left: 0;

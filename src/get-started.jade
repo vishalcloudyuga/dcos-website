@@ -28,7 +28,7 @@ block content
           p Step 2
           h3 Select a platform
 
-        .getstarted-tabs__step.step3.step-inactive
+        a.getstarted-tabs__step.step3.step-inactive
           p Step 3
           h3 Run it
 
@@ -53,7 +53,7 @@ block content
             .card-logo
               +image('/assets/images/icons/services/spark.png')
             h3.card-title Spark
-            p.card-copy Use for elastic data processing, batch or afdsafafsf a fads af asd a af asfd af a a afd af afs adf a as as streaming.
+            p.card-copy Use for elastic data processing, batch or streaming.
         a.card(href="#", data-name="ArangoDB", data-doc="service/arangodb")
           .card-content
             .card-logo
@@ -78,7 +78,7 @@ block content
               +image('/assets/images/icons/services/jenkins.png')
             h3.card-title Jenkins
             p.card-copy Use to build your scalable and fault-tolerant CI/CD pipeline.
-        a.card(href="#", data-name="Kafka", data-doc="service/chronos")
+        a.card(href="#", data-name="Kafka", data-doc="service/kafka")
           .card-content
             .card-logo
               +image('/assets/images/icons/services/kafka.png')
@@ -129,5 +129,4 @@ block content
     .container__content.install(style='display: none;')
 
   .container
-    .container__content
       +footer

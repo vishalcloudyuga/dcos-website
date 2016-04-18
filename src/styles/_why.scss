@@ -20,10 +20,6 @@
 .why-content-image__icon-container {
   display: flex;
   align-items: center;
-  img {
-    max-width: 428px;
-    margin-top: 4rem; // compensates for the drop shadow in the image
-  }
 }
 
 .why-content__copy-list__title {
@@ -47,7 +43,7 @@
   .why-content__icon {
     position: absolute;
     margin-left: -3rem;
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
   }
 
   .why-content-image {
@@ -55,6 +51,15 @@
     justify-content: space-between;
     text-align: left;
     width: 100%;
+  }
+
+  .why-content-image__icon-container {
+    display: flex;
+    align-items: center;
+    img {
+      max-width: 428px;
+      margin-top: 4rem; // compensates for the drop shadow in the image
+    }
   }
 
   .why-content-image__copy {

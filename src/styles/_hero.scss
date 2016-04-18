@@ -159,6 +159,13 @@
       height: 32px;
 			min-width: 32px;
 			max-width: 32px;
+
+			&.larger-icon {
+				width: 42px;
+	      height: 42px;
+				min-width: 42px;
+				max-width: 42px;
+			}
 		}
 	}
 }
@@ -259,6 +266,10 @@
 }
 
 @include break($desktop-small) {
+	.hero-content {
+		padding-top: 4rem;
+	}
+
 	.hero-list__item {
 		flex-basis: 22%;
 		width: 22%;

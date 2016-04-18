@@ -3,9 +3,20 @@
 }
 
 .custom-install {
-  margin: 0;
+  margin: 2px 0 0 0;
 }
 
-.install-columns a {
-  opacity: 1;
+.install-columns {
+  a {
+    opacity: 1;
+    width: 100%;
+  }
+  .hero-list__item .card-content {
+    padding: 1.5rem 0px;
+
+    img {
+      height: 60px;
+      width: auto;
+    }
+  }
 }

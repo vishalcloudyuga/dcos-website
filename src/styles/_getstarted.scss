@@ -23,11 +23,28 @@
   width: 100%;
 }
 
+.platform-select, .service-select {
+	.card-content {
+		padding: 2rem 1.25rem;
+	}
+
+	.card-title {
+		margin-top: 1.5rem;
+	}
+
+	.card-copy {
+		margin-top: 0.5rem;
+	}
+}
+
 .service-name {
   position: absolute;
   top: -45px;
   opacity: 1;
   transition: opacity 0.3s;
+	img {
+		border-radius: 6px;
+	}
 }
 
 .service-name[data-current="true"] {
@@ -184,5 +201,14 @@
 
 	.getstarted-heading__service, .getstarted-heading__platform {
 		width: 23rem;
+	}
+}
+
+@include break($desktop-small) {
+	.platform-select, .service-select {
+		.card {
+			width: 220px;
+			height: 260px;
+		}
 	}
 }

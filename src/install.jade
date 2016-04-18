@@ -20,22 +20,20 @@ block content
             h3.install-bullets-title Local
             p Vagrant-based installer that creates a cluster of virtual machines on a local machine.
             h4.install-bullets-title Requirements
-            p A machine with at least 16GB of RAM.
+            p.small A machine with at least 16GB of RAM.
             h6 Install on:
           a(href='/docs/latest/administration/installing/local/').card
             .card-content
               img(src='/assets/images/logos/platforms/vagrant.png')
-          a(href='/docs/latest/administration/installing/local/').card
-            .card-content
-              h5.custom-install OTHER PLATFORMS
+
 
         li.hero-list__item
           img.hero-list__item__image(src="/assets/images/icons/cloud.svg")
           .hero-list__item__copy
             h3.install-bullets-title Cloud
-            p Configurable cloud provisioning templates for AWS, Azure, and Packet. asdfijasdfjkh dfsajkhdfsa jkhldfs ahjkladfs hjkdfas hjkdfs ajhksadf jhkaf dsjhkaf dshjkadfs hjkf adhjkfd jhkd fshjdf hjksad hjkdsa ghjka sdhkjg hkjga dshjkagdshjkagsdkhjasdg kjsgdj.
+            p Configurable cloud provisioning templates for AWS, Azure, and Packet.
             h4.install-bullets-title Requirements
-            p An active cloud subscription with your favorite provider.
+            p.small An active cloud subscription with your favorite provider.
             h6 Install on:
           a(href='/docs/latest/administration/installing/cloud/aws/').card
             .card-content
@@ -53,14 +51,15 @@ block content
             h3.install-bullets-title Custom Cloud
             p Custom installers for existing setups in either AWS or any cloud.
             h4.install-bullets-title Requirements
-            p An active cloud subscription; an existing cluster with at least 4 nodes.
+            p.small An active cloud subscription; an existing cluster with at least 4 nodes.
             h6 Install on:
           a(href='/docs/latest/administration/installing/cloud/aws/advanced/').card
             .card-content
               img(src='/assets/images/logos/platforms/aws.png')
+
           a(href='/docs/latest/administration/installing/custom/').card
             .card-content
-              img(src='/assets/images/logos/platforms/custom-install.png')
+              h5.custom-install OTHER PLATFORMS
 
         li.hero-list__item
           img.hero-list__item__image(src="/assets/images/icons/on-premesis.svg")
@@ -68,9 +67,9 @@ block content
             h3.install-bullets-title On-Premise
             p GUI, command line and advanced installers for on-premises setups.
             h4.install-bullets-title Requirements
-            p At least 4 nodes, each 4GB/2 CPUs.
+            p.small At least 4 nodes, each 4GB/2 CPUs.
             h6 Install on:
-          a(href='/docs/latest/administration/installing/custom/gui/').card
+          a(href='/docs/latest/administration/installing/custom/').card
             .card-content
               img(src='/assets/images/logos/platforms/centos.png')
           a(href='/docs/latest/administration/installing/custom/advanced/').card
@@ -78,5 +77,4 @@ block content
               img(src='/assets/images/logos/platforms/coreos.png')
 
   .container
-    .container__content
       +footer

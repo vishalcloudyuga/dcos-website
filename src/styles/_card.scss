@@ -12,11 +12,17 @@
   width: 100%;
   margin: 0.8rem;
   background-color: $snow;
-  border: 0.5px solid $black10;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px 0 $black05;
+  border-radius: 4px;
+  @include box-shadow(0px 0px 0px 1px rgba($black, 0.10), 0px 1px 2px 0px rgba($black, 0.05));
   text-align: left;
   color: $black;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    @include box-shadow(0px 0px 0px 1px rgba($black, 0.15), 0px 2px 3px 0px rgba($black, 0.10));
+  }
 }
 
 .card-content {
@@ -45,20 +51,19 @@
 .card-title {
   height: 113px;
   margin: 0.5rem 0 0 0;
-  overflow: hidden;
   letter-spacing: 0rem;
 }
 
 .card-logo {
-  border-radius: 20%;
   background: white;
-  overflow: hidden;
+  border-radius: 20%;
   position: relative;
 
   img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    border-radius: 20%;
   }
 
   &:after {
@@ -67,7 +72,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+    @include box-shadow(inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1));
     position: absolute;
     top: 0px;
     left: 0px;
