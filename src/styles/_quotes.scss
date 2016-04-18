@@ -73,11 +73,18 @@
   padding-bottom: 0;
 }
 
-.partner-quote-logo-list__partner-quote-logo.active, .partner-quote-logo-list__partner-quote-logo:hover {
-  img {
-    width: 120px;
-    opacity: 1;
+@include break($tablet-portrait) {
+  .partner-quote-logo-list__partner-quote-logo:hover {
+    img {
+      width: 120px;
+      opacity: 1;
+    }
   }
+}
+
+.partner-quote-logo-list__partner-quote-logo.active img {
+  width: 120px;
+  opacity: 1;
 }
 
 .quote-block {
