@@ -10,31 +10,34 @@ block content
 
     .container__content
       h1 DC/OS Releases
-      p.hero-subtitle DC/OS releases are built from source and hosted by Mesosphere.
 
-  .container
+  .container.release-channels
     .container__content
+    
+      h2.heading-margin-bottom Release Channels
 
       .card-container
-        .card
+        .card.card--inactive
           .card-content
             h3 Stable
-            p.hero-list__item__copy__paragraph Latest stable release. Ready for production use.
-            p(style='margin: 2rem 0 0 0') Coming Soon!
+            p.release-version DC/OS 1.7.0
+            p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
+            a.cta.cta--button.button--inactive.release-button Coming Soon
 
         .card
           .card-content
             h3 Early Access
-            p.hero-list__item__copy__paragraph Upcoming release. Ready for development and testing.
-            p(style='margin: 1rem 0 0 0') Version: 1.7.0
-            a.cta.cta--button.button--secondary(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Download &rarr;
-            a.cta.cta--text(href='/releases/1.7.0/') Release Notes &rarr;
+            p.release-version DC/OS 1.7.0
+            p.hero-list__item__copy__paragraph.release-copy Upcoming release. Ready for development and testing.
+            a.cta.cta--text.release-notes(href='/releases/1.7.0/') Release Notes
+            a.cta.cta--button.button--secondary.release-button(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Download
 
-        .card
+        .card.card--inactive
           .card-content
             h3 Master
+            p.release-version DC/OS 1.7.0
             p.hero-list__item__copy__paragraph Bleeding edge automated release. Only tested with automated tests.
-            p(style='margin: 2rem 0 0 0') Coming Soon!
+            a.cta.cta--button.button--inactive.release-button Coming Soon
 
 
   .container.container--dark-background

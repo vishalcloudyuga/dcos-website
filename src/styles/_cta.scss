@@ -47,6 +47,12 @@
   }
 }
 
+.button--inactive, a.button--inactive {
+  background-color: transparent;
+  border: 1px solid $black;
+  color: $black;
+}
+
 .container--dark-background {
   .button--secondary {
      border: 1px solid $white60;

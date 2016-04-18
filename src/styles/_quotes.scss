@@ -35,7 +35,7 @@
 
 .partner-quote-block__cite {
   font-size: 1rem;
-  margin: 0.5rem 0 2rem 0;
+  margin: 0.5rem 0 0 0;
   color: $dark-gray;
 }
 
@@ -43,11 +43,11 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  height: 100px;
 }
 
 .partner-quote-logo-list__partner-quote-logo {
   position: absolute;
-  height: 100px;
   right: 0;
   left: 0;
   padding-bottom: 15px;
@@ -59,7 +59,6 @@
 
   img {
     width: 120px;
-    opacity: 0.3;
     transition: opacity 0.4s;
     opacity: 0;
   }
@@ -117,5 +116,13 @@
     position: static;
     display: flex;
     margin: 0 1.5rem;
+
+    img {
+      opacity: 0.3;
+    }
+  }
+
+  .partner-quote-block__cite {
+    margin-bottom: 2rem;
   }
 }
