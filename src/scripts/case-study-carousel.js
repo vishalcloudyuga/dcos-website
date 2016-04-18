@@ -1,7 +1,7 @@
 (function () {
   let currentIndex = 0;
 
-  const nextSlideTimeout = 12000;
+  const nextSlideTimeout = 1200000;
   const container = $('.container--case-study');
   const caseStudies = Array.prototype.slice.call(container.querySelectorAll('.case-study-item'));
   const bulletList = container.querySelector('.bullet-list');
