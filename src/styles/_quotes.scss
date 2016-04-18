@@ -76,6 +76,21 @@
   }
 }
 
+.quote-block {
+  margin-bottom: 3rem;
+
+  p {
+    margin-top: 0px;
+  }
+
+  &:last-child {
+    margin-bottom:0px;
+  }
+  .quote-image {
+    height: 50px;
+  }
+}
+
 @include break($mobile-large-landscape) {
   .partner-quote-block {
     width: 80%;
