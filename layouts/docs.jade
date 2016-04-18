@@ -122,7 +122,7 @@ html
 
       .container.container--docs-content
         .container__content.docs-layout
-          .docs-layout__docs-nav
+          .docs-layout__docs-nav#docs-nav
             .docs-search
               input(type='search').docs-search__input
             +renderMenu(locals.navs.header)
@@ -131,7 +131,7 @@ html
           .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
 
 
-          .docs-layout__docs-content.docs-layout__docs-article
+          .docs-layout__docs-content.docs-layout__docs-article#docs-article
             h1.docs-heading!= locals.post_title
             article!= contents
 
