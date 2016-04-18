@@ -1,0 +1,15 @@
+.get-started-content .install.loading {
+  position: relative;
+}
+
+.get-started-content .install.loading::before {
+  height: 32px;
+  width: 32px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  content: '';
+  background: url('/assets/images/loading.svg');
+  background-repeat: no-repeat;
+  position: absolute;
+}

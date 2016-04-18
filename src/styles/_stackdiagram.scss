@@ -10,16 +10,17 @@
   margin: auto;
   left: 0; right: 0;
   position: absolute;
-  width: 404pxpx;
+  width: 100%;
   transition: top 0.8s ease;
 }
 
 .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
+  display: none;
   position: absolute;
   text-align: left;
-  width: 250px;
+  width: 200px;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
 
   &.hide {
     opacity: 0;
@@ -65,8 +66,8 @@
   }
 
   .stack-diagram__arrow {
-    right: -170px;
-    width: 170px;
+    right: -230px;
+    width: 230px;
   }
 
   .stack-diagram__dot {
@@ -75,8 +76,12 @@
 }
 
 .stack-diagram__top-info {
-  left: 60px;
+  left: 0;
   top: -40px;
+
+  &.hide {
+    top: -60px;
+  }
 }
 
 .stack-diagram__middle {
@@ -89,8 +94,8 @@
   background-position: center;
 
   .stack-diagram__arrow {
-    left: -100px;
-    width: 90px;
+    left: -80px;
+    width: 70px;
   }
 
   .stack-diagram__dot {
@@ -99,8 +104,12 @@
 }
 
 .stack-diagram__middle-info {
-  right: -20px;
+  right: 0;
   top: 20px;
+
+  &.hide {
+    top: 0;
+  }
 }
 
 .stack-diagram__bottom {
@@ -117,8 +126,8 @@
   }
 
   .stack-diagram__arrow {
-    right: -130px;
-    width: 120px;
+    right: -180px;
+    width: 180px;
   }
 
   .stack-diagram__dot {
@@ -128,6 +137,22 @@
 
 .stack-diagram__bottom-info {
   width: 280px;
-  left: 50px;
+  left: 0;
   top: 80px;
+
+  &.hide {
+    top: 60px;
+  }
+}
+
+@include break($tablet-landscape) {
+  .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
+    display: block;
+  }
+}
+
+@include break($desktop-small) {
+  .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
+    width: 250px;
+  }
 }

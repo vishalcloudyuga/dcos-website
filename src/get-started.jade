@@ -10,14 +10,18 @@ block content
     +header
 
     .container__content
-      .getstarted-heading
-        .getstarted-heading__service
-          span.getstarted-heading__copy Run:
-          .services-list
+      .container__content--hero-heading.get-started-heading
+        h1.hero-title Run:&nbsp;
+          span.get-started-typer containers
 
-        .getstarted-heading__platform
-          span.getstarted-heading__copy On:
-          .platform-list
+      //- .getstarted-heading
+      //-   .getstarted-heading__service
+      //-     span.getstarted-heading__copy Run:
+      //-     .services-list
+      //- 
+      //-   .getstarted-heading__platform
+      //-     span.getstarted-heading__copy On:
+      //-     .platform-list
 
     .container__content.getstarted-tabs
         a.getstarted-tabs__step.step1(href='#')
@@ -39,7 +43,7 @@ block content
   .container.get-started-content
     .container__content.service-select
 
-      h2 Select a service
+      h2.heading-margin-bottom Select a service
 
       .card-container
         a.card(href="#", data-name="Marathon", data-doc="service/marathon")
@@ -86,7 +90,7 @@ block content
             p.card-copy Use to queue messages and distributed to others.
 
     .container__content.platform-select
-      h2 Select a platform
+      h2.heading-margin-bottom Select a platform
 
       .card-container
         a.card(href="#", data-name="AWS", data-doc="platform/aws")

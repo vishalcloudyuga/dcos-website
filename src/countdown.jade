@@ -1,0 +1,25 @@
+<!doctype html>
+html
+  head
+    link(rel='stylesheet', type='text/css', href='/assets/countdown/foundation.css')
+    link(rel='stylesheet', type='text/css', href='/assets/countdown/font-awesome.css')
+    link(rel='stylesheet', type='text/css', href='/assets/countdown/flipclock.css')
+    link(rel='stylesheet', type='text/css', href='/assets/countdown/countdown.css')
+
+    script(src='/assets/countdown/prism.js')
+    script(src='/assets/countdown/modernizr.foundation.js')
+
+  body
+    header.header.waypoint#download
+
+      h1 DC/OS Launch
+
+      .your-clock.flip-counter.clock
+
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js')
+    script.
+      var clock = $('.your-clock').FlipClock(
+        (new Date("04/19/2016 01:00:00") - Date.now()) / 1000, {
+          countdown: true
+        });

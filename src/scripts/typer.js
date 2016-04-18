@@ -72,4 +72,6 @@
   }
 
   new Typer($('.typer'), ['containers', 'big data','Spark','Kafka','Cassandra','microservices']);
+
+  new Typer($('.get-started-typer'), ['Cassandra on Vagrant']);
 })();
