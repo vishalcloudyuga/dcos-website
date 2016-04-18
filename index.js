@@ -42,18 +42,19 @@ const navConfig = {
       childrenProperty: 'nav_children',
       sortBy: function(file, node) {
         if (file !== undefined) {
-          return file.menu_order
+          if (file.menu_order !== undefined) {
+            return file.menu_order
+          }
         } else if (node.type === 'dir') {
           // for directories find the index.html and grab its menu_order
           let indexFile = node.children.find((c) => c.name == 'index.html')
           if (indexFile !== undefined) {
-            return indexFile.file.menu_order || 999
+            if (indexFile.file.menu_order !== undefined) {
+              return indexFile.file.menu_order
+            }
           }
-
-        } else {
-          return 0;
         }
-
+        return 999
       },
       sortByNameFirst: true
     }

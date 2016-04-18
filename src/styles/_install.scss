@@ -20,6 +20,11 @@
     opacity: 1;
     width: 100%;
   }
+
+  .hero-list__item {
+    margin: 2rem 0;
+  }
+
   .hero-list__item .card-content {
     padding: 1.5rem 0px;
 
@@ -29,6 +34,7 @@
     }
   }
 }
+
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .cloud-icon {

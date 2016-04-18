@@ -34,12 +34,7 @@ include ../mixins/footer-docs.jade
   }
 
 mixin icon(child)
-  if(child.type === 'file')
-    if(locals.nav_path === child.path)
-      img(src='/assets/images/icons/docs-file-active.svg')
-    else
-      img(src='/assets/images/icons/docs-file-inactive.svg')
-  else
+  if(child.type === 'dir')
     if(findPath(child.name))
       a.docs-nav__item__arrow(href='#')
         img(src='/assets/images/icons/arrow-down-docs.svg')
@@ -60,7 +55,7 @@ mixin renderMenu(tree)
   ul(class!=attributes.class)
     each child in tree
       if(isValidChild(child))
-      
+
         // initials
         - var doc = getDoc(child)
         - var liType = doc.file ? 'docs-nav__item_file' : 'docs-nav__item_folder';
@@ -74,10 +69,10 @@ mixin renderMenu(tree)
           else
             +icon(doc)
             +navItem(doc)
-            
+
           if(child.children)
             +renderMenu(child.children)
-        
+
 html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
