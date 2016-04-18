@@ -149,8 +149,8 @@ Metalsmith(__dirname)
   .use(uglify({
     filter: 'scripts/**/*.js',
     concat: 'scripts/main.min.js',
-    sourceMap: !process.env.CI,
-    preserveComments: !process.env.CI,
+    // sourceMap: !process.env.CI,
+    // preserveComments: !process.env.CI,
     removeOriginal: process.env.CI,
     compress: process.env.CI
   }))
