@@ -87,7 +87,7 @@
   let docsNavHeight = docsNav.outerHeight();
   let docsArticleHeight = docsArticle.outerHeight();
 
-  if (docsNavHeight < docsArticleHeight) {
+  if (docsNavHeight < docsArticleHeight && !matchMedia('only screen and (max-width: 480px)').matches) {
     docsNav.css({
       height: `${docsArticleHeight}px`
     });
