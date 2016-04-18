@@ -71,5 +71,5 @@
     }
   }
 
-  new Typer($('.typer'), ['containers', 'big data','Spark','Kafka','Cassandra','microservices']);
+  new Typer($('.typer'), ['containers','Spark','Kafka','Cassandra','microservices']);
 })();
