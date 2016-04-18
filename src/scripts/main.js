@@ -1,18 +1,18 @@
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
   e.preventDefault();
-  if($('#nav-icon').hasClassName('open')) {
-    $('.navigation').removeClassName('mobile-menu--open');
-    $('.menu-mobile').removeClassName('open');
-    $('#nav-icon').removeClassName('open');
-    $('body').removeAttribute('style');
-    $('html').removeAttribute('style');
+  if($('#nav-icon').hasClass('open')) {
+    $('.navigation').removeClass('mobile-menu--open');
+    $('.menu-mobile').removeClass('open');
+    $('#nav-icon').removeClass('open');
+    $('body').removeAttr('style');
+    $('html').removeAttr('style');
   } else {
-    $('.navigation').addClassName('mobile-menu--open');
-    $('.menu-mobile').addClassName('open');
-    $('#nav-icon').addClassName('open');
-    $('body').setAttribute('style', 'overflow: hidden;');
-    $('html').setAttribute('style', 'overflow: hidden;');
+    $('.navigation').addClass('mobile-menu--open');
+    $('.menu-mobile').addClass('open');
+    $('#nav-icon').addClass('open');
+    $('body').attr('style', 'overflow: hidden;');
+    $('html').attr('style', 'overflow: hidden;');
   }
 })
 

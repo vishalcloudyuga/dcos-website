@@ -147,7 +147,6 @@ Metalsmith(__dirname)
   .use(each(updatePaths))
   .clean(false)
   .use(uglify({
-    order: ['scripts/main.js', 'scripts/**'],
     filter: 'scripts/**/*.js',
     concat: 'scripts/main.min.js',
     sourceMap: !process.env.CI,
