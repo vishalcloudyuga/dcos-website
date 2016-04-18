@@ -46,8 +46,12 @@
 }
 
 .partner-quote-logo-list__partner-quote-logo {
-  display: none;
+  position: absolute;
+  height: 100px;
+  right: 0;
+  left: 0;
   padding-bottom: 15px;
+
 
   &.active {
     display: block;
@@ -56,7 +60,8 @@
   img {
     width: 120px;
     opacity: 0.3;
-    transition: opacity 200ms;
+    transition: opacity 0.4s;
+    opacity: 0;
   }
 }
 
@@ -109,6 +114,7 @@
   }
 
   .partner-quote-logo-list__partner-quote-logo {
+    position: static;
     display: flex;
     margin: 0 1.5rem;
   }

@@ -103,3 +103,9 @@
     align-items: center;
   }
 }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .card-title, .card-content p {
+    width: 268px;
+  }
+}

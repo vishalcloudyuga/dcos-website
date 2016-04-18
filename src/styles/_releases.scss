@@ -21,16 +21,24 @@ table.releases {
 	}
 }
 
-.container__content--release-notes {
+.docs-layout__docs-content.container__content--release-notes {
   align-items: flex-start;
   text-align: left;
+	width: 100%;
   padding: 2rem;
 
-  p {
-    max-width: none;
-  }
+	p, ul, li {
+		width: 100%;
+	}
 
   strong {
     font-weight: bold;
   }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .docs-layout__docs-content.container__content--release-notes {
+		max-width: 1024px;
+		width: 1024px;
+	}
 }

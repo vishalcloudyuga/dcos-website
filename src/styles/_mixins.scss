@@ -7,8 +7,8 @@
 }
 
 @mixin container-padding-vertical ($top: true, $bottom: true) {
-  @if $top == true { padding-top: 1rem; }
-  @if $bottom == true { padding-bottom: 1rem; }
+  @if $top == true { padding-top: 2rem; }
+  @if $bottom == true { padding-bottom: 2rem; }
 
   @include break($mobile-large-landscape) {
     @if $top == true { padding-top: 6rem; }

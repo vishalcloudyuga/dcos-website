@@ -151,3 +151,15 @@
     }
   }
 }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .card-container {
+    max-width: 1024px;
+  }
+
+  .service-select, .platform-select {
+    .card-copy {
+      width: 180px;
+    }
+  }
+}

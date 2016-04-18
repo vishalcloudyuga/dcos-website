@@ -58,6 +58,7 @@
     align-items: center;
     img {
       max-width: 428px;
+      width: 428px;
       margin-top: 4rem; // compensates for the drop shadow in the image
     }
   }
@@ -87,5 +88,14 @@
 
   .why-copy__blurb {
     flex-basis: 40%;
+  }
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .why-dcos-container {
+    .container__content {
+      width: 1024px;
+    }
   }
 }

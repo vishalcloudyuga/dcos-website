@@ -4,6 +4,8 @@
   max-width: 100%;
 }
 
+
+
 .docs-search {
   margin: 0 0 1rem 0;
 }
@@ -128,9 +130,12 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
 
 
 	h1 {
-		font-size: 2.3rem;
-    transition: 0.2s;
+		font-size: 2rem;
 	}
+
+  .docs-heading {
+    font-size: 2.4rem;
+  }
 
 	h2 {
 		font-size: 1.7rem;
@@ -422,4 +427,12 @@ img.docs-content__footer__share-icon {
   .docs-layout {
     width: $max-width;
   }
+
+  .docs-layout__docs-content {
+    .docs-heading {
+      font-size: 4rem;
+    }
+  }
+
+
 }
