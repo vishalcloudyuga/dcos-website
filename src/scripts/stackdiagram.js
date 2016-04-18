@@ -16,21 +16,19 @@
       isTriggered = true;
 
       topEl.addClass('animate');
+      btmEl.addClass('animate');
 
       setTimeout(function() {
         $('.stack-diagram__top-info').removeClass('hide');
 
         setTimeout(function() {
           $('.stack-diagram__middle-info').removeClass('hide');
+
           setTimeout(function() {
-            btmEl.addClass('animate');
-
-            setTimeout(function() {
-              $('.stack-diagram__bottom-info').removeClass('hide');
-            }, 1000)
-
+            $('.stack-diagram__bottom-info').removeClass('hide');
           }, 500)
-        }, 1000)
+
+        }, 500)
       }, 750)
     }
   });
