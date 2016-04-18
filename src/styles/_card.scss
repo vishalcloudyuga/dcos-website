@@ -143,12 +143,6 @@ a.card:hover {
   .release-notes {
     margin-bottom: 0;
   }
-
-  .release-button {
-    position: absolute;
-    left: 0;
-    right: 0;
-  }
 }
 
 @include break($mobile-small-landscape) {
