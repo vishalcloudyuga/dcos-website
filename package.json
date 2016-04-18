@@ -25,7 +25,6 @@
     "metalsmith": "^2.1.0",
     "metalsmith-babel": "^4.0.0",
     "metalsmith-browser-sync": "davidvanleeuwen/metalsmith-browser-sync",
-    "metalsmith-changed": "^0.2.0",
     "metalsmith-copy": "^0.2.1",
     "metalsmith-each": "^0.1.1",
     "metalsmith-jade": "davidvanleeuwen/metalsmith-jade",

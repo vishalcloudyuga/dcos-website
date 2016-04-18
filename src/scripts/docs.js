@@ -19,29 +19,28 @@
 
   // Navigation
   Array.prototype.forEach.call($('.docs-nav__item_folder a'), el => {
-    el.on('click', function(e) {
-      docsMenu.style.maxHeight = null; // remove max-height set by mobile docs menu
+    $(el).on('click', function(e) {
+      docsMenu.css('maxHeight', null); // remove max-height set by mobile docs menu
 
-      if(e.currentTarget.hasClass('docs-nav__item__arrow')) e.preventDefault();
-      else if(!e.currentTarget.getAttribute('data-path')) return;
-      let parent = e.currentTarget.parentNode.parentNode;
-      let img = e.currentTarget.find('img');
+      if($(e.currentTarget).hasClass('docs-nav__item__arrow')) e.preventDefault();
+      else if(!$(e.currentTarget).attr('data-path')) return;
+
+      let parent = $($(e.currentTarget).parent().parent());
+      let img = $($(e.currentTarget).find('img'));
 
       parent.hasClass('docs-nav__item--closed') ? parent.removeClass('docs-nav__item--closed') : parent.addClass('docs-nav__item--closed')
       if(parent.hasClass('docs-nav__item--closed')) {
-        parent.find('.docs-nav__item__title').hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.attr('src', '/assets/images/icons/arrow-right-docs.svg');
+        $(parent.find('.docs-nav__item__title')).hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.attr('src', '/assets/images/icons/arrow-right-docs.svg');
       } else {
-        parent.find('.docs-nav__item__title').hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-down-docs.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
+        $(parent.find('.docs-nav__item__title')).hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-down-docs.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
       }
-
-      Stickyfill.rebuild();
     });
   });
 
   // Mobile docs menu
   let mobileDocsMenu = $('.docs-menu-mobile');
-  let docsMenu = mobileDocsMenu.find('.docs-menu-mobile-container');
-  let docsMenuButton = mobileDocsMenu.find('.open-docs-menu');
+  let docsMenu = $(mobileDocsMenu.find('.docs-menu-mobile-container'));
+  let docsMenuButton = $(mobileDocsMenu.find('.open-docs-menu'));
   let docsMenuHeight;
   let docsMenuActive;
 
@@ -76,7 +75,7 @@
 
   // Feedback
   Array.prototype.forEach.call($('#submit-feedback'), el => {
-    el.href = `https://github.com/dcos/dcos-docs/issues/new?body=${encodeURI(window.location.href)}`;
+    $(el).href = `https://github.com/dcos/dcos-docs/issues/new?body=${encodeURI(window.location.href)}`;
   });
 
 })()
