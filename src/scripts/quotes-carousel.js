@@ -11,9 +11,12 @@
   if(!quotes.length) return;
 
   // setup listeners for logos
-  Array.prototype.forEach.call(links, (link) => {
-    $(link).on('click', logoClicked);
-  });
+
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    Array.prototype.forEach.call(links, (link) => {
+      $(link).on('click', logoClicked);
+    });
+  }
 
   let maxHeight = Math.max(...Array.prototype.map.call(quotes, quote =>  quote.offsetHeight));
   $('.partner-quote-block-container').css('height', `${maxHeight + 20}px`);
