@@ -4,4 +4,4 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)"
 
 cd "${REPO_ROOT}"
 
-scripts/staged_shortlog | git ci -F -
+scripts/staged_shortlog.rb | git commit -F -
