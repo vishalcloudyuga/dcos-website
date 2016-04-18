@@ -14,7 +14,12 @@ branch_buckets[master]=s3://dcos.io
 branch_buckets[develop]=s3://dev.dcos.io
 
 current_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
-current_bucket="${branch_buckets[${current_branch}]}"
+if [[ -z "${current_branch}" ]]; then
+  echo "Unknown branch (${current_branch}). Not deploying." >&2
+  exit 2
+fi
+
+current_bucket="${branch_buckets[$current_branch]}"
 
 if [[ -z "${current_bucket}" ]]; then
   echo "Unknown branch bucket (${current_branch}). Not deploying." >&2
