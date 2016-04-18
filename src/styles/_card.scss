@@ -131,12 +131,20 @@
 }
 
 @include break($tablet-portrait) {
+  .card-container {
+    justify-content: space-between;
+  }
+
   .card {
-    width: 48%;
+    width: 47%;
   }
 }
 
 @include break($desktop-small) {
+  .card-container {
+    justify-content: flex-start;
+  }
+
   .service-select, .platform-select {
     // padding-left: 1.25rem;
     // padding-right: 1.25rem;
