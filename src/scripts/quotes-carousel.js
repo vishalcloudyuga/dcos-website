@@ -16,7 +16,7 @@
   });
 
   let maxHeight = Math.max(...Array.prototype.map.call(quotes, quote =>  quote.offsetHeight));
-  $('.partner-quote-block-container').css('height', `${maxHeight}px`);
+  $('.partner-quote-block-container').css('height', `${maxHeight + 20}px`);
 
   function logoClicked(e) {
     e.preventDefault();
