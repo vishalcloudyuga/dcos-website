@@ -10,14 +10,15 @@
   margin: auto;
   left: 0; right: 0;
   position: absolute;
-  width: 404pxpx;
+  width: 100%;
   transition: top 0.8s ease;
 }
 
 .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
+  display: none;
   position: absolute;
   text-align: left;
-  width: 250px;
+  width: 200px;
   opacity: 1;
   transition: opacity 0.3s;
 
@@ -75,7 +76,7 @@
 }
 
 .stack-diagram__top-info {
-  left: 60px;
+  left: 20px;
   top: -40px;
 }
 
@@ -128,6 +129,26 @@
 
 .stack-diagram__bottom-info {
   width: 280px;
-  left: 50px;
+  left: 20px;
   top: 80px;
+}
+
+@include break($tablet-landscape) {
+  .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
+    display: block;
+  }
+}
+
+@include break($desktop-small) {
+  .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
+    width: 250px;
+  }
+
+  .stack-diagram__top-info {
+    left: 60px;
+  }
+
+  .stack-diagram__bottom-info {
+    left: 50px;
+  }
 }
