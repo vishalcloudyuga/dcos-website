@@ -25,7 +25,7 @@
       if($(e.currentTarget).hasClass('docs-nav__item__arrow')) e.preventDefault();
       else if(!$(e.currentTarget).attr('data-path')) return;
 
-      let parent = $($(e.currentTarget).parent().parent());
+      let parent = $($(e.currentTarget).parent());
       let img = $($(e.currentTarget).find('img'));
 
       parent.hasClass('docs-nav__item--closed') ? parent.removeClass('docs-nav__item--closed') : parent.addClass('docs-nav__item--closed')
