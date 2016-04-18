@@ -27,6 +27,21 @@
     animation-duration: 750ms;
     animation-iteration-count: infinite;
   }
+
+	&.get-started-typer {
+		display: inline;
+	}
+}
+
+.get-started-typer {
+	display: inline;
+  border-right: 2px solid $heliotrope;
+
+  &.animating {
+    animation-name: blink;
+    animation-duration: 750ms;
+    animation-iteration-count: infinite;
+  }
 }
 
 @keyframes blink {
