@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# change to repo root
+Dir.chdir(File.join(File.dirname(__FILE__), ".."))
+
 diffs = `git diff --cached`.split('diff --git').select { |log| log =~ /Subproject/ }
 
 locations = {}
