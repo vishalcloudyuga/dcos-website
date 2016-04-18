@@ -40,8 +40,8 @@
       if(options.current === item) getRandomItem(options);
     }
     getRandomItem();
-    options.current.attr('data-current', 'false').removeClass(`animated fadeIn`${options.direction}` fadeOut${options.direction}`).addClass(`animated fadeOut${options.direction}`);
-    $(item).attr('data-current', 'true').removeClass(`animated fadeIn`${options.direction}` fadeOut${options.direction}`).addClass(`animated fadeIn${options.direction}`);
+    options.current.attr('data-current', 'false').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeOut${options.direction}`);
+    $(item).attr('data-current', 'true').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeIn${options.direction}`);
   }
 
   // Random timing and call the animation again
