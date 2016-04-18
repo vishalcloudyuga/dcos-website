@@ -66,8 +66,8 @@
   }
 
   .stack-diagram__arrow {
-    right: -170px;
-    width: 170px;
+    right: -230px;
+    width: 230px;
   }
 
   .stack-diagram__dot {
@@ -76,7 +76,7 @@
 }
 
 .stack-diagram__top-info {
-  left: 20px;
+  left: 0;
   top: -40px;
 }
 
@@ -90,8 +90,8 @@
   background-position: center;
 
   .stack-diagram__arrow {
-    left: -100px;
-    width: 90px;
+    left: -80px;
+    width: 70px;
   }
 
   .stack-diagram__dot {
@@ -100,7 +100,7 @@
 }
 
 .stack-diagram__middle-info {
-  right: -20px;
+  right: 0;
   top: 20px;
 }
 
@@ -118,8 +118,8 @@
   }
 
   .stack-diagram__arrow {
-    right: -130px;
-    width: 120px;
+    right: -180px;
+    width: 180px;
   }
 
   .stack-diagram__dot {
@@ -129,7 +129,7 @@
 
 .stack-diagram__bottom-info {
   width: 280px;
-  left: 20px;
+  left: 0;
   top: 80px;
 }
 
@@ -145,10 +145,10 @@
   }
 
   .stack-diagram__top-info {
-    left: 60px;
+    //left: 60px;
   }
 
   .stack-diagram__bottom-info {
-    left: 50px;
+    //left: 50px;
   }
 }
