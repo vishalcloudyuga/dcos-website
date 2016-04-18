@@ -1,5 +1,16 @@
-.stack-diagram {
+.stack-diagram-mobile {
   display: flex;
+  flex-flow: column;
+  margin: 2rem 0;
+}
+
+.stack-diagram-mobile__container {
+  margin: 2rem 0;
+}
+
+
+.stack-diagram {
+  display: none;
   margin: 10rem 2rem;
   position: relative;
   height: 215px;
@@ -146,6 +157,14 @@
 }
 
 @include break($tablet-landscape) {
+  .stack-diagram-mobile {
+      display: none;
+  }
+
+  .stack-diagram {
+    display: flex;
+  }
+
   .stack-diagram__top-info, .stack-diagram__middle-info, .stack-diagram__bottom-info {
     display: block;
   }
