@@ -29,7 +29,7 @@
       } else if(this.typing && this.displayedString.length === this.currentWord.length) {
         // done typing, wait a bit and start removing..
         this.typing    = false
-        timeout        = 1000;
+        timeout        = 2500;
 
         // start animating cursor
         this.setAnimating(true)
