@@ -9,22 +9,24 @@
   let topElPos = -34;
   let btmElPos = 63;
 
-  window.addEventListener('scroll', function(e) {
-    if((window.scrollY||window.pageYOffset)+window.outerHeight >= $('.stack-diagram').offsetTop+450 && !isTriggered) {
+  if(!el.length) return;
+
+  $(window).on('scroll', function(e) {
+    if((window.scrollY||window.pageYOffset)+window.outerHeight >= el.offset().top+450 && !isTriggered) {
       isTriggered = true;
 
-      topEl.addClassName('animate');
+      topEl.addClass('animate');
 
       setTimeout(function() {
-        $('.stack-diagram__top-info').removeClassName('hide');
+        $('.stack-diagram__top-info').removeClass('hide');
 
         setTimeout(function() {
-          $('.stack-diagram__middle-info').removeClassName('hide');
+          $('.stack-diagram__middle-info').removeClass('hide');
           setTimeout(function() {
-            btmEl.addClassName('animate');
+            btmEl.addClass('animate');
 
             setTimeout(function() {
-              $('.stack-diagram__bottom-info').removeClassName('hide');
+              $('.stack-diagram__bottom-info').removeClass('hide');
             }, 1000)
 
           }, 500)

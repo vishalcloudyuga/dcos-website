@@ -23,7 +23,7 @@
       this.options = options;
       this.content = this.options.content;
 
-      this.options.button.addEventListener('click', this.open.bind(this));
+      this.options.button.on('click', this.open.bind(this));
     }
 
     open () {
@@ -73,8 +73,8 @@
     }
 
     _initEvents () {
-      this.overlay.addEventListener('click', this.close.bind(this));
-      this.closeButton.addEventListener('click', this.close.bind(this));
+      this.overlay.on('click', this.close.bind(this));
+      this.closeButton.on('click', this.close.bind(this));
     }
   }
 

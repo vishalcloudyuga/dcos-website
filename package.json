@@ -38,5 +38,8 @@
     "node-bourbon": "^4.2.8",
     "normalize-scss": "^4.0.3",
     "support-for": "^1.0.4"
+  },
+  "dependencies": {
+    "metalsmith-uglify": "^1.2.1"
   }
 }

@@ -3,51 +3,53 @@
 
   const nextSlideTimeout = 12000;
   const container = $('.container--case-study');
-  const caseStudies = Array.prototype.slice.call(container.querySelectorAll('.case-study-item'));
-  const bulletList = container.querySelector('.bullet-list');
+
+  const caseStudies = Array.prototype.slice.call(container.find('.case-study-item'));
+  const bulletList = container.find('.bullet-list');
 
   let interval = setInterval(() => navigate(currentIndex + 1), nextSlideTimeout);
 
   function init () {
     caseStudies.forEach((el, index) => {
-      el.querySelector('.copy-wrapper').addClassName('animated');
-      el.querySelector('.image-wrapper').addClassName('animated');
+      el = $(el);
+      el.find('.copy-wrapper').addClass('animated');
+      el.find('.image-wrapper').addClass('animated');
 
-      const listEl = document.createElement('li');
-      const bullet = document.createElement('a');
+      const listEl = $('<li />');
+      const bullet = $('<a />');
 
-      listEl.addClassName('bullet-list__item');
-      bullet.addClassName('bullet-list__bullet');
+      listEl.addClass('bullet-list__item');
+      bullet.addClass('bullet-list__bullet');
 
-      listEl.appendChild(bullet);
-      bulletList.appendChild(listEl);
+      listEl.append(bullet);
+      bulletList.append(listEl);
 
-      bullet.addEventListener('click', () => navigate(index));
+      bullet.on('click', () => navigate(index));
     });
 
     // make first bullet active
-    bulletList.querySelectorAll('.bullet-list__bullet')[0].addClassName('active');
+    $(bulletList.find('.bullet-list__bullet')[0]).addClass('active');
   }
 
   function navigate (index) {
     if (index === currentIndex) return;
     else if (index >= caseStudies.length) index = 0;
 
-    let bullets =  bulletList.querySelectorAll('.bullet-list__bullet');
-    let previousCase = caseStudies[currentIndex];
-    let currentCase = caseStudies[index];
+    let bullets =  bulletList.find('.bullet-list__bullet');
+    let previousCase = $(caseStudies[currentIndex]);
+    let currentCase = $(caseStudies[index]);
 
-    bullets[currentIndex].removeClassName('active');
-    bullets[index].addClassName('active');
+    $(bullets[currentIndex]).removeClass('active');
+    $(bullets[index]).addClass('active');
 
-    previousCase.removeClassName('active');
-    currentCase.addClassName('active');
+    previousCase.removeClass('active');
+    currentCase.addClass('active');
 
-    previousCase.querySelector('.copy-wrapper').removeClassName('fadeInUp').setAttribute('style', 'z-index: 1;');
-    currentCase.querySelector('.copy-wrapper').addClassName('fadeInUp').setAttribute('style', 'z-index: 2;');
+    previousCase.find('.copy-wrapper').removeClass('fadeInUp').attr('style', 'z-index: 1;');
+    currentCase.find('.copy-wrapper').addClass('fadeInUp').attr('style', 'z-index: 2;');
 
-    previousCase.querySelector('.image-wrapper').removeClassName('fadeIn');
-    currentCase.querySelector('.image-wrapper').addClassName('fadeIn');
+    previousCase.find('.image-wrapper').removeClass('fadeIn');
+    currentCase.find('.image-wrapper').addClass('fadeIn');
 
     currentIndex = index;
 

@@ -15,8 +15,8 @@ const autoprefixer = require('autoprefixer')
 const copy         = require('metalsmith-copy')
 const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
-const changed      = require('metalsmith-changed')
-const modRewrite   = require('connect-modrewrite');
+const modRewrite   = require('connect-modrewrite')
+const uglify       = require('metalsmith-uglify')
 
 
 
@@ -104,11 +104,6 @@ let createDocs = function(version) {
       pretty: true
     }))
     .clean(false)
-    .use(changed({
-      extnames: {
-        '.md': '.html' // build if src/file.md is newer than build/file.html
-      }
-    }))
     .use(each(updatePaths))
     .destination(path.join('..', 'build', 'docs', version))
     .build((err) => {
@@ -151,7 +146,15 @@ Metalsmith(__dirname)
   }))
   .use(each(updatePaths))
   .clean(false)
-  .use(changed())
+  .use(uglify({
+    order: ['scripts/main.js', 'scripts/**'],
+    filter: 'scripts/**/*.js',
+    concat: 'scripts/main.min.js',
+    sourceMap: !process.env.CI,
+    preserveComments: !process.env.CI,
+    removeOriginal: process.env.CI,
+    compress: process.env.CI
+  }))
   .use((() => {
     if(!process.env.CI) {
       return browserSync({

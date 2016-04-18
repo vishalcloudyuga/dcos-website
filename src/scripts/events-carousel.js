@@ -2,34 +2,36 @@
   let currentIndex = 0;
 
   const carousel = $('.events-carousel .card-container');
-  const eventCards = $$('.events-carousel .card');
+  const eventCards = $('.events-carousel .card');
   const nextBtn = $('.events-carousel-btn--next');
   const prevBtn = $('.events-carousel-btn--prev');
 
-  prevBtn.style.display = 'none'; // Hide prev button initially
+  if(!carousel) return;
 
-  nextBtn.addEventListener('click', () => {
+  prevBtn.css('display', 'none'); // Hide prev button initially
+
+  nextBtn.on('click', () => {
     if (currentIndex === eventCards.length) return;
 
     const card = eventCards[currentIndex];
     const margin = getCardMargin(card) * (currentIndex + 1);
     const offset = card.offsetWidth * (currentIndex + 1);
 
-    carousel.style.transform = `translateX(${-offset - margin}px)`;
+    carousel.css('transform', `translateX(${-offset - margin}px)`);
 
     currentIndex++;
 
     showHideButtons();
   });
 
-  prevBtn.addEventListener('click', () => {
+  prevBtn.on('click', () => {
     if (currentIndex === 0) return;
 
     const card = eventCards[currentIndex - 1];
     const margin = getCardMargin(card) * (currentIndex - 1);
     const offset = card.offsetWidth * (currentIndex - 1);
 
-    carousel.style.transform = `translateX(${-offset - margin}px)`;
+    carousel.css('transform', `translateX(${-offset - margin}px)`);
 
     currentIndex--;
 
@@ -44,15 +46,15 @@
 
   function showHideButtons () {
     if (eventCards[currentIndex + 1] === undefined) {
-      nextBtn.style.display = 'none'
+      nextBtn.hide();
     } else {
-      nextBtn.style.display = 'block'
+      nextBtn.show();
     }
 
     if (eventCards[currentIndex - 1] === undefined) {
-      prevBtn.style.display = 'none'
+      prevBtn.hide();
     } else {
-      prevBtn.style.display = 'block'
+      prevBtn.show();
     }
   }
 })();

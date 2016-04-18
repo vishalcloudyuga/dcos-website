@@ -5,8 +5,8 @@
       this.element          = element;
       this.otherWords       = otherWords;
       this.currentWordIndex = 1;
-      this.currentWord      = element.innerText;
-      this.displayedString  = element.innerText;
+      this.currentWord      = element.text();
+      this.displayedString  = element.text();
       this.typing           = false;
 
       // start it off
@@ -53,7 +53,7 @@
     }
 
     setAnimating(isAnimating) {
-      this.element.classList.toggle('animating', isAnimating)
+      this.element.toggleClass('animating', isAnimating)
     }
 
     removeLastCharacter(){
@@ -67,7 +67,7 @@
     }
 
     updateLabel() {
-      this.element.innerText = this.displayedString + " ";
+      this.element.text(this.displayedString + " ");
     }
   }
 

@@ -3,18 +3,20 @@
   const slideSwitchTimeout = 5000;
 
   let currentIndex = 0;
-  let quotes       = $$('.partner-quote-block');
-  let logos        = $$('.partner-quote-logo-list__partner-quote-logo');
-  let links        = $$('[data-activate-quote]');
+  let quotes       = $('.partner-quote-block');
+  let logos        = $('.partner-quote-logo-list__partner-quote-logo');
+  let links        = $('[data-activate-quote]');
   let interval;
+
+  if(!quotes.length) return;
 
   // setup listeners for logos
   Array.prototype.forEach.call(links, (link) => {
-    link.addEventListener('click', logoClicked);
+    $(link).on('click', logoClicked);
   });
 
   let maxHeight = Math.max(...Array.prototype.map.call(quotes, quote =>  quote.offsetHeight));
-  $('.partner-quote-block-container').setAttribute('style', `height: ${maxHeight}px;`);
+  $('.partner-quote-block-container').css('height', `${maxHeight}px`);
 
   function logoClicked(e) {
     e.preventDefault();

@@ -88,10 +88,12 @@ block content
   .container.container--case-study
     .case-study-item.active
       .container__content.container__content--case-study-copy
-        .copy-wrapper
-          h3.case-study-title Azure Container Service Powered&nbsp;by&nbsp;DC/OS
-          p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
-          a.cta.cta--text.case-study-link Read full case study &rarr;
+        ul.bullet-list
+        .case-study-fade-wrapper
+          .copy-wrapper
+            h3.case-study-title Azure Container Service Powered&nbsp;by&nbsp;DC/OS
+            p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+            a(href='/why-dcos').cta.cta--text.case-study-link Read full case study &rarr;
 
       .container__content.container__content--case-study-image-wrapper
         .image-wrapper
@@ -99,16 +101,15 @@ block content
 
     .case-study-item
       .container__content.container__content--case-study-copy
-        .copy-wrapper
-          h3.case-study-title Lorem ipsum Amazon stuff
-          p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
-          a.cta.cta--text.case-study-link Read full case study &rarr;
+        .case-study-fade-wrapper
+          .copy-wrapper
+            h3.case-study-title Lorem ipsum Amazon stuff
+            p.case-study-description Our goal with Azure Container Service is to provide a container hosting environment using open source tools and tehcnolgoies that are popular among our customers today.
+            a(href='/community').cta.cta--text.case-study-link Read full case study &rarr;
 
       .container__content.container__content--case-study-image-wrapper
         .image-wrapper
           img.case-study-image(src="/assets/images/logos/aws.svg")
-
-    ul.bullet-list
 
   .container
     .container__content
@@ -122,6 +123,3 @@ block content
        a(href='/get-started').cta.cta--button Get Started
 
     +footer
-
-  script(src='/scripts/main.js')
-  script(src='/scripts/case-study-carousel.js')
