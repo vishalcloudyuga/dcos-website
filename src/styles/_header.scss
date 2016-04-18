@@ -96,7 +96,8 @@
   max-width: $max-width;
   padding: 0 1.5rem;
   letter-spacing: 0.04rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   }
 
   ul {
@@ -120,10 +121,10 @@
     color: black;
     margin: 0;
     font-size: 0.9rem;
+    font-weight: 500;
   }
 
   .menu-item {
-
     .cta--button {
       border: 1px solid black;
       color: black;
@@ -238,10 +239,14 @@
   }
 
   .navigation {
+    font-weight: 400;
+
     .menu-item {
+
       a.cta--button {
         border: 1px solid white;
         color: white;
+        font-weight: 400;
 
         &:hover {
           color: black;

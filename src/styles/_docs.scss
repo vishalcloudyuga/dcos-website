@@ -175,7 +175,7 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
   }
 
   li {
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
   	letter-spacing: 0.04rem;
   	line-height: 1.55;
   }
@@ -372,13 +372,16 @@ img.docs-content__footer__share-icon {
   width: 100%;
 }
 
+.docs-menu {
+  padding-right: 40px;
+}
+
 .container.container--docs-content .algolia-autocomplete {
   width: 100%;
 }
 
 @include break($tablet-portrait) {
   .docs-search__input {
-    width: 75%;
     padding: 0.5rem 0.5rem 0.5rem 1.75rem;
   }
 
@@ -430,6 +433,7 @@ img.docs-content__footer__share-icon {
 
   .docs-layout__docs-content {
     .docs-heading {
+      margin: 0 0 1rem 0;
       font-size: 4rem;
     }
   }
