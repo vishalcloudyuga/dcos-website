@@ -171,6 +171,7 @@
       $('.service-select').attr('style', 'display: none;');
       $('.platform-select').attr('style', 'display: none;');
       $('.install').removeAttr('style');
+      $('.install').addClass('loading');
       $('.step2').removeAttr('style');
 
       $('.step1').addClass('step-inactive');
@@ -186,6 +187,7 @@
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
           $('.install').html(`${docs.platform}<img src='/assets/images/icons/line.svg' class='getstarted-arrow'>${docs.service}`);
+          $('.install').removeClass('loading');
         })
     }
   }
