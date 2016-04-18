@@ -242,8 +242,18 @@
 		width: 620px;
 	}
 
-	.service-name-content {
-		text-align: center;
+	.services-list {
+		.service-name-content {
+			margin-left: 1.3rem;
+			text-align: center;
+		}
+	}
+
+	.platform-list {
+		.service-name-content {
+			margin-left: 0.9rem;
+			text-align: center;
+		}
 	}
 
 	.getstarted-heading__service, .getstarted-heading__platform {
