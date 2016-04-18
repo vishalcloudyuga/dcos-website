@@ -8,6 +8,10 @@
   margin: 0 0 1rem 0;
 }
 
+.docs-layout__docs-article article {
+  max-width: 100%;
+}
+
 .docs-search__input {
   width: 100%;
   padding: 0.5rem 0;
@@ -84,6 +88,10 @@
 
 ul > li > .nav-wrapper > .docs-nav__item__arrow {
   margin: 0;
+}
+
+.container--docs-content .docs-layout__docs-nav {
+  display: none;
 }
 
 .docs-layout__docs-nav {
@@ -405,6 +413,7 @@ img.docs-content__footer__share-icon {
 }
 
 @include break($tablet-portrait) {
+
   .docs-search__input {
     padding: 0.5rem 0.5rem 0.5rem 1.75rem;
   }
@@ -427,7 +436,12 @@ img.docs-content__footer__share-icon {
     justify-content: space-between;
   }
 
+  .container--docs-content .docs-layout__docs-nav {
+    display: flex;
+  }
+
   .docs-layout__docs-nav {
+    display: flex;
     width: 30%;
     height: 100%;
     border-right: 1px solid $smoke;

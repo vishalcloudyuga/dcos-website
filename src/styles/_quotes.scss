@@ -79,6 +79,19 @@
   padding-bottom: 0;
 }
 
+@include break($tablet-portrait) {
+  .partner-quote-logo-list__partner-quote-logo:hover {
+    img {
+      width: 120px;
+      opacity: 1;
+    }
+  }
+}
+
+.partner-quote-logo-list__partner-quote-logo.active img {
+  width: 120px;
+  opacity: 1;
+}
 
 .quote-block {
   margin-bottom: 3rem;
