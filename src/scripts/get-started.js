@@ -56,13 +56,15 @@
       if($(item).find('span').text().replace(/\n|\s/g,'') === options.current.text().replace(/\n|\s/g,'')) getRandomItem(options);
     }
     getRandomItem();
-    options.current.attr('data-current', 'false').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeOut${options.direction}`);
-    $(item).attr('data-current', 'true').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeIn${options.direction}`);
+
+    let removeClasses = `animated fadeIn${options.direction} fadeOut${options.direction} fadeOut fadeIn`;
+    options.current.attr('data-current', 'false').removeClass(removeClasses).addClass(`animated fadeOut${options.direction}`);
+    $(item).attr('data-current', 'true').removeClass(removeClasses).addClass(`animated fadeIn${options.direction}`);
   }
 
   setInterval(() => {
-    animateItem({list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]'), direction: 'Up'});
-    animateItem({list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]'), direction: 'Down'});
+    animateItem({list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]'), direction: (window.matchMedia("(min-width: 736px)").matches ? 'Up' : '')});
+    animateItem({list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]'), direction: (window.matchMedia("(min-width: 736px)").matches ? 'Down' : '')});
   }, 4000)
 
   // Click handlers for services/platforms

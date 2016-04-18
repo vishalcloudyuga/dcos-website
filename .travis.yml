@@ -5,12 +5,8 @@ branches:
   only:
   - develop
   - master
-install:
-- npm install
-before_script:
-- npm rebuild node-sass
 script:
-- CI=true npm start
+- ci/test.sh
 deploy:
   skip_cleanup: true
   detect_encoding: true
