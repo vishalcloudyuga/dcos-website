@@ -1,5 +1,5 @@
 (function(){
-  if(window.outerWidth >= 414) {
+  if($(window).outerWidth() >= 414) {
     let heights = Array.prototype.map.call($('.install-columns .hero-list__item'), el => {
       return Array.prototype.map.call($(el).find('p'), p => p.offsetHeight);
     }).reduce((a, b) => {
