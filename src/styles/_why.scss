@@ -12,20 +12,27 @@
   display: flex;
   flex-flow: column;
 
+  p {
+    margin-top: 0.5rem;
+  }
 
   li {
     margin: 1rem 0;
-  }
-
-  p {
-    margin-top: 0;
   }
 }
 
 .why-content-image__icon-container {
   display: flex;
   align-items: center;
+  flex-flow: column;
+  order: 1;
+
+  img {
+    width: 428px;
+  }
 }
+
+
 
 .why-content__copy-list__title {
 	margin: 1rem 0 0rem 0;
@@ -62,8 +69,6 @@
     display: flex;
     align-items: center;
     img {
-      max-width: 428px;
-      width: 428px;
       margin-top: 4rem; // compensates for the drop shadow in the image
     }
   }
@@ -74,7 +79,10 @@
 
   .why-content__copy-list {
     padding-left: 4rem;
+
   }
+
+
 
   .why-content-image__image-container {
     align-self: center;

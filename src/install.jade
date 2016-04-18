@@ -15,7 +15,7 @@ block content
     .container__content.install-columns
       ul.container__content--hero-list
         li.hero-list__item
-          img.hero-list__item__image(src="/assets/images/icons/local.svg")
+          +image("/assets/images/icons/local.svg")(class='hero-list__item__image')
           .hero-list__item__copy
             h3.install-bullets-title Local
             p Vagrant-based installer that creates a cluster of virtual machines on a local machine.
@@ -24,11 +24,11 @@ block content
             h6 Install on:
           a(href='/docs/latest/administration/installing/local/').card
             .card-content
-              img(src='/assets/images/logos/platforms/vagrant.png')
+              +image('/assets/images/logos/platforms/vagrant.png')
 
 
         li.hero-list__item
-          img.hero-list__item__image.cloud-icon(src="/assets/images/icons/cloud.svg")
+          +image("/assets/images/icons/cloud.svg")(class='hero-list__item__image')
           .hero-list__item__copy
             h3.install-bullets-title Cloud
             p Configurable cloud provisioning templates for AWS, Azure, and Packet.
@@ -37,16 +37,16 @@ block content
             h6 Install on:
           a(href='/docs/latest/administration/installing/cloud/aws/').card
             .card-content
-              img(src='/assets/images/logos/platforms/aws.png')
+              +image('/assets/images/logos/platforms/aws.png')
           a(href='/docs/latest/administration/installing/cloud/azure/').card
             .card-content
-              img(src='/assets/images/logos/platforms/azure.png')
+              +image('/assets/images/logos/platforms/azure.png')
           a(href='/docs/latest/administration/installing/').card
             .card-content
-              img(src='/assets/images/logos/platforms/packet.png')
+              +image('/assets/images/logos/platforms/packet.png')
 
         li.hero-list__item
-          img.hero-list__item__image.custom-cloud-icon(src="/assets/images/icons/custom-cloud.svg")
+          +image("/assets/images/icons/custom-cloud.svg")(class='hero-list__item__image')
           .hero-list__item__copy
             h3.install-bullets-title Custom Cloud
             p Custom installers for existing setups in either AWS or any cloud.
@@ -55,14 +55,14 @@ block content
             h6 Install on:
           a(href='/docs/latest/administration/installing/custom/').card
             .card-content
-              img(src='/assets/images/logos/platforms/aws.png')
+              +image('/assets/images/logos/platforms/aws.png')
 
           a(href='/docs/latest/administration/installing/custom/').card.card--custom-instal
             .card-content
               h5.custom-install OTHER PLATFORMS
 
         li.hero-list__item
-          img.hero-list__item__image(src="/assets/images/icons/on-premesis.svg")
+          +image("/assets/images/icons/on-premesis.svg")(class='hero-list__item__image')
           .hero-list__item__copy
             h3.install-bullets-title On-Premise
             p GUI, command line and advanced installers for on-premises setups.
@@ -71,10 +71,10 @@ block content
             h6 Install on:
           a(href='/docs/latest/administration/installing/custom/').card
             .card-content
-              img(src='/assets/images/logos/platforms/centos.png')
+            +image('/assets/images/logos/platforms/centos.png')
           a(href='/docs/latest/administration/installing/custom/advanced/').card
             .card-content
-              img(src='/assets/images/logos/platforms/coreos.png')
+              +image('/assets/images/logos/platforms/coreos.png')
 
   .container
       +footer

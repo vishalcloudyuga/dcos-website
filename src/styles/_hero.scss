@@ -73,6 +73,8 @@
 	list-style: none;
 }
 
+
+
 .hero-list__item {
 	display: flex;
 	flex-direction: column;
@@ -167,6 +169,12 @@
 			flex-basis: auto;
 			width: 80%;
 			text-align: center;
+		}
+
+		.home-second-list {
+			.hero-list__item {
+				margin: 2rem 0;
+			}
 		}
 
 		.hero-list__item__image {

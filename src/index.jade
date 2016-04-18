@@ -22,7 +22,7 @@ block content
             a.cta.cta--video(href='#', data-overlay-toggle='video-overlay')
               img.cta--video__icon(src='/assets/images/icons/playbutton.png')
               p.cta--video__text Play Video
-        img.hero-image(src='/assets/images/hero-image.png')
+        +image('/assets/images/hero-image.png')(class='hero-image')
 
       hr.hero-divider
 
@@ -76,8 +76,21 @@ block content
             p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
             .stack-diagram__arrow
               .stack-diagram__dot
+              
+      .stack-diagram-mobile
+        +image('/assets/images/illustrations/top.png')
+        h3 Services & Applications
+        p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
+        
+        +image('/assets/images/illustrations/top.png')
+        h3 DC/OS Powered by Apache Mesos
+        p Runtime, tools and best practices built-in to simplify operations and deliver a production self-healing infrastructure
+        
+        +image('/assets/images/illustrations/top.png')
+        h3 Run Anywhere
+        p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
 
-      ul.container__content--hero-list
+      ul.container__content--hero-list.home-second-list
         li.hero-list__item
           img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
           .hero-list__item__copy

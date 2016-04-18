@@ -67,7 +67,7 @@
     }
 
     updateLabel() {
-      this.element.text(this.displayedString + " ");
+      this.element.text(this.displayedString);
     }
   }
 
