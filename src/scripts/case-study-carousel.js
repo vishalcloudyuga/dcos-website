@@ -10,6 +10,10 @@
   let interval = setInterval(() => navigate(currentIndex + 1), nextSlideTimeout);
 
   function init () {
+    if(caseStudies.length === 1) {
+      bulletList.hide();
+      return;
+    }
     caseStudies.forEach((el, index) => {
       el = $(el);
       el.find('.copy-wrapper').addClass('animated');

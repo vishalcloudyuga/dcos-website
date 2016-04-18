@@ -134,11 +134,11 @@ html
           .docs-layout__docs-content.docs-layout__docs-article
             h1.docs-heading!= locals.post_title
             article!= contents
-            h1.docs-heading!= locals.post_title
+
             .docs-content__footer
-            h1.docs-heading!= locals.post_title
+              ul.docs-content__footer__actions
                 li.docs-content__footer__action
-            h1.docs-heading!= locals.post_title
+                  a(href='#').addthis_button_expanded
                     img.docs-content__footer__share-icon(src='/assets/images/icons/share.svg')
                     span Share
 

@@ -1,5 +1,4 @@
 extends ../layouts/base-whitefooter.jade
-include ../mixins/image.jade
 
 block head
   title DC/OS
@@ -10,18 +9,14 @@ block content
     +header
 
     .container__content
-      .container__content--hero-heading.get-started-heading
-        h1.hero-title Run:&nbsp;
-          span.get-started-typer containers
+      .getstarted-heading
+        .getstarted-heading__service
+          span.getstarted-heading__copy Run:
+          .services-list
 
-      //- .getstarted-heading
-      //-   .getstarted-heading__service
-      //-     span.getstarted-heading__copy Run:
-      //-     .services-list
-      //- 
-      //-   .getstarted-heading__platform
-      //-     span.getstarted-heading__copy On:
-      //-     .platform-list
+        .getstarted-heading__platform
+          span.getstarted-heading__copy On:
+          .platform-list
 
     .container__content.getstarted-tabs
         a.getstarted-tabs__step.step1(href='#')

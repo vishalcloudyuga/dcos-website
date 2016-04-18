@@ -1,3 +1,5 @@
+jQuery = null;
+
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
   e.preventDefault();

@@ -40,12 +40,12 @@
       if(options.current === item) getRandomItem(options);
     }
     getRandomItem();
-    options.current.attr('data-current', 'false');
-    $(item).attr('data-current', 'true');
+    options.current.attr('data-current', 'false').removeClass('animated fadeInDown fadeOutDown').addClass('animated fadeOutDown');
+    $(item).attr('data-current', 'true').removeClass('animated fadeInDown fadeOutDown').addClass('animated fadeInDown');
   }
 
   // Random timing and call the animation again
-  let randomNumber = function() { return Math.floor(Math.random() * 4000) + 2500};
+  let randomNumber = function() { return Math.floor(Math.random() * 5500) + 3500};
   let startSequence = (fn) => {
     setTimeout(() => {
       animateItem(fn());
