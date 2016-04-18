@@ -29,10 +29,13 @@
       let img = $($(e.currentTarget).find('img'));
 
       parent.hasClass('docs-nav__item--closed') ? parent.removeClass('docs-nav__item--closed') : parent.addClass('docs-nav__item--closed')
-      if(parent.hasClass('docs-nav__item--closed')) {
-        $(parent.find('.docs-nav__item__title')).hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.attr('src', '/assets/images/icons/arrow-right-docs.svg');
+      let isActive = $(parent.find('.docs-nav__item__title')).hasClass('active');
+      let isClosed = parent.hasClass('docs-nav__item--closed');
+
+      if(isActive) {
+        isClosed ? img.attr('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs.svg');
       } else {
-        $(parent.find('.docs-nav__item__title')).hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-down-docs.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
+        isClosed ? img.attr('src', '/assets/images/icons/arrow-right-docs.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
       }
     });
   });
