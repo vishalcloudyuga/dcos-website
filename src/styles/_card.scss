@@ -24,6 +24,16 @@
   }
 }
 
+.card.disabled {
+  opacity: 0.4;
+
+  &:hover {
+    background-color: $snow;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
 .card-content {
   display: flex;
   flex-flow: column;

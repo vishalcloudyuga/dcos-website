@@ -16,7 +16,7 @@ block content
     .container__content
 
       .card-container
-        .card
+        .card.disabled
           .card-content
             h3 Stable
             p.hero-list__item__copy__paragraph Latest stable release. Ready for production use.
@@ -30,11 +30,12 @@ block content
             a.cta.cta--button.button--secondary(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Download &rarr;
             a.cta.cta--text(href='/releases/1.7.0/') Release Notes &rarr;
 
-        .card
+        .card.disabled
           .card-content
             h3 Master
             p.hero-list__item__copy__paragraph Bleeding edge automated release. Only tested with automated tests.
             p(style='margin: 2rem 0 0 0') Coming Soon!
+            a.cta.cta--button.button--disabled Download &rarr;
 
 
   .container.container--dark-background

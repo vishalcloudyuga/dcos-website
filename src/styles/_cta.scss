@@ -47,6 +47,13 @@
   }
 }
 
+.button--disabled, a.button--disabled {
+  border: 1px solid #999;
+  background-color: transparent;
+  color: #999;
+  cursor: not-allowed;
+}
+
 .container--dark-background {
   .button--secondary {
      border: 1px solid $white60;
