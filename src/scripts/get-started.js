@@ -1,33 +1,26 @@
 (function() {
-  // Create equal heights for cards
-  let createEqualHeight = function(items) {
-    if(window.outerWidth >= 414) {
-      let maxHeight = Math.max(...Array.prototype.map.call(items, el => el.offsetHeight));
-      Array.prototype.map.call(items, el => el.setAttribute('style', `height: ${maxHeight}px;`));
-    }
-  }
-  createEqualHeight($$('.service-select .card'));
-  createEqualHeight($$('.platform-select .card'));
-  $('.platform-select').setAttribute('style', 'display: none;')
+  $('.platform-select').attr('style', 'display: none')
 
   let currentService, currentPlatform;
 
-  const serviceLinks = $$('.service-select a[data-doc]');
-  const platformLinks = $$('.platform-select a[data-doc]');
+  const serviceLinks = $('.service-select a[data-doc]');
+  const platformLinks = $('.platform-select a[data-doc]');
+
+  if(!serviceLinks.length) return;
 
   // Header animation
   let createServiceElement = function(link) {
     return `
       <div class="service-name" data-current="false">
-        <div class="service-name-content"><img src="${link.getElementsByTagName('img')[0].src}"/><span>${link.getAttribute('data-name')}</span></div>
+        <div class="service-name-content"><img src="${$(link).find('img').attr('src')}"/><span>${$(link).attr('data-name')}</span></div>
       </div>
     `
   }
 
-  $('.services-list').innerHTML = Array.prototype.map.call(serviceLinks, createServiceElement).join('');
-  $('.platform-list').innerHTML = Array.prototype.map.call(platformLinks, createServiceElement).join('');
-  $('.services-list').children[0].setAttribute('data-current', 'true')
-  $('.platform-list').children[0].setAttribute('data-current', 'true')
+  $('.services-list').html(Array.prototype.map.call(serviceLinks, createServiceElement).join(''));
+  $('.platform-list').html(Array.prototype.map.call(platformLinks, createServiceElement).join(''));
+  if($('.services-list .service-name').length) $('.services-list .service-name').first().attr('data-current', 'true')
+  if($('.platform-list .service-name').length) $('.platform-list .service-name').first().attr('data-current', 'true')
 
   // Fadeout current, and fadein random item by changing data-current
   let animateItem = function(options) {
@@ -37,8 +30,8 @@
       if(options.current === item) getRandomItem(options);
     }
     getRandomItem();
-    options.current.setAttribute('data-current', 'false');
-    item.setAttribute('data-current', 'true');
+    options.current.attr('data-current', 'false');
+    $(item).attr('data-current', 'true');
   }
 
   // Random timing and call the animation again
@@ -50,18 +43,18 @@
     }, randomNumber())
   }
 
-  startSequence(() => { return {list: $('.services-list').children, current: $('.services-list [data-current="true"]')} });
+  startSequence(() => { return {list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]')} });
 
   // Start later than the first sequence
   setTimeout(() => {
-    startSequence(() => { return {list: $('.platform-list').children, current: $('.platform-list [data-current="true"]')} });
+    startSequence(() => { return {list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]')} });
   }, randomNumber())
 
 
   // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
     Array.prototype.forEach.call(links, link => {
-      link.addEventListener('click', function (e) {
+      $(link).on('click', function (e) {
         e.preventDefault();
         if(type === 'service') currentService = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         if(type === 'platform') currentPlatform = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
@@ -73,8 +66,8 @@
   // Setup initial values
   addClickHandlers(serviceLinks, 'service');
   addClickHandlers(platformLinks, 'platform');
-  $('.step1').setAttribute('style', 'pointer-events: none;');
-  $('.step2').setAttribute('style', 'pointer-events: none;');
+  $('.step1').attr('style', 'pointer-events: none;');
+  $('.step2').attr('style', 'pointer-events: none;');
 
   // Convenience method to find a link
   let findItemIn = function(links, term) {
@@ -82,22 +75,22 @@
   }
 
   // Set values back when you click on the first step
-  $('.step1').addEventListener('click', function(e) {
+  $('.step1').on('click', function(e) {
     e.preventDefault();
-    $('.step1').setAttribute('style', 'pointer-events: none;');
-    $('.step2').setAttribute('style', 'pointer-events: none;');
-    $('.step1 h3').innerHTML = 'Select a service';
-    $('.step2 h3').innerHTML = 'Select a platform';
+    $('.step1').attr('style', 'pointer-events: none;');
+    $('.step2').attr('style', 'pointer-events: none;');
+    $('.step1 h3').html('Select a service');
+    $('.step2 h3').html('Select a platform');
 
-    $('.service-select').removeAttribute('style');
-    $('.platform-select').setAttribute('style', 'display: none;');
-    $('.install').setAttribute('style', 'display: none;');
+    $('.service-select').removeAttr('style');
+    $('.platform-select').attr('style', 'display: none;');
+    $('.install').attr('style', 'display: none;');
 
-    $('.step1').removeClassName('step-inactive');
-    $('.step2').addClassName('step-inactive');
-    $('.step3').addClassName('step-inactive');
+    $('.step1').removeClass('step-inactive');
+    $('.step2').addClass('step-inactive');
+    $('.step3').addClass('step-inactive');
 
-    $('.arrow-container').removeClassName('step2').removeClassName('step3').addClassName('step1')
+    $('.arrow-container').removeClass('step2').removeClass('step3').addClass('step1')
 
     currentService = undefined;
     currentPlatform = undefined;
@@ -105,18 +98,18 @@
   });
 
   // Set values back when you click on the second step
-  $('.step2').addEventListener('click', function(e) {
+  $('.step2').on('click', function(e) {
     e.preventDefault();
-    $('.step2').setAttribute('style', 'pointer-events: none;');
-    $('.step2 h3').innerHTML = 'Select a platform';
+    $('.step2').attr('style', 'pointer-events: none;');
+    $('.step2 h3').html('Select a platform');
 
-    $('.platform-select').removeAttribute('style');
-    $('.install').setAttribute('style', 'display: none;');
+    $('.platform-select').removeAttr('style');
+    $('.install').attr('style', 'display: none;');
 
-    $('.step2').removeClassName('step-inactive');
-    $('.step3').addClassName('step-inactive');
+    $('.step2').removeClass('step-inactive');
+    $('.step3').addClass('step-inactive');
 
-    $('.arrow-container').removeClassName('step3').addClassName('step2')
+    $('.arrow-container').removeClass('step3').addClass('step2')
 
     currentPlatform = undefined;
 
@@ -151,38 +144,38 @@
   let step = function(cur) {
     if(cur === 1) {
       // show platform
-      $('.service-select').setAttribute('style', 'display: none;');
-      $('.platform-select').removeAttribute('style');
-      $('.install').setAttribute('style', 'display: none;');
-      $('.step1').removeAttribute('style');
+      $('.service-select').attr('style', 'display: none;');
+      $('.platform-select').removeAttr('style');
+      $('.install').attr('style', 'display: none;');
+      $('.step1').removeAttr('style');
 
-      $('.step1').addClassName('step-inactive');
-      $('.step2').removeClassName('step-inactive');
+      $('.step1').addClass('step-inactive');
+      $('.step2').removeClass('step-inactive');
 
-      $('.arrow-container').removeClassName('step1').addClassName('step2')
+      $('.arrow-container').removeClass('step1').addClass('step2')
 
-      $('.step1 h3').innerHTML = currentService.name;
+      $('.step1 h3').html(currentService.name);
       window.location.hash = `${currentService.name}`.toLowerCase();
     } else if(cur === 2) {
       // show docs
-      $('.service-select').setAttribute('style', 'display: none;');
-      $('.platform-select').setAttribute('style', 'display: none;');
-      $('.install').removeAttribute('style');
-      $('.step2').removeAttribute('style');
+      $('.service-select').attr('style', 'display: none;');
+      $('.platform-select').attr('style', 'display: none;');
+      $('.install').removeAttr('style');
+      $('.step2').removeAttr('style');
 
-      $('.step1').addClassName('step-inactive');
-      $('.step2').addClassName('step-inactive');
-      $('.step3').removeClassName('step-inactive');
+      $('.step1').addClass('step-inactive');
+      $('.step2').addClass('step-inactive');
+      $('.step3').removeClass('step-inactive');
 
-      $('.arrow-container').removeClassName('step2').addClassName('step3')
+      $('.arrow-container').removeClass('step2').addClass('step3')
 
-      $('.step1 h3').innerHTML = currentService.name;
-      $('.step2 h3').innerHTML = currentPlatform.name;
+      $('.step1 h3').html(currentService.name);
+      $('.step2 h3').html(currentPlatform.name);
       window.location.hash = `${currentService.name}+${currentPlatform.name}`.toLowerCase();
 
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
-          $('.install').innerHTML = `${docs.platform}<img src='/assets/images/icons/line.svg' class='getstarted-arrow'>${docs.service}`;
+          $('.install').html(`${docs.platform}<img src='/assets/images/icons/line.svg' class='getstarted-arrow'>${docs.service}`);
         })
     }
   }
@@ -203,12 +196,12 @@
     if(serviceHash) {
       let result = findItemIn(serviceLinks, serviceHash);
       if(result) currentService = {name: result.getAttribute('data-name'), doc: result.getAttribute('data-doc')};
-      $('.step1').removeAttribute('style');
+      $('.step1').removeAttr('style');
     }
     if(platformHash) {
        let result = findItemIn(platformLinks, platformHash);
        if(result) currentPlatform = {name: result.getAttribute('data-name'), doc: result.getAttribute('data-doc')};
-       $('.step2').removeAttribute('style');
+       $('.step2').removeAttr('style');
     }
     nextStep();
   }

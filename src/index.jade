@@ -110,8 +110,7 @@ block content
             a(href='/why-dcos').cta.cta--text.case-study-link Read full case study &rarr;
 
       .container__content.container__content--case-study-image-wrapper
-        .image-wrapper
-          img.case-study-image(src="/assets/images/logos/microsoft.svg")
+        .image-wrapper(style='background-image: url(http://placehold.it/1000x800/fff/000)')
 
     .case-study-item
       .container__content.container__content--case-study-copy
@@ -122,8 +121,7 @@ block content
             a(href='/community').cta.cta--text.case-study-link Read full case study &rarr;
 
       .container__content.container__content--case-study-image-wrapper
-        .image-wrapper
-          img.case-study-image(src="/assets/images/logos/aws.svg")
+        .image-wrapper(style='background-image: url(http://placehold.it/1000x800)')
 
 
   .container.partner-quote-container
@@ -162,13 +160,6 @@ block content
           a(data-activate-quote='4')
             img(src="/assets/images/logos/redhat.svg")
 
-  .container.container--dark-background
-    .container__content
-       h2 You'll be running DC/OS in less than 10 minutes.
-       a(href='/get-started').cta.cta--button Get Started
-
-    +footer
-
   .overlay(data-overlay='video-overlay')
     .overlay__close-cta
       a(href='#', data-overlay-toggle='video-overlay')
@@ -176,9 +167,10 @@ block content
     .overlay__video
       iframe(src="https://www.youtube-nocookie.com/embed/0I6qG9RQUnY?rel=0&enablejsapi=1&amp;showinfo=0;" frameborder="0" allowfullscreen)
 
-  script(src='/scripts/main.js')
-  script(src='/scripts/overlay.js')
-  script(src='/scripts/quotes-carousel.js')
-  script(src='/scripts/case-study-carousel.js')
-  script(src='/scripts/typer.js')
-  script(src='/scripts/stackdiagram.js')
+  .container.container--dark-background
+    .container__content
+       h2 You'll be running DC/OS in less than 10 minutes.
+       a(href='/get-started').cta.cta--button Get Started
+
+    +footer
+

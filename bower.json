@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "Stickyfill": "^1.1.4"
+    "jquery": "~2.2.3",
+    "picturefill": "^3.0.2"
   }
 }

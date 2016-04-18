@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .card {
@@ -49,7 +48,6 @@
 }
 
 .card-title {
-  height: 113px;
   margin: 0.5rem 0 0 0;
   letter-spacing: 0rem;
 }
@@ -115,7 +113,6 @@
   .card-container {
     flex-flow: row wrap;
     justify-content: flex-start;
-    align-items: flex-start;
   }
 
   .card {
