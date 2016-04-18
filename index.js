@@ -149,7 +149,7 @@ Metalsmith(__dirname)
   .use(uglify({
     // order: ['scripts/main.js', 'scripts/**/*'],
     filter: 'scripts/**/*.js',
-    // concat: 'scripts/main.min.js',
+    concat: 'scripts/main.min.js',
     // sourceMap: !process.env.CI,
     // preserveComments: !process.env.CI,
     // removeOriginal: process.env.CI,
