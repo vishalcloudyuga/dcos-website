@@ -9,11 +9,6 @@
 	line-height: 2;
 }
 
-.get-started-heading-container {
-	width: 100%;
-	align-items: flex-start;
-}
-
 .get-started-heading {
 	width: 300px;
 }
@@ -23,13 +18,10 @@
 }
 
 .getstarted-heading__copy {
-	// margin-right: 1.25rem;
-	font-size: 1rem;
+	margin-right: 1rem;
 	opacity: 0.6;
-  // position: relative;
-	position: absolute;
-	top: 0;
-  // bottom: 6px;
+  position: relative;
+  bottom: 6px;
 }
 
 .services-list, .platform-list {
@@ -81,10 +73,6 @@
 	align-items: center;
   position: relative;
 
-	justify-content: flex-start;
-	height: 110px;
-	width: 100%;
-
 	img {
 		width: 42px;
 		margin-right: 1.25rem;
@@ -92,22 +80,22 @@
     bottom: -5px;
 	}
 
-  // &::after {
-  //   content: '';
-  //   border-bottom: 1px solid #eee;
-  //   border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
-  //   position: absolute;
-  //   bottom: 10px;
-  //   width: 245px;
-  // }
+  &::after {
+    content: '';
+    border-bottom: 1px solid #eee;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    bottom: 10px;
+    width: 245px;
+  }
 }
 
 .getstarted-heading__service::after {
-  left: 108px;
+  left: 84px;
 }
 
 .getstarted-heading__platform::after {
-  left: 80px;
+  left: 64px;
 }
 
 
@@ -224,7 +212,7 @@
 
 @include break($mobile-small-landscape) {
 	.getstarted-heading__service {
-		margin-right: 4rem;
+		margin-right: 1rem;
 		}
 
 	.get-started-heading {
@@ -249,12 +237,7 @@
 		h3 {
 			display: flex;
 			margin-top: 0.5rem;
-			text-transform: uppercase;
 		}
-	}
-
-	.get-started-heading-container {
-		align-items: center;
 	}
 
 
@@ -283,8 +266,12 @@
     flex-flow: row;
 	}
 
-	.getstarted-heading__service, .getstarted-heading__platform {
-		width: 23rem;
+	.getstarted-heading__service {
+		width: 21rem;
+	}
+
+	.getstarted-heading__platform {
+		width: 20rem;
 	}
 }
 
