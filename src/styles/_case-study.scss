@@ -125,12 +125,12 @@
     order: 2;
     flex-basis: 50%;
     background-color: $snow;
-    padding: 5rem 2rem;
+    padding: 3rem 2rem;
   }
 
   .bullet-list {
     position: absolute;
-    bottom: 5rem;
+    bottom: 3rem;
     z-index: 100;
     transform: none;
     left: auto;
@@ -143,6 +143,16 @@
 }
 
 @include break($desktop-small) {
+  .container__content--case-study-copy {
+    padding: 5rem 2rem;
+  }
+
+  .bullet-list {
+    bottom: 5rem;
+  }
+}
+
+@include break($desktop-large) {
   .container__content--case-study-copy {
     padding: 6rem;
   }
