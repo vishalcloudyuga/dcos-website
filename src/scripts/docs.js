@@ -22,11 +22,11 @@
     $(el).on('click', function(e) {
       docsMenu.css('maxHeight', null); // remove max-height set by mobile docs menu
 
-      if($(e.currentTarget).hasClass('docs-nav__item__arrow')) e.preventDefault();
+      if($(e.currentTarget).hasClass('docs-nav__item__arrow') || $(e.currentTarget).attr('href') === '#') e.preventDefault();
       else if(!$(e.currentTarget).attr('data-path')) return;
 
       let parent = $($(e.currentTarget).parent());
-      let img = $($(e.currentTarget).find('img'));
+      let img = $(parent.find('img')).first();
 
       parent.hasClass('docs-nav__item--closed') ? parent.removeClass('docs-nav__item--closed') : parent.addClass('docs-nav__item--closed')
       let isActive = $(parent.find('.docs-nav__item__title')).hasClass('active');
