@@ -50,7 +50,13 @@
 
   .why-content__copy-list {
     margin-bottom: 0;
+
+    li {
+      margin-bottom: 0;
+    }
   }
+
+
 
   .why-content__icon {
     position: absolute;
@@ -69,7 +75,7 @@
     display: flex;
     align-items: center;
     img {
-      margin-top: 4rem; // compensates for the drop shadow in the image
+      margin-top: 7em; // compensates for the drop shadow in the image
     }
   }
 

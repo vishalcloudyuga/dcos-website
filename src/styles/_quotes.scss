@@ -53,14 +53,20 @@
   padding-bottom: 15px;
 
 
-  &.active {
-    display: block;
-  }
+
 
   img {
     width: 120px;
     transition: opacity 0.4s;
     opacity: 0;
+  }
+
+  &.active {
+    display: block;
+
+    img {
+      opacity: 1;
+    }
   }
 }
 
@@ -73,12 +79,6 @@
   padding-bottom: 0;
 }
 
-.partner-quote-logo-list__partner-quote-logo.active, .partner-quote-logo-list__partner-quote-logo:hover {
-  img {
-    width: 120px;
-    opacity: 1;
-  }
-}
 
 .quote-block {
   margin-bottom: 3rem;
@@ -110,6 +110,14 @@
     flex-flow: row;
     justify-content: center;
     align-items: center;
+  }
+
+
+  .partner-quote-logo-list__partner-quote-logo.active, .partner-quote-logo-list__partner-quote-logo:hover {
+    img {
+      width: 120px;
+      opacity: 1;
+    }
   }
 
   .partner-quote-logo-list__partner-quote-logo {

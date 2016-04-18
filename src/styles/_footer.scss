@@ -37,14 +37,13 @@
   align-items: center;
 }
 
-.footer-secondary {
-  order: 2;
-}
-
-.footer-main {
-  flex-flow: column-reverse;
-  order: 1;
-}
+// .footer-secondary {
+//   order: 2;
+// }
+//
+// .footer-main {
+//   order: 1;
+// }
 
 .footer-item {
   display: flex;
@@ -95,7 +94,6 @@
   }
 
   .footer-secondary {
-    order: 2;
 
     .footer-item:last-child {
       padding-right: 0;
@@ -103,7 +101,6 @@
   }
 
   .footer-main {
-    order: 1;
 
     .footer-item:first-child {
       padding-left: 0;
