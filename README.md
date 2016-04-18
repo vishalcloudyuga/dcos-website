@@ -11,7 +11,7 @@
 ## Setting redirects
 
 - `aws configure --profile dcos`
-- `bin/setup-redirects.bash`
+- `scripts/setup-redirects.sh`
 
 ## Adding redirects
 
