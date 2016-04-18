@@ -73,8 +73,6 @@
 	list-style: none;
 }
 
-
-
 .hero-list__item {
 	display: flex;
 	flex-direction: column;
@@ -323,6 +321,12 @@
   }
 }
 
+// iPad
+@media (min-width: 768px) and (max-width: 785px) {
+  .home-second-list .hero-list__item__copy__title {
+    height: 3.75rem;
+  }
+}
 
 // Internet Explorer 11
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
