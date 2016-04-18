@@ -1,15 +1,12 @@
 .getstarted-heading {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column;
 	justify-content: space-between;
 	font-family: $clio-light;
 	font-size: 2.4rem;
 	line-height: 1.3;
 	letter-spacing: -0.03rem;
 	line-height: 2;
-  // overflow: hidden;
-  // padding-top: 70px;
-  // margin-top: -70px;
 }
 
 .get-started-heading {
@@ -23,6 +20,8 @@
 .getstarted-heading__copy {
 	margin-right: 1.25rem;
 	opacity: 0.6;
+  position: relative;
+  bottom: 6px;
 }
 
 .services-list, .platform-list {
@@ -48,10 +47,16 @@
   position: absolute;
   top: -45px;
   opacity: 1;
+  width: 260px;
   transition: opacity 0.3s;
 	img {
 		border-radius: 6px;
 	}
+}
+
+.service-name-content {
+  width: 100%;
+  text-align: center;
 }
 
 .service-name[data-current="true"] {
@@ -66,14 +71,33 @@
 	display: flex;
 	flex-flow: row;
 	align-items: center;
-	border-bottom: 0.5px solid $white60;
+  position: relative;
 
 	img {
 		width: 42px;
 		margin-right: 1.25rem;
-		margin-top: -0.5rem;
+    position: relative;
+    bottom: -5px;
 	}
+
+  &::after {
+    content: '';
+    border-bottom: 1px solid #eee;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    bottom: 10px;
+    width: 245px;
+  }
 }
+
+.getstarted-heading__service::after {
+  left: 108px;
+}
+
+.getstarted-heading__platform::after {
+  left: 80px;
+}
+
 
 .getstarted-tabs {
 	display: none;
@@ -188,7 +212,7 @@
 
 @include break($mobile-small-landscape) {
 	.getstarted-heading__service {
-		margin-right: 6rem;
+		margin-right: 4rem;
 		}
 
 	.get-started-heading {
@@ -238,7 +262,8 @@
 
 @include break($tablet-landscape) {
 	.getstarted-heading {
-		font-size: 3rem;
+		font-size: 2.4rem;
+    flex-flow: row;
 	}
 
 	.getstarted-heading__service, .getstarted-heading__platform {

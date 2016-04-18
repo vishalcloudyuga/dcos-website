@@ -53,30 +53,17 @@
     let item;
     let getRandomItem = function() {
       item = options.list[Math.floor(Math.random()*options.list.length)];
-      if(options.current === item) getRandomItem(options);
+      if($(item).find('span').text().replace(/\n|\s/g,'') === options.current.text().replace(/\n|\s/g,'')) getRandomItem(options);
     }
     getRandomItem();
     options.current.attr('data-current', 'false').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeOut${options.direction}`);
     $(item).attr('data-current', 'true').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeIn${options.direction}`);
   }
 
-  // Random timing and call the animation again
-  let randomNumber = function() { return 4000; } //return Math.floor(Math.random() * 5500) + 3500};
-  let startSequence = (fn) => {
-    setTimeout(() => {
-      animateItem(fn());
-      startSequence(fn);
-    }, randomNumber())
-  }
-
-  startSequence(() => { return {list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]'), direction: 'Up'}});
-  startSequence(() => { return {list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]'), direction: 'Down'}});
-
-  // Start later than the first sequence
-  // setTimeout(() => {
-  //   startSequence(() => { return {list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]')} });
-  // }, randomNumber())
-
+  setInterval(() => {
+    animateItem({list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]'), direction: 'Up'});
+    animateItem({list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]'), direction: 'Down'});
+  }, 4000)
 
   // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
