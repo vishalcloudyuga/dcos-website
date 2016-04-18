@@ -1,4 +1,14 @@
 (function() {
+  // Create equal heights for cards
+  let createEqualHeight = function(items) {
+    if(window.outerWidth >= 414) {
+      let maxHeight = Math.max(...Array.prototype.map.call(items, el => el.offsetHeight));
+      Array.prototype.map.call(items, el => el.setAttribute('style', `height: ${maxHeight}px;`));
+    }
+  };
+  createEqualHeight($('.service-select .card'));
+  createEqualHeight($('.platform-select .card'));
+
   $('.platform-select').attr('style', 'display: none')
 
   let currentService, currentPlatform;
@@ -161,6 +171,7 @@
       $('.service-select').attr('style', 'display: none;');
       $('.platform-select').attr('style', 'display: none;');
       $('.install').removeAttr('style');
+      $('.install').addClass('loading');
       $('.step2').removeAttr('style');
 
       $('.step1').addClass('step-inactive');
@@ -176,6 +187,7 @@
       getDocs(currentService.doc, currentPlatform.doc)
         .then(docs => {
           $('.install').html(`${docs.platform}<img src='/assets/images/icons/line.svg' class='getstarted-arrow'>${docs.service}`);
+          $('.install').removeClass('loading');
         })
     }
   }
