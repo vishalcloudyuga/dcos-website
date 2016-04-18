@@ -1,85 +1,78 @@
 include ../mixins/header-docs.jade
 include ../mixins/footer-docs.jade
 
-//- XXX - This needs to be refactored.
-- var path = locals.nav_path.split('/')
-- var findPath = function (childPath) { return path.find(function(item) { return item === childPath}) };
-- var stripExtname = function(file) {
--   if(file.substr(file.length-10, file.length) === 'index.html') return file.substr(0, file.length-10);
--   return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) + "/" : file;
-- }
-- var routeForIndexPath = function(child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
-- var nameForIndexPath = function(child) {
--   var result = child.children.find(function(n) { return n.name === 'index.html'});
--   if(result) return result.file.nav_title || result.file.post_title;
--   return child.name;
-- }
+-
+  var findPath = function(childPath) { return locals.nav_path.split('/').find(function(item) { return item === childPath}) };
 
-- var shouldDisplayAsDoc = function(child) {
--   return (!child.children.length || (child.children.length === 1 && child.children.find(n => n.name === 'index.html')) || (child.children.length === 2 && child.children.find(n => n.name === 'index.html') && child.children.find(n => n.name === 'img')))
-- }
+  var routeForIndexPath = function (child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
+
+  var nameForIndexPath = function (child) {
+    var result = child.children.find(function(n) { return n.name === 'index.html'});
+      if(result) return result.file.nav_title || result.file.post_title;
+      return child.name;
+    }
+
+  var shouldFolderBeDoc = function (child) {
+    return (child.children.length === 1 && child.children.find(n => n.name === 'index.html')) || (child.children.length === 2 && child.children.find(n => n.name === 'index.html') && child.children.find(n => n.name === 'img'))
+  }
+
+  var isValidChild = function  (child) {
+    return (((child.type === 'file' && (child.file.nav_tile !== undefined || child.file.post_title !== undefined)) || (child.type === 'dir' && child.name !== 'img')) && child.name !== 'index.html')
+  }
+
+  var stripExtname = function (file) {
+    if(file.substr(file.length-10, file.length) === 'index.html') return file.substr(0, file.length-10);
+    return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) + "/" : file;
+  }
+
+  var getDoc = function (child) {
+    if(shouldFolderBeDoc(child)) {
+      return child.children.find(n => n.name === 'index.html');
+    } else {
+      return child;
+    }
+  }
+
+mixin icon(child)
+  if(child.type === 'dir')
+    if(findPath(child.name))
+      a.docs-nav__item__arrow(href='#')
+        img(src='/assets/images/icons/arrow-down-docs.svg')
+    else
+      a.docs-nav__item__arrow(href='#')
+        img(src='/assets/images/icons/arrow-right-docs.svg')
+
+
+mixin navItem(child)
+  if(child.type === 'file')
+    span #{child.file.nav_title || child.file.post_title}
+  else
+    - var isActive = findPath(child.name) ? 'active' : '';
+    a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}' class=isActive) #{nameForIndexPath(child)}
+
 
 mixin renderMenu(tree)
   ul(class!=attributes.class)
     each child in tree
+      if(isValidChild(child))
 
-      if(child.path.substr(child.path.length-10, child.path.length) !== 'index.html')
-        if(child.file)
-          if(child.file.nav_tile !== undefined || child.file.post_title !== undefined)
-            if(findPath(child.path))
-              li.docs-nav__item.docs-nav__item_file
-                if(locals.nav_path === child.path)
-                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active
-                    span #{child.file.nav_title || child.file.post_title}
-                else
-                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}')
-                    span #{child.file.nav_title || child.file.post_title}
-                if(child.children)
-                  +renderMenu(child.children)
-            else
-              li.docs-nav__item.docs-nav__item_file.docs-nav__item--closed
-                if(locals.nav_path === child.path)
-                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}').active
-                    span #{child.file.nav_title || child.file.post_title}
-                else
-                  a.docs-nav__item__title(href='/docs/latest/#{stripExtname(child.path)}')
-                    span #{child.file.nav_title || child.file.post_title}
-                if(child.children)
-                  +renderMenu(child.children)
-
-        else
-          if(findPath(child.name))
-            if(child.name !== 'img')
-              li.docs-nav__item.docs-nav__item_folder
-                .nav-wrapper
-                  a.docs-nav__item__arrow(href='#')
-                    if(shouldDisplayAsDoc(child))
-                      img(src='/assets/images/icons/docs-file-active.svg')
-                    else
-                      img(src='/assets/images/icons/arrow-down-docs.svg')
-                  if(findPath(child.path.split('/').pop()))
-                    a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
-                  else
-                    a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
-                if(child.children)
-                  +renderMenu(child.children)
+        // initials
+        - var doc = getDoc(child)
+        - var liType = doc.file ? 'docs-nav__item_file' : 'docs-nav__item_folder';
+        - var isActive = (locals.nav_path === doc.path) ? 'active' : '';
+        - var isClosed = (locals.nav_path !== doc.path && doc.type === 'dir' && !findPath(doc.name)) ? 'docs-nav__item--closed' : '';
+        li.docs-nav__item(class=liType class=isClosed)
+          if(doc.type === 'file')
+            a.docs-nav__item__title(href='/docs/latest/#{stripExtname(doc.path)}' class=isActive)
+              +icon(doc)
+              +navItem(doc)
           else
-            if(child.name !== 'img')
-              li.docs-nav__item.docs-nav__item_folder.docs-nav__item--closed
-                .nav-wrapper
-                  a.docs-nav__item__arrow(href='#')
-                    if(shouldDisplayAsDoc(child))
-                      img(src='/assets/images/icons/docs-file-inactive.svg')
-                    else
-                      img(src='/assets/images/icons/arrow-right-docs.svg')
-                  if(findPath(child.path.split('/').pop()))
-                    a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}').active #{nameForIndexPath(child)}
-                  else
-                    a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}') #{nameForIndexPath(child)}
-                if(child.children)
-                  +renderMenu(child.children)
+            +icon(doc)
+            +navItem(doc)
 
-<!doctype html>
+          if(child.children)
+            +renderMenu(child.children)
+
 html
   head
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
@@ -125,14 +118,14 @@ html
             div.docs-menu-arrow
           .docs-menu-mobile-container.container__content
             .docs-layout__docs-nav
-              +renderMenu(locals.navs.header)(class='docs-menu')
+              +renderMenu(locals.navs.header)
 
       .container.container--docs-content
         .container__content.docs-layout
           .docs-layout__docs-nav
             .docs-search
               input(type='search').docs-search__input
-            +renderMenu(locals.navs.header)(class='docs-menu')
+            +renderMenu(locals.navs.header)
 
           // Search results
           .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
@@ -141,11 +134,11 @@ html
           .docs-layout__docs-content.docs-layout__docs-article
             h1.docs-heading!= locals.post_title
             article!= contents
-
+            h1.docs-heading!= locals.post_title
             .docs-content__footer
-              ul.docs-content__footer__actions
+            h1.docs-heading!= locals.post_title
                 li.docs-content__footer__action
-                  a(href='#').addthis_button_expanded
+            h1.docs-heading!= locals.post_title
                     img.docs-content__footer__share-icon(src='/assets/images/icons/share.svg')
                     span Share
 

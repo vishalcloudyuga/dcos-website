@@ -22,17 +22,20 @@
     $(el).on('click', function(e) {
       docsMenu.css('maxHeight', null); // remove max-height set by mobile docs menu
 
-      if($(e.currentTarget).hasClass('docs-nav__item__arrow')) e.preventDefault();
+      if($(e.currentTarget).hasClass('docs-nav__item__arrow') || $(e.currentTarget).attr('href') === '#') e.preventDefault();
       else if(!$(e.currentTarget).attr('data-path')) return;
 
-      let parent = $($(e.currentTarget).parent().parent());
-      let img = $($(e.currentTarget).find('img'));
+      let parent = $($(e.currentTarget).parent());
+      let img = $(parent.find('img')).first();
 
       parent.hasClass('docs-nav__item--closed') ? parent.removeClass('docs-nav__item--closed') : parent.addClass('docs-nav__item--closed')
-      if(parent.hasClass('docs-nav__item--closed')) {
-        $(parent.find('.docs-nav__item__title')).hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.attr('src', '/assets/images/icons/arrow-right-docs.svg');
+      let isActive = $(parent.find('.docs-nav__item__title')).hasClass('active');
+      let isClosed = parent.hasClass('docs-nav__item--closed');
+
+      if(isActive) {
+        isClosed ? img.attr('src', '/assets/images/icons/arrow-right-docs-selected.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs.svg');
       } else {
-        $(parent.find('.docs-nav__item__title')).hasClass('active') ? img.attr('src', '/assets/images/icons/arrow-down-docs.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
+        isClosed ? img.attr('src', '/assets/images/icons/arrow-right-docs.svg') : img.attr('src', '/assets/images/icons/arrow-down-docs-unselected.svg');
       }
     });
   });
