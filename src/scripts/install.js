@@ -16,4 +16,11 @@
       });
     });
   }
+
+  // Create equal heights for cards
+  let createEqualHeight = function(items) {
+    let maxHeight = Math.max(...Array.prototype.map.call(items, el => el.offsetHeight));
+    Array.prototype.map.call(items, el => el.setAttribute('style', `height: ${maxHeight}px;`));
+  };
+  createEqualHeight($('.container__content.install-columns .card'));
 })();
