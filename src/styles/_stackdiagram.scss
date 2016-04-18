@@ -2,6 +2,10 @@
   display: flex;
   flex-flow: column;
   margin: 2rem 0;
+
+  img {
+    margin-bottom: 1rem;
+  }
 }
 
 .stack-diagram-mobile__container {

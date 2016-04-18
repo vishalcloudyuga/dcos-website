@@ -195,15 +195,15 @@
 	}
 }
 
-.home-second-list .hero-list__item {
-  min-height: 290px;
-  position: relative;
-}
-
-.home-second-list .hero-list__item .cta.cta--text {
-  position: absolute;
-  bottom: 0;
-}
+// .home-second-list .hero-list__item {
+//   min-height: 290px;
+//   position: relative;
+// }
+//
+// .home-second-list .hero-list__item .cta.cta--text {
+//   position: absolute;
+//   bottom: 0;
+// }
 
 @include break($mobile-large-portrait) {
 	.hero-cta-container {
