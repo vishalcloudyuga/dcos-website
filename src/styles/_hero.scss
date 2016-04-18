@@ -73,8 +73,6 @@
 	list-style: none;
 }
 
-
-
 .hero-list__item {
 	display: flex;
 	flex-direction: column;
@@ -195,6 +193,16 @@
 			}
 		}
 	}
+}
+
+.home-second-list .hero-list__item {
+  min-height: 290px;
+  position: relative;
+}
+
+.home-second-list .hero-list__item .cta.cta--text {
+  position: absolute;
+  bottom: 0;
 }
 
 @include break($mobile-large-portrait) {
@@ -323,12 +331,17 @@
   }
 }
 
+// iPad
+@media (min-width: 768px) and (max-width: 785px) {
+  .home-second-list .hero-list__item__copy__title {
+    height: 3.75rem;
+  }
+}
 
 // Internet Explorer 11
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 	.container__content--hero-heading {
 		width: 1024px;
-		height: 450px;
 	}
 
 	.container__content--hero-list {

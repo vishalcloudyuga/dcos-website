@@ -81,4 +81,16 @@
     $(el).href = `https://github.com/dcos/dcos-docs/issues/new?body=${encodeURI(window.location.href)}`;
   });
 
+  // Height nav
+  let docsNav = $('#docs-nav');
+  let docsArticle = $('#docs-article');
+  let docsNavHeight = docsNav.outerHeight();
+  let docsArticleHeight = docsArticle.outerHeight();
+
+  if (docsNavHeight < docsArticleHeight) {
+    docsNav.css({
+      height: `${docsArticleHeight}px`
+    });
+  }
+
 })()

@@ -1,4 +1,20 @@
 (function() {
+  function scrollToTop (scrollDuration) {
+    const scrollHeight = window.scrollY,
+      scrollStep = Math.PI / ( scrollDuration / 15 ),
+      cosParameter = scrollHeight / 2;
+    var scrollCount = 0,
+      scrollMargin,
+      scrollInterval = setInterval(function() {
+        if (window.scrollY !== 0) {
+          scrollCount = scrollCount + 1;
+          scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+          window.scrollTo(0, (scrollHeight - scrollMargin));
+        }
+        else clearInterval(scrollInterval);
+      }, 15);
+  }
+
   // Create equal heights for cards
   let createEqualHeight = function(items) {
     if(window.outerWidth >= 414) {
@@ -37,36 +53,24 @@
     let item;
     let getRandomItem = function() {
       item = options.list[Math.floor(Math.random()*options.list.length)];
-      if(options.current === item) getRandomItem(options);
+      if($(item).find('span').text().replace(/\n|\s/g,'') === options.current.text().replace(/\n|\s/g,'')) getRandomItem(options);
     }
     getRandomItem();
     options.current.attr('data-current', 'false').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeOut${options.direction}`);
     $(item).attr('data-current', 'true').removeClass(`animated fadeIn${options.direction} fadeOut${options.direction}`).addClass(`animated fadeIn${options.direction}`);
   }
 
-  // Random timing and call the animation again
-  let randomNumber = function() { return 4000; } //return Math.floor(Math.random() * 5500) + 3500};
-  let startSequence = (fn) => {
-    setTimeout(() => {
-      animateItem(fn());
-      startSequence(fn);
-    }, randomNumber())
-  }
-
-  startSequence(() => { return {list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]'), direction: 'Up'}});
-  startSequence(() => { return {list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]'), direction: 'Down'}});
-
-  // Start later than the first sequence
-  // setTimeout(() => {
-  //   startSequence(() => { return {list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]')} });
-  // }, randomNumber())
-
+  setInterval(() => {
+    animateItem({list: $('.services-list .service-name'), current: $('.services-list .service-name[data-current="true"]'), direction: 'Up'});
+    animateItem({list: $('.platform-list .service-name'), current: $('.platform-list .service-name[data-current="true"]'), direction: 'Down'});
+  }, 4000)
 
   // Click handlers for services/platforms
   let addClickHandlers = function(links, type) {
     Array.prototype.forEach.call(links, link => {
       $(link).on('click', function (e) {
         e.preventDefault();
+        scrollToTop(1000);
         if(type === 'service') currentService = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         if(type === 'platform') currentPlatform = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         nextStep();
