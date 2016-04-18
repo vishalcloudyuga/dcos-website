@@ -152,7 +152,7 @@ Metalsmith(__dirname)
     concat: 'scripts/main.min.js',
     sourceMap: !process.env.CI,
     preserveComments: !process.env.CI,
-    removeOriginal: process.env.CI,
+    // removeOriginal: process.env.CI,
     compress: process.env.CI
   }))
   .use((() => {
