@@ -18,7 +18,7 @@
 }
 
 .getstarted-heading__copy {
-	margin-right: 1.25rem;
+	margin-right: 1rem;
 	opacity: 0.6;
   position: relative;
   bottom: 6px;
@@ -91,11 +91,11 @@
 }
 
 .getstarted-heading__service::after {
-  left: 108px;
+  left: 84px;
 }
 
 .getstarted-heading__platform::after {
-  left: 80px;
+  left: 64px;
 }
 
 
@@ -212,7 +212,7 @@
 
 @include break($mobile-small-landscape) {
 	.getstarted-heading__service {
-		margin-right: 4rem;
+		margin-right: 1rem;
 		}
 
 	.get-started-heading {
@@ -266,8 +266,12 @@
     flex-flow: row;
 	}
 
-	.getstarted-heading__service, .getstarted-heading__platform {
-		width: 23rem;
+	.getstarted-heading__service {
+		width: 21rem;
+	}
+
+	.getstarted-heading__platform {
+		width: 20rem;
 	}
 }
 
