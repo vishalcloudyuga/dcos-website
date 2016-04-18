@@ -23,18 +23,16 @@
 }
 
 .getstarted-heading__copy {
-	// margin-right: 1.25rem;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	opacity: 0.6;
-  // position: relative;
 	position: absolute;
 	top: 0;
-  // bottom: 6px;
 }
 
 .services-list, .platform-list {
   position: relative;
   width: 100%;
+	top: 25px;
 }
 
 .platform-select, .service-select {
@@ -64,7 +62,7 @@
 
 .service-name-content {
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .service-name[data-current="true"] {
@@ -82,7 +80,7 @@
   position: relative;
 
 	justify-content: flex-start;
-	height: 110px;
+	height: 120px;
 	width: 100%;
 
 	img {
@@ -92,14 +90,7 @@
     bottom: -5px;
 	}
 
-  // &::after {
-  //   content: '';
-  //   border-bottom: 1px solid #eee;
-  //   border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
-  //   position: absolute;
-  //   bottom: 10px;
-  //   width: 245px;
-  // }
+
 }
 
 .getstarted-heading__service::after {
@@ -223,6 +214,26 @@
 }
 
 @include break($mobile-small-landscape) {
+	.getstarted-heading__copy {
+		margin-right: 1.25rem;
+		position: relative;
+		bottom: 6px;
+		font-size: 2.4rem;
+		top: 18px;
+	}
+
+	// .get-started-heading-container {
+	// 	align-items: center;
+	// 	margin-left: -25%;
+	// }
+}
+
+@include break($mobile-large-landscape) {
+	.getstarted-heading {
+		font-size: 2.4rem;
+    flex-flow: row;
+	}
+
 	.getstarted-heading__service {
 		margin-right: 4rem;
 		}
@@ -230,11 +241,42 @@
 	.get-started-heading {
 		width: 620px;
 	}
-}
 
-@include break($mobile-large-landscape) {
+	.service-name-content {
+		text-align: center;
+	}
+
+	.getstarted-heading__service, .getstarted-heading__platform {
+
+	  &::after {
+	    content: '';
+	    border-bottom: 1px solid #eee;
+	    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+	    position: absolute;
+	    bottom: 10px;
+	    width: 245px;
+	  }
+	}
+
+	.getstarted-heading__copy {
+		margin-right: 1.25rem;
+	  position: relative;
+	  bottom: 6px;
+		font-size: 2.4rem;
+		top: 18px;
+	}
+
 	.get-started-heading {
 		width: 700px;
+	}
+
+	.getstarted-heading__service, .getstarted-heading__platform {
+		width: 20rem;
+	}
+
+	.get-started-heading-container {
+		margin-left: 0;
+		align-items: center;
 	}
 }
 
@@ -253,11 +295,6 @@
 		}
 	}
 
-	.get-started-heading-container {
-		align-items: center;
-	}
-
-
 	.platform-select, .service-select {
 		h2 {
 			display: none;
@@ -274,17 +311,6 @@
 				margin: 0 0.5rem;
 			}
 		}
-	}
-}
-
-@include break($tablet-landscape) {
-	.getstarted-heading {
-		font-size: 2.4rem;
-    flex-flow: row;
-	}
-
-	.getstarted-heading__service, .getstarted-heading__platform {
-		width: 23rem;
 	}
 }
 
