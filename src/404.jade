@@ -1,4 +1,4 @@
-extends ../layouts/base.jade
+extends ../layouts/base-whitefooter.jade
 
 block head
   title 404
@@ -12,5 +12,8 @@ block content
       h1 Oops
       p The page you're looking for can't be found.
       a(href='https://github.com/dcos').cta.cta--button.button--secondary Take Me Home
+
+  .container.container--footer-404
+    +footer
 
   script(src='/scripts/main.js')
