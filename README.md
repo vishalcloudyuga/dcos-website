@@ -3,6 +3,7 @@
 # Build Status
 
 | Production | Development |
+|------------|-------------|
 | [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-prod/) | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-dev/) |
 
 Built using [Metalsmith](http://metalsmith.io).
