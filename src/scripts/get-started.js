@@ -15,16 +15,6 @@
       }, 15);
   }
 
-  // Create equal heights for cards
-  let createEqualHeight = function(items) {
-    if(window.outerWidth >= 414) {
-      let maxHeight = Math.max(...Array.prototype.map.call(items, el => el.offsetHeight));
-      Array.prototype.map.call(items, el => el.setAttribute('style', `height: ${maxHeight}px;`));
-    }
-  };
-  createEqualHeight($('.service-select .card'));
-  createEqualHeight($('.platform-select .card'));
-
   $('.platform-select').attr('style', 'display: none')
 
   let currentService, currentPlatform;
@@ -57,7 +47,7 @@
     }
     getRandomItem();
 
-    let removeClasses = `animated fadeIn${options.direction} fadeOut${options.direction} fadeOut fadeIn`;
+    let removeClasses = `animated fadeInUp fadeInDown fadeOutUp fadeOutDown fadeOut fadeIn`;
     options.current.attr('data-current', 'false').removeClass(removeClasses).addClass(`animated fadeOut${options.direction}`);
     $(item).attr('data-current', 'true').removeClass(removeClasses).addClass(`animated fadeIn${options.direction}`);
   }

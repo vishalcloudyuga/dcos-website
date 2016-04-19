@@ -98,24 +98,13 @@ block content
         .why-content-image__icon-container
           +image('/assets/images/illustrations/why-dcos-3.png')
 
-  .container.container--case-study
-    .case-study-item.active
-      .container__content.container__content--case-study-copy
-        ul.bullet-list
-        .case-study-fade-wrapper
-          .copy-wrapper
-            h3.case-study-title SMACK stack on DC/OS -- how it’s all woven together
-            p.case-study-description In this blog, we explore how easy it is to run an application on DC/OS using the SMACK stack (Spark, Mesos, Akka, Cassandra, and Kafka). We focus on how the different components of the stack are woven together to support the application.
-            a(href='http://www.cakesolutions.net/teamblogs/smack-stack-on-dcos' target="_blank").cta.cta--text.case-study-link Read full case study &rarr;
-      .container__content.container__content--case-study-image-wrapper
-        .image-wrapper(style='background-image: url(/assets/images/case-studies/case-study-smack.png)')
-
+  include ../includes/case-studies
 
   .container
     .container__content
       img.why-dcos-icon(src='/assets/images/icons/opensource.svg')
       h3 DC/OS is 100% open source, co-developed with customers who are using it in large-scale productions.
-      a(href='https://github.com/dcos' target='_blank').cta.cta--button.button--secondary View on Github
+      a(href='https://github.com/dcos' target='_blank').cta.cta--button.button--secondary View on GitHub
 
   .container.container--dark-background
     .container__content

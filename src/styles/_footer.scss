@@ -83,11 +83,17 @@
   }
 }
 
+@include break($tablet-portrait) {
+  .footer ul {
+    flex-flow: row;
+  }
+}
+
 @include break($tablet-landscape) {
   .footer {
-      display: flex;
-      flex-flow: row;
-    }
+    display: flex;
+    flex-flow: row;
+  }
 
   .footer-main, .footer-secondary {
     flex-flow: row;
