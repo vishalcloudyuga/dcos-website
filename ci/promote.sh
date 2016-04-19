@@ -30,9 +30,9 @@ if [[ -n "$(git cherry -v)" ]]; then
 fi
 
 echo "Checking out master branch..."
-git checkout origin/master
+git checkout master
 echo "Rebasing develop changes to master..."
 git pull --rebase origin develop
 echo "Pushing master branch..."
-git push origin master
+git push
 echo "Promotion Complete!"
