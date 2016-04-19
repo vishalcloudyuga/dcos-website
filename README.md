@@ -7,7 +7,7 @@
 
 ## Contribution Workflow
 
-1. [Create a repo fork in Github](https://guides.github.com/activities/forking/)
+1. [Create a repo fork in GitHub](https://guides.github.com/activities/forking/)
 1. [Clone the dcos/dcos-website repo](https://help.github.com/articles/cloning-a-repository/)
 1. Add repo fork as remote repo:
 
