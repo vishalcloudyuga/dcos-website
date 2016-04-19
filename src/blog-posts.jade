@@ -1,0 +1,26 @@
+extends ../layouts/base-whitefooter.jade
+
+block head
+  title DC/OS - Partner Blog Posts
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      h1 Partner Blog Posts
+
+  .container
+    .container__content
+      .quote-block
+        a(href="http://www.10thmagnitude.com/tech-blog/DCOS-The-Incredible-Scalable-Container" target="_blank")
+          h3 DC/OS: The Incredible Scalable Container Platform
+        img(src='/assets/images/logos/partners/10th-magnitude.png').quote-image
+      .quote-block
+        a(href="https://www.accenture.com/us-en/blogs/blogs-dc-os-accenture-labs.aspx" target="_blank")
+          h3 DC/OS at Accenture Technology Labs
+        img(src='/assets/images/logos/partners/accenture.png').quote-image
+
+  .container
+      +footer
