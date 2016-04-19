@@ -1,18 +1,8 @@
 (function() {
-  function scrollToTop (scrollDuration) {
-    const scrollHeight = window.scrollY,
-      scrollStep = Math.PI / ( scrollDuration / 15 ),
-      cosParameter = scrollHeight / 2;
-    var scrollCount = 0,
-      scrollMargin,
-      scrollInterval = setInterval(function() {
-        if (window.scrollY !== 0) {
-          scrollCount = scrollCount + 1;
-          scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
-          window.scrollTo(0, (scrollHeight - scrollMargin));
-        }
-        else clearInterval(scrollInterval);
-      }, 15);
+  function scrollToTop () {
+    if (window.scrollY !== 0 && matchMedia('only screen and (max-width: 480px)').matches) {
+      window.scrollTo(0, 0);
+    }
   }
 
   // Create equal heights for cards
@@ -72,7 +62,7 @@
     Array.prototype.forEach.call(links, link => {
       $(link).on('click', function (e) {
         e.preventDefault();
-        scrollToTop(1000);
+        scrollToTop();
         if(type === 'service') currentService = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         if(type === 'platform') currentPlatform = {name: e.currentTarget.getAttribute('data-name'), doc: e.currentTarget.getAttribute('data-doc')};
         nextStep();
