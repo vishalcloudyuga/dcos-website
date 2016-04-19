@@ -72,7 +72,6 @@
 
 .case-study-item {
   display: flex;
-  //height: 730px;
   width: 100%;
   flex-direction: column;
   background: $smoke;
@@ -98,12 +97,6 @@
 .case-study-item.active .case-study-fade-wrapper {
   opacity: 1;
   z-index: 1;
-}
-
-@include break($mobile-small-landscape) {
-  .case-study-item {
-    //height: 650px;
-  }
 }
 
 @include break($mobile-large-landscape) {
