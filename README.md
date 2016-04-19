@@ -1,4 +1,4 @@
-# Marketing site for DCOS
+# DC/OS website
 
 | Environment | URL | Build Status |
 |-------------|-----|--------------|
