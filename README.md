@@ -1,13 +1,9 @@
 # Marketing site for DCOS
 
-Source for <https://dcos.io>
-
-Built using [Metalsmith](http://metalsmith.io).
-
-| Environment | Build Status |
+| Environment | URL | Build Status |
 |------------|-------------|
-| Production | [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-prod/) |
-| Development | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-dev/) |
+| Production | <https://dcos.io> | [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-prod/) |
+| Development | <https://dev.dcos.io> | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-dev/) |
 
 ## Contribution Workflow
 
@@ -108,7 +104,11 @@ Add to `redirects` with the following format:
 
 /from/ /to/
 
-# License and Authors
+## Technology
+
+Built using [Metalsmith](http://metalsmith.io).
+
+## License and Authors
 
 Copyright:: 2016 Mesosphere, Inc.
 
