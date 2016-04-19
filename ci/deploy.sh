@@ -8,4 +8,4 @@ cd "${REPO_ROOT}"
 
 current_bucket="$(ci/bucket.sh)"
 echo "Pushing to bucket: ${current_bucket}"
-s3cmd sync --delete-removed --guess-mime-type --recursive --acl-public build/ "${current_bucket}"
+aws sync --delete --acl=public-read build/ "${current_bucket}"
