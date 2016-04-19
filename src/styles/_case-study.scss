@@ -11,12 +11,14 @@
   background-color: $smoke;
   overflow: hidden;
   padding: 1.5rem;
+  padding-bottom: 3rem;
 }
 
 .container__content--case-study-image-wrapper {
-  display: none;
+  height: 300px;
   position: relative;
   align-self: stretch;
+  order: -1;
 }
 
 .container__content--case-study-image-wrapper .image-wrapper {
@@ -70,8 +72,10 @@
 
 .case-study-item {
   display: flex;
-  height: 500px;
+  //height: 730px;
   width: 100%;
+  flex-direction: column;
+  background: $smoke;
 }
 
 .case-study-item + .case-study-item {
@@ -98,11 +102,21 @@
 
 @include break($mobile-small-landscape) {
   .case-study-item {
-    height: 400px;
+    //height: 650px;
   }
 }
 
 @include break($mobile-large-landscape) {
+  .case-study-item {
+    height: auto;
+    flex-direction: row;
+    background: none;
+  }
+
+  .container__content--case-study-image-wrapper {
+    height: auto;
+  }
+
   .container--case-study {
     flex-flow: row;
     justify-content: center;
