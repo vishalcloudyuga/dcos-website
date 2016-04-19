@@ -161,29 +161,29 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
 
 
 
-	h1 {
-		font-size: 2rem;
-	}
+  h1 {
+    font-size: 2rem;
+  }
 
   .docs-heading {
     font-size: 2.4rem;
   }
 
-	h2 {
-		font-size: 1.7rem;
-	}
+  h2 {
+    font-size: 1.7rem;
+  }
 
-	h3 {
-		font-size: 1.3rem;
-	}
+  h3 {
+    font-size: 1.3rem;
+  }
 
-	h4 {
-		font-size: 1rem;
-	}
+  h4 {
+    font-size: 1rem;
+  }
 
-	h5 {
-		font-size: 0.9rem;
-	}
+  h5 {
+    font-size: 0.9rem;
+  }
 
 
   h1, h2, h3, p, pre {
@@ -208,8 +208,8 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
 
   li {
     margin: 0 0 0.5rem 0;
-  	letter-spacing: 0.04rem;
-  	line-height: 1.55;
+    letter-spacing: 0.04rem;
+    line-height: 1.55;
   }
 
   hr {
@@ -292,8 +292,8 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 2rem 0;
-  padding: 2rem 0;
+  margin: 2rem 0 1rem 0;
+  padding: 2rem 0 1rem 0;
   border-top: 1px solid $smoke;
 }
 
@@ -413,11 +413,6 @@ img.docs-content__footer__share-icon {
 }
 
 @include break($tablet-portrait) {
-
-  .docs-search__input {
-    padding: 0.5rem 0.5rem 0.5rem 1.75rem;
-  }
-
   .docs-search {
     width: auto;
   }
@@ -462,6 +457,12 @@ img.docs-content__footer__share-icon {
 
   .docs-content__footer {
     display: flex;
+  }
+}
+
+@include break($mobile-large-landscape) {
+  .docs-layout {
+    padding: 2rem 2rem;
   }
 }
 

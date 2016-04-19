@@ -84,13 +84,25 @@
   // Height nav
   let docsNav = $('#docs-nav');
   let docsArticle = $('#docs-article');
-  let docsNavHeight = docsNav.outerHeight();
-  let docsArticleHeight = docsArticle.outerHeight();
 
-  if (docsNavHeight < docsArticleHeight && !matchMedia('only screen and (max-width: 480px)').matches) {
-    docsNav.css({
-      height: `${docsArticleHeight}px`
-    });
+  let calculateDocsNavHeight = function () {
+    if(matchMedia('only screen and (max-width: 480px)').matches) return;
+    let docsNavHeight = $('#docs-nav > ul').outerHeight();
+    let docsArticleHeight = docsArticle.outerHeight();
+
+    if (docsNavHeight < docsArticleHeight) {
+      docsNav.css({
+        height: `${docsArticleHeight}px`
+      });
+    } else {
+      docsNav.css({
+        height: `${docsNavHeight+40}px`
+      });
+    }
   }
+
+  calculateDocsNavHeight();
+
+  $('.docs-nav__item a').on('click', calculateDocsNavHeight);
 
 })()
