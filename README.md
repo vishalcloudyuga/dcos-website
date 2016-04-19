@@ -1,12 +1,13 @@
 # Marketing site for DCOS
 
-# Build Status
-
-| Production | Development |
-|------------|-------------|
-| [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-prod/) | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-dev/) |
+Source for <https://dcos.io>
 
 Built using [Metalsmith](http://metalsmith.io).
+
+| Environment | Build Status |
+|------------|-------------|
+| Production | [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-prod/) |
+| Development | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-dev/) |
 
 ## Contribution Workflow
 
