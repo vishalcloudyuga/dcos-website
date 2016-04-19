@@ -57,7 +57,7 @@
     }
     getRandomItem();
 
-    let removeClasses = `animated fadeIn${options.direction} fadeOut${options.direction} fadeOut fadeIn`;
+    let removeClasses = `animated fadeInUp fadeInDown fadeOutUp fadeOutDown fadeOut fadeIn`;
     options.current.attr('data-current', 'false').removeClass(removeClasses).addClass(`animated fadeOut${options.direction}`);
     $(item).attr('data-current', 'true').removeClass(removeClasses).addClass(`animated fadeIn${options.direction}`);
   }
