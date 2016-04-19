@@ -173,7 +173,7 @@ Metalsmith(__dirname)
             }
           ]
         },
-        files: ['./src/**/*', './dcos-docs/**/*', './layouts/**/*', './mixins/**/*']
+        files: ['./src/**/*', './dcos-docs/**/*', './layouts/**/*', './mixins/**/*', './includes/**/*']
       }, null, allDocs)
     }
   })())
