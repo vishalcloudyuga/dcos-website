@@ -11,7 +11,7 @@ export AWS_DEFAULT_REGION="us-west-2"
 current_bucket="$(ci/bucket.sh)"
 echo "Updating bucket redirects: ${current_bucket}"
 
-tmpfile="$(mktemp /tmp/empty.XXXXXX)"
+tmpfile="$(mktemp ./empty.XXXXXX)"
 trap "rm -f '${tmpfile}'" EXIT
 
 while read line; do
