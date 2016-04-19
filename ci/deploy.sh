@@ -8,7 +8,4 @@ cd "${REPO_ROOT}"
 
 current_bucket="$(ci/bucket.sh)"
 echo "Pushing to bucket: ${current_bucket}"
-s3cmd sync --delete-removed -r -P \
-  --access_key=$DCOSIO_S3_ACCESS_KEY \
-  --secret_key=$DCOSIO_S3_SECRET_KEY \
-  build/ "${current_bucket}"
+s3cmd sync --delete-removed -r -P build/ "${current_bucket}"
