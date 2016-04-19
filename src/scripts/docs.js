@@ -3,20 +3,6 @@
   // Search
   const version = 'latest';
 
-  let debounce = function (fn) {
-    let timeout;
-    return function () {
-      let args  = Array.prototype.slice.call(arguments);
-      let ctx   = this;
-
-      clearTimeout(timeout)
-      timeout = setTimeout(() => { fn.apply(ctx, args) }, 100)
-    }
-  }
-
-  const searchInput = $('.docs-search__input');
-  searchInput.attr('disabled', 'disabled');
-
   // Navigation
   Array.prototype.forEach.call($('.docs-nav__item_folder a'), el => {
     $(el).on('click', function(e) {
@@ -89,20 +75,14 @@
     if(matchMedia('only screen and (max-width: 480px)').matches) return;
     let docsNavHeight = $('#docs-nav > ul').outerHeight();
     let docsArticleHeight = docsArticle.outerHeight();
+    let newDocsNavHeight;
 
-    if (docsNavHeight < docsArticleHeight) {
-      docsNav.css({
-        height: `${docsArticleHeight}px`
-      });
-    } else {
-      docsNav.css({
-        height: `${docsNavHeight+40}px`
-      });
-    }
+    if (docsNavHeight < docsArticleHeight) newDocsNavHeight = docsArticleHeight;
+    else newDocsNavHeight = docsNavHeight+40;
+
+    docsNav.css({height: `${newDocsNavHeight}px`});
   }
 
   calculateDocsNavHeight();
-
   $('.docs-nav__item a').on('click', calculateDocsNavHeight);
-
-})()
+})();

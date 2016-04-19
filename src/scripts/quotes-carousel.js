@@ -18,8 +18,24 @@
     });
   }
 
-  let maxHeight = Math.max(...Array.prototype.map.call(quotes, quote =>  quote.offsetHeight));
-  $('.partner-quote-block-container').css('height', `${maxHeight + 20}px`);
+  let debounce = function (time, fn) {
+    let timeout;
+    return function () {
+      let args  = Array.prototype.slice.call(arguments);
+      let ctx   = this;
+
+      clearTimeout(timeout)
+      timeout = setTimeout(() => { fn.apply(ctx, args) }, time)
+    }
+  }
+
+  let calculateQuoteHeight = function () {
+    let maxHeight = Math.max(...Array.prototype.map.call(quotes, quote =>  quote.offsetHeight));
+    $('.partner-quote-block-container').css('height', `${maxHeight + 20}px`);
+  }
+
+  $(window).resize(debounce(250, calculateQuoteHeight));
+  calculateQuoteHeight();
 
   function logoClicked(e) {
     e.preventDefault();

@@ -200,6 +200,11 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
 
   ul {
     list-style: disc;
+
+    a {
+      color: $heliotrope;
+      opacity: 1;
+    }
   }
 
   ol {
