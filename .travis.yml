@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- 5.10.1
+branches:
+  only:
+  - develop
+  - master
+script:
+- ci/test.sh
+deploy:
+  skip_cleanup: true
+  detect_encoding: true
+  provider: s3
+  access_key_id: AKIAJJRIX446OQFCZDXA
+  secret_access_key:
+    secure: "F2RBJdr4RJNcykS7BPnQPxPdkDb4v8hmCIiQJVHI+g2T/He51q4jzk3JIDMViCDOH12cQaC/3jH6AXzpCx0kdedS3+beKSBaBHlCqi3jYoph5p7BT7CDH5vOw5G+0nfHlB/Fw9czrJbWfgS98/mdu5EDXErtLJ4rPE/3NPDT5QcAdKqJVjj0Awz+E9OAXbdn8c96cktAYQ0YlUP1Ud6AcuY9T8hK9RpgShx3qTbyBVonCSsRcsVd69Z0VkiG+iiizFli7Q3bbbiE6925dqk3M+gfvmS03fkqE6WxJhWACi1nYn9RiJhkMpeCRNOKdvGHbW6VfECO6BFWuY2zdvrusZ7mqPFLp84lrEbwTFjygBri89tKDh/7pV7p8nUcwrKP2aYe80V1X48IqtSGfN/9gJ0W3X9Lp+VRrtsWkcfzBd1FUlyzRMf7hQZI4msutD+Be2KqC57zIokQ3Gip2mvm2yBqM56AmjeYMnDrxy1agP/Ng/iNJa1pURxwYKW07Nu8MZbHEZiRGMiLk/wsD8tU1e8xgAABRXC+qhCyN1MZyGCdY2HNR6ZlOpm1rLHVhqNJxbhx8+KrqE/rXUH6PPq5Yn3KiyI7mlkTslHboNVMderNUNytKMJg6+qgPx6RBKaD9VUzQtjM1UIS5HH6Qq3RwzRs6Y1FsvZV/8omoTHcy6I="
+  bucket: dev.dcos.io
+  region: us-west-2
+  local-dir: "./build"
+  acl: private
+  on:
+    repo: dcos/dcos-website
+    branch: develop
+after_deploy: "echo $(env)"
