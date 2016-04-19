@@ -2,8 +2,8 @@
 
 | Environment | URL | Build Status |
 |-------------|-----|--------------|
-| Production | <https://dcos.io> | [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-prod/) |
-| Development | <https://dev.dcos.io> | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/dcos-website-deploy-dev/) |
+| Production | <https://dcos.io> | [![Prod Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=public-dcos-website-deploy-prod)](http://velocity.mesosphere.com/service/velocity/job/public-dcos-website-deploy-prod/) |
+| Development | <https://dev.dcos.io> | [![Dev Build Status](http://velocity.mesosphere.com/service/velocity/buildStatus/icon?job=public-dcos-website-deploy-dev)](http://velocity.mesosphere.com/service/velocity/job/public-dcos-website-deploy-dev/) |
 
 ## Contribution Workflow
 
