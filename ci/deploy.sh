@@ -10,5 +10,4 @@ export AWS_DEFAULT_REGION="us-west-2"
 
 current_bucket="$(ci/bucket.sh)"
 echo "Pushing to bucket: ${current_bucket}"
-aws s3 sync build/ "${current_bucket}" --delete --acl=public-read --exclude '*.svg'
-aws s3 sync build/ "${current_bucket}" --delete --acl=public-read --exclude '*' --include '*.svg' --content-type 'image/svg+xml'
+aws s3 sync build/ "${current_bucket}" --delete --acl=public-read
