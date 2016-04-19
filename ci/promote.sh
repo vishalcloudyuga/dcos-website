@@ -24,7 +24,7 @@ if ! git ls-files --exclude-standard --others ; then
   exit 1
 fi
 
-if [[ -n "$(git status --porcelain -b)" ]]; then
+if [[ -n "$(git cherry -v)" ]]; then
   echo "Found unpushed commits - Exiting" >&2
   exit 1
 fi
