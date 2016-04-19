@@ -80,16 +80,12 @@ git push
 
 ## Promote to Production
 
-Once changes have been previewed and accepted on <https://dev.dcos.io/>, the maintainers will create a PR from `develop` to `master`.
-
-Once the PR is merged, CI will push the updates to <https://dcos.io/>.
-
-After merging, the `develop` branch must be rebased from `master` to synchronize the merge commit:
+Once changes have been previewed and accepted on <https://dev.dcos.io/>, the maintainers will rebase `develop` to `master`:
 
 ```
 git fetch origin
-git checkout develop
-git pull --rebase origin master
+git checkout master
+git pull --rebase origin develop
 git push
 ```
 
