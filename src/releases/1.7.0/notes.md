@@ -86,7 +86,7 @@ For the full set of changes, please refer to the [Marathon Release Notes][9].
  [5]: /docs/1.7/usage/service-discovery/virtual-ip-addresses/
  [6]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
  [7]: http://mesosphere.github.io/marathon/docs/external-volumes.html
- [9]: https://github.com/mesosphere/marathon/releases/edit/v1.0.0-RC1
+ [9]: https://github.com/mesosphere/marathon/releases/tag/v1.0.0-RC1
  [10]: https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12311242&version=12334661
  [11]: /docs/1.7/administration/installing/custom/advanced/
  [13]: https://issues.apache.org/jira/browse/MESOS-2408
