@@ -83,10 +83,7 @@ git push
 Once changes have been previewed and accepted on <https://dev.dcos.io/>, the maintainers will rebase `develop` to `master`:
 
 ```
-git fetch origin
-git checkout master
-git pull --rebase origin develop
-git push
+ci/promote.sh
 ```
 
 ## Setting dcos.io Redirects
