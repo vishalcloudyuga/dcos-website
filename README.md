@@ -102,3 +102,11 @@ git push
 Add to `redirects` with the following format:
 
 /from/ /to/
+
+# License and Authors
+
+Copyright:: 2016 Mesosphere, Inc.
+
+The contents of this repository are solely licensed under the terms described in the [LICENSE file](./LICENSE) included in this repository.
+
+Authors are listed in [AUTHORS.md file](./AUTHORS.md).
