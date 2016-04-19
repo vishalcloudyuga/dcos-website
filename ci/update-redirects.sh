@@ -17,5 +17,5 @@ while read line; do
   from="${arr[0]}"
   to="${arr[1]}"
   echo "Redirect: ${from} -> ${to}"
-  s3cmd put --quiet --mime-type=text/plain --add-header="x-amz-website-redirect-location: ${to}" "${tmpfile}" "${current_bucket}${from}"
+  aws s3 cp --website-redirect="${to}" "${tmpfile}" "${current_bucket}${from}"
 done < "${REPO_ROOT}/redirects"
