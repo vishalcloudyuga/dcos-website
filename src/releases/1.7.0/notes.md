@@ -12,8 +12,8 @@ You can monitor the health of your cluster components from the DC/OS web interfa
 
 ### <a name="dcos"></a>Improved DC/OS installation
 
-*   Faster automated CLI mode by use of concurrent SSH sessions and fully asynchronous execution. - Improved validation of configuration parameters. <!-- Enterprise -->
-
+*   Faster automated CLI mode by use of concurrent SSH sessions and fully asynchronous execution.
+*   Improved validation of configuration parameters. <!-- Enterprise -->
 *   Simplified process for ZooKeeper Exhibitor orchestration.
 
 ### DC/OS Networking
