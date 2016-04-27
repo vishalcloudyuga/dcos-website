@@ -13,8 +13,10 @@
 }
 
 .docs-search__input {
-  width: 100%;
-  padding: 0.5rem 0;
+  width: calc(100% - 30px);;
+  padding-left: 30px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   border: 1px solid $light-gray;
   border-radius: 4px;
   background-image: url('/assets/images/icons/search.svg');
@@ -442,6 +444,7 @@ img.docs-content__footer__share-icon {
 
   .docs-layout__docs-nav {
     display: flex;
+    padding-right: 30px;
     width: 30%;
     height: 100%;
     border-right: 1px solid $smoke;
