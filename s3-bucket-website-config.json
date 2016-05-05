@@ -11,8 +11,12 @@
             "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/1.7/" }
         },
         {
-            "Condition": { "KeyPrefixEquals": "documentation" },
+            "Condition": { "KeyPrefixEquals": "documentation/" },
             "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "support/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "community/" }
         },
         {
             "Condition": { "KeyPrefixEquals": "docs/overview/" },
