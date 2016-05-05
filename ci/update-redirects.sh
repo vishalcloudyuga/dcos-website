@@ -19,5 +19,5 @@ while read line; do
   from="${arr[0]}"
   to="${arr[1]}"
   echo "Redirect: ${from} -> ${to}"
-  aws s3 cp --website-redirect="${to}" "${tmpfile}" "${current_bucket}${from}"
+  aws s3 cp --website-redirect="${to}" "${tmpfile}" "s3://${current_bucket}${from}"
 done < "${REPO_ROOT}/redirects"

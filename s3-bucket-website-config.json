@@ -1,0 +1,38 @@
+{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    }, 
+    "ErrorDocument": {
+        "Key": "404/index.html"
+    },
+    "RoutingRules": [
+        {
+            "Condition": { "KeyPrefixEquals": "docs/latest/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/1.7/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "documentation" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "docs/overview/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/overview/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "docs/administration/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/administration/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "docs/usage/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/usage/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "docs/development/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/development/" }
+        },
+        {
+            "Condition": { "KeyPrefixEquals": "docs/support/" },
+            "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": "docs/latest/support/" }
+        }
+    ]
+}

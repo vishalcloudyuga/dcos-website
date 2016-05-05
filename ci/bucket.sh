@@ -7,8 +7,8 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)"
 cd "${REPO_ROOT}"
 
 declare -A branch_buckets
-branch_buckets[master]=s3://dcos.io
-branch_buckets[develop]=s3://dev.dcos.io
+branch_buckets[master]=dcos.io
+branch_buckets[develop]=dev.dcos.io
 
 current_branch="${GIT_BRANCH#*/}"
 if [[ -z "${current_branch}" ]]; then
