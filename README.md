@@ -89,16 +89,20 @@ Once changes have been previewed and accepted on <https://dev.dcos.io/>, the mai
 ci/promote.sh
 ```
 
-## Setting dcos.io Redirects
+Continuous integration will handle deploying updates (`ci/deploy.sh`), updating redirects (`ci/update-redirects.sh`), and updating the S3 website config (`ci/update-website-conifg.sh`).
 
-- `aws configure --profile dcos`
-- `scripts/setup-redirects.sh`
+## Adding New Redirects
 
-## Adding New dcos.io Redirects
+- Page Redirects
 
-Add to `redirects` with the following format:
+    Add to `redirects` with the following format:
 
-/from/ /to/
+    /from/ /to/
+- Prefix Redirects
+
+    Add a `RoutingRules` entry to `s3-bucket-website-config.json`.
+
+    Make sure `"HostName": "dcos.io"`. Continuous integration (`ci/update-website-conifg.sh`) will handle replacing with `dev.dcos.io` when run from the `develop` branch.
 
 ## Technology
 

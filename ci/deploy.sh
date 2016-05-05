@@ -10,4 +10,4 @@ export AWS_DEFAULT_REGION="us-west-2"
 
 current_bucket="$(ci/bucket.sh)"
 echo "Pushing to bucket: ${current_bucket}"
-aws s3 sync build/ "${current_bucket}" --delete --acl=public-read
+aws s3 sync build/ "s3://${current_bucket}" --delete --acl=public-read
