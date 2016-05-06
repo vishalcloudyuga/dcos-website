@@ -234,6 +234,16 @@
   }
 }
 
+@media (max-width: 930px) {
+  .menu-item__github img {
+    display: none;
+  }
+}
+
+.menu-item__github-button {
+  margin-top: 13px;
+}
+
 .container--dark-background {
   .navigation a {
     color: white;
