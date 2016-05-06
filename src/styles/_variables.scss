@@ -25,6 +25,7 @@ $heliotrope20: 	rgba(147, 81, 229, 0.2);
 // Web fonts
 $clio-light: 'ClioLight-Light';
 $clio-medium: 'ClioRegular';
+$font-family-base: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
 // Breakpoints
 $mobile-large-portrait: 414px; // iPhone 6 Plus portrait
@@ -33,7 +34,7 @@ $mobile-large-landscape: 736px; // iPhone 6 Plus landscape
 $tablet-portrait: 768px; // iPad portrait
 $tablet-landscape: 890px; // iPad landscape
 $desktop-small: 1025px; // Larger than iPad landscape
-$desktop-large: 1430px; 
+$desktop-large: 1430px;
 
 // Sizes
 $max-width: 1024px; // Maximum width for content

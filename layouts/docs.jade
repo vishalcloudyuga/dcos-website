@@ -75,6 +75,7 @@ mixin renderMenu(tree)
 
 html
   head
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css')
     link(rel='stylesheet', type='text/css', href='/styles/index.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(charset="UTF-8")
@@ -83,7 +84,6 @@ html
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/yaml.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/powershell.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/dockerfile.min.js')
-    link(rel='stylesheet', href='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css')
     script(src='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js')
     link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon/favicon.ico")
     link(rel="apple-touch-icon" href="/assets/images/icons/favicon/favicon-apple-57x57.png")
@@ -132,6 +132,8 @@ html
 
 
           .docs-layout__docs-content.docs-layout__docs-article#docs-article
+            .docs-search.docs-search--mobile
+              input(type='search').docs-search__input
             h1.docs-heading!= locals.post_title
             article!= contents
 
@@ -154,7 +156,21 @@ html
     docsearch({
       apiKey: '83f08047a3b6749bf0256c1f16d7a562',
       indexName: 'dcos',
-      inputSelector: '.docs-search__input'
+      inputSelector: '.docs-search__input',
+      autocompleteOptions: {
+        openOnFocus: true,
+        debug: true,
+      }
+    });
+
+    docsearch({
+      apiKey: '83f08047a3b6749bf0256c1f16d7a562',
+      indexName: 'dcos',
+      inputSelector: '.docs-search--mobile .docs-search__input',
+      autocompleteOptions: {
+        openOnFocus: true,
+        debug: true,
+      }
     });
 
   script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570558ee2719a9f0')
