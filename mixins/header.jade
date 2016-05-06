@@ -68,6 +68,10 @@ mixin header(lightHeader)
           span GitHub
 
       li.menu-item
+        .menu-item__github-button
+          a.github-button(href='https://github.com/dcos/dcos', data-count-href='/dcos/dcos/stargazers', data-count-api='/repos/dcos/dcos#stargazers_count', data-count-aria-label='# stargazers on GitHub', aria-label='Star dcos/dcos on GitHub') Star
+
+      li.menu-item
         if(locals.filename === 'get-started.html')
           a(href='/get-started/').cta.cta--button.button--secondary.active Get&nbsp;Started
         else
