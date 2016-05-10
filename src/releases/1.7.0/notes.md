@@ -70,6 +70,7 @@ For the full set of changes, please refer to the [Marathon Release Notes][9].
 *   Occasionally the system health backend might panic and exit because of [this bug](https://github.com/godbus/dbus/issues/45) in godbus library.
 *   You can sort system health by systemd unit. However, this search can bring up misleading information as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy". Some people find this behavior confusing.
 *   The system health API relies on Mesos DNS to know about all the cluster hosts. It finds these hosts by combining a query from `mesos.master` A records as well as `leader.mesos:5050/slaves` to get the complete list of hosts in the cluster. This system has a known bug where an agent will not show up in the list returned from `leader.mesos:5050/slaves` if the Mesos slave service is not healthy. This means the system health API will not show this host. If you experience this behavior it's most likely because your Mesos slave service on the missing host is unhealthy.
+*   Beginning with the next release of DC/OS the `slave_public` role for public agents is changing to `agent_public`.
 
 
 **DC/OS Marathon**
