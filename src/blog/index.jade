@@ -1,0 +1,69 @@
+extends ../../layouts/docs.jade
+
+block head
+  title The Definitive Platform for Modern Apps | DC/OS
+  meta(property='og:locale', content='en_US')
+  meta(property='og:type', content='article')
+  meta(property='og:title', content='The Definitive Platform for Modern Apps | DC/OS')
+  meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(property='og:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
+  meta(property='og:url', content='https://dcos.io/')
+  meta(property='og:site_name', content='DC/OS')
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@dcos')
+  meta(name='twitter:title', content='The Definitive Platform for Modern Apps | DC/OS')
+  meta(name='twitter:card', content='summary_large_image')
+  meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
+
+block content
+  .container
+    +header
+
+  .container
+    .container__content
+      .search
+        input(type="search")
+      
+      .categories
+        select(name="Categories")
+          option(value="All")
+          option(value="News")
+          option(value="Update")
+      
+      .latest-post
+        .latest-post__category Services
+        .latest-post__divider
+        .latest-post__title Title
+        .latest-post__content Blalala
+        .latest-post__readmore.cta.cta--text Read more &rarr;
+      
+      .posts
+        .post
+          .post__category News
+          .post__date June 5
+          .post__title Title
+          .post__readmore.cta.cta--text Read more &rarr;
+          
+        .post
+          .post__category News
+          .post__date June 5
+          .post__title Title
+          .post__readmore.cta.cta--text Read more &rarr;
+          
+        .post
+          .post__category News
+          .post__date June 5
+          .post__title Title
+          .post__readmore.cta.cta--text Read more &rarr;
+          
+        .post
+          .post__category News
+          .post__date June 5
+          .post__title Title
+          .post__readmore.cta.cta--text Read more &rarr;
+          
+      .load-more.cta.cta--button.button--secondary Load More
+    
+  .container
+    +footer
