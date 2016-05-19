@@ -21,46 +21,42 @@ block content
     +header
 
   .container
-    .container__content
-      .search
-        input(type="search")
+    .container__content.blog
+      .blog-ui
+        input(type="search").search
       
-      .categories
-        select(name="Categories")
-          option(value="All")
-          option(value="News")
-          option(value="Update")
+        select(name="Categories").categories Categories
+          option(value="All") All
+          option(value="News") News
+          option(value="Update") Update
       
       .latest-post
         .latest-post__category Services
         .latest-post__divider
-        .latest-post__title Title
-        .latest-post__content Blalala
-        .latest-post__readmore.cta.cta--text Read more &rarr;
-      
+        h2.latest-post__title Introducing open source DC/OS: The best way to run containers (and everything else)
+        p.latest-post__content Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet nisl nec lorem rhoncus, et porttitor massa tincidunt. Curabitur ut lectus venenatis, viverra dui non, congue erat. 
+        a.latest-post__readmore.cta.cta--text Continue reading &rarr;
+
       .posts
         .post
-          .post__category News
-          .post__date June 5
-          .post__title Title
+          .post__meta
+            .post__category News
+            .post__date June 5
+          h2.post__title Title
           .post__readmore.cta.cta--text Read more &rarr;
           
         .post
-          .post__category News
-          .post__date June 5
-          .post__title Title
+          .post__meta
+            .post__category News
+            .post__date June 5
+          h2.post__title Title
           .post__readmore.cta.cta--text Read more &rarr;
           
         .post
-          .post__category News
-          .post__date June 5
-          .post__title Title
-          .post__readmore.cta.cta--text Read more &rarr;
-          
-        .post
-          .post__category News
-          .post__date June 5
-          .post__title Title
+          .post__meta
+            .post__category News
+            .post__date June 5
+          h2.post__title Title
           .post__readmore.cta.cta--text Read more &rarr;
           
       .load-more.cta.cta--button.button--secondary Load More

@@ -565,10 +565,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield; /* 1 */
-  @if support-for(safari, 5) or support-for(chrome, 9) {
-    -webkit-box-sizing: content-box;
-  }
-  box-sizing: content-box; /* 2 */
+  // @if support-for(safari, 5) or support-for(chrome, 9) {
+  //   -webkit-box-sizing: content-box;
+  // }
+  // box-sizing: content-box; /* 2 */
 
   /**
    * Remove inner padding and search cancel button in Safari and Chrome on OS X.
