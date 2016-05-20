@@ -495,7 +495,15 @@ img.docs-content__footer__share-icon {
   }
 }
 
-.algolia-docsearch-footer, .algolia-docsearch-suggestion--category-header {
+.algolia-docsearch-footer {
+  border-top: 1px solid $light-gray;
+}
+
+.algolia-docsearch-footer--logo {
+  margin: 0.5rem 0;
+}
+
+.algolia-docsearch-suggestion--category-header {
   display: none !important;
 }
 
