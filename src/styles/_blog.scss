@@ -1,5 +1,19 @@
 // DCOS Blog
 
+.blog__divider {
+  margin: 0.75rem 0;
+  width: 5%;
+  height: 1px;
+  background-color: white;
+}
+
+.blog__category {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 .blog {
   width: 100%;
 
@@ -14,7 +28,6 @@
       margin-bottom: 1rem;
       padding: 0.5rem 0 0.5rem 30px;
       border-radius: 4px;
-      background-position: 0.5rem center;
       background-repeat: no-repeat;
       transition: 0.1s;
       -webkit-appearance: none;
@@ -27,6 +40,7 @@
   .search {
     border: 1px solid $light-gray;
     background-image: url('/assets/images/icons/search.svg');
+    background-position: 0.5rem center;
 
     &:focus {
       background-color: $snow;
@@ -37,12 +51,15 @@
     border: none;
     background-color: $smoke;
     background-image: url('/assets/images/icons/arrow-down-docs-unselected.svg');
+    background-position: 0.6rem center;
     color: $dark-gray;
   }
 
   .posts {
     width: 100%;
     display: flex;
+    flex-flow: column;
+    margin-bottom: 1rem;
   }
 
   .latest-post, .post {
@@ -52,6 +69,7 @@
     width: 100%;
     padding: 1.5rem;
     margin-bottom: 1rem;
+    border-radius: 4px;
     background-color: $purple;
     background-image: linear-gradient(to top right, $dark-purple80, $persian-indigo80), url('http://www.iglou.com/wp-content/uploads/2012/10/photodune-2392898-server-m.jpg');
     background-position: center;
@@ -62,6 +80,10 @@
 
     .cta--text {
       color: white;
+    }
+
+    &:hover {
+      @include box-shadow(0px 0px 0px 1px rgba($black, 0.15), 0px 4px 6px 0px rgba($black, 0.10));
     }
   }
 
@@ -74,7 +96,7 @@
 
   .latest-post__divider {
     margin: 0.75rem 0;
-    width: 10%;
+    width: 5%;
     height: 1px;
     background-color: white;
   }
@@ -89,7 +111,11 @@
   }
 
   .latest-post__readmore.cta.cta--text {
-    margin: 0.75rem 0;
+    margin: 2rem 0 0 0;
+  }
+
+  .post__title {
+    font-size: 1.25rem;
   }
 
   .post__meta {
@@ -99,19 +125,66 @@
     width: 100%;
   }
 
+  .post__readmore {
+    margin: 1rem 0 0 0;
+    font-size: 0.9rem;
+  }
+
   @include break($mobile-large-landscape) {
     .blog-ui {
       flex-flow: row;
       justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .search, .categories {
+      width: 30%;
     }
 
     .posts {
-      flex-flow: row;
+      flex-flow: row wrap;
       justify-content: space-between;
+    }
+
+    .latest-post {
+      padding: 3rem;
+      margin-bottom: 2rem;
     }
 
     .post {
       width: 30%;
+      flex-grow: 1;
+      margin: 0 2rem 2rem 0;
+
+      &:nth-child(3n), &:last-child {
+        margin-right: 0;
+      }
     }
   }
+}
+
+// Blog post
+
+.container--blog-header {
+  color: white;
+  background-color: $purple;
+  background-image: linear-gradient(to top right, rgba(12,6,24, 0.6), rgba(42,20,87, 0.6)), url('http://www.iglou.com/wp-content/uploads/2012/10/photodune-2392898-server-m.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.post-meta {
+  padding: 0 0 2rem 0;
+  margin: 0 0 2rem 0;
+  border-bottom: 1px solid $light-gray;
+}
+
+.post-meta__author {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.post-divider {
+
 }
