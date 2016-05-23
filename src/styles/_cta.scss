@@ -15,7 +15,7 @@
   }
 }
 
-.container--dark-background .cta--text {
+.container--dark-background .cta--text, .container--blog-header .cta--text {
   color: white;
 }
 
@@ -54,7 +54,7 @@
   cursor: default;
 }
 
-.container--dark-background {
+.container--dark-background, .container--blog-header {
   .button--secondary {
      border: 1px solid $white60;
      color: $white60;

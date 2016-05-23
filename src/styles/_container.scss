@@ -19,7 +19,7 @@
   max-width: $max-width;
 }
 
-.container--dark-background {
+.container--dark-background, .container--blog-header {
   text-align: center;
   background-color: $black;
   background-image: linear-gradient(to top right, $dark-purple, $persian-indigo);
