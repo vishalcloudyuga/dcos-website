@@ -1,0 +1,57 @@
+extends docs.jade
+
+block head
+  title Blog | The Definitive Platform for Modern Apps | DC/OS
+  meta(property='og:locale', content='en_US')
+  meta(property='og:type', content='article')
+  meta(property='og:title', content='The Definitive Platform for Modern Apps | DC/OS')
+  meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(property='og:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
+  meta(property='og:url', content='https://dcos.io/')
+  meta(property='og:site_name', content='DC/OS')
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@dcos')
+  meta(name='twitter:title', content='The Definitive Platform for Modern Apps | DC/OS')
+  meta(name='twitter:card', content='summary_large_image')
+  meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
+
+block content
+  - var latestPost = articles[0]
+  - var otherPosts = articles.slice(1)
+
+  .container
+    +header
+
+  .container
+    .container__content.blog
+
+      .blog-ui
+        input(type="search").search
+
+        select(name="Categories").categories Categories
+          option(value="All") All
+          option(value="News") News
+          option(value="Update") Update
+
+      if latestPost
+        a(href="/#{latestPost.path}").latest-post
+          .latest-post__category!= latestPost.category
+          .latest-post__divider
+          h2.latest-post__title!= latestPost.title.length > 52 ? latestPost.title.slice(0, 52).trim() + '...' : latestPost.title
+          p.latest-post__content!= latestPost.description
+          .latest-post__readmore.cta.cta--text Continue reading &rarr;
+
+      .posts
+        each post in otherPosts
+          a.post
+            .post__meta
+              .post__category!= post.category
+              .post__date= moment(date).format("MMMM DD")
+            h2.post__title!= post.title
+            .post__readmore.cta.cta--text Read more &rarr;
+
+      .load-more.cta.cta--button.button--secondary Load More
+
+  .container
+    +footer
