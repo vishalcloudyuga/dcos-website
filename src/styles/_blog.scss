@@ -1,19 +1,6 @@
 // DCOS Blog
 
-.blog__divider {
-  margin: 0.75rem 0;
-  width: 5%;
-  height: 1px;
-  background-color: white;
-}
 
-.blog__category {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
 
 .blog {
   width: 100%;
@@ -28,39 +15,39 @@
       width: 100%;
       margin-bottom: 1rem;
       padding: 0.5rem 0 0.5rem 30px;
-      border-radius: 4px;
+      border-radius: 3px;
       background-repeat: no-repeat;
       transition: 0.1s;
       -webkit-appearance: none;
+      color: $dark-gray;
+      border: 1px solid $light-gray;
+      background-color: white;
 
       &:focus {
         outline: none;
+        border: 1px solid white;
+        background-color: $snow;
       }
   }
 
   .search {
-    border: 1px solid $light-gray;
     background-image: url('/assets/images/icons/search.svg');
     background-position: 0.5rem center;
-
-    &:focus {
-      background-color: $snow;
-    }
   }
 
   .categories{
-    border: none;
-    background-color: $smoke;
+    padding-left: 0.75rem;
+    // border: none;
     background-image: url('/assets/images/icons/arrow-down-docs-unselected.svg');
-    background-position: 0.6rem center;
-    color: $dark-gray;
+    background-position: right 0.6rem center;
+
   }
 
   .posts {
     width: 100%;
     display: flex;
     flex-flow: column;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0;
   }
 
   .latest-post, .post {
@@ -69,8 +56,8 @@
     align-items: flex-start;
     width: 100%;
     padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 4px;
+    margin: 0 0 1rem 0;
+    border-radius: 3px;
     background-color: $purple;
     background-image: linear-gradient(to top right, $dark-purple80, $persian-indigo80), url('http://www.iglou.com/wp-content/uploads/2012/10/photodune-2392898-server-m.jpg');
     background-position: center;
@@ -78,15 +65,18 @@
     background-repeat: no-repeat;
     color: white;
     text-align: left;
+    transition: 0.1s ease-in-out;
 
     .cta--text {
       color: white;
     }
 
     &:hover {
-      @include box-shadow(0px 0px 0px 1px rgba($black, 0.15), 0px 4px 6px 0px rgba($black, 0.10));
+        @include box-shadow(0px 0px 0px 1px rgba($black, 0.15), 0px 4px 16px 0px rgba($black, 0.4));
     }
   }
+
+
 
   .latest-post__category, .post__category, .post__date {
     margin-bottom: 0.75rem;
@@ -101,6 +91,7 @@
     width: 5%;
     height: 1px;
     background-color: white;
+    opacity: 0.8;
   }
 
   .latest-post__title, .post__title {
@@ -114,9 +105,11 @@
 
   .latest-post__readmore.cta.cta--text {
     margin: 2rem 0 0 0;
+    transition: 0.1s ease-in-out;
   }
 
   .post__title {
+    margin-bottom: 2rem;
     font-size: 1.25rem;
   }
 
@@ -127,20 +120,25 @@
     width: 100%;
   }
 
+  .post__date {
+    opacity: 0.8;
+  }
+
   .post__readmore {
     margin: 1rem 0 0 0;
     font-size: 0.9rem;
+    transition: 0.1s ease-in-out;
   }
 
   @include break($mobile-large-landscape) {
     .blog-ui {
       flex-flow: row;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .search, .categories {
-      width: 30%;
+      width: 40%;
     }
 
     .posts {
@@ -154,9 +152,27 @@
     }
 
     .post {
-      width: 30%;
+      width: 40%;
       flex-grow: 1;
       margin: 0 2rem 2rem 0;
+
+      &:nth-child(2n), &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include break($tablet-landscape) {
+    .search, .categories {
+      width: 30%;
+    }
+
+    .post {
+      width: 30%;
+
+      &:nth-child(2n) {
+        margin-right: 2rem;
+      }
 
       &:nth-child(3n), &:last-child {
         margin-right: 0;
@@ -180,6 +196,23 @@
   }
 }
 
+.blog__divider {
+  margin: 0.75rem 0;
+  width: 5%;
+  height: 1px;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.blog__category {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
 .post-meta {
   display: flex;
   flex-flow: column;
@@ -191,6 +224,10 @@
 .post-meta__author {
   margin-bottom: 0.5rem;
   font-weight: 500;
+}
+
+.post-meta__date {
+  opacity: 0.8;
 }
 
 .post-divider {
