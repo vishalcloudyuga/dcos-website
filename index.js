@@ -17,7 +17,9 @@ const each         = require('metalsmith-each')
 const navigation   = require('metalsmith-navigation')
 const modRewrite   = require('connect-modrewrite')
 const uglify       = require('metalsmith-uglify')
-
+const define       = require('metalsmith-define')
+const collections  = require('metalsmith-collections')
+const logger       = require('metalsmith-logger')
 
 
 // --- general build settings --- //
@@ -127,6 +129,13 @@ Metalsmith(__dirname)
   .use(jade({
     pretty: true
   }))
+  .use(collections({
+    articles: {
+      pattern: '*.md',
+      sortBy: 'date'
+    }
+  }))
+  .use(permalinks())
   .use(sass({
     outputStyle: 'expanded',
     includePaths: [
@@ -147,6 +156,9 @@ Metalsmith(__dirname)
   }))
   .use(each(updatePaths))
   .clean(false)
+  .use(define({
+    moment: require("moment")
+  }))
   .use(uglify({
     filter: 'scripts/**/*.js',
     concat: 'scripts/main.min.js',
@@ -155,9 +167,15 @@ Metalsmith(__dirname)
     // removeOriginal: process.env.CI,
     // compress: process.env.CI
   }))
+  .use(layouts({
+    pattern: '**/*.html',
+    engine: 'jade',
+    directory: path.join('layouts')
+  }))
   .use((() => {
     if(!process.env.CI) {
       return browserSync({
+        open: false,
         server: {
           baseDir: './build',
           middleware: [
