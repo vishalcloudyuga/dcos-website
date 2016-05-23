@@ -1,0 +1,168 @@
+include ../mixins/header.jade
+include ../mixins/footer-docs.jade
+
+-
+  var findPath = function(childPath) { return locals.nav_path.split('/').find(function(item) { return item === childPath}) };
+
+  var routeForIndexPath = function (child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
+
+  var nameForIndexPath = function (child) {
+    var result = child.children.find(function(n) { return n.name === 'index.html'});
+      if(result) return result.file.nav_title || result.file.post_title;
+      return child.name;
+    }
+
+  var shouldFolderBeDoc = function (child) {
+    return (child.children.length === 1 && child.children.find(n => n.name === 'index.html')) || (child.children.length === 2 && child.children.find(n => n.name === 'index.html') && child.children.find(n => n.name === 'img'))
+  }
+
+  var isValidChild = function  (child) {
+    return (((child.type === 'file' && (child.file.nav_tile !== undefined || child.file.post_title !== undefined)) || (child.type === 'dir' && child.name !== 'img')) && child.name !== 'index.html')
+  }
+
+  var stripExtname = function (file) {
+    if(file.substr(file.length-10, file.length) === 'index.html') return file.substr(0, file.length-10);
+    return file.substr(file.length-5, file.length) === '.html' ? file.substr(0, file.length-5) + "/" : file;
+  }
+
+  var getDoc = function (child) {
+    if(shouldFolderBeDoc(child)) {
+      return child.children.find(n => n.name === 'index.html');
+    } else {
+      return child;
+    }
+  }
+
+mixin icon(child)
+  if(child.type === 'dir')
+    if(findPath(child.name))
+      a.docs-nav__item__arrow(href='#')
+        img(src='/assets/images/icons/arrow-down-docs.svg')
+    else
+      a.docs-nav__item__arrow(href='#')
+        img(src='/assets/images/icons/arrow-right-docs.svg')
+
+
+mixin navItem(child)
+  if(child.type === 'file')
+    span #{child.file.nav_title || child.file.post_title}
+  else
+    - var isActive = findPath(child.name) ? 'active' : '';
+    a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}' class=isActive) #{nameForIndexPath(child)}
+
+
+mixin renderMenu(tree)
+  ul(class!=attributes.class)
+    each child in tree
+      if(isValidChild(child))
+
+        // initials
+        - var doc = getDoc(child)
+        - var liType = doc.file ? 'docs-nav__item_file' : 'docs-nav__item_folder';
+        - var isActive = (locals.nav_path === doc.path) ? 'active' : '';
+        - var isClosed = (locals.nav_path !== doc.path && doc.type === 'dir' && !findPath(doc.name)) ? 'docs-nav__item--closed' : '';
+        li.docs-nav__item(class=liType class=isClosed)
+          if(doc.type === 'file')
+            a.docs-nav__item__title(href='/docs/latest/#{stripExtname(doc.path)}' class=isActive)
+              +icon(doc)
+              +navItem(doc)
+          else
+            +icon(doc)
+            +navItem(doc)
+
+          if(child.children)
+            +renderMenu(child.children)
+
+html
+  head
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css')
+    link(rel='stylesheet', type='text/css', href='/styles/index.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset="UTF-8")
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/railscasts.min.css')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/yaml.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/powershell.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/dockerfile.min.js')
+    script(src='//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js')
+    link(rel="shortcut icon" type="image/x-icon" href="/assets/images/icons/favicon/favicon.ico")
+    link(rel="apple-touch-icon" href="/assets/images/icons/favicon/favicon-apple-57x57.png")
+    link(rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/favicon/favicon-apple-72x72.png")
+    link(rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/favicon/favicon-apple-114x114.png")
+    link(rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/favicon/favicon-apple-144x144.png")
+    link(rel="apple-touch-icon-precomposed" href="/assets/images/icons/favicon/favicon-apple-57x57.png")
+    link(rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/icons/favicon/favicon-apple-72x72.png")
+    link(rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/icons/favicon/favicon-apple-114x114.png")
+    link(rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/icons/favicon/favicon-apple-144x144.png")
+    link(rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/favicon/favicon-apple-60x60.png")
+    link(rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/favicon/favicon-apple-76x76.png")
+    link(rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/favicon/favicon-apple-120x120.png")
+    link(rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/favicon/favicon-apple-152x152.png")
+    link(rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/images/icons/favicon/favicon-apple-60x60.png")
+    link(rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/images/icons/favicon/favicon-apple-76x76.png")
+    link(rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/icons/favicon/favicon-apple-120x120.png")
+    link(rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/icons/favicon/favicon-apple-152x152.png")
+
+    block head
+      title!= locals.post_title
+
+  body
+    block content
+      .container.container--docs-header
+        +header
+
+      .container.container--mobile-menu
+        .docs-menu-mobile
+          .open-docs-menu.container__content
+            span!= locals.post_title
+            div.docs-menu-arrow
+          .docs-menu-mobile-container.container__content
+            .docs-layout__docs-nav
+              +renderMenu(locals.navs.header)
+
+      .container.container--docs-content
+        .container__content.docs-layout
+          .docs-layout__docs-nav#docs-nav
+            .docs-search
+              input(type='search').docs-search__input
+            +renderMenu(locals.navs.header)
+
+          // Search results
+          .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
+
+
+          .docs-layout__docs-content.docs-layout__docs-article#docs-article
+            .docs-search.docs-search--mobile
+              input(type='search').docs-search__input
+            h1.docs-heading!= locals.post_title
+            article!= contents
+
+            .docs-content__footer
+              ul.docs-content__footer__actions
+                li.docs-content__footer__action
+                  a(href='#').addthis_button_expanded
+                    img.docs-content__footer__share-icon(src='/assets/images/icons/share.svg')
+                    span Share
+
+              ul.docs-content__footer__actions
+                li.docs-content__footer__action
+                  img.docs-content__footer__feedback-icon(src='/assets/images/icons/feedback.svg')
+                  a(href='https://github.com/dcos/dcos-docs/issues/new' id='submit-feedback' target='blank') Submit feedback
+
+      .container
+        +footer
+
+  script.
+    docsearch({
+      apiKey: '83f08047a3b6749bf0256c1f16d7a562',
+      indexName: 'dcos',
+      inputSelector: '.docs-search__input'
+    });
+
+    docsearch({
+      apiKey: '83f08047a3b6749bf0256c1f16d7a562',
+      indexName: 'dcos',
+      inputSelector: '.docs-search--mobile .docs-search__input'
+    });
+
+  script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-570558ee2719a9f0')
