@@ -1,25 +1,27 @@
 'use strict';
 
-const Metalsmith   = require('metalsmith')
-const jade         = require('metalsmith-jade')
-const sass         = require('metalsmith-sass')
-const browserSync  = require('metalsmith-browser-sync')
-const markdown     = require('metalsmith-markdown')
-const layouts      = require('metalsmith-layouts')
-const permalinks   = require('metalsmith-permalinks')
-const babel        = require('metalsmith-babel')
-const bourbon      = require('node-bourbon')
-const path         = require('path')
-const postcss      = require('metalsmith-postcss')
-const autoprefixer = require('autoprefixer')
-const copy         = require('metalsmith-copy')
-const each         = require('metalsmith-each')
-const navigation   = require('metalsmith-navigation')
-const modRewrite   = require('connect-modrewrite')
-const uglify       = require('metalsmith-uglify')
-const define       = require('metalsmith-define')
-const collections  = require('metalsmith-collections')
-const logger       = require('metalsmith-logger')
+const Metalsmith    = require('metalsmith')
+const jade          = require('metalsmith-jade')
+const sass          = require('metalsmith-sass')
+const browserSync   = require('metalsmith-browser-sync')
+const markdown      = require('metalsmith-markdown')
+const layouts       = require('metalsmith-layouts')
+const permalinks    = require('metalsmith-permalinks')
+const babel         = require('metalsmith-babel')
+const bourbon       = require('node-bourbon')
+const path          = require('path')
+const postcss       = require('metalsmith-postcss')
+const autoprefixer  = require('autoprefixer')
+const copy          = require('metalsmith-copy')
+const each          = require('metalsmith-each')
+const navigation    = require('metalsmith-navigation')
+const modRewrite    = require('connect-modrewrite')
+const uglify        = require('metalsmith-uglify')
+const define        = require('metalsmith-define')
+const collections   = require('metalsmith-collections')
+const logger        = require('metalsmith-logger')
+const writemetadata = require('metalsmith-writemetadata')
+const moment        = require('moment')
 
 
 // --- general build settings --- //
@@ -120,6 +122,21 @@ let allDocs = function() {
   }
 }
 
+function addFormattedDateToCollection (collectionName) {
+  return function (files, metalsmith, done) {
+    let metadata = metalsmith.metadata()
+    let collection = metadata[collectionName] || []
+
+    metadata[collectionName] = collection.map(post => {
+      return Object.assign(post, {
+        formattedDate: moment(post.date).format('MMMM DD')
+      })
+    })
+
+    return done()
+  }
+}
+
 Metalsmith(__dirname)
   .use(markdown({
     smartypants: true,
@@ -130,10 +147,26 @@ Metalsmith(__dirname)
     pretty: true
   }))
   .use(collections({
-    articles: {
+    posts: {
       pattern: '*.md',
-      sortBy: 'date'
+      sortBy: 'date',
+      reverse: true
     }
+  }))
+  .use(addFormattedDateToCollection('posts'))
+  .use(writemetadata({
+    collections: {
+      posts: {
+        output: {
+          path: 'posts/posts.json',
+          asObject: true
+        },
+        ignorekeys: ['contents', 'next', 'previous']
+      }
+    }
+  }))
+  .use(define({
+    moment
   }))
   .use(permalinks())
   .use(sass({
@@ -156,9 +189,6 @@ Metalsmith(__dirname)
   }))
   .use(each(updatePaths))
   .clean(false)
-  .use(define({
-    moment: require("moment")
-  }))
   .use(uglify({
     filter: 'scripts/**/*.js',
     concat: 'scripts/main.min.js',

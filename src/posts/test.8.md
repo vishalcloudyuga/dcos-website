@@ -1,6 +1,6 @@
 ---
-title: Test post lorem ipsum test test test lorem ipsum test titel
-date: 2016-05-24
+title: Test 8
+date: 2016-05-23
 author: Timon van Spronsen
 category: services
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit metus ut nulla ornare, non mattis neque laoreet. Vestibulum vel pharetra mauris, in bibendum dolor.

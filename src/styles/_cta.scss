@@ -36,6 +36,22 @@
   }
 }
 
+.cta--button .loading-indicator {
+  display: none;
+}
+
+.cta--button.is-loading .content {
+  display: none;
+}
+
+.cta--button.is-loading .loading-indicator {
+  display: inline-block;
+}
+
+.cta--button.is-loading:hover .loading-indicator .sk-three-bounce .sk-child {
+  background-color: #fff;
+}
+
 .button--secondary, a.button--secondary {
   background-color: transparent;
   border: 1px solid $heliotrope;
