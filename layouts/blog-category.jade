@@ -19,8 +19,8 @@ block head
 
 block content
   -
-    var latestPost = posts[0]
-    var otherPosts = posts.slice(1, 7)
+    var latestPost = pagination.files[0]
+    var otherPosts = pagination.files.slice(1)
     var categories = posts.reduce(function (acc, prev) {
       if (acc.indexOf(prev.category[0]) > -1) return acc
       return acc.concat(prev.category)
@@ -42,7 +42,10 @@ block content
         select(name="Categories").categories Categories
           option(value="all") All
           each category in categories
-            option(value="#{category}") #{capitalize(category)}
+            if category === tag
+              option(value="#{category}", selected="selected") #{capitalize(category)}
+            else
+              option(value="#{category}") #{capitalize(category)}
 
       if latestPost
         a(href="/#{latestPost.path}").latest-post

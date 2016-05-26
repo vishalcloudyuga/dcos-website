@@ -22,6 +22,7 @@ const collections   = require('metalsmith-collections')
 const logger        = require('metalsmith-logger')
 const writemetadata = require('metalsmith-writemetadata')
 const moment        = require('moment')
+const tags          = require('metalsmith-tags')
 
 
 // --- general build settings --- //
@@ -143,7 +144,7 @@ Metalsmith(__dirname)
     gfm: true,
     tables: true
   }))
-  .use(jade({
+.use(jade({
     pretty: true
   }))
   .use(collections({
@@ -153,22 +154,36 @@ Metalsmith(__dirname)
       reverse: true
     }
   }))
+  .use(permalinks({
+    pattern: ':title',
+    date: 'YYYY',
+    linksets: [{
+      match: { collection: 'posts' },
+      pattern: 'blog/:date/:title'
+    }]
+  }))
   .use(addFormattedDateToCollection('posts'))
   .use(writemetadata({
     collections: {
       posts: {
         output: {
-          path: 'posts/posts.json',
+          path: 'blog/posts.json',
           asObject: true
         },
-        ignorekeys: ['contents', 'next', 'previous']
+        ignorekeys: ['contents', 'next', 'previous', 'stats', 'mode']
       }
     }
+  }))
+  .use(tags({
+    handle: 'category',
+    path:'blog/category/:tag.html',
+    layout:'../layouts/blog-category.jade',
+    sortBy: 'date',
+    reverse: true
   }))
   .use(define({
     moment
   }))
-  .use(permalinks())
   .use(sass({
     outputStyle: 'expanded',
     includePaths: [

@@ -2,7 +2,7 @@
 title: Consectetur ipsum esse ad dolor cupidatat eiusmod dolore veniam ad ea dolore.
 date: 2016-05-23
 author: Timon van Spronsen
-category: services
+category: tech
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit metus ut nulla ornare, non mattis neque laoreet. Vestibulum vel pharetra mauris, in bibendum dolor.
 layout: article.jade
 collection: posts
