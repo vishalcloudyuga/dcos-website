@@ -7,22 +7,29 @@ const Blog = (function($) {
     let limit = 6
 
     const $container = $(containerEl)
-    const postsContainer = $container.find('.posts')
-    const $loadMoreButton = $('.load-more')
+    const $postsContainer = $($container.find('.posts'))
+    const $loadMoreButton = $($container.find('.load-more'))
+    const $categorySelect = $($container.find('.categories'))
 
-    const loadMoreCallback = () => equalHeight(postsContainer)
+    const loadMoreCallback = () => equalHeight($postsContainer)
     const getPostsFromCache = getPosts()
 
-    equalHeight(postsContainer)
+    equalHeight($postsContainer)
 
     $loadMoreButton.on('click', function () {
-      loadMore.bind(this)(postsContainer, getPostsFromCache(), offset, limit, loadMoreCallback)
+      loadMore.bind(this)($postsContainer, getPostsFromCache(), offset, limit, loadMoreCallback)
         .then(() => offset += limit)
+    })
+
+    $categorySelect.on('change', function () {
+      const category = $(this).val()
+      window.location.href = category === 'all'
+        ? `${window.location.origin}/blog` // 'all' should redirect to blog index
+        : `${window.location.origin}/blog/category/${category}`
     })
   }
 
-  function equalHeight (container) {
-    const $container = $(container)
+  function equalHeight ($container) {
     let maxHeight = 0
 
     $container.children().each(function () {
@@ -36,7 +43,7 @@ const Blog = (function($) {
     })
   }
 
-  function loadMore (container, posts, offset, limit, cb) {
+  function loadMore ($container, posts, offset, limit, cb) {
     const $el = $(this)
     $el.addClass('is-loading')
 
@@ -48,7 +55,7 @@ const Blog = (function($) {
       _posts
         .slice(offset, (offset + limit))
         .map(preparePostElement)
-        .map(addPostToDom(container))
+        .map(addPostToDom($container))
 
       if (typeof cb === 'function') cb(_posts)
     })
@@ -60,7 +67,7 @@ const Blog = (function($) {
     return function () {
       return cache.length > 0
         ? $.when(cache)
-        : $.get('/posts/posts.json').then(data => {
+        : $.get('/blog/posts.json').then(data => {
           cache = data.result
           return $.when(cache)
         })
