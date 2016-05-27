@@ -16,7 +16,6 @@ block head
   meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
   meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
 
-
 block content
   -
     var latestPost = posts[0]
@@ -44,24 +43,39 @@ block content
           option(value="all") All
           each category in categories
             option(value="#{category}") #{capitalize(category)}
+            
+      .search-results
+        p 19 results for "search term"
+        a.cta View all posts
+        
+      .category-results
+        p 19 posts in News
+        a.cta View all posts
+        
+      .not-found
+        h2 Sorry
+        p No results were found for your search: <strong>sdasdasds</strong>
+        
+        a.cta.cta--button.button--secondary View All Posts
 
       if latestPost
-        a(href="/#{latestPost.path}").latest-post
+        .latest-post
           .latest-post__category!= latestPost.category
-          .latest-post__divider
-          h2.latest-post__title!= latestPost.title
-          p.latest-post__content!= latestPost.description
-          .latest-post__readmore.cta.cta--text Continue reading &rarr;
-
+          a(href="/#{latestPost.path}")
+            h2.latest-post__title!= latestPost.title
+            p.latest-post__content!= latestPost.description
+            .latest-post__readmore.cta.cta--text Continue reading &rarr;
+      
       .posts
         each post in otherPosts
-          a(href="/#{post.path}").post
+          .post
             .post__meta
               .post__category!= post.category
               .post__date!= post.formattedDate
-            h2.post__title!= post.title.length > 52 ? post.title.slice(0, 52).trim() + '...' : post.title
-            .post__readmore.cta.cta--text Read more &rarr;
-
+            a(href="/#{post.path}")
+              h2.post__title!= post.title.length > 52 ? post.title.slice(0, 52).trim() + '...' : post.title
+              .post__readmore.cta.cta--text Read more &rarr;
+      
       if posts.length > 7
         .load-more.cta.cta--button.button--secondary
           .loading-indicator.sk-three-bounce

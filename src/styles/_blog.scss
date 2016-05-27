@@ -1,7 +1,5 @@
 // DCOS Blog
 
-
-
 .blog {
   width: 100%;
 
@@ -22,8 +20,6 @@
       color: $black;
       border: 1px solid $light-gray;
       background-color: white;
-
-
   }
 
   .search {
@@ -99,10 +95,12 @@
 
   .latest-post__title, .post__title {
     margin: 0.75rem 0;
+    color: white;
   }
 
   .latest-post__content {
     margin: 0.75rem 0;
+    color: white;
     opacity: 0.8;
   }
 
@@ -183,6 +181,39 @@
     }
   }
 }
+
+// Search results
+
+.search-results, .category-results {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  p, a {
+    margin-bottom: 0;
+  }
+}
+
+@include break($mobile-large-landscape) {
+  .search-results, .category-results {
+    flex-flow: row;
+  }
+}
+
+// Not found
+.not-found {
+  display: flex;
+  flex-flow: column;
+}
+
+@include break($tablet-portrait) {
+  .not-found {
+    margin: 6rem 0;
+  }
+}
+
 
 // Blog post
 
