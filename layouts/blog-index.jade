@@ -43,20 +43,16 @@ block content
           option(value="all") All
           each category in categories
             option(value="#{category}") #{capitalize(category)}
-            
-      .search-results
-        p 19 results for "search term"
-        a.cta View all posts
-        
-      .category-results
-        p 19 posts in News
-        a.cta View all posts
-        
-      .not-found
+
+      .filter-bar.search-results(style="display: none")
+        p.result-text
+        a.cta.show-all-posts View all posts
+
+      .not-found(style="display: none")
         h2 Sorry
         p No results were found for your search: <strong>sdasdasds</strong>
-        
-        a.cta.cta--button.button--secondary View All Posts
+
+        button.cta.cta--button.button--secondary.show-all-posts View All Posts
 
       if latestPost
         .latest-post
@@ -65,7 +61,7 @@ block content
             h2.latest-post__title!= latestPost.title
             p.latest-post__content!= latestPost.description
             .latest-post__readmore.cta.cta--text Continue reading &rarr;
-      
+
       .posts
         each post in otherPosts
           .post
@@ -75,7 +71,7 @@ block content
             a(href="/#{post.path}")
               h2.post__title!= post.title.length > 52 ? post.title.slice(0, 52).trim() + '...' : post.title
               .post__readmore.cta.cta--text Read more &rarr;
-      
+
       if posts.length > 7
         .load-more.cta.cta--button.button--secondary
           .loading-indicator.sk-three-bounce
@@ -88,4 +84,6 @@ block content
     +footer
 
   script.
-    window.blog.init(document.getElementById('posts-container'), { offset: 7 })
+    window.jQuery(document).ready(function () {
+      window.blog.init(document.getElementById('posts-container'), { offset: 7 })
+    })
