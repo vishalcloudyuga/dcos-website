@@ -19,8 +19,7 @@ block head
 
 block content
   -
-    var latestPost = pagination.files[0]
-    var otherPosts = pagination.files.slice(1)
+    var otherPosts = pagination.files.slice(0, 9)
     var categories = posts.reduce(function (acc, prev) {
       if (acc.indexOf(prev.category[0]) > -1) return acc
       return acc.concat(prev.category)
@@ -48,14 +47,6 @@ block content
             else
               option(value="#{category}") #{capitalize(category)}
 
-      if latestPost
-        a(href="/#{latestPost.path}").latest-post
-          .latest-post__category!= latestPost.category
-          .latest-post__divider
-          h2.latest-post__title!= latestPost.title
-          p.latest-post__content!= latestPost.description
-          .latest-post__readmore.cta.cta--text Continue reading &rarr;
-
       .posts
         each post in otherPosts
           a(href="/#{post.path}").post
@@ -77,4 +68,4 @@ block content
     +footer
 
   script.
-    window.blog.init(document.getElementById('posts-container'))
+    window.blog.init(document.getElementById('posts-container'), { category: '#{tag}', offset: 9 })
