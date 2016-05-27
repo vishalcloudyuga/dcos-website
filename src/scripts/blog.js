@@ -5,7 +5,7 @@ window.blog = (function ($) {
       this.params = $.extend({
         offset: 0,
         limit: 6,
-        category: null
+        category: getParameterByName('category')
       }, params)
 
       this.lunrIndex = null
@@ -27,6 +27,8 @@ window.blog = (function ($) {
 
       this.bindEventHandlers()
       this.initLunr()
+
+      if (this.params.category) this.showCategoryPosts(this.params.category)
     }
 
     bindEventHandlers () {
@@ -119,11 +121,9 @@ window.blog = (function ($) {
 
       this.getPosts().then(posts => {
         const results = posts.filter(filterProp('category', category))
-        const paginatedResults = results.slice(this.params.offset, (this.params.offset + 8))
+        const paginatedResults = results.slice(this.params.offset, (this.params.offset + 9))
 
-        console.log(results)
-
-        this.render(this.$postsContainer, results.map(this.createPostElement), true)
+        this.render(this.$postsContainer, paginatedResults.map(this.createPostElement), true)
         equalHeight(this.$postsContainer)
 
         if (results.length < this.params.limit) this.hideLoadMoreButton()
@@ -287,6 +287,11 @@ window.blog = (function ($) {
 
   function filterProp (prop, value) {
     return item => value ? item[prop] === value : true
+  }
+
+  function getParameterByName (name) {
+    let match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search)
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '))
   }
 
   return {

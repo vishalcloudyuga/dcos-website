@@ -22,7 +22,7 @@ block content
 
     .container__content
       .blog__category
-        a(href='/blog/category/#{category}')!= category[0].toUpperCase()
+        a(href='/blog?category=#{category}')!= category[0].toUpperCase()
       //- .blog__divider
       h2!= title
 
