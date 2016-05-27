@@ -2,8 +2,6 @@ window.blog = (function ($) {
   class BlogController {
 
     constructor (containerEl, params) {
-      console.log(params)
-
       this.params = $.extend({
         offset: 0,
         limit: 6,
@@ -14,10 +12,14 @@ window.blog = (function ($) {
 
       this.$container = $(containerEl)
       this.$postsContainer = this.$container.find('.posts')
+      this.$featuredPost = this.$container.find('.latest-post')
       this.$loadMoreButton = this.$container.find('.load-more')
       this.$categorySelect = this.$container.find('.categories')
       this.$searchForm = this.$container.find('.search-container')
       this.$searchInput = this.$container.find('.search')
+      this.$noResultsContainer = this.$container.find('.not-found')
+      this.$showAllLink = this.$container.find('.show-all-posts')
+      this.$filterBar = this.$container.find('.filter-bar')
 
       this.getPosts = memoize(() => $.get('/blog/posts.json').then(data => $.when(data.result)))
 
@@ -30,30 +32,30 @@ window.blog = (function ($) {
     bindEventHandlers () {
       this.$loadMoreButton.on('click', this.loadMorePosts.bind(this))
 
-      this.$categorySelect.on('change', function () {
-        const category = $(this).val()
-        window.location.href = category === 'all'
-          ? `${window.location.origin}/blog` // 'all' should redirect to blog index
-          : `${window.location.origin}/blog/category/${category}`
+      this.$categorySelect.on('change', e => {
+        const $el = $(e.currentTarget)
+        const category = $el.val()
+
+        if (category === 'all') return this.showAllPosts()
+
+        this.params.category = category
+        this.params.offset = 0
+
+        this.showCategoryPosts(category)
       })
 
       this.$searchForm.on('submit', (e) => {
         e.preventDefault()
         if (!this.lunrIndex) return // TODO
+
         const searchTerms = this.$searchInput.val()
-        const refs = this.lunrIndex.search(searchTerms)
 
-        this.getPosts().then(posts => {
-          const results = refs.sort(sortProp('score')).reverse().map(item => this.getPostFromRef(posts, item.ref))
-          const restore = this.render(this.$postsContainer, results.map(this.createPostElement), true)
-        })
+        this.showSearchResults(searchTerms)
       })
-    }
 
-    filterPosts (posts, offset, limit, category) {
-      return posts
-        .filter(post => category ? post.category === category : true)
-        .slice(offset, (offset + limit))
+      this.$showAllLink.on('click', () => {
+        this.showAllPosts()
+      })
     }
 
     loadMorePosts (e) {
@@ -65,20 +67,159 @@ window.blog = (function ($) {
         $el.removeClass('is-loading')
         const {offset, limit, category} = this.params
 
-        const filteredPosts = this.filterPosts(posts, offset, limit, category)
+        const postElements = posts
+          .filter(filterProp('category', category))
+          .slice(offset, (offset + limit))
           .map(this.createPostElement)
 
-        this.render(this.$postsContainer, filteredPosts)
+        this.render(this.$postsContainer, postElements, false)
+
         this.params.offset += this.params.limit
         equalHeight(this.$postsContainer)
       })
+    }
+
+    showAllPosts () {
+      this.hideNoResults()
+      this.showFeaturedPost()
+      this.resetSearch()
+      this.resetCategoryFilter()
+      this.hideFilterBar()
+
+      this.$loadMoreButton.addClass('is-loading')
+
+      this.params.offset = 1 // account for featured post
+
+      this.getPosts().then(posts => {
+        const results = posts.slice(this.params.offset, (this.params.offset + this.params.limit))
+
+        this.render(this.$postsContainer, results.map(this.createPostElement), true)
+        equalHeight(this.$postsContainer)
+
+        if (results.length < this.params.limit) this.hideLoadMoreButton()
+        else this.showLoadMoreButton()
+
+        this.$loadMoreButton.removeClass('is-loading')
+
+        this.params.offset += results.length
+
+        if (results.length === 0) this.showNoResults()
+      })
+    }
+
+    showCategoryPosts (category) {
+      this.hideNoResults()
+      this.hideFeaturedPost()
+      this.resetSearch()
+      this.hideFilterBar()
+
+      this.$loadMoreButton.addClass('is-loading')
+
+      this.params.offset = 0
+
+      this.getPosts().then(posts => {
+        const results = posts.filter(filterProp('category', category))
+        const paginatedResults = results.slice(this.params.offset, (this.params.offset + 8))
+
+        console.log(results)
+
+        this.render(this.$postsContainer, results.map(this.createPostElement), true)
+        equalHeight(this.$postsContainer)
+
+        if (results.length < this.params.limit) this.hideLoadMoreButton()
+        else this.showLoadMoreButton()
+
+        this.$loadMoreButton.removeClass('is-loading')
+
+        this.showFilterBar(results.length, category)
+
+        this.params.offset += paginatedResults.length
+
+        if (results.length === 0) this.showNoResults()
+      })
+    }
+
+    showSearchResults (searchTerms) {
+      this.hideFeaturedPost()
+      this.hideNoResults()
+      this.resetCategoryFilter()
+      this.hideFilterBar()
+
+      const refs = this.lunrIndex.search(searchTerms)
+
+      this.$loadMoreButton.addClass('is-loading')
+
+      this.params.offset = 0
+
+      this.getPosts().then(posts => {
+        const results = refs.sort(sortProp('score')).reverse().map(item => this.getPostFromRef(posts, item.ref))
+
+        const restore = this.render(this.$postsContainer, results.map(this.createPostElement), true)
+        equalHeight(this.$postsContainer)
+
+        if (results.length < this.params.limit) this.hideLoadMoreButton()
+        else this.showLoadMoreButton()
+
+        this.$loadMoreButton.removeClass('is-loading')
+
+        this.showFilterBar(results.length, searchTerms)
+
+        this.params.offset += results.length
+
+        if (results.length === 0) this.showNoResults()
+      })
+    }
+
+    resetSearch () {
+      this.$searchInput.val('')
+    }
+
+    resetCategoryFilter () {
+      this.params.category = null
+      this.$categorySelect.val('all').attr('selected', 'selected')
+    }
+
+    showLoadMoreButton () {
+      this.$loadMoreButton.show()
+    }
+
+    hideLoadMoreButton () {
+      this.$loadMoreButton.hide()
+    }
+
+    showNoResults () {
+      this.$postsContainer.hide()
+      this.$noResultsContainer.show()
+    }
+
+    hideNoResults () {
+      this.$postsContainer.show()
+      this.$noResultsContainer.hide()
+    }
+
+    showFilterBar (resultCount, filter) {
+      this.$filterBar.find('.result-text').remove()
+      this.$filterBar.prepend(`<p class='result-text'>${resultCount} ${resultCount > 1 ? 'results' : 'result'} for <strong>${filter}</strong></p>`)
+      this.$filterBar.show()
+    }
+
+    hideFilterBar () {
+      this.$filterBar.hide()
+    }
+
+    showFeaturedPost () {
+      this.$featuredPost.show()
+    }
+
+    hideFeaturedPost () {
+      this.$featuredPost.hide()
     }
 
     createPostElement (post) {
       return `<a class="post"><div class="post__meta"><div class="post__category">${post.category}</div><div class="post__date">${post.formattedDate}</div></div><h2 class="post__title">${ellipsis(52, post.title)}</h2><div class="post__readmore cta cta--text">Read more &rarr;</div></a>`
     }
 
-    render ($parentEl, elements, replaceContent = false) {
+    render ($parentEl, elements, replaceContent = true) {
       let _this = this
       let $oldElements = $parentEl.clone().children()
       if (replaceContent) $parentEl.empty()
@@ -86,13 +227,9 @@ window.blog = (function ($) {
       $parentEl.append(...elements)
 
       return function restore () {
-        _this.render($parentEl, $oldElements, true)
+        _this.render($parentEl, $oldElements)
       }
     }
-
-    hideFeaturedPost () {}
-
-    showFeaturedPost () {}
 
     // Lunr
 
@@ -141,11 +278,15 @@ window.blog = (function ($) {
   }
 
   function sortProp (prop) {
-    return function (a, b) {
+    return (a, b) => {
       if (a[prop] > b[prop]) return 1
       if (a[prop] < b[prop]) return -1
       return 0
     }
+  }
+
+  function filterProp (prop, value) {
+    return item => value ? item[prop] === value : true
   }
 
   return {
