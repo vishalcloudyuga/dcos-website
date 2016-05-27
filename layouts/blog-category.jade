@@ -47,6 +47,16 @@ block content
             else
               option(value="#{category}") #{capitalize(category)}
 
+       .category-results
+          p 19 posts in News
+          a.cta View all posts
+
+      .not-found
+        h2 Sorry
+        p No results were found for your search: <strong>sdasdasds</strong>
+
+        a.cta.cta--button.button--secondary View All Posts
+
       .posts
         each post in otherPosts
           a(href="/#{post.path}").post
