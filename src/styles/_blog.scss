@@ -232,7 +232,7 @@
 
 .blog__divider {
   margin: 0.75rem 0;
-  width: 5%;
+  width: 10%;
   height: 1px;
   background-color: white;
   opacity: 0.8;
@@ -265,7 +265,7 @@
 }
 
 .post-divider {
-  width: 10%;
+  width: 20%;
   height: 1px;
   margin: 2rem 0 1rem 0;
   background-color: $light-gray;
@@ -292,5 +292,122 @@
 
   p {
     color: $purple;
+  }
+}
+
+.blog-article-wrapper {
+  width: 100%;
+  max-width: 720px;
+}
+
+.blog-article {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  text-align: left;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.9rem;
+  }
+
+
+  h1, h2, h3, p, pre {
+    margin: 2rem 0;
+  }
+
+  h4, h5 {
+    margin: 1rem 0 0 0;
+  }
+
+  ul, ol {
+    margin-left: 1.5rem;
+  }
+
+  ul {
+    list-style: disc;
+
+    a {
+      color: $heliotrope;
+      opacity: 1;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.04rem;
+    line-height: 1.55;
+  }
+
+  hr {
+    background-color: $black10;
+    height: 0.5px;
+    border: 0;
+  }
+
+  blockquote {
+    font-size: 1.5rem;
+    color: $black60;
+  }
+
+  cite {
+    margin: 0 0 1rem 0;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  img {
+    margin: 1rem 0;
+    border-radius: 2px;
+  }
+
+  code {
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
+    font-size: 0.8rem;
+    vertical-align: text-top;
+
+    &:not(.hljs) {
+      color: $heliotrope;
+      background-color: $heliotrope20;
+    }
+  }
+
+  pre {
+    overflow-x: auto;
+    word-wrap: break-word;
+    font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    code {
+      padding: 1rem;
+      border-radius: 4px;
+    }
   }
 }
