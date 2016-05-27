@@ -1,14 +1,15 @@
 window.blog = (function ($) {
   class BlogController {
 
-    constructor (containerEl) {
-      this.params = {
-        offset: 7,
+    constructor (containerEl, params) {
+      console.log(params)
+
+      this.params = $.extend({
+        offset: 0,
         limit: 6,
         category: null
-      }
+      }, params)
 
-      this.posts = []
       this.lunrIndex = null
 
       this.$container = $(containerEl)
@@ -148,8 +149,8 @@ window.blog = (function ($) {
   }
 
   return {
-    init: function (containerEl) {
-      new BlogController(containerEl)
+    init: function (containerEl, params) {
+      new BlogController(containerEl, params)
     }
   }
 })(window.jQuery)
