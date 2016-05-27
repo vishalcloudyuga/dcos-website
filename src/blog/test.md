@@ -6,6 +6,7 @@ category: services
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit metus ut nulla ornare, non mattis neque laoreet. Vestibulum vel pharetra mauris, in bibendum dolor.
 layout: article.jade
 collection: posts
+lunr: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit metus ut nulla ornare, non mattis neque laoreet. Vestibulum vel pharetra mauris, in bibendum dolor. Ut enim arcu, efficitur ac condimentum ac, malesuada non ligula. Integer id lectus nec neque feugiat auctor. Duis nec placerat nunc, ac pretium dui. Vivamus elementum lectus vel nibh tristique, id blandit nunc venenatis. Proin auctor risus quis maximus maximus. Aenean nec tortor eget massa sollicitudin venenatis. Nam elit nibh, rutrum at semper in, mollis et neque. Duis tincidunt condimentum enim, id placerat massa egestas id. Ut laoreet eleifend ultrices. Quisque ullamcorper mattis tortor vitae consectetur.

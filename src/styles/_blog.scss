@@ -140,7 +140,7 @@
       margin-bottom: 1rem;
     }
 
-    .search, .categories {
+    .search-container, .categories {
       width: 40%;
     }
 
@@ -166,7 +166,7 @@
   }
 
   @include break($tablet-landscape) {
-    .search, .categories {
+    .search-container, .categories {
       width: 30%;
     }
 

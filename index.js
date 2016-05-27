@@ -23,7 +23,7 @@ const logger        = require('metalsmith-logger')
 const writemetadata = require('metalsmith-writemetadata')
 const moment        = require('moment')
 const tags          = require('metalsmith-tags')
-
+const mlunr         = require('metalsmith-lunr')
 
 // --- general build settings --- //
 const docsVersions = ['1.7'];
@@ -123,36 +123,14 @@ let allDocs = function() {
   }
 }
 
-function addFormattedDateToCollection (collectionName) {
-  return function (files, metalsmith, done) {
-    let metadata = metalsmith.metadata()
-    let collection = metadata[collectionName] || []
-
-    metadata[collectionName] = collection.map(post => {
-      return Object.assign(post, {
-        formattedDate: moment(post.date).format('MMMM DD')
-      })
-    })
-
-    return done()
-  }
-}
-
 Metalsmith(__dirname)
   .use(markdown({
     smartypants: true,
     gfm: true,
     tables: true
   }))
-.use(jade({
+  .use(jade({
     pretty: true
-  }))
-  .use(collections({
-    posts: {
-      pattern: '*.md',
-      sortBy: 'date',
-      reverse: true
-    }
   }))
   .use(permalinks({
     pattern: ':title',
@@ -162,7 +140,18 @@ Metalsmith(__dirname)
       pattern: 'blog/:date/:title'
     }]
   }))
-  .use(addFormattedDateToCollection('posts'))
+  .use(collections({
+    posts: {
+      pattern: '*.md',
+      sortBy: 'date',
+      reverse: true
+    }
+  }))
+  .use(addPropertiesToCollectionItems('posts', post => {
+    return Object.assign(post, {
+      formattedDate: moment(post.date).format('MMMM DD')
+    })
+  }))
   .use(writemetadata({
     collections: {
       posts: {
@@ -170,7 +159,7 @@ Metalsmith(__dirname)
           path: 'blog/posts.json',
           asObject: true
         },
-        ignorekeys: ['contents', 'next', 'previous', 'stats', 'mode']
+        ignorekeys: ['contents', 'next', 'previous', 'stats', 'mode', 'lunr']
       }
     }
   }))
@@ -180,6 +169,14 @@ Metalsmith(__dirname)
     layout:'../layouts/blog-category.jade',
     sortBy: 'date',
     reverse: true
+  }))
+  .use(mlunr({
+    indexPath: 'blog/search-index.json',
+    fields: {
+      contents: 2,
+      title: 10,
+      category: 5
+    }
   }))
   .use(define({
     moment
@@ -245,3 +242,22 @@ Metalsmith(__dirname)
   })
 
 allDocs()
+
+// Utility functions
+
+function addPropertiesToCollectionItems (collectionName, callback) {
+  return function (files, metalsmith, done) {
+    let metadata = metalsmith.metadata()
+    let collection = metadata[collectionName] || []
+
+    metadata[collectionName] = collection.map(callback)
+
+    return done()
+  }
+}
+
+function dasherize (string) {
+  return string.replace(/[A-Z]/g, function (char, index) {
+    return (index !== 0 ? '-' : '') + char.toLowerCase()
+  })
+}

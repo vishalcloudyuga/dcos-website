@@ -37,7 +37,8 @@ block content
     .container__content.blog#posts-container
 
       .blog-ui
-        input(type="search").search
+        form.search-container
+          input(type="search").search
 
         select(name="Categories").categories Categories
           option(value="all") All
@@ -73,4 +74,4 @@ block content
     +footer
 
   script.
-    window.Blog.init(document.getElementById('posts-container'))
+    window.blog.init(document.getElementById('posts-container'))
