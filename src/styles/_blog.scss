@@ -206,6 +206,11 @@
 .not-found {
   display: flex;
   flex-flow: column;
+  align-items: center;
+
+  .cta--button {
+    max-width: 200px;
+  }
 }
 
 @include break($tablet-portrait) {
@@ -286,12 +291,22 @@
 .blog__social-share {
   display: flex;
 
-  img {
-    margin-right: 1rem;
-  }
-
   p {
+    display: none;
     color: $purple;
+  }
+}
+
+@include break($mobile-large-landscape) {
+  .blog__social-share {
+
+    img {
+      margin-right: 1rem;
+    }
+
+    p {
+      display: inline;
+    }
   }
 }
 
