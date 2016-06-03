@@ -36,19 +36,19 @@ block content
       article.post-content.blog-article!= contents
 
       .blog__article-footer
-        .blog__social-share
+        a(href="http://twitter.com/share?text=#{encodeURIComponent(title)}&url=#{rootUrl}/#{path}", target="_blank").blog__social-share
           img(src='/assets/images/icons/twitter-icon.svg')
           p Tweet
 
-        .blog__social-share
+        a(href="https://www.facebook.com/sharer/sharer.php?u=#{rootUrl}/#{path}", target="_blank").blog__social-share
           img(src='/assets/images/icons/facebook-icon.svg')
           p Share
 
-        .blog__social-share
+        a(href="https://plus.google.com/share?url=#{rootUrl}/#{path}", target="_blank").blog__social-share
           img(src='/assets/images/icons/googleplus-icon.svg')
           p Share
 
-        .blog__social-share
+        a(href="http://news.ycombinator.com/submit", target="_blank").blog__social-share
           img(src='/assets/images/icons/hackernews-icon.svg')
           p Vote
 
