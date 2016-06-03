@@ -35,6 +35,12 @@ mixin header(lightHeader)
           a(href='/community/') Community
 
       li.menu-item
+        if(locals.filename === 'blog-index.html')
+          a(href='/blog/').active Blog
+        else
+          a(href='/blog/') Blog
+
+      li.menu-item
         a(href='https://github.com/dcos/dcos', target='_blank') GitHub
 
       li.menu-item
@@ -61,6 +67,12 @@ mixin header(lightHeader)
           a(href='/community/').active Community
         else
           a(href='/community/') Community
+
+      li.menu-item
+        if(locals.filename === 'article.html')
+          a(href='/blog/').active Blog
+        else
+          a(href='/blog/') Blog
 
       li.menu-item
         .menu-item__github-button
