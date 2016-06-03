@@ -24,6 +24,7 @@ const writemetadata = require('metalsmith-writemetadata')
 const moment        = require('moment')
 const tags          = require('metalsmith-tags')
 const mlunr         = require('metalsmith-lunr')
+const CONFIG        = require('./env.json')[process.env.NODE_ENV] || require('./env.json')['production']
 
 // --- general build settings --- //
 const docsVersions = ['1.7'];
@@ -179,7 +180,8 @@ Metalsmith(__dirname)
     }
   }))
   .use(define({
-    moment
+    moment,
+    rootUrl: CONFIG.root_url
   }))
   .use(sass({
     outputStyle: 'expanded',
