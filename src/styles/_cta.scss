@@ -15,7 +15,7 @@
   }
 }
 
-.container--dark-background .cta--text {
+.container--dark-background .cta--text, .container--blog-header .cta--text {
   color: white;
 }
 
@@ -36,6 +36,22 @@
   }
 }
 
+.cta--button .loading-indicator {
+  display: none;
+}
+
+.cta--button.is-loading .content {
+  display: none;
+}
+
+.cta--button.is-loading .loading-indicator {
+  display: inline-block;
+}
+
+.cta--button.is-loading:hover .loading-indicator .sk-three-bounce .sk-child {
+  background-color: #fff;
+}
+
 .button--secondary, a.button--secondary {
   background-color: transparent;
   border: 1px solid $heliotrope;
@@ -54,7 +70,7 @@
   cursor: default;
 }
 
-.container--dark-background {
+.container--dark-background, .container--blog-header {
   .button--secondary {
      border: 1px solid $white60;
      color: $white60;

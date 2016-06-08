@@ -1,24 +1,30 @@
 'use strict';
 
-const Metalsmith   = require('metalsmith')
-const jade         = require('metalsmith-jade')
-const sass         = require('metalsmith-sass')
-const browserSync  = require('metalsmith-browser-sync')
-const markdown     = require('metalsmith-markdown')
-const layouts      = require('metalsmith-layouts')
-const permalinks   = require('metalsmith-permalinks')
-const babel        = require('metalsmith-babel')
-const bourbon      = require('node-bourbon')
-const path         = require('path')
-const postcss      = require('metalsmith-postcss')
-const autoprefixer = require('autoprefixer')
-const copy         = require('metalsmith-copy')
-const each         = require('metalsmith-each')
-const navigation   = require('metalsmith-navigation')
-const modRewrite   = require('connect-modrewrite')
-const uglify       = require('metalsmith-uglify')
-
-
+const Metalsmith    = require('metalsmith')
+const jade          = require('metalsmith-jade')
+const sass          = require('metalsmith-sass')
+const browserSync   = require('metalsmith-browser-sync')
+const markdown      = require('metalsmith-markdown')
+const layouts       = require('metalsmith-layouts')
+const permalinks    = require('metalsmith-permalinks')
+const babel         = require('metalsmith-babel')
+const bourbon       = require('node-bourbon')
+const path          = require('path')
+const postcss       = require('metalsmith-postcss')
+const autoprefixer  = require('autoprefixer')
+const copy          = require('metalsmith-copy')
+const each          = require('metalsmith-each')
+const navigation    = require('metalsmith-navigation')
+const modRewrite    = require('connect-modrewrite')
+const uglify        = require('metalsmith-uglify')
+const define        = require('metalsmith-define')
+const collections   = require('metalsmith-collections')
+const logger        = require('metalsmith-logger')
+const writemetadata = require('metalsmith-writemetadata')
+const moment        = require('moment')
+const tags          = require('metalsmith-tags')
+const mlunr         = require('metalsmith-lunr')
+const CONFIG        = require('./env.json')[process.env.NODE_ENV] || require('./env.json')['production']
 
 // --- general build settings --- //
 const docsVersions = ['1.7'];
@@ -127,6 +133,56 @@ Metalsmith(__dirname)
   .use(jade({
     pretty: true
   }))
+  .use(permalinks({
+    pattern: ':title',
+    date: 'YYYY',
+    linksets: [{
+      match: { collection: 'posts' },
+      pattern: 'blog/:date/:title'
+    }]
+  }))
+  .use(collections({
+    posts: {
+      pattern: '*.md',
+      sortBy: 'date',
+      reverse: true
+    }
+  }))
+  .use(addPropertiesToCollectionItems('posts', post => {
+    return Object.assign(post, {
+      formattedDate: moment(post.date).format('MMMM DD')
+    })
+  }))
+  .use(writemetadata({
+    collections: {
+      posts: {
+        output: {
+          path: 'blog/posts.json',
+          asObject: true
+        },
+        ignorekeys: ['contents', 'next', 'previous', 'stats', 'mode', 'lunr']
+      }
+    }
+  }))
+  .use(tags({
+    handle: 'category',
+    path:'blog/category/:tag.html',
+    layout:'../layouts/blog-category.jade',
+    sortBy: 'date',
+    reverse: true
+  }))
+  .use(mlunr({
+    indexPath: 'blog/search-index.json',
+    fields: {
+      contents: 2,
+      title: 10,
+      category: 5
+    }
+  }))
+  .use(define({
+    moment,
+    rootUrl: CONFIG.root_url
+  }))
   .use(sass({
     outputStyle: 'expanded',
     includePaths: [
@@ -155,9 +211,15 @@ Metalsmith(__dirname)
     // removeOriginal: process.env.CI,
     // compress: process.env.CI
   }))
+  .use(layouts({
+    pattern: '**/*.html',
+    engine: 'jade',
+    directory: path.join('layouts')
+  }))
   .use((() => {
     if(!process.env.CI) {
       return browserSync({
+        open: false,
         server: {
           baseDir: './build',
           middleware: [
@@ -182,3 +244,22 @@ Metalsmith(__dirname)
   })
 
 allDocs()
+
+// Utility functions
+
+function addPropertiesToCollectionItems (collectionName, callback) {
+  return function (files, metalsmith, done) {
+    let metadata = metalsmith.metadata()
+    let collection = metadata[collectionName] || []
+
+    metadata[collectionName] = collection.map(callback)
+
+    return done()
+  }
+}
+
+function dasherize (string) {
+  return string.replace(/[A-Z]/g, function (char, index) {
+    return (index !== 0 ? '-' : '') + char.toLowerCase()
+  })
+}
