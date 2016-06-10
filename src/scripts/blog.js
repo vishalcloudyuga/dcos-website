@@ -216,7 +216,7 @@ window.blog = (function ($) {
     }
 
     createPostElement (post) {
-      return `<a class="post"><div class="post__meta"><div class="post__category">${post.category}</div><div class="post__date">${post.formattedDate}</div></div><h2 class="post__title">${ellipsis(52, post.title)}</h2><div class="post__readmore cta cta--text">Read more &rarr;</div></a>`
+      return `<a class="post"><div class="post__meta"><a href="/blog?category=${post.category}" class="post__category">${post.category}</a><div class="post__date">${post.formattedDate}</div></div><h2 class="post__title">${ellipsis(52, post.title)}</h2><div class="post__readmore cta cta--text">Read more &rarr;</div></a>`
     }
 
     render ($parentEl, elements, replaceContent = true) {
