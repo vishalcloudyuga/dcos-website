@@ -62,11 +62,6 @@
     hljs.highlightBlock(el);
   });
 
-  // Feedback
-  Array.prototype.forEach.call($('#submit-feedback'), el => {
-    $(el).href = `https://github.com/dcos/dcos-docs/issues/new?body=${encodeURI(window.location.href)}`;
-  });
-
   // Height nav
   let docsNav = $('#docs-nav');
   let docsArticle = $('#docs-article');
