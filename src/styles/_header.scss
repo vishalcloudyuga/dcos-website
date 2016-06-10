@@ -228,6 +228,10 @@
   padding: 1rem 0;
 }
 
+.menu-item:last-child {
+  padding-right: 0;
+}
+
 .menu-item__github {
   span {
     vertical-align: top;
