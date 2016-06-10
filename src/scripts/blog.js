@@ -28,7 +28,10 @@ window.blog = (function ($) {
       this.bindEventHandlers()
       this.initLunr()
 
-      if (this.params.category) this.showCategoryPosts(this.params.category)
+      if (this.params.category) {
+        this.$categorySelect.val(this.params.category).attr('selected', 'selected')
+        this.showCategoryPosts(this.params.category)
+      }
     }
 
     bindEventHandlers () {
@@ -176,7 +179,8 @@ window.blog = (function ($) {
 
     resetCategoryFilter () {
       this.params.category = null
-      this.$categorySelect.val('all').attr('selected', 'selected')
+      this.$categorySelect.val(null)
+      // this.$categorySelect.val('all').attr('selected', 'selected')
     }
 
     showLoadMoreButton () {
@@ -216,7 +220,16 @@ window.blog = (function ($) {
     }
 
     createPostElement (post) {
-      return `<a class="post"><div class="post__meta"><a href="/blog?category=${post.category}" class="post__category">${post.category}</a><div class="post__date">${post.formattedDate}</div></div><h2 class="post__title">${ellipsis(52, post.title)}</h2><div class="post__readmore cta cta--text">Read more &rarr;</div></a>`
+      return `<div class="post">
+        <div class="post__meta">
+          <a href="/blog?category=${post.category}" class="post__category">${post.category}</a>
+          <div class="post__date">${post.formattedDate}</div>
+        </div>
+        <a href="/${post.path}">
+          <h2 class="post__title">${ellipsis(52, post.title)}</h2>
+          <div class="post__readmore cta cta--text">Read more &rarr;</div>
+        </a>
+      </div>`
     }
 
     render ($parentEl, elements, replaceContent = true) {
