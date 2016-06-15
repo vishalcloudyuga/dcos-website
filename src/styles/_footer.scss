@@ -1,5 +1,16 @@
   // Universal footer styling
 
+.container__content.container__content--footer {
+  padding: 0;
+}
+
+@include break($tablet-landscape) {
+  .container__content.container__content--footer {
+    padding: 0 2rem;
+    width: 100%;
+  }
+}
+
 .footer {
   display: flex;
   flex-flow: column nowrap;
