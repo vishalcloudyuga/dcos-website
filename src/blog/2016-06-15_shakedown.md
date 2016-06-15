@@ -13,7 +13,7 @@ Quality assurance is an essential part of authoring great software. To help our 
 
 ## Shakedown?
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/Shakedown_(testing)), a *shakedown* is *a period of testing or a trial journey undergone by a ship, aircraft or other craft and its crew before being declared operational.*
+According to [Wikipedia][wikipedia], a *shakedown* is *a period of testing or a trial journey undergone by a ship, aircraft or other craft and its crew before being declared operational.*
 
 In the DC/OS world, Shakedown consists of both a testing harness as well as a Python library which abstracts many common Mesos and DC/OS-related tasks such as installing packages from the Universe, querying a framework service for associated tasks, running commands on individual DC/OS agents, and more.
 
@@ -29,8 +29,8 @@ We had a few goals as we developed Shakedown:
 
 ### Installation
 
-```
-git clone github.com:mesosphere/shakedown.git && cd shakedown && pip install -e .
+```bash
+$ git clone github.com:mesosphere/shakedown.git && cd shakedown && pip install -e .
 ```
 
 Shakedown requires a Python 3.4+ environment. Installation is as straightfoward as cloning the [repository](https://github.com/mesosphere/shakedown) from GitHub and using [pip](https://pypi.python.org/pypi/pip) to install the required libraries, as shown above.
@@ -41,7 +41,7 @@ Shakedown can be configured either via arguments or via a `.shakedown` configura
 
 See below for the arguments that you can pass to Shakedown on the command line (as described with `shakedown --help`):
 
-```
+```bash
 --fail [fast|never]             Specify whether to continue testing when
                                 encountering failures. (default: fast)
 --ssh-key-file PATH             Path to the SSH keyfile to use for
@@ -70,8 +70,8 @@ The Shakedown testing tool is an opinionated wrapper around the popular [pytest]
 * Only verbosely report on what failed. Details and output of passing tests is not necessary.
 * We are testing DC/OS. First and foremost, make sure we can talk to the specified cluster. Secondly, if it is a cluster requiring authentication, all communications with the cluster should be authenticated.
 
-```
-shakedown --dcos-url http://dcos.example.com [options] [path_to_tests]
+```bash
+$ shakedown --dcos-url http://dcos.example.com [options] [path_to_tests]
 ```
 
 As shown above, `--dcos-url` is the only _required_ Shakedown argument; all other configuration options can be specified on the command line or via a `.shakedown` file as detailed above under *Configuring Shakedown*.
@@ -115,5 +115,6 @@ As shown above, Shakedown aims to help speed up and improve framework authoring 
 * [Shakedown GitHub repository](https://github.com/dcos/shakedown)
 * [DC/OS issue tracker](https://dcosjira.atlassian.net)
 
+[wikipedia]: https://en.wikipedia.org/wiki/Shakedown_(testing)
 
 
