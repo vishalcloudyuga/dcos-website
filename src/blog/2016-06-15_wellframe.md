@@ -13,7 +13,7 @@ At [Wellframe][1], we are building an intelligent care-management platform that 
 
 We use the health data we collect in order to intelligently allot care resources to the specific needs of patients, paying special attention to the most-critical patients. Through clinical studies and working with large healthcare payers, we have seen that our platform improves patient outcomes, increases the capacity of care management teams and reduces costs of the care provider.
 
-<img src="https://mesosphere.com/wp-content/uploads/2016/06/wellframe1-800x284.jpg" alt="Figure 1: Wellframe care management dashboard and patient mobile application." width="800" height="284" class="size-large wp-image-5563" /> *Wellframe care management dashboard and patient mobile application.*
+<img src="/assets/images/blog/2016-06-15-wellframe.jpg" alt="Figure 1: Wellframe care management dashboard and patient mobile application." /> *Wellframe care management dashboard and patient mobile application.*
 
 ## Getting started with Mesos
 
@@ -31,7 +31,7 @@ Being a small team, it was extremely important for us to minimize operational co
 
 The ability to move our heterogeneous production cluster of 40-plus servers to a much more uniform cluster of Mesos agents was also a large draw. We estimated that we could move our services to Mesos with only about 15 Mesos agents (albeit on larger machines) for the same workload. *In the end, we drastically reduced our server costs, increased performance and throughput, and cut operational overhead in half.*
 
-<img src="https://mesosphere.com/wp-content/uploads/2016/06/wellframe2-800x420.jpg" alt="Figure 2: Applications and frameworks on top of Mesos." width="800" height="420" class="size-large wp-image-5564" /> *Applications and frameworks on top of Mesos.*
+<img src="/assets/images/blog/2016-06-15-wellframe.jpg" alt="Figure 2: Applications and frameworks on top of Mesos." /> *Applications and frameworks on top of Mesos.*
 
 ## Taking Mesos further with DC/OS
 
