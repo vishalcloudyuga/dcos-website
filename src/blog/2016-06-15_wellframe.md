@@ -31,7 +31,7 @@ Being a small team, it was extremely important for us to minimize operational co
 
 The ability to move our heterogeneous production cluster of 40-plus servers to a much more uniform cluster of Mesos agents was also a large draw. We estimated that we could move our services to Mesos with only about 15 Mesos agents (albeit on larger machines) for the same workload. *In the end, we drastically reduced our server costs, increased performance and throughput, and cut operational overhead in half.*
 
-<img src="/assets/images/blog/2016-06-15-wellframe.jpg" alt="Figure 2: Applications and frameworks on top of Mesos." /> *Applications and frameworks on top of Mesos.*
+<img src="/assets/images/blog/2016-06-15-wellframe-2.jpg" alt="Figure 2: Applications and frameworks on top of Mesos." /> *Applications and frameworks on top of Mesos.*
 
 ## Taking Mesos further with DC/OS
 
