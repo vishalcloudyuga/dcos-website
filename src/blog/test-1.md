@@ -12,3 +12,13 @@ lunr: true
 Mollit ullamco culpa qui quis minim quis incididunt laboris laborum ex laboris ut veniam nulla. Officia laborum fugiat nisi ipsum veniam veniam voluptate non aliqua. Laboris irure pariatur dolore exercitation laboris ut dolor. Lorem mollit officia proident tempor quis tempor ipsum voluptate pariatur. Culpa eiusmod officia mollit pariatur dolor fugiat ad ullamco ullamco voluptate. Aliquip nostrud ipsum Lorem irure labore aliqua laborum minim excepteur eiusmod minim.
 
 Mollit ullamco culpa qui quis minim quis incididunt laboris laborum ex laboris ut veniam nulla. Officia laborum fugiat nisi ipsum veniam veniam voluptate non aliqua. Laboris irure pariatur dolore exercitation laboris ut dolor. Lorem mollit officia proident tempor quis tempor ipsum voluptate pariatur. Culpa eiusmod officia mollit pariatur dolor fugiat ad ullamco ullamco voluptate. Aliquip nostrud ipsum Lorem irure labore aliqua laborum minim excepteur eiusmod minim.
+
+```js
+function test () {
+  console.log('TEST');
+}
+```
+
+Test
+
+`const test = () => console.log('TEST');`
