@@ -316,8 +316,6 @@
 }
 
 .blog-article {
-  display: flex;
-  flex-flow: column;
   width: 100%;
   text-align: left;
 
@@ -343,7 +341,7 @@
 
 
   h1, h2, h3, p, pre {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
 
   h4, h5 {
@@ -404,6 +402,7 @@
   code {
     padding: 0.2rem 0.5rem;
     border-radius: 2px;
+    border: 1px solid $light-gray;
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     vertical-align: text-top;
@@ -415,6 +414,7 @@
   }
 
   pre {
+    width: 100%;
     overflow-x: auto;
     word-wrap: break-word;
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
