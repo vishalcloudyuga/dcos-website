@@ -1,5 +1,9 @@
   // Universal footer styling
 
+.container__content.container__content--footer {
+  padding: 0;
+}
+
 .footer {
   display: flex;
   flex-flow: column nowrap;
