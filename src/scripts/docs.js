@@ -67,13 +67,14 @@
   let docsArticle = $('#docs-article');
 
   let calculateDocsNavHeight = function () {
-    if(matchMedia('only screen and (max-width: 480px)').matches) return;
+    if (matchMedia('only screen and (max-width: 480px)').matches) return;
+    docsNav.css({height: 'auto'});
     let docsNavHeight = $('#docs-nav > ul').outerHeight();
     let docsArticleHeight = docsArticle.outerHeight();
     let newDocsNavHeight;
 
     if (docsNavHeight < docsArticleHeight) newDocsNavHeight = docsArticleHeight;
-    else newDocsNavHeight = docsNavHeight+40;
+    else newDocsNavHeight = docsNavHeight + 40;
 
     docsNav.css({height: `${newDocsNavHeight}px`});
   }
