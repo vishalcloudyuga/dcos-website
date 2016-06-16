@@ -430,4 +430,13 @@
       border-radius: 4px;
     }
   }
+
+  p img + em {
+    display: block;
+    text-align: center;
+    color: $dark-gray;
+    font-style: normal;
+    font-weight: 300;
+    padding: .5rem 0;
+  }
 }
