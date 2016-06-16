@@ -29,7 +29,7 @@
     "metalsmith": "^2.1.0",
     "metalsmith-babel": "^4.0.0",
     "metalsmith-browser-sync": "davidvanleeuwen/metalsmith-browser-sync",
-    "metalsmith-collections": "^0.7.0",
+    "metalsmith-collections": "git+https://github.com/spacedawwwg/metalsmith-collections.git",
     "metalsmith-copy": "^0.2.1",
     "metalsmith-define": "^2.0.1",
     "metalsmith-each": "^0.1.1",
