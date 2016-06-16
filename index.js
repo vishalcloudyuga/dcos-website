@@ -28,6 +28,7 @@ const CONFIG        = require('./env.json')[process.env.NODE_ENV] || require('./
 
 // --- general build settings --- //
 const docsVersions = ['1.7'];
+const cssTimestamp = new Date().getTime()
 
 const updatePaths = function(file, filename) {
   if (path.basename(filename) === "index.html" ) { return filename; }
@@ -95,6 +96,7 @@ let nav = navigation(navConfig, navSettings);
 let createDocs = function(version) {
   Metalsmith(path.join(__dirname, 'dcos-docs'))
     .source(version)
+    .use(addTimestampToMarkdownFiles)
     .use(markdown({
       smartypants: true,
       gfm: true,
@@ -107,11 +109,12 @@ let createDocs = function(version) {
       directory: path.join('..', 'layouts'),
       default: 'docs.jade'
     }))
-    .use(jade({
-      pretty: true
-    }))
     .clean(false)
     .use(each(updatePaths))
+    .use(jade({
+      locals: { cssTimestamp },
+      pretty: true
+    }))
     .destination(path.join('..', 'build', 'docs', version))
     .build((err) => {
       if (err) throw err
@@ -125,12 +128,14 @@ let allDocs = function() {
 }
 
 Metalsmith(__dirname)
+  .use(addTimestampToMarkdownFiles)
   .use(markdown({
     smartypants: true,
     gfm: true,
     tables: true
   }))
   .use(jade({
+    locals: { cssTimestamp },
     pretty: true
   }))
   .use(permalinks({
@@ -256,6 +261,14 @@ function addPropertiesToCollectionItems (collectionName, callback) {
 
     return done()
   }
+}
+
+function addTimestampToMarkdownFiles (files, metalsmith, callback) {
+  Object.keys(files).forEach(key => {
+    if (key.split('.').pop() !== 'md') return
+    Object.assign(files[key], { cssTimestamp })
+  })
+  callback()
 }
 
 function dasherize (string) {
