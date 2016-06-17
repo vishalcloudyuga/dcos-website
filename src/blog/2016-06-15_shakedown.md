@@ -1,6 +1,6 @@
 ---
 title: Testing DC/OS frameworks with Shakedown
-date: 2016-05-23
+date: 2016-06-15
 author: Scott Schneider, Mesosphere
 category: services
 description: Introducing Shakedown, a services testing library.

@@ -1,6 +1,6 @@
 ---
 title: How healthcare startup Wellframe simplifies ops with DC/OS
-date: 2016-05-23
+date: 2016-06-15
 author: Jeffrey Warren, Wellframe
 category: usage
 description: The journey of Wellframe, moving from vanilla Apache Mesos to DC/OS and which benefits they witnessed.
