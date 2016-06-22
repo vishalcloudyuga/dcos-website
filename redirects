@@ -1,3 +1,10 @@
+/usage/services/index.html /usage/managing-services/index.html
+/usage/services/install/ /usage/managing-services/install/
+/usage/services/config/ /usage/managing-services/config/
+/usage/services/list/ /usage/managing-services/list/
+/usage/services/uninstall/ /usage/managing-services/uninstall/
+/usage/services/repo/ /usage/repo/
+/usage/services/uninstall/#framework-cleaner /usage/managing-services/uninstall/#framework-cleaner
 /administration/dcosarchitecture/security/index.html /docs/latest/overview/security/
 /administration/installing/custom/automated-installer/system-requirements/index.html /docs/latest/administration/installing/custom/system-requirements/
 /administration/installing/custom/cli/index.html /docs/latest/administration/installing/custom/cli/
