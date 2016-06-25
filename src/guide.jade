@@ -1,0 +1,73 @@
+extends ../layouts/base-whitefooter.jade
+
+block head
+  title Guide | DC/OS
+  meta(property='og:locale', content='en_US')
+  meta(property='og:type', content='article')
+  meta(property='og:title', content='Guide | DC/OS')
+  meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(property='og:description', content='Find detailed guidance on documentation on all DC/OS services and components.')
+  meta(property='og:url', content='https://dcos.io/')
+  meta(property='og:site_name', content='DC/OS')
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@dcos')
+  meta(name='twitter:title', content='Guide | DC/OS')
+  meta(name='twitter:card', content='summary_large_image')
+  meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(name='twitter:description', content='Find detailed guidance on documentation on all DC/OS services and components.')
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content.community-hero
+      h1 Docs Guide
+
+  .container
+    .container__content.install-columns
+      ul.container__content--hero-list
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/docs-file-active.svg")
+          .hero-list__item__copy
+            h3.install-bullets-title General
+            p All usage, admin and development docs around DC/OS itself:
+            p #[a(href='https://dcos.io/docs/latest/overview/') Overview &rarr;] 
+            p #[a(href='https://dcos.io/docs/latest/administration/') Administration &rarr;] 
+            p #[a(href='https://dcos.io/docs/latest/usage/') Usage &rarr;] 
+
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/docs-file-active.svg")
+          .hero-list__item__copy
+            h3.install-bullets-title System
+            p Docs for DC/OS kernel-space and system components:
+            p #[a(href='https://mesos.apache.org/') Apache Mesos &rarr;]
+            p #[a(href='https://mesosphere.github.io/marathon/docs/') Marathon &rarr;]
+            p #[a(href='https://mesos.github.io/chronos/docs/api.html') Chronos &rarr;]
+            p #[a(href='https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt') sysctl &rarr;]
+            p #[a(href='http://man7.org/linux/man-pages/man1/journalctl.1.html') journalctl &rarr;]
+
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/docs-file-active.svg")
+          .hero-list__item__copy
+            h3.install-bullets-title Data
+            p Docs for DC/OS services around data storage and processing:
+            p #[a(href='https://cassandra.apache.org/') Apache Cassandra &rarr;]
+            p #[a(href='https://kafka.apache.org/documentation.html') Apache Kafka &rarr;]
+            p #[a(href='https://spark.apache.org/docs/latest/') Apache Spark &rarr;]
+            p #[a(href='https://www.arangodb.com/documentation/') ArangoDB &rarr;]
+            p #[a(href='https://github.com/andypetrella/spark-notebook/blob/master/details.md') Spark Notebook &rarr;]
+            p #[a(href='http://zeppelin.apache.org/') Zeppelin &rarr;]
+            
+
+        li.hero-list__item
+          img.hero-list__item__image(src="/assets/images/icons/docs-file-active.svg")
+          .hero-list__item__copy
+            h3.install-bullets-title DevOps
+            p Docs for DC/OS services around CI/CD and operations:
+            p #[a(href='https://jenkins.io/doc/') Jenkins &rarr;] 
+            p #[a(href='https://www.jfrog.com/confluence/display/RTF/Welcome+to+Artifactory') JFrog Artifactory &rarr;]
+            p #[a(href='https://help.github.com/') GitHub &rarr;]
+
+  .container
+    +footer
