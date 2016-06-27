@@ -82,7 +82,7 @@ For the full set of changes, please refer to the [Marathon Release Notes][9].
 
 *   **Authorization** - In this release we have perimeter security & auth, but not internal auth. Requests originating in the cluster - i.e. that don’t have an auth token issued by AdminRouter - are not subject to authorization. Example: Marathon-LB running on DC/OS will work as expected against a Marathon with Security Plugin enabled: It will see all apps despite not having authentication credentials.
 
- [1]: /docs/1.7/usage/services/
+ [1]: /docs/1.7/usage/managing-services/
  [3]: /docs/1.7/administration/monitoring/
  [5]: /docs/1.7/usage/service-discovery/virtual-ip-addresses/
  [6]: http://mesosphere.github.io/marathon/docs/persistent-volumes.html
