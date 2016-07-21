@@ -1,0 +1,47 @@
+extends ../layouts/base-whitefooter.jade
+
+block head
+  title DC/OS Releases
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      h1 DC/OS Demos
+
+  .container.demo
+    .container__content
+
+      .card-container
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/events/beijing.png)')
+            .card-content
+          .card-content
+            h3.card-title  Time Series DCOS Demo: Crime Buster!
+            .card__links
+              a(href='').cta.cta--text Link 1
+              a(href='').cta.cta--text Link 2
+
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/events/beijing.png)')
+            .card-content
+          .card-content
+            h3.card-title  IoT demo using Kafka and PrestoDB
+            .card__links
+              a(href='').cta.cta--text Link 1
+
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/events/beijing.png)')
+            .card-content
+          .card-content
+            h3.card-title  E-commerce app with analytics using Marathon
+            .card__links
+              a(href='').cta.cta--text Link 1
+              a(href='').cta.cta--text Link 2
+              a(href='').cta.cta--text Link 3
+
+
+  .container
+    +footer
