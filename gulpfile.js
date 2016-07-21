@@ -2,17 +2,23 @@
 
 const Metalsmith = require('metalsmith')
 const jade = require('metalsmith-jade')
+const sass = require('metalsmith-sass')
 const markdown = require('metalsmith-markdown')
 const layouts = require('metalsmith-layouts')
 const permalinks = require('metalsmith-permalinks')
+const babel = require('metalsmith-babel')
 const bourbon = require('node-bourbon')
 const path = require('path')
+const postcss = require('metalsmith-postcss')
 const autoprefixer = require('autoprefixer')
+const copy = require('metalsmith-copy')
 const each = require('metalsmith-each')
 const navigation = require('metalsmith-navigation')
 const modRewrite = require('connect-modrewrite')
+const uglify = require('metalsmith-uglify')
 const define = require('metalsmith-define')
 const collections = require('metalsmith-collections')
+const logger = require('metalsmith-logger')
 const writemetadata = require('metalsmith-writemetadata')
 const moment = require('moment')
 const tags = require('metalsmith-tags')
@@ -33,11 +39,8 @@ const docsVersions = ['1.7']
 const cssTimestamp = new Date().getTime()
 const paths = {
   build: './build',
-  blog: {
-    src: 'src/blog/*.md'
-  },
   styles: {
-    src: './src/styles/**/*.scss',
+    src: ['./src/styles/**/*.scss'],
     dest: './build/styles'
   },
   js: {
@@ -45,7 +48,6 @@ const paths = {
     dest: './build/scripts'
   },
   assets: {
-    src: './src/assets/**/*.*',
     dest: './build/assets'
   }
 }
@@ -104,9 +106,7 @@ let nav = navigation(navConfig, navSettings)
 // Gulp tasks
 //
 
-gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'javascript', 'styles'])
-
-gulp.task('serve', ['build'], () => {
+gulp.task('serve', ['build', 'build-docs', 'build-blog', 'copy-docs-images', 'copy', 'javascript', 'styles'], () => {
   browserSync.init({
     open: false,
     server: {
@@ -126,170 +126,149 @@ gulp.task('serve', ['build'], () => {
     }
   })
 
-  gulp.watch(['src/**/*.jade', 'src/*.md'], ['build-site'])
-  // gulp.watch('./dcos-docs/', ['build-docs', 'copy-docs-images']) // TODO: should we watch docs?
-  gulp.watch(paths.blog.src, ['build-blog'])
-  gulp.watch(paths.styles.src, ['styles'])
-  gulp.watch(paths.js.src, ['js-watch'])
-  gulp.watch(paths.assets.src, ['copy'])
-  gulp.watch(['./layouts', './mixins', './includes'], ['build'])
+  gulp.watch('./src/**/*.*', ['build', 'styles'])
 })
 
-function getDocsBuildTask (version) {
-  const name = `build-docs-${version}`
+gulp.task('build-docs', () => {
+  const version = '1.7' // TODO: build for each version
 
-  gulp.task(name, () => {
-    return gulp.src(`./dcos-docs/${version}/**/*.md`)
-      .pipe($.frontMatter().on('data', file => {
-        Object.assign(file, file.frontMatter)
-        delete file.frontMatter
-      }))
-      .pipe(
-        gulpsmith()
-          .use(addTimestampToMarkdownFiles)
-          .use(markdown({
-            smartypants: true,
-            gfm: true,
-            tables: true
-          }))
-          .use(nav)
-          .use(layouts({
-            pattern: '**/*.html',
-            engine: 'jade',
-            directory: path.join('layouts'),
-            default: 'docs.jade'
-          }))
-          .use(each(updatePaths))
-          .use(jade({
-            locals: { cssTimestamp },
-            pretty: true
-          }))
-          .use(reloadInMetalsmithPipeline)
-        )
-      .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
-  })
-
-  return name
-}
-
-function getDocsCopyTask (version) {
-  const name = `copy-docs-images-${version}`
-
-  gulp.task(name, () => {
-    return gulp.src(`./dcos-docs/${version}/**/*.{png,gif,jpg,jpeg}`)
-      .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
-  })
-
-  return name
-}
-
-gulp.task('build-blog', () => {
-  return gulp.src(paths.blog.src)
+  return gulp.src(`./dcos-docs/${version}/**/*.md`)
     .pipe($.frontMatter().on('data', file => {
       Object.assign(file, file.frontMatter)
       delete file.frontMatter
     }))
-    .pipe(
-      gulpsmith()
-        .use(addTimestampToMarkdownFiles)
-        .use(markdown({
-          smartypants: true,
-          gfm: true,
-          tables: true
-        }))
-        .use(jade({
-          locals: { cssTimestamp },
-          pretty: true
-        }))
-        .use(permalinks({
-          pattern: ':title',
-          date: 'YYYY',
-          linksets: [{
-            match: { collection: 'posts' },
-            pattern: 'blog/:date/:title'
-          }]
-        }))
-        .use(collections({
-          posts: {
-            pattern: '*.md',
-            sortBy: 'date',
-            reverse: true
-          }
-        }))
-        .use(addPropertiesToCollectionItems('posts', post => {
-          return Object.assign(post, {
-            formattedDate: moment(post.date).format('MMMM DD')
-          })
-        }))
-        .use(writemetadata({
-          collections: {
-            posts: {
-              output: {
-                path: 'blog/posts.json',
-                asObject: true
-              },
-              ignorekeys: ['contents', 'next', 'previous', 'stats', 'mode', 'lunr']
-            }
-          }
-        }))
-        .use(tags({
-          handle: 'category',
-          path: 'blog/category/:tag.html',
-          layout: '../layouts/blog-category.jade',
+    .pipe(gulpsmith()
+      .use(addTimestampToMarkdownFiles)
+      .use(markdown({
+        smartypants: true,
+        gfm: true,
+        tables: true
+      }))
+      .use(nav)
+      .use(layouts({
+        pattern: '**/*.html',
+        engine: 'jade',
+        directory: path.join('layouts'),
+        default: 'docs.jade'
+      }))
+      .use(each(updatePaths))
+      .use(jade({
+        locals: { cssTimestamp },
+        pretty: true
+      }))
+    )
+    .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
+})
+
+gulp.task('copy-docs-images', () => {
+  const version = '1.7' // TODO: build for each version
+
+  return gulp.src(`./dcos-docs/${version}/**/*.{png, gif, jpg, jpeg}`)
+    .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
+})
+
+gulp.task('build-blog', () => {
+  return gulp.src(['src/blog/*.md'])
+    .pipe($.frontMatter().on('data', file => {
+      Object.assign(file, file.frontMatter)
+      delete file.frontMatter
+    }))
+    .pipe(gulpsmith()
+      .use(addTimestampToMarkdownFiles)
+      .use(markdown({
+        smartypants: true,
+        gfm: true,
+        tables: true
+      }))
+      .use(jade({
+        locals: { cssTimestamp },
+        pretty: true
+      }))
+      .use(permalinks({
+        pattern: ':title',
+        date: 'YYYY',
+        linksets: [{
+          match: { collection: 'posts' },
+          pattern: 'blog/:date/:title'
+        }]
+      }))
+      .use(collections({
+        posts: {
+          pattern: '*.md',
           sortBy: 'date',
           reverse: true
-        }))
-        .use(mlunr({
-          indexPath: 'blog/search-index.json',
-          fields: {
-            contents: 2,
-            title: 10,
-            category: 5
+        }
+      }))
+      .use(addPropertiesToCollectionItems('posts', post => {
+        return Object.assign(post, {
+          formattedDate: moment(post.date).format('MMMM DD')
+        })
+      }))
+      .use(writemetadata({
+        collections: {
+          posts: {
+            output: {
+              path: 'blog/posts.json',
+              asObject: true
+            },
+            ignorekeys: ['contents', 'next', 'previous', 'stats', 'mode', 'lunr']
           }
-        }))
-        .use(define({
-          moment,
-          rootUrl: CONFIG.root_url
-        }))
-        .use(layouts({
-          pattern: '**/*.html',
-          engine: 'jade',
-          directory: path.join('layouts')
-        }))
-        .use(reloadInMetalsmithPipeline)
-      )
+        }
+      }))
+      .use(tags({
+        handle: 'category',
+        path: 'blog/category/:tag.html',
+        layout: '../layouts/blog-category.jade',
+        sortBy: 'date',
+        reverse: true
+      }))
+      .use(mlunr({
+        indexPath: 'blog/search-index.json',
+        fields: {
+          contents: 2,
+          title: 10,
+          category: 5
+        }
+      }))
+      .use(define({
+        moment,
+        rootUrl: CONFIG.root_url
+      }))
+      .use(layouts({
+        pattern: '**/*.html',
+        engine: 'jade',
+        directory: path.join('layouts')
+      })))
     .pipe(gulp.dest(paths.build))
 })
 
-gulp.task('build-site', () => {
-  return gulp.src(['src/**/*.jade', 'src/*.md'])
+gulp.task('build', () => {
+  return gulp.src(['src/**/*.jade', 'src/*.md', '!src/blog/*.md'])
     .pipe($.frontMatter().on('data', file => {
       Object.assign(file, file.frontMatter)
       delete file.frontMatter
     }))
-    .pipe(
-      gulpsmith()
-        .use(addTimestampToMarkdownFiles)
-        .use(markdown({
-          smartypants: true,
-          gfm: true,
-          tables: true
-        }))
-        .use(jade({
-          locals: { cssTimestamp },
-          pretty: true
-        }))
-        .use(define({
-          moment,
-          rootUrl: CONFIG.root_url
-        }))
-        .use(each(updatePaths))
-        .use(layouts({
-          pattern: '**/*.html',
-          engine: 'jade',
-          directory: path.join('layouts')
-        })))
-        .use(reloadInMetalsmithPipeline)
+    .pipe(gulpsmith()
+      .use(addTimestampToMarkdownFiles)
+      .use(markdown({
+        smartypants: true,
+        gfm: true,
+        tables: true
+      }))
+      .use(jade({
+        locals: { cssTimestamp },
+        pretty: true
+      }))
+      .use(define({
+        moment,
+        rootUrl: CONFIG.root_url
+      }))
+      .use(each(updatePaths))
+      .use(layouts({
+        pattern: '**/*.html',
+        engine: 'jade',
+        directory: path.join('layouts')
+      })))
     .pipe(gulp.dest(paths.build))
 })
 
@@ -300,13 +279,14 @@ gulp.task('javascript', () => {
       only: './src/scripts/**'
     }))
     .pipe($.concat('main.min.js'))
-    .pipe($.if(isProd(), $.uglify()))
     .pipe(gulp.dest(paths.js.dest))
 })
 
-gulp.task('js-watch', ['javascript'], reload)
+gulp.task('copy', () => {
+  return gulp.src(['./src/assets/**/*.*'])
+    .pipe(gulp.dest(paths.assets.dest))
+})
 
-// TODO: minify in production
 gulp.task('styles', () => {
   const processors = [
     autoprefixer({ browsers: ['last 3 versions'] })
@@ -321,25 +301,12 @@ gulp.task('styles', () => {
       ].concat(bourbon.includePaths)
     }).on('error', $.sass.logError))
     .pipe($.postcss(processors))
-    .pipe($.if(isProd(), $.cleanCss()))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream())
 })
 
-gulp.task('copy', () => {
-  return gulp.src(paths.assets.src)
-    .pipe(gulp.dest(paths.assets.dest))
-})
 
 // Utility functions
-
-const isDev = () => process.env.NODE_ENV === 'development'
-const isProd = () => process.env.NODE_ENV === 'production'
-
-const reloadInMetalsmithPipeline = (a, b, done) => {
-  reload()
-  done()
-}
 
 function updatePaths (file, filename) {
   if (path.basename(filename) === 'index.html') { return filename }
