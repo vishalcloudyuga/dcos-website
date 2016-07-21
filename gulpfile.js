@@ -17,6 +17,7 @@ const writemetadata = require('metalsmith-writemetadata')
 const moment = require('moment')
 const tags = require('metalsmith-tags')
 const mlunr = require('metalsmith-lunr')
+const feed = require('metalsmith-feed')
 const gulpsmith = require('gulpsmith')
 const gulp = require('gulp')
 const browserSync = require('browser-sync').create()
@@ -200,6 +201,11 @@ gulp.task('build-blog', () => {
     }))
     .pipe(
       gulpsmith()
+        .metadata({
+          site: {
+            url: CONFIG.root_url
+          }
+        })
         .use(addTimestampToMarkdownFiles)
         .use(markdown({
           smartypants: true,
@@ -260,6 +266,7 @@ gulp.task('build-blog', () => {
           moment,
           rootUrl: CONFIG.root_url
         }))
+        .use(feed({ collection: 'posts' }))
         .use(layouts({
           pattern: '**/*.html',
           engine: 'jade',
