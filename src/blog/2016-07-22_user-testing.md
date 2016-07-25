@@ -1,5 +1,5 @@
 ---
-title: Help us improve DC/OS will regular usability testing
+title: Help us improve DC/OS with regular usability testing
 date: 2016-07-22
 author: Lee Munroe, Mesosphere
 category: ux
