@@ -28,6 +28,7 @@
     "marked": "^0.3.5",
     "metalsmith": "^2.1.0",
     "metalsmith-babel": "^4.0.0",
+    "metalsmith-browser-sync": "davidvanleeuwen/metalsmith-browser-sync",
     "metalsmith-collections": "git+https://github.com/spacedawwwg/metalsmith-collections.git",
     "metalsmith-copy": "^0.2.1",
     "metalsmith-define": "^2.0.1",
