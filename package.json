@@ -4,7 +4,7 @@
   "description": "Website for DC/OS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=development gulp test",
     "start": "NODE_ENV=development gulp serve",
     "build": "NODE_ENV=production gulp build",
     "clean": "rm -r ./build",

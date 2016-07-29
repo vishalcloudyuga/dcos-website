@@ -135,6 +135,11 @@ gulp.task('serve', ['build'], () => {
   gulp.watch(['./layouts', './mixins', './includes'], ['build'])
 })
 
+gulp.task('test', ['serve'], () => {
+  process.exit(0);
+})
+
+
 function getDocsBuildTask (version) {
   const name = `build-docs-${version}`
 
