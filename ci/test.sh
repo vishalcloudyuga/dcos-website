@@ -10,4 +10,4 @@ set -x
 
 npm install
 npm rebuild node-sass
-CI=true npm start
+CI=true npm test
