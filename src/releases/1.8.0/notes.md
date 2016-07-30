@@ -40,6 +40,8 @@ The Apache Mesos kernel is now at [version 1.0.0](https://github.com/apache/meso
 
 # <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
 
+- Docker version 1.12.x is not supported.
+
 - DCOS-8208 - ZK credentials not configurable in CF templates
 
 - **Overlay Network** - No API informs the service that an agent has exhausted its IP address range. If the agent runs out of addresses, the agent will send a `TASK_FAILED` message to the service. The service should interpret this message as an indication that the agent has exhausted its IP address range.
