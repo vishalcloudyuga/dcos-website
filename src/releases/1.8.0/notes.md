@@ -2,9 +2,9 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 # Container Orchestration <!-- OSS -->
 
-Marathon is not just one container orchestrator out of many that we support; it is our default way to run things on DC/OS, supporting the full range of DC/OS features. In this release we'll have a major change in the Services tab in DC/OS. The native DC/OS Marathon instance UI is now fully integrated with the DC/OS UI. You can access it from the [**Services**](/1.8/usage/webinterface/) tab on the dashboard. The new fully integrated UI shows no longer a list of frameworks, but shows an embedded Marathon. This means all your services and applications are in one place.
+Marathon is not just one container orchestrator out of many that we support; it is our default way to run things on DC/OS, supporting the full range of DC/OS features. In this release we'll have a major change in the Services tab in DC/OS. The native DC/OS Marathon instance UI is now fully integrated with the DC/OS UI. You can access it from the [**Services**](/docs/1.8/usage/webinterface/) tab on the dashboard. The new fully integrated UI shows no longer a list of frameworks, but shows an embedded Marathon. This means all your services and applications are in one place.
 
-There is now built-in support of running scheduled jobs. We created a new Apache Mesos framework called [Metronome](https://github.com/dcos/metronome). Metronome is integrated natively with DC/OS and is available from the DC/OS UI [**Jobs**](/1.8/usage/webinterface/) tab on the dashboard. You can create and administer scheduled jobs directly from the Job tab. Similar to the Service tab for long-running applications, you can manage all of your Jobs from one centralized place. You can set up jobs with a scheduler by using the cron format.
+There is now built-in support of running scheduled jobs. We created a new Apache Mesos framework called [Metronome](https://github.com/dcos/metronome). Metronome is integrated natively with DC/OS and is available from the DC/OS UI [**Jobs**](/docs/1.8/usage/webinterface/) tab on the dashboard. You can create and administer scheduled jobs directly from the Job tab. Similar to the Service tab for long-running applications, you can manage all of your Jobs from one centralized place. You can set up jobs with a scheduler by using the cron format.
 
 Additionally, you can specify attributes like the time zone or a starting deadline. We also have a JSON view mode which allows you to specify everything in one file to easily copy and paste it. We will constantly improve and extend the given functionality. Metronome will likely replace Chronos as our DC/OS job framework. If you still need Chronos, you can get it from the DC/OS [Universe](https://github.com/mesosphere/universe).
 
@@ -21,7 +21,7 @@ DC/OS comes built-in with support Virtual Networks leveraging Container Network 
 
 DC/OS now supports the creation of multiple virtual networks at install time and associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS agent nodes to ensure that traffic across Virtual Network subnets is isolated.
 
-For more information, see the [documentation](/1.8/administration/overlay-networks/).
+For more information, see the [documentation](/docs/1.8/administration/overlay-networks/).
 
 <!-- DNS Based Distributed LB Service Addresses -->
 <!-- Workload Isolation and Management -->
@@ -29,7 +29,7 @@ For more information, see the [documentation](/1.8/administration/overlay-networ
 
 # CLI <!-- OSS -->
 
-Installing the DC/OS CLI should be easy as possible now. We’ve replaced the install script with a simple binary CLI. For more information, see the [documentation](/1.8/usage/cli/install/).
+Installing the DC/OS CLI should be easy as possible now. We’ve replaced the install script with a simple binary CLI. For more information, see the [documentation](/docs/1.8/usage/cli/install/).
 
 # <a name="mesos"></a>DC/OS Mesos Update <!-- OSS -->
 

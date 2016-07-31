@@ -3,9 +3,17 @@ include ../mixins/footer-docs.jade
 include ../mixins/head.jade
 
 -
-  var findPath = function(childPath) { return locals.nav_path.split('/').find(function(item) { return item === childPath}) };
+  var findPath = function(childPath) {
+    return locals.nav_path.split('/').find(function(item) {
+      return item === childPath
+    });
+  };
 
-  var routeForIndexPath = function (child) { return child.children.find(function(n) { return n.name === 'index.html'}) ? `/docs/latest/${child.path}/` : '#' }
+  var routeForIndexPath = function (child) {
+    return child.children.find(function(n) {
+      return n.name === 'index.html'
+    }) ? `/docs/${docsVersion}/${child.path}/` : '#'
+  }
 
   var nameForIndexPath = function (child) {
     var result = child.children.find(function(n) { return n.name === 'index.html'});
@@ -64,7 +72,7 @@ mixin renderMenu(tree)
         - var isClosed = (locals.nav_path !== doc.path && doc.type === 'dir' && !findPath(doc.name)) ? 'docs-nav__item--closed' : '';
         li.docs-nav__item(class=liType class=isClosed)
           if(doc.type === 'file')
-            a.docs-nav__item__title(href='/docs/latest/#{stripExtname(doc.path)}' class=isActive)
+            a.docs-nav__item__title(href='/docs/#{docsVersion}/#{stripExtname(doc.path)}' class=isActive)
               +icon(doc)
               +navItem(doc)
           else

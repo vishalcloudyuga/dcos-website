@@ -29,7 +29,7 @@ const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.jso
 // general build settings
 //
 
-const docsVersions = ['1.7']
+const docsVersions = ['1.7', '1.8']
 const cssTimestamp = new Date().getTime()
 const paths = {
   build: './build',
@@ -76,6 +76,7 @@ const navConfig = {
 }
 
 let createDocsJSON = function (obj) {
+
   var newObj = {
     name: obj.type,
     path: obj.path
@@ -127,7 +128,7 @@ gulp.task('serve', ['build'], () => {
   })
 
   gulp.watch(['src/**/*.jade', 'src/*.md'], ['build-site'])
-  // gulp.watch('./dcos-docs/', ['build-docs', 'copy-docs-images']) // TODO: should we watch docs?
+  gulp.watch('./dcos-docs/', ['build-docs', 'copy-docs-images']) // TODO: should we watch docs?
   gulp.watch(paths.blog.src, ['build-blog'])
   gulp.watch(paths.styles.src, ['styles'])
   gulp.watch(paths.js.src, ['js-watch'])
@@ -151,6 +152,7 @@ function getDocsBuildTask (version) {
       }))
       .pipe(
         gulpsmith()
+          .metadata({ docsVersion: version })
           .use(addTimestampToMarkdownFiles)
           .use(markdown({
             smartypants: true,
@@ -167,6 +169,7 @@ function getDocsBuildTask (version) {
           .use(each(updatePaths))
           .use(jade({
             locals: { cssTimestamp },
+            useMetadata: true,
             pretty: true
           }))
           .use(reloadInMetalsmithPipeline)
@@ -369,7 +372,7 @@ function addPropertiesToCollectionItems (collectionName, callback) {
 function addTimestampToMarkdownFiles (files, metalsmith, callback) {
   Object.keys(files).forEach(key => {
     if (key.split('.').pop() !== 'md') return
-    Object.assign(files[key], { cssTimestamp })
+    Object.assign(files[key], { cssTimestamp });
   })
   callback()
 }
