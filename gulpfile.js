@@ -29,6 +29,7 @@ const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.jso
 // general build settings
 //
 
+const currentVersion = '1.7'
 const docsVersions = ['1.7', '1.8']
 const cssTimestamp = new Date().getTime()
 const paths = {
@@ -114,7 +115,7 @@ gulp.task('serve', ['build'], () => {
       baseDir: paths.build,
       middleware: [
         modRewrite([
-          '^/docs/latest/(.*) /docs/' + docsVersions.slice(-1).pop() + '/$1'
+          '^/docs/latest/(.*) /docs/' + currentVersion + '/$1'
         ]),
         function (req, res, next) {
           var file = `./build${req.originalUrl}.html`
