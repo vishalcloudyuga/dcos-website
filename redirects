@@ -27,3 +27,5 @@
 /docs/1.7/usage/services/uninstall/index.html /docs/1.7/usage/managing-services/uninstall/
 /docs/1.7/usage/services/repo/index.html /docs/1.7/usage/repo/
 /docs/1.7/usage/services/uninstall/#framework-cleaner /docs/1.7/usage/managing-services/uninstall/#framework-cleaner
+/docs/1.8/administration/opt-out/index.html /docs/1.8/administration/installing/opt-out/
+/docs/1.8/administration/telemetry/index.html /docs/1.8/overview/telemetry/
