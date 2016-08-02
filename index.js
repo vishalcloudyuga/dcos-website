@@ -27,7 +27,7 @@ const mlunr         = require('metalsmith-lunr')
 const CONFIG        = require('./env.json')[process.env.NODE_ENV] || require('./env.json')['production']
 
 // --- general build settings --- //
-const docsVersions = ['1.7'];
+const docsVersions = ['1.7', '1.8'];
 const cssTimestamp = new Date().getTime()
 
 const updatePaths = function(file, filename) {
