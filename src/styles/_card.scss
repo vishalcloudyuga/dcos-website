@@ -122,6 +122,19 @@ a.card:hover {
   height: 66px;
 }
 
+.card__links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 20px;
+  align-self: flex-end;
+}
+
+.card__links a {
+  display: block;
+  flex: 1;
+}
+
 // Release channel styling
 .release-channels .card {
   position: relative;
