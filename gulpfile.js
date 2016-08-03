@@ -186,7 +186,7 @@ function getDocsCopyTask (version) {
   const name = `copy-docs-images-${version}`
 
   gulp.task(name, () => {
-    return gulp.src(`./dcos-docs/${version}/**/*.{png,gif,jpg,jpeg}`)
+    return gulp.src(`./dcos-docs/${version}/**/*.{png,gif,jpg,jpeg,json}`)
       .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
   })
 
