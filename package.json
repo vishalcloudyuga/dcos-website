@@ -4,8 +4,8 @@
   "description": "Website for DC/OS",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=development gulp test",
-    "start": "NODE_ENV=development gulp serve",
+    "test": "NODE_ENV=production gulp test",
+    "start": "NODE_ENV=production gulp serve",
     "build": "NODE_ENV=production gulp build",
     "clean": "rm -r ./build",
     "eslint": "eslint"
