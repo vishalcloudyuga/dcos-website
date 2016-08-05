@@ -38,8 +38,11 @@ Installing the DC/OS CLI should be easy as possible now. We’ve replaced the in
 The Apache Mesos kernel is now at [version 1.0.0](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
 
 
-# <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
+# <a name="known-issues"></a>Known Issues and Limitations 
 
-- Docker version 1.12.x is not supported.
+- DCOS-270<!-- dcosjira --> - Docker version 1.12.x is not supported.
+- DCOS-9095 - **Overlay Network** - No API informs the service that an agent has exhausted its IP address range. If the agent runs out of addresses, the agent will send a `TASK_FAILED` message to the service. The service should interpret this message as an indication that the agent has exhausted its IP address range.
+- DCOS-XXXX -<!-- related to DCOS-9007, but need actual ticket --> Advanced AWS templates are coming soon. 
+- DCOS-8975 - Port mapping for virtual networks is not displayed correctly. 
+- DCOS-9045 - Pre-flight Check for agents nodes fails if port 53 is not available.
 
-- **Overlay Network** - No API informs the service that an agent has exhausted its IP address range. If the agent runs out of addresses, the agent will send a `TASK_FAILED` message to the service. The service should interpret this message as an indication that the agent has exhausted its IP address range.
