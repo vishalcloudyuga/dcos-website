@@ -1,5 +1,3 @@
-**This early access release is recommended for evaluation and testing purposes only.**
-
 The release notes provide a list of useful topics and links for DC/OS.
 
 # What's New
