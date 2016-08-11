@@ -24,7 +24,7 @@ For more information, see the [documentation](/docs/1.8/usage/jobs/).
 #### IP per Container with VxLAN based Virtual Networks
 DC/OS comes with built-in support for Virtual Networks leveraging the Container Network Interface (CNI) standard, and one default Virtual Network named `dcos`. Any container that attaches to a Virtual Network receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind to the ports in their existing app configuration. Now, with dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
 
-For more information, see the [documentation](/docs/1.8/administration/virtual-networks/ip-per-container/).
+For more information, see the [documentation](/docs/1.8/administration/overlay-networks/).
 
 #### DNS Based Service Addresses for Load Balanced Virtual IPs
 DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation.
@@ -61,12 +61,12 @@ Easy to deploy offline Universe. For more information, see the [documentation](/
 #### HDFS Service
 DC/OS Universe now has a new DC/OS HDFS Service. This new DC/OS HDFS Service is an entirely new implementation sharing no code with the previous DC/OS HDFS Services. DC/OS HDFS Service can be deployed with a single command. Multiple instances of the DC/OS HDFS Service can be deployed to a single DC/OS cluster. Configuration of a DC/OS HDFS Service can updated at runtime without service interruption. DC/OS HDFS Service instances reserve all resources including CPU, Memory, Disk and Network Ports.
 
-For more information, see the [documentation](/docs/1.8/usage/service-guides/hdfs/).
+For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/hdfs/).
 
 #### Kafka Service
 DC/OS Universe has an updated DC/OS Kafka Service. The updated DC/OS Kafka Service now supports configuring ZK service for Apache Kafka.
 
-For more information, see the [documentation](/docs/1.8/usage/service-guides/kafka/).
+For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/kafka/).
 
 #### Confluent Kafka Service
 DC/OS Universe has a DC/OS Confluent Platform Service that is based on the DC/OS Kafka Service. Confluent offers support for the DC/OS Confluent Platform Service on DC/OS.
@@ -76,7 +76,7 @@ For more information, see the Universe [documentation](https://github.com/mesosp
 #### Cassandra Service
 DC/OS Universe has an updated DC/OS Cassandra Service. The updated DC/OS Cassandra Service now supports multi-datacenter Cassandra ring topologies, and backup and restore with Azure Storage.
 
-For more information, see the [documentation](/docs/1.8/usage/service-guides/cassandra/).
+For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/cassandra/).
 
 #### Datastax Enterprise (DSE) Service
 DC/OS Universe has a DC/OS DataStax Enterprise (DSE) Service that is based on the DC/OS Cassandra Service. DataStax offers support for the DC/OS DataStax Enterprise Service on DC/OS.
@@ -86,12 +86,12 @@ For more information, see the Universe [documentation](https://github.com/mesosp
 #### Spark Service
 DC/OS Universe has an updated version of Apache Spark based on 1.6.2.  In addition to all the of features of Apache Spark 1.6.2, the DC/OS Spark Service supports Kerberos and SSL with secure HDFS clusters. Latest stable Spark with coarse-grained scheduler.
 
-For more information, see the [documentation](/docs/1.8/usage/service-guides/spark/).
+For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/spark/).
 
 ## Developer Agility
 <!-- - GitLab Package. -->
 - Artifactory Package. For more information, see the [documentation](https://github.com/JFrogDev/artifactory-dcos).
-- Updated Jenkins packages. For more information, see the [documentation](/docs/1.8/usage/service-guides/jenkins/).
+- Updated Jenkins packages. For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/jenkins/).
 
 ## Improved UI & CLI improvements
 - See the CLI [release notes](https://github.com/dcos/dcos-cli/releases).
