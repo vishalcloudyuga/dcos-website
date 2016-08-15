@@ -39,6 +39,10 @@ block content
         form.search-container
           input(type="search").search
 
+        .rss-button-container
+          a(href='/rss.xml').cta.cta--button.rss-button
+            span.rss-icon
+
         select(name="Categories").categories Categories
           option(disabled, selected, value="") Select category
           option(value="all") All
