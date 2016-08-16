@@ -130,12 +130,12 @@ gulp.task('serve', ['build'], () => {
   })
 
   gulp.watch(['src/**/*.jade', 'src/*.md'], ['build-site'])
-  gulp.watch('./dcos-docs/', ['build-docs', 'copy-docs-images']) // TODO: should we watch docs?
+  // gulp.watch('./dcos-docs/', ['build-docs', 'copy-docs-images']) // TODO: should we watch docs?
   gulp.watch(paths.blog.src, ['build-blog'])
   gulp.watch(paths.styles.src, ['styles'])
   gulp.watch(paths.js.src, ['js-watch'])
   gulp.watch(paths.assets.src, ['copy'])
-  gulp.watch(['./layouts', './mixins', './includes'], ['build'])
+  gulp.watch(['./layouts/**/*.*', './mixins/**/*.*', './includes/**/*.*'], ['build-site', 'build-blog'])
 })
 
 gulp.task('test', ['serve'], () => {
