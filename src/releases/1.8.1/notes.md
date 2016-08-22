@@ -29,7 +29,7 @@ For more information, see the [documentation](/docs/1.8/administration/overlay-n
 #### DNS Based Service Addresses for Load Balanced Virtual IPs
 DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation.
 
-For more information, see the [documentation](/docs/1.8/usage/service-discovery/load-balancing-vips/name-based-vips/).
+For more information, see the [documentation](/docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/).
 
 #### Network Isolation of Virtual Network Subnets
 DC/OS now supports the creation of multiple virtual networks at install time and will associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS agent nodes to ensure that traffic across Virtual Network subnets is isolated.
