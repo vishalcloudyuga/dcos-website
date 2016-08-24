@@ -1,5 +1,6 @@
 'use strict'
 
+const fs = require('fs')
 const Metalsmith = require('metalsmith')
 const jade = require('metalsmith-jade')
 const markdown = require('metalsmith-markdown')
@@ -20,6 +21,9 @@ const mlunr = require('metalsmith-lunr')
 const feed = require('metalsmith-feed')
 const gulpsmith = require('gulpsmith')
 const gulp = require('gulp')
+const watch = require('gulp-watch')
+const plumber = require('gulp-plumber')
+const batch = require('gulp-batch')
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
 const gulpLoadPlugins = require('gulp-load-plugins')
@@ -129,13 +133,26 @@ gulp.task('serve', ['build'], () => {
     }
   })
 
-  gulp.watch(['src/**/*.jade', 'src/*.md'], ['build-site'])
-  gulp.watch('./dcos-docs/', ['build-docs', 'copy-docs-images']) // TODO: should we watch docs?
-  gulp.watch(paths.blog.src, ['build-blog'])
-  gulp.watch(paths.styles.src, ['styles'])
-  gulp.watch(paths.js.src, ['js-watch'])
-  gulp.watch(paths.assets.src, ['copy'])
-  gulp.watch(['./layouts', './mixins', './includes'], ['build'])
+  watch(['./src/**/*.jade', './src/*.md', './src/events.json'],
+    batch(function(events, done) { gulp.start("build-site", done) }))
+  watch(paths.blog.src,
+    batch(function(events, done) { gulp.start("build-blog", done) }))
+  watch(paths.styles.src,
+    batch(function(events, done) { gulp.start("styles", done) }))
+  watch(paths.js.src,
+    batch(function(events, done) { gulp.start("js-watch", done) }))
+  watch(paths.assets.src,
+    batch(function(events, done) { gulp.start("copy", done) }))
+  watch(['./layouts/**/*.*', './mixins/**/*.*', './includes/**/*.*'],
+    batch(function(events, done) {
+      gulp.start(['build-site', 'build-blog'], done)
+    }))
+
+  docsVersions.forEach(function(version) {
+    watch(`./dcos-docs/${version}/**/*.md`, batch(function(events, done) {
+      gulp.start(`build-docs-${version}`, done)
+    }))
+  })
 })
 
 gulp.task('test', ['serve'], () => {
@@ -145,9 +162,10 @@ gulp.task('test', ['serve'], () => {
 
 function getDocsBuildTask (version) {
   const name = `build-docs-${version}`
+  const src = `./dcos-docs/${version}/**/*.md`
 
   gulp.task(name, () => {
-    return gulp.src(`./dcos-docs/${version}/**/*.md`)
+    return gulp.src(src)
       .pipe($.frontMatter().on('data', file => {
         Object.assign(file, file.frontMatter)
         delete file.frontMatter
@@ -292,7 +310,7 @@ gulp.task('build-site', () => {
           tables: true
         }))
         .use(jade({
-          locals: { cssTimestamp },
+          locals: { cssTimestamp, events: addDateProps(filterPastEvents(JSON.parse(fs.readFileSync('./src/events.json', 'utf8')))) },
           pretty: true
         }))
         .use(define({
@@ -383,4 +401,20 @@ function addTimestampToMarkdownFiles (files, metalsmith, callback) {
     Object.assign(files[key], { cssTimestamp });
   })
   callback()
+}
+
+
+const filterPastEvents = eventsArr => {
+  const today = moment()
+  return eventsArr.filter(event => moment(event.date).isAfter(today))
+}
+
+const addDateProps = eventsArr => {
+  return eventsArr.map(event => {
+    const date = moment(event.date)
+    return Object.assign({}, event, {
+      day: date.format('D'),
+      month: date.format('MMM')
+    })
+  })
 }
