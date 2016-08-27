@@ -110,9 +110,37 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
 - MARATHON-956 - Improved Marathon performance to prevent occurance of "futures timed out" errors
 
 
-# <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
+## <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
 
 - DCOS-270 - Docker version 1.12.x is not supported.
 - DCOS-8975 - Port mapping for virtual networks is not displayed correctly. <!-- OSS -->
 - DCOS-9007 - Advanced AWS templates are coming soon. <!-- OSS -->
 - DCOS-9045 - Pre-flight Check for agents nodes fails if port 53 is not available. <!-- OSS -->
+
+# <a name="minor"></a>Minor releases
+
+## 1.8.2 - August 25, 2016
+
+Issues fixed:
+
+- Fix named VIPS with 2 or more ports in use
+- Fix `dcos-adminrouter-reload.service`
+- Fix 3dt checking of timer units which exit non-zero (found the `dcos-adminrouter-reload` bug)
+
+New features and changes:
+
+- Marathon [1.3.0-RC5](https://github.com/mesosphere/marathon/releases)
+- CentOS 7 AMI builder scripts
+- Updated [Cosmos](https://github.com/dcos/cosmos) API for DC/OS services
+- Added a flag to the custom installer, `--cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/docs/1.8/administration/installing/custom/cli/).
+- Improved handling of `/etc/resolv.conf` around systemd-networkd
+- Moved REX-Ray out of the agent advertised port range
+- The preflight port check is different for masters and agents
+- Removed SPDY and HTTP/2 from admin router (the nginx and OpenResty is broken)
+- Always enable EBS optimization for AWS clusters (EbsOptimized)
+- Fold `dcos-vol-discovery-{priv,pub}-agent.service` into the appropriate `dcos-mesos-slave` service, making it easier to change the resources on a host and reset the agent
+- Marathon and Metronome run as non-root
+- Switch to `/etc/os-release` for OS Detection
+- Switch to [argparse's](https://docs.python.org/3/library/argparse.html) default help for `dcos_generate_config.sh`
+- General internal code cleanup and technical debt fixes
+
