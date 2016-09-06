@@ -107,15 +107,13 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
 - DCOS-8370 - Apps should not be able to share the same service port on a single host
 - DCOS-8730 - Admin Router does not respect ports provided by external proxy
 - MARATHON-888 - Improved handled of orphaned containers after master failover
-- MARATHON-956 - Improved Marathon performance to prevent occurance of "futures timed out" errors
+- MARATHON-956 - Improved Marathon performance to prevent occurrence of "futures timed out" errors
 
 
 ## <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
 
 - DCOS-270 - Docker version 1.12.x is not supported.
 - DCOS-8975 - Port mapping for virtual networks is not displayed correctly. <!-- OSS -->
-- DCOS-9007 - Advanced AWS templates are coming soon. <!-- OSS -->
-- DCOS-9045 - Pre-flight Check for agents nodes fails if port 53 is not available. <!-- OSS -->
 
 # <a name="minor"></a>Minor releases
 
