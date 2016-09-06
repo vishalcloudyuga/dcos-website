@@ -123,10 +123,10 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
 
 Issues fixed:
 
-- DCOS-326 - Azure downloads URL is fixed.
 - Bug fixes to the [mesos-overlay-modules](https://github.com/dcos/mesos-overlay-modules).
 - Bug fixes to the Navstar component (`dcos-navstar.service`).
 - [DCOS-321](https://dcosjira.atlassian.net/browse/DCOS-321) - Bug fixes to configuring OAuth in the AWS advanced templates.
+- DCOS-326 - Azure downloads URL is fixed.
 
 New features and changes:
 
