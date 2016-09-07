@@ -128,7 +128,7 @@ Issues fixed:
 
 New features and changes:
 
-- You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/aws-custom).
+- You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). <!-- For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/aws-custom). -->
 - New version of the Jobs component ([Metronome 0.1.9](https://github.com/dcos/metronome)).
 - To clarify the location of the installed files, the DC/OS installer refers to `genconf/` instead of `/genconf/`.
 - CentOS AMIs are updated to include a fix for a Docker 1.11.2 bug, which caused Docker to not start.
