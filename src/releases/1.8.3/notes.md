@@ -122,7 +122,7 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
 Issues fixed:
 
 - Bug fixes to the [mesos-overlay-modules](https://github.com/dcos/mesos-overlay-modules).
-- Bug fixes to the Navstar component (`dcos-navstar.service`).
+- Bug fixes to the [Navstar component](https://github.com/dcos/navstar).
 - [DCOS-321](https://dcosjira.atlassian.net/browse/DCOS-321) - Bug fixes to configuring OAuth in the AWS advanced templates.
 - [DCOS-326](https://dcosjira.atlassian.net/browse/DCOS-326) - Azure downloads URL is fixed.
 
@@ -142,10 +142,6 @@ New features and changes:
 - `gen_resolvconf.py` will attempt to rename`resolv.conf`, but if that fails it will fall back to writing directly.
 - If you have an existing SSH connection to a master, you can quickly add a new user to your cluster with the `dcos_add_user.py` script. Just run `sudo -i /opt/mesosphere/bin/dcos_add_user.py <password>`. For more information see PR [609](https://github.com/dcos/dcos/pull/609).
 
-
-## Known Issues and Limitations
-
-- DCOS-9610 - CLI: add cmd for starting SSO in browser, wait for auth token to be pasted.
 
 ## <a name="1-8-2"></a>1.8.2 - August 25, 2016
 
