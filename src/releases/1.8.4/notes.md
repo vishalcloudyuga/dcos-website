@@ -31,7 +31,7 @@ The Mesos universal containerizer offers the following advantages:
 
 **Note**: This universal containerizer is in the experimental phase. We encourage you to try it out and [let us know what you think](https://dcos.io/community/).
 
-For more information, see the [documentation](1.8/usage/containerizers/).
+For more information, see the [documentation](/docs/1.8/usage/containerizers/).
 
 ## Networking Services
 
