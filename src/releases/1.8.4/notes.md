@@ -19,6 +19,20 @@ Additionally, you can specify attributes like the time zone or a starting deadli
 
 For more information, see the [documentation](/docs/1.8/usage/jobs/).
 
+## Universal Containerizer
+The universal containerizer extends the Mesos containerizer to support provisioning Docker and AppC container images. This means that you can use both the Mesos containerizer and other container image types in DC/OS. While other containerizers still play well with DC/OS, the universal containerizer does not depend upon other container technologies and can therefore take advantage of more Mesos features.
+
+The Mesos universal containerizer offers the following advantages:
+
+* **Removes your dependency on the Docker daemon**: With previous versions of Docker, if the Docker daemon was not responsive, a restart to the daemon caused all containers to stop on the host. In addition, Docker must be installed on each of your agent nodes in order to use the Docker containerizer. This means that in order to use the Docker containerizer you need to upgrade Docker on the agent nodes each time a new version of Docker comes out.
+* The universal containerizer is more stable and allows deployment at scale.
+* The universal containerizer offers features not available in the Docker containerizer, such as GPU and CNI support.
+* The universal containerizer allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation and more.
+
+**Note**: This universal containerizer is in the experimental phase. We encourage you to try it out and [let us know what you think](https://dcos.io/community/).
+
+For more information, see the [documentation](1.8/usage/containerizers/).
+
 ## Networking Services
 
 #### IP per Container with VxLAN based Virtual Networks
