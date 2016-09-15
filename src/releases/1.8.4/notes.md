@@ -134,7 +134,6 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 - DCOS-9162 - Enabled Kill and Scale for locked services.
 
 ### Known issues and limitations
-- DCOS-9782 - Exhibitor fails to start after config update during 1.7 to 1.8 upgrade.
 - DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
 
 ## <a name="1-8-3"></a>1.8.3 - September 6, 2016
