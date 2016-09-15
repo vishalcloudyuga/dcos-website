@@ -133,6 +133,9 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 - DCOS-9191 - Added DNS for discoverable services to the UI.
 - DCOS-9162 - Enabled Kill and Scale for locked services.
 
+### Known issues and limitations
+- DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
+
 ## <a name="1-8-3"></a>1.8.3 - September 6, 2016
 
 ### New and changed features
@@ -200,7 +203,7 @@ Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
 - MARATHON-888 - Improved handled of orphaned containers after master failover.
 - MARATHON-956 - Improved Marathon performance to prevent occurrence of "futures timed out" errors.
 
-## <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
+## <a name="known-issues"></a>Known issues and limitations
 
 - DCOS-270 - Docker version 1.12.x is not supported.
 - DCOS-8975 - Port mapping for virtual networks is not displayed correctly. <!-- OSS -->
