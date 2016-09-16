@@ -434,6 +434,7 @@
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     vertical-align: text-top;
+    word-break: break-all;
 
     &:not(.hljs) {
       color: $heliotrope;
