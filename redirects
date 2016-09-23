@@ -28,6 +28,7 @@
 /docs/1.7/usage/services/repo/index.html /docs/1.7/usage/repo/
 /docs/1.7/usage/services/uninstall/#framework-cleaner /docs/1.7/usage/managing-services/uninstall/#framework-cleaner
 /docs/1.8/administration/opt-out/index.html /docs/1.8/administration/installing/opt-out/
+/docs/1.8/administration/sshcluster/index.html /docs/1.8/administration/access-node/sshcluster/
 /docs/1.8/administration/telemetry/index.html /docs/1.8/overview/telemetry/
 /blog/2016/dc-os-1-8-is-now-available/index.html /blog/2016/dc-os-1-8-early-access/
 /docs/1.8/administration/installing/custom/create-public-agent/index.html /docs/1.8/administration/installing/custom/convert-agent-type/
@@ -35,3 +36,7 @@
 /docs/1.7/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/index.html /docs/1.7/usage/service-discovery/virtual-ip-addresses/
 /docs/1.8/usage/service-discovery/virtual-ip-addresses/index.html /docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/
 /docs/1.7/usage/jobs/getting-started/index.html /docs/1.8/usage/jobs/getting-started/
+/docs/1.8/administration/overlay-networks/index.html docs/1.8/administration/virtual-networks/
+/docs/1.8/administration/overlay-networks/ip-per-container/index.html docs/1.8/administration/virtual-networks/ip-per-container/
+/docs/1.8/administration/overlay-networks/ip-per-container/isolation/index.html /docs/1.8/administration/virtual-networks/ip-per-container/isolation/
+/docs/1.8/usage/service-discovery/load-balancing-vips/overlay-networks/index.html /docs/1.8/usage/service-discovery/load-balancing-vips/virtual-networks/
