@@ -19,7 +19,7 @@ I was indebted to this community and, I wanted to give back by helping developer
 
 My name is Ravi Yadav and I have joined the Partner Engineering / Developer Advocacy crew at Mesosphere in San Francisco. I cherish spending my time with the members of the developer community and I look forward to doing that with members of the [DC/OS community][dcos-community].
 
-I want to open up a two way street here. Not only do I want to use the relevant opportunities to educate and inspire developers on new features in DC/OS and best practices on writing services for it, I also want to use this opportunity to listen to all of you. We have multiple  channels available both online and offline. For online, we have the [DC/OS Slack group][slack], [mailing list][mail], weekly office hours and  we are also listening on [Twitter][twitter] / HN / [Reddit][reddit] / [Stack Overflow][stack-overflow]. In the offline world we run and work with several [Meetup][meetup] groups and [conferences][events].
+I want to open up a two way street here. Not only do I want to use the relevant opportunities to educate and inspire developers on new features in DC/OS and best practices on writing services for it, I also want to use this opportunity to listen to all of you. We have multiple  channels available both online and offline. Online, we have the [DC/OS Slack group][slack], [mailing list][mail], weekly office hours and  we are also listening on [Twitter][twitter]. In the offline world we run and work with several [Meetup][meetup] groups and [conferences][events].
 
 ## Let’s make the **Universe** amazing!
 
@@ -43,9 +43,7 @@ GitHub: ryadav88
 [slack]: http://chat.dcos.io
 [mail]: users@dcos.io
 [twitter]: https://twitter.com/dcos
-[reddit]: https://www.reddit.com/domain/mesosphere.com/
-[stack-overflow]: http://stackoverflow.com/questions/tagged/dcos
-[meetup]: https://www.meetup.com/Bay-Area-Mesos-User-Group/
+[meetup]: https://www.meetup.com/DC-OS-Online-Meetup/
 [events]: https://mesosphere.com/events/
 [Universe]: https://github.com/mesosphere/universe
 [RaaveYadav]: https://twitter.com/raaveyadav
