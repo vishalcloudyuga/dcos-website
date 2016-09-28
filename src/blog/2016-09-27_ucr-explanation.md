@@ -68,7 +68,7 @@ We simply need to deploy the following marathon app definition by either UI, CLI
 ```
 
 This leaves us wondering when to use which of the two runtimes/containerizers. Although in DC/OS 1.8 the universal container runtime is still labeled as experimental (which means that it is not considered stable, and we would much appreciate [bug reports](https://dcosjira.atlassian.net/secure/Dashboard.jspa)), it is worth evaluating the differences between it and the Docker containerizer. In order to determine which containerizer/runtime will be appropriate for your use case, consider the following points:
-* using the Mesos containerizer with universal container runtime will give you the most uniform user experience.
+* Using the Mesos containerizer with universal container runtime will give you the most uniform user experience.
 * New features such as GPUS and Pods will first be implemented for Mesos containerizer.
 * Unless you rely on some specific Docker runtime feature which is not covered by the universal container runtime we would recommend using the universal container runtime.
 
