@@ -1,7 +1,7 @@
 ---
 title: Who wants to run my container?
 date: 2016-09-27
-author: Jie Yu, Mesosphere
+author: Jie Yu & Jörg Schad, Mesosphere
 category: Tooling
 description: You have options in DC/OS and Apache Mesos. Learn about the universal container runtime, the rationalle for building it, and what lies ahead.
 layout: article.jade
@@ -62,9 +62,7 @@ We simply need to deploy the following marathon app definition by either UI, CLI
       "protocol": "tcp",
       "name": "redis"
     }
-  ],
-  "requirePorts": true
-}
+  ]}
 ```
 
 This leaves us wondering when to use which of the two runtimes/containerizers. Although in DC/OS 1.8 the universal container runtime is still labeled as experimental (which means that it is not considered stable, and we would much appreciate [bug reports](https://dcosjira.atlassian.net/secure/Dashboard.jspa)), it is worth evaluating the differences between it and the Docker containerizer. In order to determine which containerizer/runtime will be appropriate for your use case, consider the following points:
@@ -74,7 +72,7 @@ This leaves us wondering when to use which of the two runtimes/containerizers. A
 
 ## Further information
 * Great MesosCon North America presentation about Mesos containerizer:
-https://www.youtube.com/watch?v=rHUngcGgzVM&index=14&list=PLGeM09tlguZQVL7ZsfNMffX9h1rGNVqnC
+https://www.youtube.com/watch?v=rHUngcGgzVM
 * DC/OS documentation about using different container runtimes:
 https://dcos.io/docs/1.8/usage/containerizers/
 * Mesos documentation about running different container images:
