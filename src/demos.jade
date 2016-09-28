@@ -16,31 +16,68 @@ block content
 
       .card-container
         .card.demo-card
-          .card-header(style='background-image: url(/assets/images/events/beijing.png)')
+          .card-header(style='background-image: url(/assets/images/demos/geo-iot.png)')
             .card-content
           .card-content
-            h3.card-title  Time Series DCOS Demo: Crime Buster!
+            h3.card-title Geospatial IoT
+            p IoT demo using Apache Kafka, Apache Spark, Elasticsearch
             .card__links
-              a(href='').cta.cta--text Link 1
-              a(href='').cta.cta--text Link 2
+              a(href='https://github.com/amollenkopf/dcos-iot-demo').cta.cta--text GitHub
+              a(href='https://www.youtube.com/watch?v=tOPmPIHuV-o').cta.cta--text Video
 
         .card.demo-card
-          .card-header(style='background-image: url(/assets/images/events/beijing.png)')
+          .card-header(style='background-image: url(/assets/images/demos/marvin.png)')
             .card-content
           .card-content
-            h3.card-title  IoT demo using Kafka and PrestoDB
+            h3.card-title MARVIN
+            p Microservices demo using services written in Go, Node.js, Python
             .card__links
-              a(href='').cta.cta--text Link 1
+              a(href='https://github.com/mhausenblas/marvin').cta.cta--text GitHub
 
         .card.demo-card
-          .card-header(style='background-image: url(/assets/images/events/beijing.png)')
+          .card-header(style='background-image: url(/assets/images/demos/tweeter.png)')
             .card-content
           .card-content
-            h3.card-title  E-commerce app with analytics using Marathon
+            h3.card-title Tweeter
+            p A Twitter clone including analytics, using Apache Cassandra, Apache Kafka, Apache Zeppelin
             .card__links
-              a(href='').cta.cta--text Link 1
-              a(href='').cta.cta--text Link 2
-              a(href='').cta.cta--text Link 3
+              a(href='https://github.com/mesosphere/tweeter').cta.cta--text GitHub
+
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/demos/cd.png)')
+            .card-content
+          .card-content
+            h3.card-title Continuous Delivery 
+            p Demo of a CI/CD pipeline using Jenkins
+            .card__links
+              a(href='https://github.com/mesosphere/cd-demo').cta.cta--text GitHub
+
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/demos/github-stream.png)')
+            .card-content
+          .card-content
+            h3.card-title GitHub Stream Data
+            p Demo of processing GitHub API data using Apache Cassandra, KairosDB, Grafana
+            .card__links
+              a(href='https://github.com/mesosphere/cassandra-kairosdb-tutorial').cta.cta--text GitHub
+
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/demos/twitter-stream.png)')
+            .card-content
+          .card-content
+            h3.card-title Twitter Stream Data
+            p Demo of processing Twitter data streams using Apache Cassandra, Apache Kafka, Apache Spark, Apache Zeppelin
+            .card__links
+              a(href='https://github.com/mesosphere/iot-demo').cta.cta--text GitHub
+
+        .card.demo-card
+          .card-header(style='background-image: url(/assets/images/demos/crimebuster.png)')
+            .card-content
+          .card-content
+            h3.card-title Crime Buster!
+            p Time series demo around crime statistics, using Apache Kafka, Apache Spark, Grafana, InfluxDB
+            .card__links
+              a(href='https://github.com/mesosphere/time-series-demo').cta.cta--text GitHub
 
 
   .container
