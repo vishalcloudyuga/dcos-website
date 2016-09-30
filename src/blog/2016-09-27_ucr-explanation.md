@@ -34,7 +34,7 @@ Consider, for example, the networking stack: here we decided to use the Containe
 Overall, the simplicity of the CNI allows a lot more independence between container orchestration platforms and vendors developing the device driver, allowing for a much richer and better ecosystem to thrive. We validated that this choice is sufficient by looking at the Docker hub Top 10 and seeing that see that we can we run 90% of the images there.
 
 Proving feature parity with the Docker runtime is not even a goal, as we want to focus on providing a stable and uniform experience covering most container runtime needs.
-This experience included not only Docker container images but also AppC container images and (in the future)[OCI images](https://issues.apache.org/jira/browse/MESOS-5011) as well.
+This experience included not only Docker container images but also AppC container images and (in the future) [OCI images](https://issues.apache.org/jira/browse/MESOS-5011) as well.
 
 
 ## Using it
@@ -79,4 +79,4 @@ https://dcos.io/docs/1.8/usage/containerizers/
 * Mesos documentation about running different container images:
 http://mesos.apache.org/documentation/latest/container-image/
 
-NOTE: You might have encountered the universal container runtime under the names Unified containerizer, Universal containerizer, or Mesos containerizer. We finally decided to name it universal container runtime (which enables the Mesos containerizer to run Docker images natively).
+NOTE: You might have encountered the universal container runtime under the names unified containerizer, universal containerizer, or Mesos containerizer. We finally decided to name it universal container runtime (which enables the Mesos containerizer to run Docker images natively).
