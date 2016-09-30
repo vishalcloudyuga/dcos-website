@@ -34,8 +34,8 @@ const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.jso
 // general build settings
 //
 
-const currentVersion = '1.7'
-const docsVersions = ['1.7', '1.8']
+const currentVersion = '1.8'
+const docsVersions = ['1.7', '1.8', '1.9']
 const cssTimestamp = new Date().getTime()
 const paths = {
   build: './build',
