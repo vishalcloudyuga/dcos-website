@@ -6,7 +6,7 @@ block head
   meta(property='og:type', content='article')
   meta(property='og:title', content='Install | DC/OS')
   meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
-  meta(property='og:description', content='Find detailed installation guides for Vagrant, AWS, Windows Azure, packet, Google Compute Engine, CentOS, CoreOS using the CLI, GUI or the advanced custom installer.')
+  meta(property='og:description', content='Find detailed installation guides for Vagrant, AWS, Windows Azure, Google Compute Engine, packet, CentOS, CoreOS using the CLI, GUI or the advanced custom installer.')
   meta(property='og:url', content='https://dcos.io/')
   meta(property='og:site_name', content='DC/OS')
   meta(name='twitter:card', content='summary')
@@ -14,7 +14,7 @@ block head
   meta(name='twitter:title', content='Install | DC/OS')
   meta(name='twitter:card', content='summary_large_image')
   meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
-  meta(name='twitter:description', content='Find detailed installation guides for Vagrant, AWS, Windows Azure, packet, Google Compute Engine, CentOS, CoreOS using the CLI, GUI or the advanced custom installer.')
+  meta(name='twitter:description', content='Find detailed installation guides for Vagrant, AWS, Windows Azure, Google Compute Engine, packet, CentOS, CoreOS using the CLI, GUI or the advanced custom installer.')
 
 block content
 
@@ -43,7 +43,7 @@ block content
           img.hero-list__item__image(src="/assets/images/icons/cloud.svg")
           .hero-list__item__copy
             h3.install-bullets-title Cloud
-            p Configurable cloud provisioning templates for AWS, Azure, Packet and Google Compute Engine.
+            p Configurable cloud provisioning templates for AWS, Azure, Google Compute Engine and Packet.
             h4.install-bullets-title Requirements
             p.small An active cloud subscription with your favorite provider.
             h6 Install on:
@@ -53,12 +53,12 @@ block content
           a(href='/docs/latest/administration/installing/cloud/azure/').card
             .card-content
               +image('/assets/images/logos/install-platforms/azure.png')
-          a(href='/docs/latest/administration/installing/cloud/packet/').card
-            .card-content
-              +image('/assets/images/logos/install-platforms/packet.png')
           a(href='/docs/latest/administration/installing/cloud/gce/').card
             .card-content
               +image('/assets/images/logos/install-platforms/gce.png')
+          a(href='/docs/latest/administration/installing/cloud/packet/').card
+            .card-content
+              +image('/assets/images/logos/install-platforms/packet.png')
 
         li.hero-list__item
           img.hero-list__item__image(src="/assets/images/icons/custom-cloud.svg")
