@@ -41,7 +41,7 @@ GitHub: ryadav88
 
 [dcos-community]: https://dcos.io/community/
 [slack]: http://chat.dcos.io
-[mail]: users@dcos.io
+[mail]: mailto:users@dcos.io
 [twitter]: https://twitter.com/dcos
 [meetup]: https://www.meetup.com/DC-OS-Online-Meetup/
 [events]: https://mesosphere.com/events/
