@@ -17,13 +17,13 @@ For all of these releases, we will do our best to alert everyone about changes 2
 
 - Next communication update: 10/3
 - Preliminary Testing: 10/3
-- External Release: 10/6
+- External Release: 10/13
 
 # DC/OS 1.9 (pods):
 - Preliminary Testing for EA: 10/10
-- External EA: 10/13
+- External EA: 10/20
 - Preliminary Testing for GA: 10/24
-- External GA: 10/31
+- External GA: 11/11
 
 # DC/OS 1.10:
 
