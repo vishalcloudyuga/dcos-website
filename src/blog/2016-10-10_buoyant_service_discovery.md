@@ -8,6 +8,8 @@ collection: posts
 lunr: true
 ---
 
+Interested in seeing a live demo? Join Buoyant CEO William Morgan on Tuesday, October 11th for a live webinar and demo of everything below. [Register here to attend](http://bit.ly/2dLhnkg).
+
 When building and deploying modern enterprise applications in a scheduled environment like DC/OS, one of the first questions you’ll face is how to do service discovery. But what exactly is service discovery, and how is it different from DNS?
 
 In this article, we’ll define service discovery and show why it’s a first-class problem for scheduled environments. We’ll show you how— in 60 seconds or less—you can install a service mesh like `linkerd` and plug it directly into Marathon for service discovery. We’ll demonstrate how linkerd can track top-line service metrics (success rates, latency profiles, request volumes) with minimal effort. Finally, we’ll describe how you can extend linkerd’s service discovery to integrate with other systems like Consul, ZooKeeper, and etcd—all without having to change your application.
@@ -111,6 +113,3 @@ linkerd also has a thriving community of users and developers. If you get stuck,
   * The [linkerd slack](http://slack.linkerd.io)
   * The [linkerd-users mailing list](https://groups.google.com/forum/#!forum/linkerd-users)
   * Email us directly at support@buoyant.io
-
-
-Check out this webinar tomorrow where Mesosphere and Buoyant will talk about [Service Discovery and visibility for microservices on DC/OS](http://bit.ly/2d39VEn). 
