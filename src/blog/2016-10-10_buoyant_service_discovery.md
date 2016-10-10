@@ -36,18 +36,18 @@ Let’s walk through a quick demonstration of installing linkerd and using it fo
 
 ## Installing linkerd
 
-### STEP 0: PREREQUISITES
+### STEP 0: Prerequisites
 You will need:
 - A running DC/OS cluster.
 - The [DC/OS CLI installed](https://dcos.io/docs/1.8/usage/cli/install/).
 
-### STEP 1: DEPLOY A SAMPLE APPLICATION
-First, we’ll deploy a simple example application. Use the `webapp.json` example application (borrowed from this [Marathon guide](https://mesosphere.github.io/marathon/docs/native-docker.html)) from the DC/OS CLI as follows:
+### STEP 1: Deploy a sample application
+First, we’ll deploy a simple example application. Use the [webapp.json](https://raw.githubusercontent.com/BuoyantIO/linkerd-examples/master/dcos/webapp.json) example application (borrowed from this [Marathon guide](https://mesosphere.github.io/marathon/docs/native-docker.html)) from the DC/OS CLI as follows:
 
 ```bash
-dcos marathon app add webapp.json
+dcos marathon app add https://raw.githubusercontent.com/BuoyantIO/linkerd-examples/master/dcos/webapp.json
 ```
-### STEP 2: INSTALL LINKERD UNIVERSE PACKAGE
+### STEP 2: Install the linkerd universe package
 
 We now have a working web server, though we have no clear way to discover or route to it. Let’s fix that by installing linkerd.
 
@@ -69,7 +69,7 @@ Hello world
 We’ve now routed a simple HTTP request to the Hello World app by using its Marathon task name. This works on all DC/OS nodes, whether public or private. In other words, all HTTP applications can now discover and route to each other by Marathon task name by using linkerd as an HTTP proxy.
 
 
-### STEP 3: INSTALL LINKERD-VIZ UNIVERSE
+### STEP 3: Install the linkerd-viz Universe package
 Now that we have a sample application and a means to discover and route to it, let’s take a look at how it’s performing! Is it receiving requests? Is it producing successful responses? Is it responding fast enough?
 
 As a service mesh, linkerd understands enough about the service topology and requests to keep accurate, live statistics to answer these questions. We’ll start by installing the [linkerd-viz](https://github.com/BuoyantIO/linkerd-viz) Universe package:
