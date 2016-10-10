@@ -3,6 +3,7 @@ title: Service Discovery and Visibility with Ease on DC/OS
 date: 2016-10-10
 author: Andrew Seigner (Buoyant), Ravi Yadav (Mesosphere)
 category: services
+description: Service Discovery and Visibility with Ease on DC/OS
 layout: article.jade
 collection: posts
 lunr: true
