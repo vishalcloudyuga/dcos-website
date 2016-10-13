@@ -172,7 +172,7 @@ function getDocsBuildTask (version) {
       }))
       .pipe(
         gulpsmith()
-          .metadata({ docsVersion: version })
+          .metadata({ docsVersion: version, docsVersions })
           .use(addTimestampToMarkdownFiles)
           .use(markdown({
             smartypants: true,
@@ -188,7 +188,7 @@ function getDocsBuildTask (version) {
           }))
           .use(each(updatePaths))
           .use(jade({
-            locals: { cssTimestamp },
+            locals: { cssTimestamp, docsVersions },
             useMetadata: true,
             pretty: true
           }))
