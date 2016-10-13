@@ -1,5 +1,20 @@
 (function() {
 
+  // Event handlers
+
+  const $versionSelect = $('#docs-version-select')
+
+  function bindEventHandlers () {
+    $versionSelect.on('change', e => {
+      const $el = $(e.currentTarget)
+      const version = $el.val()
+
+      window.location.href = `/docs/${version}`
+    })
+  }
+
+  bindEventHandlers()
+
   // Search
   const version = 'latest';
 

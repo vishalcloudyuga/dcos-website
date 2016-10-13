@@ -17,7 +17,7 @@
 }
 
 .docs-search__input {
-  width: calc(100% - 30px);;
+  width: 100%;
   padding-left: 30px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -428,7 +428,7 @@ img.docs-content__footer__share-icon {
 
 @include break($tablet-portrait) {
   .docs-search {
-    width: auto;
+    width: calc(100% - 60px);
   }
 
   .docs-search.docs-search--mobile {
@@ -569,4 +569,8 @@ img.docs-content__footer__share-icon {
   .algolia-docsearch-suggestion--title {
     font-weight: 500;
   }
+}
+
+.docs-version-select {
+  width: calc(100% - 60px) !important;
 }
