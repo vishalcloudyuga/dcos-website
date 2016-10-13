@@ -126,7 +126,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 ## <a name="1-8-4"></a>1.8.5 - October 13, 2016
 
 ### Fixed issues
-- HTTP Proxy is now fixed. For more information, see the [documentation](/docs/1.8/usage/service-discovery/haproxy-adminrouter/).
+- HTTP Proxy is now fixed. For more information, see the [documentation](/docs/1.8/administration/installing/custom/configure-proxy/).
 - CORE-632 - Fixes for logrotation in Mesos.
 - DCOS-9966 - Improved error messages are printed for NTP service startup check.
 
