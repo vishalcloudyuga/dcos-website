@@ -1,5 +1,10 @@
 The release notes provide a list of useful topics and links for DC/OS.
 
+# Breaking Changes
+
+- Manual modifications of Admin Router config are not supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/docs/1.8/usage/service-discovery/haproxy-adminrouter/).
+- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/docs/1.8/administration/installing/custom/system-requirements/).
+
 # What's New
 
 ## Apache Mesos 1.0 and Marathon 1.3 RC integrated
