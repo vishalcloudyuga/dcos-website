@@ -25,7 +25,7 @@ Additionally, you can specify attributes like the time zone or a starting deadli
 For more information, see the [documentation](/docs/1.8/usage/jobs/).
 
 ## DC/OS Universal container runtime
-The Universal container runtime extends the Mesos containerizer to support provisioning Docker and AppC container images. This means that you can use both the Mesos containerizer and other container image types in DC/OS. While other containerizers still play well with DC/OS, the Universal container runtime does not depend upon other container technologies and can therefore take advantage of more Mesos features.
+The Universal container runtime extends the Mesos containerizer to support provisioning Docker container images (AppC coming soon). This means that you can use both the Mesos containerizer and other container image types in DC/OS. While other containerizers still play well with DC/OS, the Universal container runtime does not depend upon other container technologies and can therefore take advantage of more Mesos features.
 
 The Universal container runtime offers the following advantages:
 
