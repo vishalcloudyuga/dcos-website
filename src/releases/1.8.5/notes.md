@@ -134,7 +134,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 ### New and changed features
 
-- DCOS-8848 - Experimental support for unified containerizer in DC/OS.
+- DCOS-8848 - Experimental support for the Universal container runtime  in DC/OS.
 - DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/docs/1.8/usage/cli/command-reference/).
 
 ### Fixed issues
