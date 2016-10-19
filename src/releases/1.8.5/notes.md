@@ -7,8 +7,8 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 # What's New
 
-## Apache Mesos 1.0 and Marathon 1.3 RC integrated
-- Apache Mesos 1.0 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
+## Apache Mesos 1.0.1 and Marathon 1.3 RC integrated
+- Apache Mesos 1.0.1 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
 - Marathon 1.3 RC [release notes](https://github.com/mesosphere/marathon/releases).
 
 ## Container Orchestration
@@ -23,6 +23,20 @@ There is now built-in support of running scheduled jobs. We created a new Apache
 Additionally, you can specify attributes like the time zone or a starting deadline. We also have a JSON view mode which allows you to specify everything in one file to easily copy and paste it. We will constantly improve and extend the given functionality. Metronome will likely replace Chronos as our DC/OS job framework. If you still need Chronos, you can get it from the DC/OS [Universe](https://github.com/mesosphere/universe).
 
 For more information, see the [documentation](/docs/1.8/usage/jobs/).
+
+## DC/OS Universal container runtime
+The Universal container runtime extends the Mesos containerizer to support provisioning Docker and AppC container images. This means that you can use both the Mesos containerizer and other container image types in DC/OS. While other containerizers still play well with DC/OS, the Universal container runtime does not depend upon other container technologies and can therefore take advantage of more Mesos features.
+
+The Universal container runtime offers the following advantages:
+
+* **Removes your dependency on the Docker daemon**: With previous versions of Docker, if the Docker daemon was not responsive, a restart to the daemon caused all containers to stop on the host. In addition, Docker must be installed on each of your agent nodes in order to use the Docker containerizer. This means that in order to use the Docker containerizer you need to upgrade Docker on the agent nodes each time a new version of Docker comes out.
+* The Universal container runtime is more stable and allows deployment at scale.
+* The Universal container runtime offers features not available in the Docker containerizer, such as GPU and CNI support.
+* The Universal container runtime allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation and more.
+
+**Note**: The Universal container runtime is in the experimental phase. We encourage you to try it out and [let us know what you think](https://dcos.io/community/).
+
+For more information, see the [documentation](/docs/1.8/usage/containerizers/).
 
 ## Networking Services
 
@@ -94,44 +108,49 @@ DC/OS Universe has an updated version of Apache Spark based on 1.6.2.  In additi
 For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/spark/).
 
 ## Developer Agility
-<!-- - GitLab Package. -->
+
+- New Artifactory Package. For more information, see the [documentation](https://github.com/JFrogDev/artifactory-dcos/).
 - Artifactory Package. For more information, see the [documentation](https://github.com/JFrogDev/artifactory-dcos).
 - Updated Jenkins packages. For more information, see the [documentation](https://docs.mesosphere.com/1.8/usage/service-guides/jenkins/).
 
-## Improved UI & CLI improvements
+## Enhanced Cloud Templates
+
+- You can use customized Amazon Machine Images (AMI) based on CentOS 7 or CoreOS to launch DC/OS with the advanced templates. For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/aws-ami/).
+- You can create custom advanced templates for DC/OS and then deploy and run DC/OS from your own private S3 bucket. For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/aws-custom/).
+
+## Improved UI and CLI improvements
 - See the CLI [release notes](https://github.com/dcos/dcos-cli/releases).
-
-## Fixes and enhancements
-Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
-
-- DCOS-7415 - Unable to fetch /v2/tasks as plaintext for Marathon 0.15.3 in some cases
-- DCOS-7422 - Improved reconnect logic in the case of root Marathon / Mesos master disconnections
-- DCOS-7810 - Invalid IDs inside of nested groups leading to unexpected blocked deployments
-- DCOS-7926 - Improved Marathon performance while deploying thousands of tasks
-- DCOS-8128 - Improved Marathon task recovery in the case of some network events
-- DCOS-8370 - Apps should not be able to share the same service port on a single host
-- DCOS-8730 - Admin Router does not respect ports provided by external proxy
-- MARATHON-888 - Improved handled of orphaned containers after master failover
-- MARATHON-956 - Improved Marathon performance to prevent occurrence of "futures timed out" errors
-
-
-## <a name="known-issues"></a>Known Issues and Limitations <!-- OSS -->
-
-- DCOS-270 - Docker version 1.12.x is not supported.
-- DCOS-8975 - Port mapping for virtual networks is not displayed correctly. <!-- OSS -->
 
 # <a name="minor"></a>Minor releases
 
+## <a name="1-8-4"></a>1.8.5 - October 13, 2016
+
+### Fixed issues
+- HTTP Proxy is now fixed. For more information, see the [documentation](/docs/1.8/administration/installing/custom/configure-proxy/).
+- CORE-632 - Fixes for logrotation in Mesos.
+- DCOS-9966 - Improved error messages are printed for NTP service startup check.
+
+## <a name="1-8-4"></a>1.8.4 - September 15, 2016
+
+### New and changed features
+
+- DCOS-8848 - Experimental support for the Universal container runtime  in DC/OS.
+- DOCS-1113 - `dcos jobs` command is now available in the CLI. For more information, see the [documentation](/docs/1.8/usage/cli/command-reference/).
+
+### Fixed issues
+
+- DCOS-9637 - Now reports the correct URL for AWS templates.
+- DCOS-9104 - Task count and resources are correct in the UI.
+- DCOS-9617 - The UID of remote users is shown in the UI.
+- DCOS-9191 - Added DNS for discoverable services to the UI.
+- DCOS-9162 - Enabled Kill and Scale for locked services.
+
+### Known issues and limitations
+- DCOS-9783 - Package service broken with `java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty`. The workaround is to restart the Package service (`dcos-cosmos.service`).
+
 ## <a name="1-8-3"></a>1.8.3 - September 6, 2016
 
-Issues fixed:
-
-- Bug fixes to the [mesos-overlay-modules](https://github.com/dcos/mesos-overlay-modules).
-- Bug fixes to the [Navstar component](https://github.com/dcos/navstar).
-- [DCOS-321](https://dcosjira.atlassian.net/browse/DCOS-321) - Bug fixes to configuring OAuth in the AWS advanced templates.
-- [DCOS-326](https://dcosjira.atlassian.net/browse/DCOS-326) - Azure downloads URL is fixed.
-
-New features and changes:
+### New and changed features
 
 - You can generate custom AWS Advanced templates from the custom installer file (`dcos_generate_config.sh --aws-cloudformation`) and a configuration file (`config.yaml`). Only a subset of the configuration file options are allowed (e.g. `resolvers` and `exhibitor_backend` cannot be changed). <!-- For more information, see the [documentation](/docs/1.8/administration/installing/cloud/aws/advanced/aws-custom). -->
 - New version of the Jobs component ([Metronome 0.1.9](https://github.com/dcos/metronome)).
@@ -148,15 +167,16 @@ New features and changes:
 - If you have an existing SSH connection to a master, you can quickly add a new user to your cluster with the `dcos_add_user.py` script. Just run `sudo -i /opt/mesosphere/bin/dcos_add_user.py <password>`. For more information see PR [609](https://github.com/dcos/dcos/pull/609).
 
 
+### Fixed issues
+
+- Bug fixes to the [mesos-overlay-modules](https://github.com/dcos/mesos-overlay-modules).
+- Bug fixes to the [Navstar component](https://github.com/dcos/navstar).
+- [DCOS-321](https://dcosjira.atlassian.net/browse/DCOS-321) - Bug fixes to configuring OAuth in the AWS advanced templates.
+- [DCOS-326](https://dcosjira.atlassian.net/browse/DCOS-326) - Azure downloads URL is fixed.
+
 ## <a name="1-8-2"></a>1.8.2 - August 25, 2016
 
-Issues fixed:
-
-- Fix named VIPS with 2 or more ports in use
-- Fix `dcos-adminrouter-reload.service`
-- Fix 3dt checking of timer units which exit non-zero (found the `dcos-adminrouter-reload` bug)
-
-New features and changes:
+### New and changed features
 
 - Marathon [1.3.0-RC5](https://github.com/mesosphere/marathon/releases)
 - CentOS 7 AMI builder scripts
@@ -173,3 +193,29 @@ New features and changes:
 - Switch to [argparse's](https://docs.python.org/3/library/argparse.html) default help for `dcos_generate_config.sh`
 - General internal code cleanup and technical debt fixes
 
+### Fixed issues
+
+- Named VIPS with 2 or more ports in use.
+- `dcos-adminrouter-reload.service`
+- Diagnostics component checking of timer units which exit non-zero (found the `dcos-adminrouter-reload` bug).
+
+
+## 1.8.1 - August 2016
+
+## Fixes and enhancements
+Over 1350 other fixes and enhancements to DC/OS and DC/OS Services, including:
+
+- DCOS-7415 - Unable to fetch /v2/tasks as plaintext for Marathon 0.15.3 in some cases.
+- DCOS-7422 - Improved reconnect logic in the case of root Marathon / Mesos master disconnections.
+- DCOS-7810 - Invalid IDs inside of nested groups leading to unexpected blocked deployments.
+- DCOS-7926 - Improved Marathon performance while deploying thousands of tasks.
+- DCOS-8128 - Improved Marathon task recovery in the case of some network events.
+- DCOS-8370 - Apps should not be able to share the same service port on a single host.
+- DCOS-8730 - Admin Router does not respect ports provided by external proxy.
+- MARATHON-888 - Improved handled of orphaned containers after master failover.
+- MARATHON-956 - Improved Marathon performance to prevent occurrence of "futures timed out" errors.
+
+## <a name="known-issues"></a>Known issues and limitations
+
+- DCOS-270 - Docker version 1.12.x is not supported.
+- DCOS-8975 - Port mapping for virtual networks is not displayed correctly. <!-- OSS -->

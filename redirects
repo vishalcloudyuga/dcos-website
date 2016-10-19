@@ -14,8 +14,8 @@
 /docs/support/index.html /community/
 /documentation /docs/latest/
 /getting-started/overview/index.html /docs/latest/usage/
-/media-kit https://mesosphere.invisionapp.com/boards/U61L5GZM5CYG3/
-/media-kit/index.html https://mesosphere.invisionapp.com/boards/U61L5GZM5CYG3/
+/media-kit /brand/
+/press /brand/
 /overview/components/index.html /docs/latest/overview/components/
 /support /community/
 /usage/cli/install/index.html /docs/latest/usage/cli/install/
@@ -28,9 +28,16 @@
 /docs/1.7/usage/services/repo/index.html /docs/1.7/usage/repo/
 /docs/1.7/usage/services/uninstall/#framework-cleaner /docs/1.7/usage/managing-services/uninstall/#framework-cleaner
 /docs/1.8/administration/opt-out/index.html /docs/1.8/administration/installing/opt-out/
+/docs/1.8/administration/sshcluster/index.html /docs/1.8/administration/access-node/sshcluster/
 /docs/1.8/administration/telemetry/index.html /docs/1.8/overview/telemetry/
 /blog/2016/dc-os-1-8-is-now-available/index.html /blog/2016/dc-os-1-8-early-access/
 /docs/1.8/administration/installing/custom/create-public-agent/index.html /docs/1.8/administration/installing/custom/convert-agent-type/
 /docs/1.8/usage/overlay-networks/index.html /docs/1.8/usage/service-discovery/load-balancing-vips/overlay-networks/
 /docs/1.7/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/index.html /docs/1.7/usage/service-discovery/virtual-ip-addresses/
 /docs/1.8/usage/service-discovery/virtual-ip-addresses/index.html /docs/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/
+/docs/1.7/usage/jobs/getting-started/index.html /docs/1.8/usage/jobs/getting-started/
+/docs/1.8/usage/service-discovery/custom-domain-service-discovery/index.html /docs/1.8/usage/service-discovery/mesos-dns/custom-domain-service-discovery/
+/docs/latest/usage/tutorials/marathon/index.html /docs/1.7/usage/tutorials/marathon/
+/docs/latest/usage/tutorials/marathon/marathon101/index.html /docs/1.7/usage/tutorials/marathon/marathon101/
+/docs/latest/usage/tutorials/marathon/inline-update/index.html /docs/1.7/usage/tutorials/marathon/
+/docs/latest/usage/tutorials/marathon/stateful-services/index.html /docs/1.7/usage/tutorials/marathon/stateful-services/ 

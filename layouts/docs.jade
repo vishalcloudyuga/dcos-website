@@ -115,10 +115,13 @@ html
           .docs-layout__docs-nav#docs-nav
             .docs-search
               input(type='search').docs-search__input
-            div
-              a(href="/docs/1.7/") 1.7
-              | &nbsp;&#124;&nbsp;
-              a(href="/docs/1.8/") 1.8
+
+            select(name="docs-version").docs-version-select.dropdown#docs-version-select Select version
+              option(selected, value="#{docsVersion}") DC/OS #{docsVersion}
+              each version in docsVersions
+                if (version != docsVersion)
+                  option(value="#{version}") DC/OS #{version}
+
             +renderMenu(locals.navs.header)
 
           // Search results
