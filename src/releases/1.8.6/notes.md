@@ -123,6 +123,11 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 # <a name="minor"></a>Minor releases
 
+## <a name="1-8-6"></a>1.8.6 - October 19, 2016
+
+### Fixed issues
+- DCOS-450 - Fixed race condition in diagnostics service.
+
 ## <a name="1-8-5"></a>1.8.5 - October 13, 2016
 
 ### Fixed issues
