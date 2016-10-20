@@ -573,4 +573,5 @@ img.docs-content__footer__share-icon {
 
 .docs-version-select {
   width: calc(100% - 60px) !important;
+  flex-shrink: 0;
 }
