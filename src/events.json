@@ -1,9 +1,15 @@
 [
-  { "title": "Event title here 1", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-07-20", "url": "http://dcos.io" },
-  { "title": "Event title here 2", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-23", "url": "http://dcos.io" },
-  { "title": "Event title here 3", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-23", "url": "" },
-  { "title": "Event title here 4", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-24", "url": "" },
-  { "title": "Event title here 5", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-25", "url": "" },
-  { "title": "Event title here 6", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-26", "url": "" },
+  { "title": "Agile Tour London", "image": "/assets/images/events/2016-10-21_AgileTourLondon.jpg", "date": "2016-10-21", "url": "http://2016.agiletourlondon.co.uk/" },
+  { "title": "All Things Open", "image": "/assets/images/events/2016-10-26_All-Things_Open.jpg", "date": "2016-10-26", "url": "https://allthingsopen.org/" },
+  { "title": "Future Decoded", "image": "/assets/images/events/2016-11-01_Future-Decoded.jpg", "date": "2016-11-01", "url": "https://futuredecoded.microsoft.com/technical-day/" },
+  { "title": "Q Con San Francisco", "image": "/assets/images/events/2016-11-07_Q-Con.jpg", "date": "2016-11-07", "url": "https://qconsf.com/sf2016/workshop/building-your-first-app-apache-mesos-dcos" },
+  { "title": "Cloud Native Con", "image": "/assets/images/events/2016-11-08_Cloud-Native-Con.jpg", "date": "2016-11-08", "url": "http://events.linuxfoundation.org/events/cloudnativecon" },
+  { "title": "Continuous Lifecycle", "image": "/assets/images/events/2016-11-14_Continuous-Lifecycle.jpg", "date": "2016-11-14", "url": "http://www.continuouslifecycle.de/" },
+  { "title": "Big Data Spain", "image": "/assets/images/events/2016-11-17_Big-Data-Spain.jpg", "date": "2016-11-17", "url": "https://www.bigdataspain.org" },
+  { "title": "MesosCon Asia", "image": "/assets/images/events/2016-11-13_Mesos-Con-Asia.jpg", "date": "2016-11-18", "url": "http://events.linuxfoundation.org/events/mesoscon-asia" },
+  { "title": "AWS re:Invent", "image": "/assets/images/events/2016-11-28_Amazon-ReInvent.jpeg", "date": "2016-11-28", "url": "https://reinvent.awsevents.com/" },
+  { "title": "Event title here 7", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-27", "url": "" },
+  { "title": "Event title here 7", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-27", "url": "" },
+  { "title": "Event title here 7", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-27", "url": "" },
   { "title": "Event title here 7", "image": "/assets/images/events/2016-04-19.jpg", "date": "2016-08-27", "url": "" }
 ]
