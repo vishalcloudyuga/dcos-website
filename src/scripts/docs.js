@@ -88,8 +88,8 @@
     let docsArticleHeight = docsArticle.outerHeight();
     let newDocsNavHeight;
 
-    if (docsNavHeight < docsArticleHeight) newDocsNavHeight = docsArticleHeight;
-    else newDocsNavHeight = docsNavHeight + 40;
+    if (docsNavHeight < docsArticleHeight) newDocsNavHeight = docsArticleHeight + 40;
+    else newDocsNavHeight = docsNavHeight + 80;
 
     docsNav.css({height: `${newDocsNavHeight}px`});
   }
