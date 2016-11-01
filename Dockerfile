@@ -25,22 +25,21 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-COPY  . /dcos-website
+EXPOSE 80
+
 WORKDIR /dcos-website
+COPY  . /dcos-website
 
-ENV CI true
-
-RUN git submodule update --init --recursive \
-  && ci/test.sh \
+RUN ci/test.sh \
   && rm -rf /usr/share/nginx/html/* \
   && cp -r build/* /usr/share/nginx/html/ \
   && ln -sf /usr/share/nginx/html/docs/1.8 /usr/share/nginx/html/docs/latest \
   && ci/generate-nginx-conf.sh > /etc/nginx/conf.d/default.conf \
-  && apt-get remove -yf curl git xz-utils \
-  && apt-get autoremove -yf \
-  && apt-get clean && rm -rf /var/lib/apt/lists/* \
   && rm -rf /dcos-website/*
 
-EXPOSE 80
+RUN apt-get remove -yf curl git xz-utils \
+  && apt-get autoremove -yf \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 CMD ["nginx", "-g", "daemon off;"]
