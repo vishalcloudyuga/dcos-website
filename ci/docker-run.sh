@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Run website in docker
+
 set -e
 set -u
 
