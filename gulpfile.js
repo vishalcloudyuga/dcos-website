@@ -53,7 +53,11 @@ const paths = {
   assets: {
     src: './src/assets/**/*.*',
     dest: './build/assets'
-  }
+  },
+  nginx: {
+    dest: './nginx.conf'
+  },
+  redirects: './redirects'
 }
 
 const navConfig = {
@@ -110,7 +114,7 @@ let nav = navigation(navConfig, navSettings)
 // Gulp tasks
 //
 
-gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'javascript', 'styles'])
+gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'javascript', 'styles', 'nginx-config'])
 
 gulp.task('serve', ['build'], () => {
   browserSync.init({
@@ -123,7 +127,7 @@ gulp.task('serve', ['build'], () => {
         ]),
         function (req, res, next) {
           var file = `./build${req.originalUrl}.html`
-          require('fs').exists(file, function (exists) {
+          fs.exists(file, function (exists) {
             if (exists) req.url += '.html'
             next()
           })
@@ -325,6 +329,41 @@ gulp.task('build-site', () => {
     .pipe(gulp.dest(paths.build))
 })
 
+gulp.task('nginx-config', (done) => {
+  const nginxConf = require('nginx-conf').NginxConfFile
+  // create empty file or erase existing file
+  fs.closeSync(fs.openSync(paths.nginx.dest, 'w'))
+  // write to existing file
+  nginxConf.create(paths.nginx.dest, function(err, conf) {
+      if (err) { return done(err) }
+
+      conf.nginx._add('server')
+
+      conf.nginx.server._add('listen', '80')
+      conf.nginx.server._add('server_name', 'localhost')
+
+      conf.nginx.server._add('location', '/')
+      conf.nginx.server.location._add('root', '/usr/share/nginx/html')
+      conf.nginx.server.location._add('index', 'index.html index.htm')
+
+      conf.nginx.server._add('error_page', '404 /404/index.html')
+      conf.nginx.server._add('error_page', '500 502 503 504 /50x.html')
+
+      conf.nginx.server._add('location', '= /50x.html')
+      conf.nginx.server.location.slice(-1)[0]._add('root', '/usr/share/nginx/html')
+
+      // Add a 301 for each redirect.
+      // Since nginx-conf writes to the file for every conf operation,
+      // this promise doesn't need to complete before the create function returns.
+      return redirects().then((redirectArr) => {
+        redirectArr.forEach((redirect) => {
+          conf.nginx.server._add('location', '= ' + redirect.from)
+          conf.nginx.server.location.slice(-1)[0]._add('return', '301 ' + redirect.to)
+        })
+      }).then(done)
+  })
+})
+
 gulp.task('javascript', () => {
   return gulp.src(paths.js.src)
     .pipe($.babel({
@@ -412,6 +451,29 @@ const addDateProps = eventsArr => {
     return Object.assign({}, event, {
       day: date.format('D'),
       month: date.format('MMM')
+    })
+  })
+}
+
+var Redirect = function (from, to) {
+    this.from = from
+    this.to = to
+}
+
+// read and parse the redirects file into an array of Redirect objects
+function redirects() {
+  return new Promise(function(resolve, reject) {
+    var redirectArr = []
+    const readline = require('readline')
+    const reader = readline.createInterface({
+      input: fs.createReadStream(paths.redirects)
+    })
+    reader.on('line', (line) => {
+      var splitLine = line.split(' ')
+      redirectArr.push(new Redirect(splitLine[0], splitLine[1]))
+    })
+    reader.on('close', () => {
+      resolve(redirectArr)
     })
   })
 }
