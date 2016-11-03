@@ -71,29 +71,6 @@ Issues on GitHub will be disabled soon.**
 
 Once changes are accepted and merged to the develop branch, CI will push the updates to <https://dev.dcos.io/>.
 
-## Validate Links
-
-1. Build the docker image with your local changes
-
-    ```
-    docker build -t mesosphere/dcos-website .
-    ```
-1. Start the website server in Docker and remember the container ID
-
-    ```
-    SERVER_CID="$(PORT=3000 ci/start.sh)"
-    ```
-1. Run link validation in Docker
-
-    ```
-    ci/validate-links.sh
-    ```
-1. Stop the website server
-
-    ```
-    docker rm -f "${SERVER_CID}"
-    ```
-
 ## Update the Docs
 
 Docs should be updated on `develop` by maintainers to avoid git sha merge conflicts:
@@ -126,6 +103,53 @@ Continuous integration will handle deploying updates (`ci/deploy.sh`), updating 
     Add a `RoutingRules` entry to `s3-bucket-website-config.json`.
 
     Make sure `"HostName": "dcos.io"`. Continuous integration (`ci/update-website-conifg.sh`) will handle replacing with `dev.dcos.io` when run from the `develop` branch.
+
+## Nginx Docker Image
+
+dcos-website can be run in an Nginx container.
+
+1. Build the website server Docker image:
+
+    ```
+    ci/docker-build-image.sh
+    ```
+1. Run the website server in Docker:
+
+    ```
+    SERVER_CID="$(ci/docker-run.sh)"
+    ```
+    By default, the server runs on port 80.
+1. Stop the website server:
+
+    ```
+    docker rm -f "${SERVER_CID}"
+    ```
+
+## Validate Links
+
+Validating links requires building and running a local site.
+
+1. Build the website server Docker image
+
+    ```
+    ci/docker-build-image.sh
+    ```
+1. Start the website server in Docker and remember the container ID
+
+    ```
+    SERVER_CID="$(PORT=3000 ci/docker-run.sh)"
+    ```
+1. Run link validation in Docker
+
+    ```
+    ci/docker-validate-links.sh
+    ```
+1. Stop the website server
+
+    ```
+    docker rm -f "${SERVER_CID}"
+    ```
+
 
 ## Technology
 

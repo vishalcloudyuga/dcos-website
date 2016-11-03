@@ -9,8 +9,8 @@
 
 # Example Usage:
 # docker build -t mesosphere/dcos-website .
-# SERVER_CID="$(PORT=3000 ci/start.sh)"
-# ci/validate-links.sh
+# SERVER_CID="$(PORT=3000 ci/docker-run.sh)"
+# ci/docker-validate-links.sh
 # docker rm -f "${SERVER_CID}"
 
 set -e
