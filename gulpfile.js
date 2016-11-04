@@ -26,6 +26,8 @@ const plumber = require('gulp-plumber')
 const batch = require('gulp-batch')
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
+const readline = require('readline')
+const promisify = require("promisify-node")
 const gulpLoadPlugins = require('gulp-load-plugins')
 const $ = gulpLoadPlugins()
 const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.json')['production']
@@ -123,7 +125,7 @@ gulp.task('serve', ['build'], () => {
       baseDir: paths.build,
       middleware: [
         modRewrite([
-          '^/docs/latest/(.*) /docs/' + currentVersion + '/$1'
+          '^/docs/latest/(.*) /docs/' + currentVersion + '/$1 [R]'
         ]),
         function (req, res, next) {
           var file = `./build${req.originalUrl}.html`
@@ -329,38 +331,49 @@ gulp.task('build-site', () => {
     .pipe(gulp.dest(paths.build))
 })
 
+gulp.task('s3-config', (done) => {
+
+})
+
 gulp.task('nginx-config', (done) => {
   const nginxConf = require('nginx-conf').NginxConfFile
   // create empty file or erase existing file
   fs.closeSync(fs.openSync(paths.nginx.dest, 'w'))
+  // convert nodeback function to return a Promise
+  var createNginxConf = promisify(nginxConf.create)
   // write to existing file
-  nginxConf.create(paths.nginx.dest, function(err, conf) {
-      if (err) { return done(err) }
+  return createNginxConf(paths.nginx.dest).then((conf) => {
+    conf.nginx._add('server')
 
-      conf.nginx._add('server')
+    conf.nginx.server._add('listen', '80')
+    conf.nginx.server._add('server_name', 'localhost')
 
-      conf.nginx.server._add('listen', '80')
-      conf.nginx.server._add('server_name', 'localhost')
+    conf.nginx.server._add('location', '/')
+    conf.nginx.server.location._add('root', '/usr/share/nginx/html')
 
-      conf.nginx.server._add('location', '/')
-      conf.nginx.server.location._add('root', '/usr/share/nginx/html')
-      conf.nginx.server.location._add('index', 'index.html index.htm')
+    // rewrite is slower than the default index method, but allows for making the directory canonical
+    //conf.nginx.server.location._add('index', 'index.html')
+    conf.nginx.server._add('rewrite', '^(.*)/index\.html$ $1/ redirect')
+    conf.nginx.server._add('rewrite', '^(.*)/$ $1/index.html')
 
-      conf.nginx.server._add('error_page', '404 /404/index.html')
-      conf.nginx.server._add('error_page', '500 502 503 504 /50x.html')
+    conf.nginx.server._add('error_page', '404 /404/index.html')
+    conf.nginx.server._add('error_page', '500 502 503 504 /50x.html')
 
-      conf.nginx.server._add('location', '= /50x.html')
-      conf.nginx.server.location.slice(-1)[0]._add('root', '/usr/share/nginx/html')
+    conf.nginx.server._add('location', '= /50x.html')
+    conf.nginx.server.location.slice(-1)[0]._add('root', '/usr/share/nginx/html')
 
-      // Add a 301 for each redirect.
-      // Since nginx-conf writes to the file for every conf operation,
-      // this promise doesn't need to complete before the create function returns.
-      return redirects().then((redirectArr) => {
-        redirectArr.forEach((redirect) => {
+    conf.nginx.server._add('rewrite', '^/docs/latest/(.*) /docs/' + currentVersion + '/$1 redirect')
+
+    // Add a 301 for each redirect
+    return readFileLines(paths.redirects)
+      .then(parseRedirects)
+      .then((redirects) => {
+        for (let index = 0; index < redirects.length; ++index) {
+          var redirect = redirects[index]
           conf.nginx.server._add('location', '= ' + redirect.from)
           conf.nginx.server.location.slice(-1)[0]._add('return', '301 ' + redirect.to)
-        })
-      }).then(done)
+        }
+      })
   })
 })
 
@@ -460,20 +473,27 @@ var Redirect = function (from, to) {
     this.to = to
 }
 
-// read and parse the redirects file into an array of Redirect objects
-function redirects() {
+// Parse an array of strings into an array of Redirect objects
+function parseRedirects(lines) {
+  var redirects = []
+  for (let index = 0; index < lines.length; ++index) {
+    var splitLine = lines[index].split(' ')
+    redirects.push(new Redirect(splitLine[0], splitLine[1]))
+  }
+  return redirects
+}
+
+// Read a file into an array of file lines.
+// Returns a promise.
+function readFileLines(filePath) {
   return new Promise(function(resolve, reject) {
-    var redirectArr = []
-    const readline = require('readline')
-    const reader = readline.createInterface({
-      input: fs.createReadStream(paths.redirects)
-    })
-    reader.on('line', (line) => {
-      var splitLine = line.split(' ')
-      redirectArr.push(new Redirect(splitLine[0], splitLine[1]))
-    })
-    reader.on('close', () => {
-      resolve(redirectArr)
+    var lines = []
+    readline.createInterface({
+      input: fs.createReadStream(filePath)
+    }).on('line', (line) => {
+      lines.push(line)
+    }).on('close', () => {
+      resolve(lines)
     })
   })
 }
