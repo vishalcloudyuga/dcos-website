@@ -12,7 +12,7 @@ cd "${REPO_ROOT}"
 ci/builder/build.sh
 
 # build website using builder image
-docker run -v "$(pwd):/dcos-website" mesosphere/dcos-website-builder
+docker run --rm -v "$(pwd):/dcos-website" mesosphere/dcos-website-builder
 
 # build website image
 docker build -t mesosphere/dcos-website .

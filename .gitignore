@@ -5,3 +5,4 @@ node_modules
 .idea
 /reports
 /nginx.conf
+/s3-config.json

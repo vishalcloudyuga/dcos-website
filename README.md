@@ -73,7 +73,7 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 
 ## Update the Docs
 
-Docs should be updated on `develop` by maintainers to avoid git sha merge conflicts:
+Docs should be updated on `develop` *by maintainers* to avoid git sha merge conflicts:
 
 ```
 git checkout origin develop
@@ -91,22 +91,24 @@ ci/promote.sh
 
 Continuous integration will handle deploying updates (`ci/deploy.sh`), updating redirects (`ci/update-redirects.sh`), and updating the S3 website config (`ci/update-website-conifg.sh`).
 
-## Adding New Redirects
+## Redirects
 
-- Page Redirects
+There are two types of redirects, stored in two different files, that both use following format:
 
-    Add to `redirects` with the following format:
+```
+/from/ /to/
+```
 
-    /from/ /to/
-- Prefix Redirects
+- Page Redirects: `redirect-files`
+- Prefix Redirects: `redirect-prefixes`
 
-    Add a `RoutingRules` entry to `s3-bucket-website-config.json`.
+Both types of redirects are processed and used in the S3, npm/gulp, and docker/nginx environments.
 
-    Make sure `"HostName": "dcos.io"`. Continuous integration (`ci/update-website-conifg.sh`) will handle replacing with `dev.dcos.io` when run from the `develop` branch.
+The "current" version of DC/OS that corresponds to `/docs/latest/` is managed in the `redirect-prefixes` file.
 
 ## Nginx Docker Image
 
-dcos-website can be run in an Nginx container.
+The DC/OS website can be run in an Nginx docker container.
 
 1. Build the website server Docker image:
 
