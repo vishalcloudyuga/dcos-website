@@ -110,6 +110,12 @@ The "current" version of DC/OS that corresponds to `/docs/latest/` is managed in
 
 The DC/OS website can be run in an Nginx docker container.
 
+1. [Install Docker Toolkit](https://www.docker.com/products/docker-toolbox)
+
+1. Run this command to configure your shell
+    ```
+    eval $(/usr/local/bin/docker-machine env default)
+    ```
 1. Build the website server Docker image:
 
     ```
@@ -120,7 +126,11 @@ The DC/OS website can be run in an Nginx docker container.
     ```
     SERVER_CID="$(ci/docker-run.sh)"
     ```
-    By default, the server runs on port 80.
+1. By default, the server runs on port 80. You can find the server IP by running
+    ```
+    docker-machine ip default
+    ```
+
 1. Stop the website server:
 
     ```
