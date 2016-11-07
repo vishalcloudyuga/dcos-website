@@ -128,7 +128,7 @@ The DC/OS website can be run in an Nginx docker container.
     ```
 1. By default, the server runs on port 80. You can find the server IP by running
     ```
-    docker-machine ls
+    docker-machine ip default
     ```
 
 1. Stop the website server:
