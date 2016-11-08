@@ -6,7 +6,7 @@ Overall, the process to contribute code to DC/OS is modelled after the [ASF proc
 
 (2) Any contributor can also eventually be selected as a committer, with the difference that a committer has push access to all the DC/OS repos.
 
-(3) The administration of the project, including the GitHub organization [github.com/dcos](https://github.com/dcos) as well as project-related resources including Jira and mailing lists, is handled by the DC/OS **Project Management Committee** (PMC). The initial members of the PMC (as of 05/2016) are: Aaron Williams, Thomas Rampelberg, and Michael Hausenblas with further members being nominated in the coming weeks. Note that you can reach out to the PMC via [pmc@dcos.io](mailto:pmc@dcos.io).
+(3) The administration of the project, including the GitHub organization [github.com/dcos](https://github.com/dcos) as well as project-related resources including Jira and mailing lists, is handled by the DC/OS **Project Management Committee** (PMC). The initial members of the PMC (as of 05/2016) are: Aaron Williams, Thomas Rampelberg, and Michael Hausenblas with further members being nominated in the coming weeks. Note that you can reach out to the PMC via [dcos-pmc@dcos.io](mailto:dcos-pmc@dcos.io).
 
 (4) Each project within DC/OS has a **Project Management Team** (PMT), consisting of the initial committers from Mesosphere, as donated to the project on 2016-04-19. The infrastructure each PMT is equipped with is initially limited to the project GitHub repo as well as a component in [Jira](https://dcosjira.atlassian.net/).
 
