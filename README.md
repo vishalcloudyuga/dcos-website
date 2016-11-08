@@ -99,7 +99,7 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 
     1. [Install Docker Toolkit](https://www.docker.com/products/docker-toolbox)
 
-    1. Run this command to configure your shell
+    1. Configure your shell:
         ```
         eval $(/usr/local/bin/docker-machine env default)
         ```
@@ -128,7 +128,7 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 
 **Prerequisite:**
 
-- You must be have administrator privileges for the https://github.com/dcos/dcos-website repo.
+- You must have administrator privileges for the https://github.com/dcos/dcos-website repo.
 
 1.  Check out the `develop` branch.
 
@@ -160,7 +160,7 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
     $ git push origin bump-docs/11-3-16
     ```
 
-    **Tip:** Running `git status` will not show local changes.
+    **Tip:** `git status` will not show local changes.
 
 1.  Submit a PR to merge your branch to **develop**.
 
@@ -214,7 +214,7 @@ The "current" version of DC/OS that corresponds to `/docs/latest/` is managed in
 
 ## Link checking
 
-Validating links requires building and running a local site. You can run as a standalone process (documented here), or alternatively as a part of a [docs build](#updating-the-documentation).
+Validating links requires building and running a local site.You can run a local site as a standalone process or alternatively as a part of a [docs build](#updating-the-documentation).
 
 1. Build the website server Docker image:
 
