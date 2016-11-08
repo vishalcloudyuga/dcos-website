@@ -8,6 +8,14 @@
 **Issue tracking is moving to the [DCOS JIRA](https://dcosjira.atlassian.net/) (Project: [SITE](https://dcosjira.atlassian.net/projects/SITE/issues)).
 Issues on GitHub will be disabled soon.**
 
+Table of contents:
+
+- [Contribution Workflow](#contribution-workflow)
+- [Updating the documentation](#updating-the-documentation)
+- [Managing redirects](#managing-redirects)
+- [Nginx Docker Image](#nginx-docker-image)
+- [Link checking](#link-checking)
+
 ## Contribution Workflow
 
 1. [Create a repo fork in GitHub](https://guides.github.com/activities/forking/)
@@ -23,135 +31,187 @@ Issues on GitHub will be disabled soon.**
     ```
     git checkout develop
     ```
-1. Update the dcos-docs submodule:
 
-    ```
-    git submodule update --init --recursive
-    ```
-1. [Install Node](https://docs.npmjs.com/getting-started/installing-node)
-1. Install dependencies:
-
-    ```
-    npm install
-    ```
-1. Launch local dev server:
-
-    ```
-    npm start
-    ```
-    (opens dev server in browser)
 1. Create a new feature branch:
 
     ```
     git checkout -b feature/<feature-name>
     ```
-1. Make local changes
-1. Verify changes in dev server (updates automatically when files are changed)
-1. Add and Commit changes
+
+1. Make local changes.
+
+1. Test your changes [locally](#).
+
+1. Add and commit changes:
 
     ```
     git add -p .
     git commit
     ```
-1. Rebase repo fork to include recent dcos/dcos-website:develop changes
-
-    Rebasing a repo (instead of merging) will keep your fork commit history clean and move all your changes to the top of the commit log.
+1. Rebase repo fork to include recent `dcos/dcos-website:develop` changes. Rebasing a repo (instead of merging) will keep your fork commit history clean and move all your changes to the top of the commit log.
 
     ```
     git pull --rebase origin develop
     ```
-    (may require resolving conflicts)
-1. Push changes to repo fork feature branch
+    **Tip:** May require resolving conflicts.
+
+1. Push changes to repo fork feature branch:
 
     ```
     git push -u fork feature/<feature-name>
     ```
-1. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/) from the repo fork feature branch to dcos/dcos-website:develop
 
+1. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/) from the repo fork feature branch to `dcos/dcos-website:develop`.
 
 Once changes are accepted and merged to the develop branch, CI will push the updates to <https://dev.dcos.io/>.
 
-## Update the Docs
+## Testing your updates locally
 
-Docs should be updated on `develop` *by maintainers* to avoid git sha merge conflicts:
+1.  Update the dcos-docs submodule:
 
-```
-git checkout origin develop
-scripts/bump_docs.sh
-git push
-```
+    ```
+    git submodule update --init --recursive
+    ```
 
-## Promote to Production
+1.  Build a local version of the doc site. The DC/OS website can be built locally using Node or run in an Nginx Docker container.
 
-Once changes have been previewed and accepted on <https://dev.dcos.io/>, the maintainers will rebase `develop` to `master`:
+- Using Node
+    1. [Install Node](https://docs.npmjs.com/getting-started/installing-node)
+    1. Install dependencies:
 
-```
-ci/promote.sh
-```
+        ```
+        npm install
+        ```
+    1. Launch local dev server:
 
-Continuous integration will handle deploying updates (`ci/deploy.sh`), updating redirects (`ci/update-redirects.sh`), and updating the S3 website config (`ci/update-website-conifg.sh`).
+        ```
+        npm start
+        ```
+        (opens dev server in browser)
 
-## Redirects
+    1. Verify changes on localhost server (updates automatically when files are changed).
 
-There are two types of redirects, stored in two different files, that both use following format:
+- Using an Nginx Docker image
+
+    1. [Install Docker Toolkit](https://www.docker.com/products/docker-toolbox)
+
+    1. Run this command to configure your shell
+        ```
+        eval $(/usr/local/bin/docker-machine env default)
+        ```
+    1. Build the website server Docker image:
+
+        ```
+        ci/docker-build-image.sh
+        ```
+    1. Run the website server in Docker:
+
+        ```
+        SERVER_CID="$(ci/docker-run.sh)"
+        ```
+    1. By default, the server runs on port 80. You can find the server IP by running
+        ```
+        docker-machine ip default
+        ```
+
+    1. Stop the website server:
+
+        ```
+        docker rm -f "${SERVER_CID}"
+        ```
+
+## Updating the documentation
+
+**Prerequisite:**
+
+- You must be have administrator privileges for the https://github.com/dcos/dcos-website repo.
+
+1.  Check out the `develop` branch.
+
+    ```bash
+    $ git checkout develop
+    ```
+
+1.  Pull the latest content from the develop branch.
+
+    ```bash
+    $ git pull
+    ```
+
+1.  Create a branch off of develop for your changes. For example:
+
+    ```bash
+    $ git checkout -b bump-docs/11-3-16
+    ```
+
+1.  Run the bump-docs script:
+
+    ```bash
+    scripts/bump_docs.sh
+    ```
+
+1.  Commit and push your branch to dcos-website. For example:
+
+    ```bash
+    $ git push origin bump-docs/11-3-16
+    ```
+
+    **Tip:** Running `git status` will not show local changes.
+
+1.  Submit a PR to merge your branch to **develop**.
+
+    ![PR](../img/pr-1.png)
+
+    You should see something like this:
+    ![PR](../img/pr-2.png)
+
+    **Important:**
+
+    - An automated link checker is run on all merges to dcos-website. This will take about 10 minutes. You can check the results [here](https://jenkins.mesosphere.com/service/jenkins/view/DCOS%20Website/).
+    - When this PR is merged, the staging server is built: https://dev.dcos.io/docs/.
+
+
+1.  After the changes have been previewed and accepted on <https://dev.dcos.io/>, run this script:
+
+    ```
+    ci/promote.sh
+    ```
+
+    This script rebases `develop` to `master` and kicks off a CI build that deploys (`ci/deploy.sh`), updates redirects (`ci/update-redirects.sh`), and updates the S3 website config (`ci/update-website-conifg.sh`).
+
+## Managing redirects
+
+There are two types of redirects, stored in two different files:
+
+- Page Redirects: `https://github.com/dcos/dcos-website/redirect-files`
+- Prefix Redirects: `https://github.com/dcos/dcos-website/redirect-prefixes`
+
+That both use following format:
 
 ```
 /from/ /to/
 ```
 
-- Page Redirects: `redirect-files`
-- Prefix Redirects: `redirect-prefixes`
-
 Both types of redirects are processed and used in the S3, npm/gulp, and docker/nginx environments.
 
 The "current" version of DC/OS that corresponds to `/docs/latest/` is managed in the `redirect-prefixes` file.
 
-## Nginx Docker Image
 
-The DC/OS website can be run in an Nginx docker container.
+## Link checking
 
-1. [Install Docker Toolkit](https://www.docker.com/products/docker-toolbox)
+Validating links requires building and running a local site. You can run as a standalone process (documented here), or alternatively as a part of a [docs build](#updating-the-documentation).
 
-1. Run this command to configure your shell
-    ```
-    eval $(/usr/local/bin/docker-machine env default)
-    ```
 1. Build the website server Docker image:
 
     ```
     ci/docker-build-image.sh
     ```
-1. Run the website server in Docker:
-
-    ```
-    SERVER_CID="$(ci/docker-run.sh)"
-    ```
-1. By default, the server runs on port 80. You can find the server IP by running
-    ```
-    docker-machine ip default
-    ```
-
-1. Stop the website server:
-
-    ```
-    docker rm -f "${SERVER_CID}"
-    ```
-
-## Validate Links
-
-Validating links requires building and running a local site.
-
-1. Build the website server Docker image
-
-    ```
-    ci/docker-build-image.sh
-    ```
-1. Start the website server in Docker and remember the container ID
+1. Start the website server in Docker and remember the container ID:
 
     ```
     SERVER_CID="$(PORT=3000 ci/docker-run.sh)"
     ```
-1. Run link validation in Docker
+1. Run link validation in Docker:
 
     ```
     ci/docker-validate-links.sh
