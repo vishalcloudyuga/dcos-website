@@ -14,6 +14,7 @@ Table of contents:
 - [Testing your updates locally](#testing-your-updates-locally)
 - [Updating the documentation](#updating-the-documentation)
 - [Managing redirects](#managing-redirects)
+- [Promoting site to live](#promoting-site-to-live)
 - [Link checking](#link-checking)
 - [Technology](#technology)
 
@@ -49,9 +50,11 @@ Table of contents:
     git add -p .
     git commit
     ```
+
 1. Rebase repo fork to include recent `dcos/dcos-website:develop` changes. Rebasing a repo (instead of merging) will keep your fork commit history clean and move all your changes to the top of the commit log.
 
     ```
+    git fetch origin
     git pull --rebase origin develop
     ```
     **Tip:** May require resolving conflicts.
@@ -161,14 +164,14 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 
 1.  Submit a PR to merge your branch to **develop**.
 
-    ![PR](../img/pr-1.png)
+    ![PR](./img/pr-1.png)
 
     You should see something like this:
-    ![PR](../img/pr-2.png)
+    ![PR](./img/pr-2.png)
 
     **Important:**
 
-    - An automated link checker is run on all merges to dcos-website. This will take about 10 minutes. You can check the results [here](https://jenkins.mesosphere.com/service/jenkins/view/DCOS%20Website/).
+    - An automated link checker is run on all merges and PRs to dcos-website. This will take about 10 minutes. You can check the results [here](https://jenkins.mesosphere.com/service/jenkins/view/DCOS%20Website/). Broken links will not block merging, but should be reviewed.
     - When this PR is merged, the staging server is built: https://dev.dcos.io/docs/.
 
 
@@ -179,6 +182,17 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
     ```
 
     This script rebases `develop` to `master` and kicks off a CI build that deploys (`ci/deploy.sh`), updates redirects (`ci/update-redirects.sh`), and updates the S3 website config (`ci/update-website-conifg.sh`).
+
+
+## Promoting site to live
+
+Once changes have been previewed and accepted on <https://dev.dcos.io/>, the maintainers will rebase `develop` to `master`:
+
+```
+ci/promote.sh
+```
+
+Continuous integration will handle deploying updates (`ci/deploy.sh`), updating redirects (`ci/update-redirects.sh`), and updating the S3 website config (`ci/update-website-conifg.sh`).
 
 ## Managing redirects
 
