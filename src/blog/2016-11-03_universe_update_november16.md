@@ -28,9 +28,9 @@ Added external volume support to [MongoDB](https://github.com/mesosphere/univers
 
 <img style="float: left;margin-right: 27px;margin-top: 4px;" src="https://downloads.mesosphere.com/universe/assets/icon-service-kafka-medium.png"/><br/>Confluent [Kafka](https://github.com/mesosphere/universe/pull/795) is updated to use dcos-kafka-service 1.1.16 release. [Learn more](https://github.com/mesosphere/dcos-kafka-service/releases) about the changes. <br/><br/><br/><br/>
 
+<img style="float: left;margin-right: 27px;margin-top: 4px;" src="https://downloads.mesosphere.com/cassandra-mesos/assets/cassandra-medium.png"/><br/> Cassandra is updated to use DC/OS Cassandra 1.0.17-3.0.8 release. [Learn more](https://github.com/mesosphere/dcos-cassandra-service/releases about the changes. <br/><br/><br/><br/>
 Spark - What's changed???<br/>
 HDFS - What's changed???<br/>
-Cassandra - What's changed???
 
 <img style="float: left;margin-right: 43px;margin-top: 4px;" src="https://secure.gravatar.com/avatar/6edd0acaf80f784fab3dd2c31d604e74.jpg?s=80&r=g&d=mm"/> [GitLab](https://github.com/mesosphere/universe/pull/781) package upgraded to version 8.1.13. This update brings improved root_squash support in the case of users setting up NFS on the hostmounts.
 <br/><br/><br/>
