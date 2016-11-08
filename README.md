@@ -11,10 +11,11 @@ Issues on GitHub will be disabled soon.**
 Table of contents:
 
 - [Contribution Workflow](#contribution-workflow)
+- [Testing your updates locally](#testing-your-updates-locally)
 - [Updating the documentation](#updating-the-documentation)
 - [Managing redirects](#managing-redirects)
-- [Nginx Docker Image](#nginx-docker-image)
 - [Link checking](#link-checking)
+- [Technology](#technology)
 
 ## Contribution Workflow
 
