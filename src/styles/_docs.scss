@@ -44,7 +44,7 @@
 
 .docs-nav__item__arrow img {
   min-width: 11px;
-  margin-right: 6px;
+  margin-top: 3px;
 }
 
 .docs-nav__item_file .docs-nav__item__title {
@@ -54,7 +54,7 @@
 
 .docs-nav__item_file .docs-nav__item__title span {
   display: block;
-  margin-left: 17px;
+  margin-left: 20px;
 }
 
 .docs-nav__item_file .docs-nav__item__title:hover span {
@@ -102,7 +102,7 @@
 
   &.docs-nav__item--closed{
     .docs-nav__item__arrow{
-      background: url(/assets/images/icons/arrow-right-docs.svg) no-repeat 0 5px;
+      //background: url(/assets/images/icons/arrow-right-docs.svg) no-repeat 0 5px;
     }
   }
 }
@@ -114,7 +114,7 @@
   top: 0;
   width: 20px;
   height: 20px;
-  background: url(/assets/images/icons/arrow-down-docs.svg) no-repeat 0 5px;
+  //background: url(/assets/images/icons/arrow-down-docs.svg) no-repeat 0 5px;
   margin: 0;
 }
 
