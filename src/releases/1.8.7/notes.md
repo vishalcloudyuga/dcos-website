@@ -4,6 +4,7 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 - Manual modifications of Admin Router config are not supported. If you require a custom certificate, you must run [HAProxy in front of Admin Router](/docs/1.8/administration/haproxy-adminrouter/).
 - Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. For more information, see the [documentation](/docs/1.8/administration/installing/custom/system-requirements/).
+- Constraint validation in Marathon is significantly improved with Marathon 1.3.x. Previously acceptable values for regular expressions, such as LIKE and UNLIKE, may no longer pass validation since they are not valid regular expressions. Where possible, Marathon will correct the regular expression (specifically `''` to `.`); however, when this is not possible, the constraint will be removed and a warning will be logged for the affected app IDs.
 
 # What's New
 
@@ -123,9 +124,15 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 # <a name="minor"></a>Minor releases
 
-## <a name="1-8-7"></a>1.8.7 - October 28, 2016
+## <a name="1-8-7"></a>1.8.7 - November 14, 2016
 
+### Breaking changes:
+Constraint validation in Marathon is significantly improved with Marathon 1.3.x. Previously acceptable values for regular expressions, such as LIKE and UNLIKE, may no longer pass validation since they are not valid regular expressions. Where possible, Marathon will correct the regular expression (specifically `''` to `.`); however, when this is not possible, the constraint will be removed and a warning will be logged for the affected app IDs.
 
+### Fixed issues
+- DCOS-10959 - Update 1.8 Java to 8u101.
+- DCOS-11027 - Network performance improvements for 1,000 node clusters
+- DCOS-11260 - In some situations, Marathon can fail to elect a leader during ZooKeeper restart.
 
 ## <a name="1-8-6"></a>1.8.6 - October 19, 2016
 
