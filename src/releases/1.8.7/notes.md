@@ -124,7 +124,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 # <a name="minor"></a>Minor releases
 
-## <a name="1-8-7"></a>1.8.7 - November 14, 2016
+## <a name="1-8-7"></a>1.8.7 - Nov 14, 2016
 
 ### Breaking changes:
 Constraint validation in Marathon is significantly improved with Marathon 1.3.x. Previously acceptable values for regular expressions, such as LIKE and UNLIKE, may no longer pass validation since they are not valid regular expressions. Where possible, Marathon will correct the regular expression (specifically `''` to `.`); however, when this is not possible, the constraint will be removed and a warning will be logged for the affected app IDs.
