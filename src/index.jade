@@ -39,38 +39,39 @@ block content
 
       hr.hero-divider
 
-  .container.container--gray-background
-    .container__content.flex-wrap.flex-start(style="flex-direction: row; flex-wrap: wrap")
-        .col-3.left-align
+  .bg-gray
+    .max-width-4.flex.flex-wrap.mx-auto.mxn-2(style="padding: 5rem 0;")
+        .col.col-3.left-align.px2
           img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
           h5.hero-list__item__copy__title Containers &amp; Big Data
           p.hero-list__item__copy__paragraph.small Easily deploy and run stateful or stateless distributed workloads including Docker containers, Big Data, and traditional apps.
 
-        .col-3.left-align(style="align-self: flex-start; flex-basis: 23%;")
+        .col.col-3.left-align.px2
           img.hero-list__item__image(src="/assets/images/icons/open-source-dark.svg")
           h5.hero-list__item__copy__title 100% Open Source
           p.hero-list__item__copy__paragraph.small Run DC/OS in production without any scale or performance limitations, on any on-premises or cloud platform.
 
-        .col-3.left-align(style="align-self: flex-start; flex-basis: 23%;")
+        .col.col-3.left-align.px2
           img.hero-list__item__image(src="/assets/images/icons/productionproven.svg")
           h5.hero-list__item__copy__title Production Proven
           p.hero-list__item__copy__paragraph.small Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
 
-        .col-3.left-align(style="align-self: flex-start; flex-basis: 23%;")
+        .col.col-3.left-align.px2
           img.hero-list__item__image(src="/assets/images/icons/serviceecosystem.svg")
           h5.hero-list__item__copy__title Datacenter Apps
           p.hero-list__item__copy__paragraph.small Build apps quickly using a rich ecosystem of datacenter-scale application services.
 
-  .container
-    .container__content.community-hero
+  .bg-white.center.flex.flex-column(style="padding: 5rem 0;")
+    .sm-col.sm-col-12.md-col-6.mx-auto
       h2 The Definitive Platform for Modern Apps - Production Experience Built-in.
       p Modern apps include containers of microservices and stateful big-data services.  DC/OS is the world’s first and only fully open source platform enabling enterprises to easily build and run modern apps in production.  Built on Apache Mesos, DC/OS abstracts your datacenter into a single computer, pooling distributed workloads and simplifying rollout and operations.
-      a(href='/why-dcos').cta.cta--button.button--secondary Learn More
+      a(href='/why-dcos').cta.cta--button.button--secondary(style="display: inline-block;") Learn More
 
-      .stack-diagram
+    .max-width-4.mx-auto
+      .stack-diagram(style='margin-left: 0; margin-right: 0;')
         .stack-diagram__top
           .stack-diagram__top-info.hide
-            h3 Services & Applications
+            h3 Services &amp; Applications
             p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
             .stack-diagram__arrow
               .stack-diagram__dot
@@ -102,28 +103,28 @@ block content
           +image('/assets/images/illustrations/bottom.png')
           h5.hero-list__item__copy__title Run Anywhere
           p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
+  .bg-white(style="padding-bottom: 5rem;")
+    .max-width-4.mx-auto.flex.flex-wrap.left-align.pxn2
+      .col-4.px2
+        img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
+        .hero-list__item__copy
+          h5.hero-list__item__copy__title Build Amazing Apps
+          p.hero-list__item__copy__paragraph Combine the power of microservices, containers and Big Data to quickly build and ship modern state of the art applications.
+          a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
-      ul.container__content--hero-list.home-second-list
-        li.hero-list__item
-          img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title Build Amazing Apps
-            p.hero-list__item__copy__paragraph Combine the power of microservices, containers and Big Data to quickly build and ship modern state of the art applications.
-            a(href='/why-dcos').cta.cta--text Learn More &rarr;
+      .col-4.px2
+        img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
+        .hero-list__item__copy
+          h5.hero-list__item__copy__title Operate with Confidence
+          p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot your datacenter with efficiency, ease, and flexibility.
+          a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
-        li.hero-list__item
-          img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title Operate with Confidence
-            p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot your datacenter with efficiency, ease, and flexibility.
-            a(href='/why-dcos').cta.cta--text Learn More &rarr;
-
-        li.hero-list__item
-          img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title Outpace the Competition
-            p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
-            a(href='/why-dcos').cta.cta--text Learn More &rarr;
+      .col-4.px2
+        img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
+        .hero-list__item__copy
+          h5.hero-list__item__copy__title Outpace the Competition
+          p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
+          a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
   include ../includes/case-studies
 
