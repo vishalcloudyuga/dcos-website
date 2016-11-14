@@ -99,7 +99,7 @@ For SLES you also have to stop and disable apparmor (even though this can mess u
 ~~~~
 sudo yast runlevel delete service=boot.apparmor
 sudo service boot.apparmor stop
-sudo service apparmor stop`
+sudo service apparmor stop
 ~~~~
 
 The most obvious problems we had were related to the fact that DC/OS uses absolute names for all commands it uses (tar, useradd, ipset) and those are not always in the same places across different Linux distributions. So we had to do following on all our SLES nodes, before starting the installation process:
