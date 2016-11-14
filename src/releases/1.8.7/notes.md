@@ -8,9 +8,9 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 # What's New
 
-## Apache Mesos 1.0.1 and Marathon 1.3 RC integrated
-- Apache Mesos 1.0.1 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
-- Marathon 1.3 RC [release notes](https://github.com/mesosphere/marathon/releases).
+## Apache Mesos 1.0 and Marathon 1.3 integrated
+- Apache Mesos 1.0 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
+- Marathon 1.3 [release notes](https://github.com/mesosphere/marathon/releases).
 
 ## Container Orchestration
 #### Services ("Built-In" Marathon)
@@ -128,6 +128,9 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 ### Breaking changes:
 Constraint validation in Marathon is significantly improved with Marathon 1.3.x. Previously acceptable values for regular expressions, such as LIKE and UNLIKE, may no longer pass validation since they are not valid regular expressions. Where possible, Marathon will correct the regular expression (specifically `''` to `.`); however, when this is not possible, the constraint will be removed and a warning will be logged for the affected app IDs.
+
+### New and changed features
+- Marathon [1.3.6](https://github.com/mesosphere/marathon/releases).
 
 ### Fixed issues
 - DCOS-10959 - Update 1.8 Java to 8u101.
