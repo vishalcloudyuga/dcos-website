@@ -1,0 +1,26 @@
+extends ../layouts/base-whitefooter.jade
+
+block head
+  title Fast Data on DC/OS
+
+block content
+
+  .container.container--dark-background
+    +header
+
+    .container__content
+      h1 Fast Data on DC/OS
+
+  .container
+   .container__content
+    h2 What is fast data?
+
+    div
+      p.col.col-6.left-align.pr2 Data comes from many sources, and is proliferating faster than ever before. Ordinary people are now able to track every click on their website and every beat of their heart. All of this data is collected in real time, but up until recently it was processed after it was collected, in order to find out what had happened in the past, not what is happening right now. The huge amount of data collected from clients, devices, and sensors, and processed after the fact was called “big data”.
+
+      p.col.col-6.left-align.pl2 But, modern apps need to give their users information about what is happening now, not what happened yesterday. People want to know about clicks on their website now, so they can serve individual users the most relevant content for the moment. They want to know their own heart rate right now, to optimize their current workout. In order to use big data to deliver real-time insights, you need to process the data as you collect it, and feed it back to the app that will be using that data. When data is processed as it is gathered to provide real time insights, it is called “fast data”.
+
+  .container.container--gray-background
+    .container__content.left-align
+      h2 How does DC/OS enable fast data?
+      p Implementing a fast data pipeline can let you do amazing new things with the streams of data you have access to every day, but it also poses challenges that just aren’t a problem when you’re dealing with big data alone. Building your fast data pipeline on top of DC/OS can help alleviate some of these challenges.
