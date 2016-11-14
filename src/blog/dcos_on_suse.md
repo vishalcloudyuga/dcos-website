@@ -87,7 +87,10 @@ sudo rcSuSEfirewall2 stop
 Hint: edit /etc/sysctl.conf
 
 + Setup sudoers, no password access
-Hint: sudo visudo
+Hint: 
+~~~~ 
+sudo visudo 
+~~~~
  
 For SLES you also have to stop and disable apparmor (even though this can mess up the security of your system. But this is the price we could pay at this stage as our cluster is running in sandboxed environment and it will be used just as trial and prototyping environment)
 
@@ -111,13 +114,13 @@ This solved most of our problems and installation went on smoothly from here. We
 
 ## Few more issues
 
-But then we restarted one of the nodes. For some reason (still investigating why) after node restart we have to manually create and populate file /run/dcos_exhibitor/exhibitor_defaults.conf - required by DC/OS services to start.
+But then we restarted one of the nodes in our DC/OS cluster. For some reason (still investigating why) after node restart we have to manually create and populate file /run/dcos_exhibitor/exhibitor_defaults.conf - required by DC/OS services to start.
 Ideally this is done automatically by DC/OS but on SLES unless we do this manually DC/OS services will not start. Maybe this is happening due to specific environment we have or some Linux peculiarity we are not aware of, not sure. We are still trying to figure out what exactly is the problem. This is not a huge issue since node restarts should happen fairly rarely but we do have to fix this problem in order to have stable environment.
 
 We created following JIRA for DC/OS to be supported on SLES:
 https://dcosjira.atlassian.net/browse/DCOS-483
 
-Another big problem for us is http proxy and how DCOS works with it. We have to use http proxy and it requires authentication - this is standard in our company.
+Another big problem for us is http proxy and how DC/OS works with it. We have to use http proxy and it requires authentication - this is standard in our company.
 
 The first problem is that in order to use http proxy with DC/OS you have to bake it into installation binary (configured in config.yaml as of version 1.8) – and it can not be changed without reinstallation of DC/OS. Unfortunately passwords expire sooner or later. For us this means that we would have to reinstall our cluster fairly often. This is not the best way to spend your time so we asked for some better solution here:
 
@@ -137,8 +140,6 @@ As part of our investigation we created following JIRAs
 
 In the end we have two fully usable clusters with DC/OS running on top of SLES 12SP1. And there are few more installations planned. So, we are very happy.
 
-Our plan is to continue working with DC/OS community in order to fix the problems and test all the fixes and we can not wait to see where DCOS will go in the future.
+Our plan is to continue working with DC/OS community in order to fix the problems and test all the fixes and we can not wait to see where DC/OS will go in the future.
 
-**
-DISCLAIMER: The opinions expressed in text are solely those of the authors and not necessarily those of Huawei. Huawei does not guarantee the accuracy or reliability of the information provided herein.
-**
+**DISCLAIMER: The opinions expressed in text are solely those of the authors and not necessarily those of Huawei. Huawei does not guarantee the accuracy or reliability of the information provided herein.**
