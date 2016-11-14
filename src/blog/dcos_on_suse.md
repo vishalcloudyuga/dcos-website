@@ -84,9 +84,11 @@ sudo rcSuSEfirewall2 stop
 ~~~~
 
 + Disable IPV6
+
 Hint: edit /etc/sysctl.conf
 
 + Setup sudoers, no password access
+
 Hint: 
 ~~~~ 
 sudo visudo 
