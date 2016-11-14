@@ -7,9 +7,9 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 # What's New
 
-## Apache Mesos 1.0.1 and Marathon 1.3 RC integrated
-- Apache Mesos 1.0.1 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
-- Marathon 1.3 RC [release notes](https://github.com/mesosphere/marathon/releases).
+## Apache Mesos 1.0 and Marathon 1.3 integrated
+- Apache Mesos 1.0 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
+- Marathon 1.3 [release notes](https://github.com/mesosphere/marathon/releases).
 
 ## Container Orchestration
 #### Services ("Built-In" Marathon)
