@@ -1,7 +1,7 @@
 ---
 title: DC/OS on SuSE Linux
 date: 2016-09-08
-authors: Borisa Zivkovic, Marko Milenkovic - Huawei Ireland
+authors: Borisa Zivkovic @zborisa, Marko Milenkovic @marko_m - Huawei Ireland
 category: NOT SURE
 description: Using DC/OS in telecom
 layout: article.jade
@@ -132,13 +132,13 @@ Until http proxy is working properly we will be creating our own local universe 
 
 As part of our investigation we created following JIRAs
 
-https://dcosjira.atlassian.net/browse/DCOS-494
-https://dcosjira.atlassian.net/browse/DCOS-492
++ https://dcosjira.atlassian.net/browse/DCOS-494 
++ https://dcosjira.atlassian.net/browse/DCOS-492
 
 In the end we have two fully usable clusters with DC/OS running on top of SLES 12SP1. And there are few more installations planned. So, we are very happy.
 
 Our plan is to continue working with DC/OS community in order to fix the problems and test all the fixes and we can not wait to see where DCOS will go in the future.
 
 **
-DISCLAIMER: “The opinions expressed in text are solely those of the authors and not necessarily those of Huawei. Huawei does not guarantee the accuracy or reliability of the information provided herein.”
+DISCLAIMER: The opinions expressed in text are solely those of the authors and not necessarily those of Huawei. Huawei does not guarantee the accuracy or reliability of the information provided herein.
 **
