@@ -1,7 +1,7 @@
 ---
 title: DC/OS on SuSE Linux
 date: 2016-09-08
-authors: Borisa Zivkovic @zborisa, Marko Milenkovic @marko_m - Huawei Ireland
+authors: Borisa Zivkovic @zborisa, Marko Milenkovic @marko_m - Huawei Ireland Research Center
 category: NOT SURE
 description: Using DC/OS in telecom
 layout: article.jade
