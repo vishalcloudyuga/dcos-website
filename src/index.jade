@@ -39,30 +39,27 @@ block content
 
       hr.hero-divider
 
-      ul.container__content--hero-list
-        li.hero-list__item
+  .container.container--gray-background
+    .container__content.flex-wrap.flex-start(style="flex-direction: row; flex-wrap: wrap")
+        .col-3.left-align
           img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title Containers &amp; Big Data
-            p.hero-list__item__copy__paragraph.small Easily deploy and run stateful or stateless distributed workloads including Docker containers, Big Data, and traditional apps.
+          h5.hero-list__item__copy__title Containers &amp; Big Data
+          p.hero-list__item__copy__paragraph.small Easily deploy and run stateful or stateless distributed workloads including Docker containers, Big Data, and traditional apps.
 
-        li.hero-list__item
+        .col-3.left-align(style="align-self: flex-start; flex-basis: 23%;")
           img.hero-list__item__image(src="/assets/images/icons/open-source-dark.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title 100% Open Source
-            p.hero-list__item__copy__paragraph.small Run DC/OS in production without any scale or performance limitations, on any on-premises or cloud platform.
+          h5.hero-list__item__copy__title 100% Open Source
+          p.hero-list__item__copy__paragraph.small Run DC/OS in production without any scale or performance limitations, on any on-premises or cloud platform.
 
-        li.hero-list__item
+        .col-3.left-align(style="align-self: flex-start; flex-basis: 23%;")
           img.hero-list__item__image(src="/assets/images/icons/productionproven.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title Production Proven
-            p.hero-list__item__copy__paragraph.small Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
+          h5.hero-list__item__copy__title Production Proven
+          p.hero-list__item__copy__paragraph.small Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
 
-        li.hero-list__item
+        .col-3.left-align(style="align-self: flex-start; flex-basis: 23%;")
           img.hero-list__item__image(src="/assets/images/icons/serviceecosystem.svg")
-          .hero-list__item__copy
-            h5.hero-list__item__copy__title Datacenter Apps
-            p.hero-list__item__copy__paragraph.small Build apps quickly using a rich ecosystem of datacenter-scale application services.
+          h5.hero-list__item__copy__title Datacenter Apps
+          p.hero-list__item__copy__paragraph.small Build apps quickly using a rich ecosystem of datacenter-scale application services.
 
   .container
     .container__content.community-hero
