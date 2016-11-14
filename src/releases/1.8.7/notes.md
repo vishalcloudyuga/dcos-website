@@ -134,7 +134,7 @@ Constraint validation in Marathon is significantly improved with Marathon 1.3.x.
 
 ### Fixed issues
 - DCOS-10959 - Update 1.8 Java to 8u101.
-- DCOS-11027 - Network performance improvements for 1,000 node clusters
+- DCOS-11027 - Network performance improvements for 1,000 node clusters.
 - DCOS-11260 - In some situations, Marathon can fail to elect a leader during ZooKeeper restart.
 
 ## <a name="1-8-6"></a>1.8.6 - October 19, 2016
