@@ -15,7 +15,7 @@ block content
             h3 Stable
             p.release-version DC/OS 1.8
             p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
-            a.cta.cta--text.release-notes(href='/releases/1.8.6/') Release Notes
+            a.cta.cta--text.release-notes(href='/releases/1.8.7/') Release Notes
             p.release-button-group
               a.card(href='https://dcos.io/docs/1.8/administration/installing/cloud/aws/')
                 img(src='/assets/images/logos/install-platforms/aws.svg' width="77")
@@ -41,9 +41,11 @@ block content
                 img(src='/assets/images/logos/install-platforms/azure.svg' width="77")
               a.cta--text(href='https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh') Direct Download
       h2.heading-margin-bottom Older Releases
+
       .container
         .container__content(style="padding-top: 0;")
           .container__content--release-notes.docs-layout__docs-content
+            include:markdown 1.8.6/notes.md
             include:markdown 1.8.5/notes.md
             include:markdown 1.8.4/notes.md
             include:markdown 1.8.3/notes.md
