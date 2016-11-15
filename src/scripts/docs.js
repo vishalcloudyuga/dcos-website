@@ -1,4 +1,6 @@
-(function() {
+/* global $ */
+
+$(document).ready(() => {
 
   // Event handlers
 
@@ -14,6 +16,37 @@
   }
 
   bindEventHandlers()
+
+  // In this post
+
+  function initInThisPost () {
+    const $container = $('.docs-in-this-post')
+
+    $container.stick_in_parent()
+
+    $('#docs-content').scrollNav({
+      sections: 'h1',
+      subSections: true,
+      sectionElem: 'section',
+      showHeadline: true,
+      headlineText: 'In This Post',
+      showTopLink: false,
+      topLinkText: 'Top',
+      fixedMargin: 40,
+      scrollOffset: 40,
+      animated: true,
+      speed: 500,
+      insertTarget: $container,
+      insertLocation: 'prependTo',
+      arrowKeys: false,
+      onRender: function () {
+        $container.addClass('is-visible')
+      },
+      onDestroy: null
+    })
+  }
+
+  initInThisPost()
 
   // Search
   const version = 'latest';
@@ -84,7 +117,7 @@
   let calculateDocsNavHeight = function () {
     if (matchMedia('only screen and (max-width: 480px)').matches) return;
     docsNav.css({height: 'auto'});
-    let docsNavHeight = $('#docs-nav > ul').outerHeight();
+    let docsNavHeight = docsNav.outerHeight()
     let docsArticleHeight = docsArticle.outerHeight();
     let newDocsNavHeight;
 
@@ -92,8 +125,9 @@
     else newDocsNavHeight = docsNavHeight + 80;
 
     docsNav.css({height: `${newDocsNavHeight}px`});
+    $(document.body).trigger("sticky_kit:recalc")
   }
 
   calculateDocsNavHeight();
   $('.docs-nav__item a').on('click', calculateDocsNavHeight);
-})();
+})

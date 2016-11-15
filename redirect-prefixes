@@ -1,0 +1,8 @@
+/docs/latest/ /docs/1.8/
+/documentation/ /docs/latest/
+/support/ /community/
+/docs/overview/ /docs/latest/overview/
+/docs/administration/ /docs/latest/administration/
+/docs/usage/ /docs/latest/usage/
+/docs/development/ /docs/latest/development/
+/docs/support/ /docs/latest/support/

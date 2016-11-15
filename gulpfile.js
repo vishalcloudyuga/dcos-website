@@ -26,6 +26,8 @@ const plumber = require('gulp-plumber')
 const batch = require('gulp-batch')
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
+const readline = require('readline')
+const promisify = require("promisify-node")
 const gulpLoadPlugins = require('gulp-load-plugins')
 const $ = gulpLoadPlugins()
 const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.json')['production']
@@ -34,7 +36,6 @@ const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.jso
 // general build settings
 //
 
-const currentVersion = '1.8'
 const docsVersions = ['1.7', '1.8', '1.9']
 const cssTimestamp = new Date().getTime()
 const paths = {
@@ -53,6 +54,16 @@ const paths = {
   assets: {
     src: './src/assets/**/*.*',
     dest: './build/assets'
+  },
+  nginx: {
+    config: './nginx.conf'
+  },
+  s3: {
+    config: './s3-config.json'
+  },
+  redirects: {
+    files: './redirect-files',
+    prefixes: './redirect-prefixes'
   }
 }
 
@@ -82,7 +93,6 @@ const navConfig = {
 }
 
 let createDocsJSON = function (obj) {
-
   var newObj = {
     name: obj.type,
     path: obj.path
@@ -111,54 +121,67 @@ let nav = navigation(navConfig, navSettings)
 // Gulp tasks
 //
 
-gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'javascript', 'styles'])
+gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'javascript', 'styles', 'nginx-config', 's3-config'])
 
 gulp.task('serve', ['build'], () => {
-  browserSync.init({
-    open: false,
-    server: {
-      baseDir: paths.build,
-      middleware: [
-        modRewrite([
-          '^/docs/latest/(.*) /docs/' + currentVersion + '/$1'
-        ]),
-        function (req, res, next) {
-          var file = `./build${req.originalUrl}.html`
-          require('fs').exists(file, function (exists) {
-            if (exists) req.url += '.html'
-            next()
-          })
+  return readFileLines(paths.redirects.prefixes)
+    .then(parseRedirects)
+    .then((redirects) => {
+      var rewriteRules = []
+      for (let index = 0; index < redirects.length; ++index) {
+        var redirect = redirects[index]
+        // strip leading slash
+        var from = redirect.from.replace(/^\//, '')
+        var to = redirect.to.replace(/^\//, '')
+        // normalize WITH leading slash
+        rewriteRules.push('^/'+ from +'(.*) /' + to + '$1 [R]')
+      }
+      return rewriteRules
+    })
+    .then((rewriteRules) => {
+      browserSync.init({
+        open: false,
+        server: {
+          baseDir: paths.build,
+          middleware: [
+            modRewrite(rewriteRules),
+            function (req, res, next) {
+              var file = `./build${req.originalUrl}.html`
+              fs.exists(file, function (exists) {
+                if (exists) req.url += '.html'
+                next()
+              })
+            }
+          ]
         }
-      ]
-    }
-  })
+      })
 
-  watch(['./src/**/*.jade', './src/*.md', './src/events.json'],
-    batch(function(events, done) { gulp.start("build-site", done) }))
-  watch(paths.blog.src,
-    batch(function(events, done) { gulp.start("build-blog", done) }))
-  watch(paths.styles.src,
-    batch(function(events, done) { gulp.start("styles", done) }))
-  watch(paths.js.src,
-    batch(function(events, done) { gulp.start("js-watch", done) }))
-  watch(paths.assets.src,
-    batch(function(events, done) { gulp.start("copy", done) }))
-  watch(['./layouts/**/*.*', './mixins/**/*.*', './includes/**/*.*'],
-    batch(function(events, done) {
-      gulp.start(['build-site', 'build-blog'], done)
-    }))
+      watch(['./src/**/*.jade', './src/*.md', './src/events.json'],
+        batch(function (events, done) { gulp.start('build-site', done) }))
+      watch(paths.blog.src,
+        batch(function (events, done) { gulp.start('build-blog', done) }))
+      watch(paths.styles.src,
+        batch(function (events, done) { gulp.start('styles', done) }))
+      watch(paths.js.src,
+        batch(function (events, done) { gulp.start('js-watch', done) }))
+      watch(paths.assets.src,
+        batch(function (events, done) { gulp.start('copy', done) }))
+      watch(['./layouts/**/*.*', './mixins/**/*.*', './includes/**/*.*'],
+        batch(function (events, done) {
+          gulp.start(['build-site', 'build-blog'], done)
+        }))
 
-  docsVersions.forEach(function(version) {
-    watch(`./dcos-docs/${version}/**/*.md`, batch(function(events, done) {
-      gulp.start(`build-docs-${version}`, done)
-    }))
-  })
+      docsVersions.forEach(function (version) {
+        watch(`./dcos-docs/${version}/**/*.md`, batch(function (events, done) {
+          gulp.start(`build-docs-${version}`, done)
+        }))
+      })
+    })
 })
 
 gulp.task('test', ['serve'], () => {
-  process.exit(0);
+  process.exit(0)
 })
-
 
 function getDocsBuildTask (version) {
   const name = `build-docs-${version}`
@@ -193,7 +216,7 @@ function getDocsBuildTask (version) {
             pretty: true
           }))
           .use(reloadInMetalsmithPipeline)
-        )
+      )
       .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
   })
 
@@ -291,7 +314,7 @@ gulp.task('build-blog', () => {
           directory: path.join('layouts')
         }))
         .use(reloadInMetalsmithPipeline)
-      )
+  )
     .pipe(gulp.dest(paths.build))
 })
 
@@ -323,8 +346,99 @@ gulp.task('build-site', () => {
           engine: 'jade',
           directory: path.join('layouts')
         })))
-        .use(reloadInMetalsmithPipeline)
+    .use(reloadInMetalsmithPipeline)
     .pipe(gulp.dest(paths.build))
+})
+
+gulp.task('s3-config', (done) => {
+  return readFileLines(paths.redirects.prefixes)
+    .then(parseRedirects)
+    .then((redirects) => {
+      var routingRules = []
+      for (let index = 0; index < redirects.length; ++index) {
+        var redirect = redirects[index]
+        // strip leading slash
+        var from = redirect.from.replace(/^\//, '')
+        var to = redirect.to.replace(/^\//, '')
+        // normalize WITHOUT leading slash
+        routingRules.push({
+          "Condition": { "KeyPrefixEquals": from },
+          "Redirect": { "HostName": "dcos.io", "ReplaceKeyPrefixWith": to }
+        })
+      }
+      return {
+        "IndexDocument": {
+           "Suffix": "index.html"
+         },
+         "ErrorDocument": {
+           "Key": "404/index.html"
+         },
+         "RoutingRules": routingRules
+      }
+    })
+    .then(writeJson(paths.s3.config, {spaces: 4}))
+})
+
+gulp.task('nginx-config', () => {
+  const nginxConf = require('nginx-conf').NginxConfFile
+  // create empty file or erase existing file
+  fs.closeSync(fs.openSync(paths.nginx.config, 'w'))
+  // convert nodeback function to return a Promise
+  var createNginxConf = promisify(nginxConf.create)
+  // write to existing file
+  return createNginxConf(paths.nginx.config)
+    .then((conf) => {
+      conf.nginx._add('server')
+
+      conf.nginx.server._add('listen', '80')
+      conf.nginx.server._add('server_name', 'localhost')
+
+      conf.nginx.server._add('location', '/')
+      conf.nginx.server.location._add('root', '/usr/share/nginx/html')
+
+      // rewrite is slower than the default index method, but allows for making the directory canonical
+      //conf.nginx.server.location._add('index', 'index.html')
+      conf.nginx.server._add('rewrite', '^(.*)/index\.html$ $1/ redirect')
+      conf.nginx.server._add('rewrite', '^(.*)/$ $1/index.html')
+
+      conf.nginx.server._add('error_page', '404 /404/index.html')
+      conf.nginx.server._add('error_page', '500 502 503 504 /50x.html')
+
+      conf.nginx.server._add('location', '= /50x.html')
+      conf.nginx.server.location.slice(-1)[0]._add('root', '/usr/share/nginx/html')
+
+      return conf
+    })
+    .then((conf) => {
+      // Add 301 prefix rewrite rules
+      return readFileLines(paths.redirects.prefixes)
+        .then(parseRedirects)
+        .then((redirects) => {
+          var routingRules = []
+          for (let index = 0; index < redirects.length; ++index) {
+            var redirect = redirects[index]
+            // strip leading slash
+            var from = redirect.from.replace(/^\//, '')
+            var to = redirect.to.replace(/^\//, '')
+            // normalize WITH leading slash
+            conf.nginx.server._add('rewrite', '^/'+ from +'(.*) /' + to + '$1 redirect')
+          }
+          return conf
+        })
+    })
+    .then((conf) => {
+      // Add 301 page redirects
+      return readFileLines(paths.redirects.files)
+        .then(parseRedirects)
+        .then((redirects) => {
+          for (let index = 0; index < redirects.length; ++index) {
+            var redirect = redirects[index]
+            conf.nginx.server._add('location', '= ' + redirect.from)
+            conf.nginx.server.location.slice(-1)[0]._add('return', '301 ' + redirect.to)
+          }
+        })
+        return conf
+    })
 })
 
 gulp.task('javascript', () => {
@@ -338,7 +452,7 @@ gulp.task('javascript', () => {
     .pipe(gulp.dest(paths.js.dest))
 })
 
-gulp.task('js-watch', ['javascript'], reload)
+gulp.task('js-watch', ['javascript'])
 
 // TODO: minify in production
 gulp.task('styles', () => {
@@ -398,11 +512,10 @@ function addPropertiesToCollectionItems (collectionName, callback) {
 function addTimestampToMarkdownFiles (files, metalsmith, callback) {
   Object.keys(files).forEach(key => {
     if (key.split('.').pop() !== 'md') return
-    Object.assign(files[key], { cssTimestamp });
+    Object.assign(files[key], { cssTimestamp })
   })
   callback()
 }
-
 
 const filterPastEvents = eventsArr => {
   const today = moment()
@@ -417,4 +530,52 @@ const addDateProps = eventsArr => {
       month: date.format('MMM')
     })
   })
+}
+
+var Redirect = function (from, to) {
+    this.from = from
+    this.to = to
+}
+
+// Parse an array of strings into an array of Redirect objects
+function parseRedirects(lines) {
+  var redirects = []
+  for (let index = 0; index < lines.length; ++index) {
+    var splitLine = lines[index].split(' ')
+    redirects.push(new Redirect(splitLine[0], splitLine[1]))
+  }
+  return redirects
+}
+
+// Read a file into an array of file lines.
+// Returns a promise.
+function readFileLines(filePath) {
+  return new Promise(function(resolve, reject) {
+    var lines = []
+    readline.createInterface({
+      input: fs.createReadStream(filePath)
+    }).on('line', (line) => {
+      lines.push(line)
+    }).on('close', () => {
+      resolve(lines)
+    })
+  })
+}
+
+// Promisify fs.writeJson for chained input.
+// Options may include replacer or spaces for JSON.stringify.
+function writeJson(filePath, options) {
+  return (data) => {
+    return new Promise(function(resolve, reject) {
+      var spaces = options ? options.spaces : null
+      var replacer = options ? options.replacer : null
+      var dataStr = JSON.stringify(data, replacer, spaces)
+      fs.writeFile(filePath, dataStr, options, (err) => {
+        if (err) {
+          return reject(err)
+        }
+        return resolve()
+      })
+    })
+  }
 }
