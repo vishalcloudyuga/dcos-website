@@ -189,7 +189,9 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 Once changes have been previewed and accepted on <https://dev.dcos.io/>, the maintainers will rebase `develop` to `master`:
 
 ```
-ci/promote.sh
+$ git checkout develop
+$ git pull 
+$ ci/promote.sh
 ```
 
 Continuous integration will handle deploying updates (`ci/deploy.sh`), updating redirects (`ci/update-redirects.sh`), and updating the S3 website config (`ci/update-website-conifg.sh`).
