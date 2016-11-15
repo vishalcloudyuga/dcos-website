@@ -132,7 +132,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 - DCOS-10959 - Update 1.8 Java to 8u101.
 - DCOS-11027 - Network performance improvements for 1,000 node clusters.
 - DCOS-11260 - In some situations, Marathon can fail to elect a leader during ZooKeeper restart.
-- *Warning:* constraint validation change: Constraint validation in Marathon is significantly improved with Marathon 1.3.x. Previously acceptable values for regular expressions, such as LIKE and UNLIKE, may no longer pass validation since they are not valid regular expressions. Where possible, Marathon will correct the regular expression (specifically `''` to `.`); however, when this is not possible, the constraint will be removed and a warning will be logged for the affected app IDs.
+- *Warning:* constraint validation change: Constraint validation in Marathon is significantly improved with Marathon 1.3.x. Previously acceptable values for regular expressions, such as LIKE and UNLIKE, may no longer pass validation since they are not valid regular expressions. Where possible, Marathon will correct the regular expression (specifically `*` to `.*`); however, when this is not possible, the constraint will be removed and a warning will be logged for the affected app IDs.
 
 ## <a name="1-8-6"></a>1.8.6 - October 19, 2016
 
