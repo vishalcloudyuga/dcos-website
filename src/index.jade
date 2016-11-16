@@ -17,30 +17,49 @@ block head
   meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
 
 block content
-  .container.container--dark-background
-    +header
+  .container.container--dark-background.clearfix(style="display: block; padding-bottom: 5rem")
+    .mx-auto.max-width-4
+      +header(style="padding: 0;")
 
-    .container__content.hero-content
-      .container__content--hero-heading
-        .hero-title-cta-container
-          h1.hero-title
-            span The easiest way to
-            br
-            span run&nbsp;
-            span.typer containers
-            br
-            span in production.
-          .hero-cta-container
-            a(href='/get-started').cta.cta--button Get Started
-            a.cta.cta--video(href='#', data-overlay-toggle='video-overlay')
-              img.cta--video__icon(src='/assets/images/icons/playbutton.png')
-              p.cta--video__text Play Video
-        +image('/assets/images/hero-image.png')(class='hero-image')
+    .slider.max-width-4.mx-auto.left-align(style="margin-top: 5rem;")
+      .slides(style="height: 400px;")
+        .slide.slide1.visible
+          .col.col-6.align-middle
+            h1.hero-title
+              span The easiest way to
+              br
+              span run&nbsp;
+              span.typer containers
+              br
+              span in production.
+
+            a(href='/get-started').btn.btn-primary.inline-block Get Started
+            a.inline-block.ml3(href='#', data-overlay-toggle='video-overlay')
+              img.cta--video__icon.inline-block.align-middle(src='/assets/images/icons/playbutton.png')
+              p.cta--video__text.inline-block Play Video
+          .col.col-6.align-middle
+            +image('/assets/images/hero-image.png')
+
+        .slide.slide2
+          .col.col-6.align-middle
+            h1.hero-title.mb2 Get real-time insights sooner;
+            p Deploy your fast data pipeline with DC/OS
+            a(href='/fast-data').btn.btn-primary.inline-block Learn More
+          .col.col-6.align-middle
+            +image('/assets/images/hero-fastdata.png')
 
       hr.hero-divider
 
-  .bg-gray
-    .max-width-4.flex.flex-wrap.mx-auto.mxn-2(style="padding: 5rem 0;")
+      .pagination
+        a.col.col-6.visible(data-show=".slide1")
+          h3.mb0 Slide 1
+          p.mt0 This is a nice excerpt for slide 1.
+        a.col.col-6(data-show=".slide2")
+          h3.mb0 Get real-time insights sooner;
+          p.mt0 Deploy your fast data pipeline with DC/OS
+
+  .bg-gray.clearfix(style="padding: 5rem 0;")
+    .max-width-4.mx-auto.mxn-2
         .col.col-3.left-align.px2
           img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
           h5.hero-list__item__copy__title Containers &amp; Big Data
@@ -71,9 +90,9 @@ block content
       .stack-diagram(style='margin-left: 0; margin-right: 0;')
         .stack-diagram__top
           .stack-diagram__top-info.hide
-            h3 Services &amp; Applications
-            p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
-            .stack-diagram__arrow
+            h3.ml2 Services &amp; Applications
+            p.ml2 Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
+            .stack-diagram__arrow(style="width: 210px;")
               .stack-diagram__dot
         .stack-diagram__middle
           .stack-diagram__middle-info.hide
@@ -83,9 +102,9 @@ block content
               .stack-diagram__dot
         .stack-diagram__bottom
           .stack-diagram__bottom-info.hide
-            h3 Run Anywhere
-            p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
-            .stack-diagram__arrow
+            h3.ml2 Run Anywhere
+            p.ml2 Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
+            .stack-diagram__arrow(style="width: 160px;")
               .stack-diagram__dot
 
       .stack-diagram-mobile

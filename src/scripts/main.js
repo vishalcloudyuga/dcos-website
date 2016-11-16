@@ -1023,5 +1023,5 @@ $('.dropdown').click(function(){
 
   $(this).toggleClass('is-active')
 
-  event.stopPropagation();
+  event.stopPropagation()
 })

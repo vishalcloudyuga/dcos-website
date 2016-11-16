@@ -1,0 +1,24 @@
+.slider{
+  overflow: hidden;
+  position: relative;
+
+  .slide{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s ease-in-out;
+  }
+
+  .pagination a{
+    opacity: .65;
+    transition: opacity .2s ease-in-out;
+  }
+}
+
+.slider .slide.visible, .slider .pagination a.visible, .slider .pagination a:hover{
+  opacity: 1;
+}
+  .slider .slide.visible{
+    visibility: inherit;
+  }
