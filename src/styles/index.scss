@@ -122,6 +122,10 @@
   .xs-center {
     text-align: center;
   }
+
+  .xs-full{
+    display: block;
+  }
 }
 
 @media #{$breakpoint-md} {
