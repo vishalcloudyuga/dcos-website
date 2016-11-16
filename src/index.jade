@@ -21,6 +21,9 @@ block content
     .mx-auto.max-width-4
       +header(style="padding: 0;")
 
+
+
+    //- Wallop slider
     .Wallop.Wallop--fade(style="padding: 5rem 0;")
       .Wallop-list.max-width-4.mx-auto.left-align
         .Wallop-item
@@ -53,8 +56,12 @@ block content
       button.Wallop-buttonNext
         img(src="/assets/images/icons/chevron-white-right.svg")
 
+
+
+  //- Features
   .bg-gray.clearfix(style="padding: 5rem 0;")
-    .max-width-4.mx-auto.mxn-2
+    .max-width-4.mx-auto
+      .mxn2
         .col.col-3.left-align.px2
           img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
           h5.hero-list__item__copy__title Containers &amp; Big Data
@@ -75,6 +82,9 @@ block content
           h5.hero-list__item__copy__title Datacenter Apps
           p.hero-list__item__copy__paragraph.small Build apps quickly using a rich ecosystem of datacenter-scale application services.
 
+
+
+  //- Platform section
   .bg-white.center.flex.flex-column(style="padding-top: 5rem;")
     .sm-col.sm-col-12.md-col-6.mx-auto
       h2.mx-auto The Definitive Platform for Modern Apps - Production Experience Built-in.
@@ -82,12 +92,12 @@ block content
       a(href='/why-dcos').cta.cta--button.button--secondary(style="display: inline-block;") Learn More
 
     .max-width-4.mx-auto
-      .stack-diagram(style='margin-left: 0; margin-right: 0;')
+      .stack-diagram(style='margin-left: 0; margin-right: 0;').mxn2
         .stack-diagram__top
           .stack-diagram__top-info.hide
-            h3.ml2 Services &amp; Applications
-            p.ml2 Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
-            .stack-diagram__arrow(style="width: 210px;")
+            h3 Services &amp; Applications
+            p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
+            .stack-diagram__arrow
               .stack-diagram__dot
         .stack-diagram__middle
           .stack-diagram__middle-info.hide
@@ -97,9 +107,9 @@ block content
               .stack-diagram__dot
         .stack-diagram__bottom
           .stack-diagram__bottom-info.hide
-            h3.ml2 Run Anywhere
-            p.ml2 Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
-            .stack-diagram__arrow(style="width: 160px;")
+            h3 Run Anywhere
+            p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
+            .stack-diagram__arrow
               .stack-diagram__dot
 
       .stack-diagram-mobile
@@ -118,31 +128,38 @@ block content
           h5.hero-list__item__copy__title Run Anywhere
           p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
 
-  .bg-white(style="padding: 5rem 0;")
-    .max-width-4.mx-auto.flex.flex-wrap.left-align.pxn2
-      .col-4.px2
-        img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
-        .hero-list__item__copy
+
+
+  //- More features
+  .bg-white.clearfix(style="padding: 5rem 0;")
+    .max-width-4.mx-auto.left-align
+      .mxn2
+        .col.col-4.px2
+          img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
           h5.hero-list__item__copy__title Build Amazing Apps
           p.hero-list__item__copy__paragraph Combine the power of microservices, containers and Big Data to quickly build and ship modern state of the art applications.
           a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
-      .col-4.px2
-        img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
-        .hero-list__item__copy
+        .col.col-4.px2
+          img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
           h5.hero-list__item__copy__title Operate with Confidence
           p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot your datacenter with efficiency, ease, and flexibility.
           a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
-      .col-4.px2
-        img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
-        .hero-list__item__copy
+        .col.col-4.px2
+          img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
           h5.hero-list__item__copy__title Outpace the Competition
           p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
           a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
+
+
+  //- Case studies
   include ../includes/case-studies
 
+
+
+  //- Testimonials
   .container.partner-quote-container
     .container__content
       .partner-quote-block-container
