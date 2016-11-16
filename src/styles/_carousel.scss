@@ -1,24 +1,25 @@
-.slider{
-  overflow: hidden;
-  position: relative;
+button.Wallop-buttonPrevious, button.Wallop-buttonNext{
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  opacity: .5;
+  transition: opacity .2s ease-in-out;
 
-  .slide{
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .4s ease-in-out;
-  }
-
-  .pagination a{
-    opacity: .65;
-    transition: opacity .2s ease-in-out;
+  &:hover{
+    opacity: 1;
   }
 }
-
-.slider .slide.visible, .slider .pagination a.visible, .slider .pagination a:hover{
-  opacity: 1;
-}
-  .slider .slide.visible{
-    visibility: inherit;
+  button.Wallop-buttonPrevious{
+    left: 15px;
+  }
+  button.Wallop-buttonNext{
+    right: 15px;
   }

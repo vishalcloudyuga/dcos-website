@@ -21,9 +21,9 @@ block content
     .mx-auto.max-width-4
       +header(style="padding: 0;")
 
-    .slider.max-width-4.mx-auto.left-align(style="margin-top: 5rem;")
-      .slides(style="height: 400px;")
-        .slide.slide1.visible
+    .Wallop.Wallop--fade(style="padding: 5rem 0;")
+      .Wallop-list.max-width-4.mx-auto.left-align
+        .Wallop-item
           .col.col-6.align-middle
             h1.hero-title
               span The easiest way to
@@ -40,7 +40,7 @@ block content
           .col.col-6.align-middle
             +image('/assets/images/hero-image.png')
 
-        .slide.slide2
+        .Wallop-item
           .col.col-6.align-middle
             h1.hero-title.mb2 Get real-time insights sooner;
             p Deploy your fast data pipeline with DC/OS
@@ -48,15 +48,10 @@ block content
           .col.col-6.align-middle
             +image('/assets/images/hero-fastdata.png')
 
-      hr.hero-divider
-
-      .pagination
-        a.col.col-6.visible(data-show=".slide1")
-          h3.mb0 Slide 1
-          p.mt0 This is a nice excerpt for slide 1.
-        a.col.col-6(data-show=".slide2")
-          h3.mb0 Get real-time insights sooner;
-          p.mt0 Deploy your fast data pipeline with DC/OS
+      button.Wallop-buttonPrevious
+        img(src="/assets/images/icons/chevron-white-left.svg")
+      button.Wallop-buttonNext
+        img(src="/assets/images/icons/chevron-white-right.svg")
 
   .bg-gray.clearfix(style="padding: 5rem 0;")
     .max-width-4.mx-auto.mxn-2

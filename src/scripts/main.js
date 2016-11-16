@@ -12,6 +12,8 @@ require('./smooth-scroll.js')
 require('./stackdiagram.js')
 require('./typer.js')
 
+import Wallop from 'wallop';
+
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
   e.preventDefault();
@@ -1025,3 +1027,9 @@ $('.dropdown').click(function(){
 
   event.stopPropagation()
 })
+
+/****************
+  Slider
+****************/
+var wallopEl = document.querySelector('.Wallop');
+var slider = new Wallop(wallopEl);
