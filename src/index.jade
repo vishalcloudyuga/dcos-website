@@ -26,8 +26,8 @@ block content
     //- Wallop slider
     .Wallop.Wallop--fade(style="padding: 5rem 0;")
       .Wallop-list.max-width-4.mx-auto.left-align
-        .Wallop-item
-          .col.col-6.align-middle
+        .Wallop-item.flex.flex-wrap-flex-auto.items-center
+          .lg-col-6.col-12.align-middle.xs-center
             h1.hero-title
               span The easiest way to
               br
@@ -36,19 +36,19 @@ block content
               br
               span in production.
 
-            a(href='/get-started').btn.btn-primary.inline-block Get Started
-            a.inline-block.ml3(href='#', data-overlay-toggle='video-overlay')
+            a(href='/get-started').btn.btn-primary.inline-block.xs-full Get Started
+            a.inline-block.ml3.xs-full(href='#', data-overlay-toggle='video-overlay')
               img.cta--video__icon.inline-block.align-middle(src='/assets/images/icons/playbutton.png')
               p.cta--video__text.inline-block Play Video
-          .col.col-6.align-middle
+          .lg-col-6.xs-hide.align-middle
             +image('/assets/images/hero-image.png')
 
-        .Wallop-item
-          .col.col-6.align-middle
+        .Wallop-item.flex.flex-wrap-flex-auto.items-center
+          .lg-col-6.col-12.xs-center
             h1.hero-title.mb2 Get real-time insights sooner;
             p Deploy your fast data pipeline with DC/OS
             a(href='/fast-data').btn.btn-primary.inline-block Learn More
-          .col.col-6.align-middle
+          .lg-col-6.xs-hide
             +image('/assets/images/hero-fastdata.png')
 
       button.Wallop-buttonPrevious.xs-hide.sm-hide
