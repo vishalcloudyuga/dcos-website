@@ -17,7 +17,7 @@ block head
   meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
 
 block content
-  .container.container--dark-background.clearfix(style="display: block; padding-bottom: 5rem")
+  .container.container--dark-background.clearfix(style="display: block; padding-bottom: 5rem; padding-left: 2rem; padding-right: 2rem;")
     .mx-auto.max-width-4
       +header(style="padding: 0;")
 
@@ -51,106 +51,109 @@ block content
           .col.col-6.align-middle
             +image('/assets/images/hero-fastdata.png')
 
-      button.Wallop-buttonPrevious
+      button.Wallop-buttonPrevious.xs-hide.sm-hide
         img(src="/assets/images/icons/chevron-white-left.svg")
-      button.Wallop-buttonNext
+      button.Wallop-buttonNext.xs-hide.sm-hide
         img(src="/assets/images/icons/chevron-white-right.svg")
 
 
 
   //- Features
-  .bg-gray.clearfix(style="padding: 5rem 0;")
-    .max-width-4.mx-auto
-      .mxn2
-        .col.col-3.left-align.px2
-          img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
-          h5.hero-list__item__copy__title Containers &amp; Big Data
-          p.hero-list__item__copy__paragraph.small Easily deploy and run stateful or stateless distributed workloads including Docker containers, Big Data, and traditional apps.
+  .outer-container.bg-gray.clearfix(style="padding: 5rem 2rem;")
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-wrap.flex-auto
+          .lg-col-3.col-6.left-align.px2.mb4
+            img.hero-list__item__image(src="/assets/images/icons/containersbigdata.svg")
+            h5.hero-list__item__copy__title Containers &amp; Big Data
+            p.hero-list__item__copy__paragraph.small Easily deploy and run stateful or stateless distributed workloads including Docker containers, Big Data, and traditional apps.
 
-        .col.col-3.left-align.px2
-          img.hero-list__item__image(src="/assets/images/icons/open-source-dark.svg")
-          h5.hero-list__item__copy__title 100% Open Source
-          p.hero-list__item__copy__paragraph.small Run DC/OS in production without any scale or performance limitations, on any on-premises or cloud platform.
+          .lg-col-3.col-6.left-align.px2.mb4
+            img.hero-list__item__image(src="/assets/images/icons/open-source-dark.svg")
+            h5.hero-list__item__copy__title 100% Open Source
+            p.hero-list__item__copy__paragraph.small Run DC/OS in production without any scale or performance limitations, on any on-premises or cloud platform.
 
-        .col.col-3.left-align.px2
-          img.hero-list__item__image(src="/assets/images/icons/productionproven.svg")
-          h5.hero-list__item__copy__title Production Proven
-          p.hero-list__item__copy__paragraph.small Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
+          .lg-col-3.col-6.left-align.px2
+            img.hero-list__item__image(src="/assets/images/icons/productionproven.svg")
+            h5.hero-list__item__copy__title Production Proven
+            p.hero-list__item__copy__paragraph.small Built on Apache Mesos with the experience of Mesosphere, Yelp, Twitter, Airbnb, and many of today’s most innovative companies.
 
-        .col.col-3.left-align.px2
-          img.hero-list__item__image(src="/assets/images/icons/serviceecosystem.svg")
-          h5.hero-list__item__copy__title Datacenter Apps
-          p.hero-list__item__copy__paragraph.small Build apps quickly using a rich ecosystem of datacenter-scale application services.
+          .lg-col-3.col-6.left-align.px2
+            img.hero-list__item__image(src="/assets/images/icons/serviceecosystem.svg")
+            h5.hero-list__item__copy__title Datacenter Apps
+            p.hero-list__item__copy__paragraph.small Build apps quickly using a rich ecosystem of datacenter-scale application services.
 
 
 
   //- Platform section
-  .bg-white.center.flex.flex-column(style="padding-top: 5rem;")
-    .sm-col.sm-col-12.md-col-6.mx-auto
-      h2.mx-auto The Definitive Platform for Modern Apps - Production Experience Built-in.
-      p.mx-auto Modern apps include containers of microservices and stateful big-data services.  DC/OS is the world’s first and only fully open source platform enabling enterprises to easily build and run modern apps in production.  Built on Apache Mesos, DC/OS abstracts your datacenter into a single computer, pooling distributed workloads and simplifying rollout and operations.
-      a(href='/why-dcos').cta.cta--button.button--secondary(style="display: inline-block;") Learn More
+  .outer-container.bg-white.clearfix(style="padding: 5rem 2rem;")
+    .row.flex.flex-column
+      .sm-col.sm-col-12.md-col-7.mx-auto.center
+        h2 The Definitive Platform for Modern Apps - Production Experience Built-in.
+        p Modern apps include containers of microservices and stateful big-data services.  DC/OS is the world’s first and only fully open source platform enabling enterprises to easily build and run modern apps in production.  Built on Apache Mesos, DC/OS abstracts your datacenter into a single computer, pooling distributed workloads and simplifying rollout and operations.
+        a(href='/why-dcos').cta.cta--button.button--secondary(style="display: inline-block;") Learn More
 
-    .max-width-4.mx-auto
-      .stack-diagram(style='margin-left: 0; margin-right: 0;').mxn2
-        .stack-diagram__top
-          .stack-diagram__top-info.hide
-            h3 Services &amp; Applications
+      .max-width-4.mx-auto
+        .stack-diagram(style='margin-left: 0; margin-right: 0;').mxn2
+          .stack-diagram__top
+            .stack-diagram__top-info.hide
+              h3 Services &amp; Applications
+              p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
+              .stack-diagram__arrow
+                .stack-diagram__dot
+          .stack-diagram__middle
+            .stack-diagram__middle-info.hide
+              h3 DC/OS Powered by Apache Mesos
+              p Runtime, tools and best practices built-in to simplify operations and deliver a production self-healing infrastructure
+              .stack-diagram__arrow
+                .stack-diagram__dot
+          .stack-diagram__bottom
+            .stack-diagram__bottom-info.hide
+              h3 Run Anywhere
+              p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
+              .stack-diagram__arrow
+                .stack-diagram__dot
+
+        .stack-diagram-mobile.center
+          .stack-diagram-mobile__container
+            +image('/assets/images/illustrations/top.png')
+            h5.hero-list__item__copy__title Services &amp; Applications
             p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
-            .stack-diagram__arrow
-              .stack-diagram__dot
-        .stack-diagram__middle
-          .stack-diagram__middle-info.hide
-            h3 DC/OS Powered by Apache Mesos
+
+          .stack-diagram-mobile__container
+            +image('/assets/images/illustrations/middle.png')
+            h5.hero-list__item__copy__title DC/OS Powered by Apache Mesos
             p Runtime, tools and best practices built-in to simplify operations and deliver a production self-healing infrastructure
-            .stack-diagram__arrow
-              .stack-diagram__dot
-        .stack-diagram__bottom
-          .stack-diagram__bottom-info.hide
-            h3 Run Anywhere
+
+          .stack-diagram-mobile__container
+            +image('/assets/images/illustrations/bottom.png')
+            h5.hero-list__item__copy__title Run Anywhere
             p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
-            .stack-diagram__arrow
-              .stack-diagram__dot
-
-      .stack-diagram-mobile
-        .stack-diagram-mobile__container
-          +image('/assets/images/illustrations/top.png')
-          h5.hero-list__item__copy__title Services &amp; Applications
-          p Easily deploy and run datacenter-wide app services such as Docker, Cassandra, and Spark pooled on a single platform
-
-        .stack-diagram-mobile__container
-          +image('/assets/images/illustrations/middle.png')
-          h5.hero-list__item__copy__title DC/OS Powered by Apache Mesos
-          p Runtime, tools and best practices built-in to simplify operations and deliver a production self-healing infrastructure
-
-        .stack-diagram-mobile__container
-          +image('/assets/images/illustrations/bottom.png')
-          h5.hero-list__item__copy__title Run Anywhere
-          p Bare-metal, virtual, cloud or hybrid - DC/OS runs on it all - only requirement is a modern Linux distro; Windows support coming soon
 
 
 
   //- More features
-  .bg-white.clearfix(style="padding: 5rem 0;")
-    .max-width-4.mx-auto.left-align
-      .mxn2
-        .col.col-4.px2
-          img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
-          h5.hero-list__item__copy__title Build Amazing Apps
-          p.hero-list__item__copy__paragraph Combine the power of microservices, containers and Big Data to quickly build and ship modern state of the art applications.
-          a(href='/why-dcos').cta.cta--text Learn More &rarr;
+  .outer-container.bg-white.clearfix(style="padding: 5rem 2rem;")
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-wrap.flex-auto
+          .lg-col-4.col-6.px2
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
+            h5.hero-list__item__copy__title Build Amazing Apps
+            p.hero-list__item__copy__paragraph Combine the power of microservices, containers and Big Data to quickly build and ship modern state of the art applications.
+            a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
-        .col.col-4.px2
-          img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
-          h5.hero-list__item__copy__title Operate with Confidence
-          p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot your datacenter with efficiency, ease, and flexibility.
-          a(href='/why-dcos').cta.cta--text Learn More &rarr;
+          .lg-col-4.col-6.px2
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
+            h5.hero-list__item__copy__title Operate with Confidence
+            p.hero-list__item__copy__paragraph Use a production-proven platform to confidently operate, monitor and troubleshoot your datacenter with efficiency, ease, and flexibility.
+            a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
-        .col.col-4.px2
-          img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
-          h5.hero-list__item__copy__title Outpace the Competition
-          p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
-          a(href='/why-dcos').cta.cta--text Learn More &rarr;
+          .lg-col-4.col-6.px2
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
+            h5.hero-list__item__copy__title Outpace the Competition
+            p.hero-list__item__copy__paragraph Quickly roll out new services using the ever growing DC/OS ecosystem, and attract the best talent working on the latest modern app technology.
+            a(href='/why-dcos').cta.cta--text Learn More &rarr;
 
 
 
