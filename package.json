@@ -83,6 +83,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "basscss-sass": "^4.0.0",
     "metalsmith-uglify": "^1.2.1",
     "spinkit": "^1.2.5",
     "wallop": "^2.4.1"
