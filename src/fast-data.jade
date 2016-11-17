@@ -1,0 +1,66 @@
+extends ../layouts/base-whitefooter.jade
+
+block head
+  title Fast Data | DC/OS
+  meta(property='og:locale', content='en_US')
+  meta(property='og:type', content='article')
+  meta(property='og:title', content='Fast Data | DC/OS')
+  meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(property='og:description', content='Fast Data on DC/OS')
+  meta(property='og:url', content='https://dcos.io/')
+  meta(property='og:site_name', content='DC/OS')
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@dcos')
+  meta(name='twitter:title', content='Fast Data | DC/OS')
+  meta(name='twitter:card', content='summary_large_image')
+  meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(name='twitter:description', content='Fast Data on DC/OS')
+
+block content
+
+  .container.container--dark-background.pb5.px2.sm-pb0(style="display: block;")
+    .mx-auto.max-width-4
+      +header(style="padding: 0;")
+
+    .mx-auto.max-width-4
+      .container__content.community-hero
+        h1 Fast Data on DC/OS
+        p.hero-subtitle Data comes from many sources, and is proliferating faster than ever before. Ordinary people are now able to track every click on their website and every beat of their heart. All of this data is collected in real time, but up until recently it was processed after it was collected, in order to find out what had happened in the past(...)
+
+
+
+
+  //- Section 1
+  .outer-container.bg-white.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .col-8.center.mx-auto
+          h2 How does DS/OS enable fast data?
+          p Implementing a fast data pipeline can let you do amazing new things with the streams of data you have access to every day, but it also poses challenges that just aren’t a problem when you’re dealing with big data alone. Building your fast data pipeline---and the app that it supports---on top of the Datacenter Operating System (DC/OS) can help alleviate some of these challenges.
+
+  .outer-container.bg-white.clearfix.pb5.px2
+    .row
+      .max-width-4.mx-auto
+        .flex.flex-auto.flex-wrap
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            h4 On-demand provisioning
+            p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge.
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            h4 Simplified operations
+            p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge.
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            h4 Elastic data infrastructure
+            p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge.
+
+
+
+  //- Section 2
+  .outer-container.bg-gray.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .flex.flex-auto.flex-wrap
+          h2.center Fast data resources
+
+  //- Footer
+  .container
+    +footer
