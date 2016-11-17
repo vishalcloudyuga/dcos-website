@@ -290,6 +290,7 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
     word-break: break-all;
 
     &:not(.hljs) {
+      white-space: nowrap;
       color: $heliotrope;
       background-color: $heliotrope20;
     }
