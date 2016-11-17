@@ -46,6 +46,8 @@ include ../mixins/head.jade
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
+  var docsVersionsReversed = docsVersions.slice().reverse()
+
 mixin icon(child)
   if(child.type === 'dir')
     if(findPath(child.name))
@@ -121,10 +123,9 @@ html
               input(type='search').docs-search__input
 
             select(name="docs-version").docs-version-select.dropdown#docs-version-select Select version
-              option(selected, value="#{docsVersion}") DC/OS #{docsVersion}
-              each version in docsVersions
-                if (version != docsVersion)
-                  option(value="#{version}") DC/OS #{version}
+              each version in docsVersionsReversed
+                //- empty string will add the `selected` attribute, `undefined` will _not_ add the selected attribute
+                option(selected=(version === docsVersion ? "" : undefined), value="#{version}") DC/OS #{version}
 
             +renderMenu(locals.navs.header).docs-menu
 
