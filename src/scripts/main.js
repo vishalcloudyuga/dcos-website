@@ -1,3 +1,17 @@
+require('./blog.js')
+require('./case-study-carousel.js')
+require('./docs.js')
+require('./events-carousel.js')
+require('./fetch.js')
+require('./get-started.js')
+require('./install.js')
+require('./modal.js')
+require('./overlay.js')
+require('./quotes-carousel.js')
+require('./smooth-scroll.js')
+require('./stackdiagram.js')
+require('./typer.js')
+
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
   e.preventDefault();
