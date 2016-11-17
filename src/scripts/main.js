@@ -1013,9 +1013,12 @@ if (!Array.prototype.find) {
     lib$es6$promise$polyfill$$default();
 }).call(this);
 
-/***********************
-  Dropdown
-***********************/
-$('.dropdown').click(function(){
-  $(this).toggleClass('is-active')
-})
+
+/*******************************
+  Releases dropdown CTA
+*******************************/
+$( ".stable select" ).click(function() {
+  var currentValue = $( this ).val()
+  $('a[data-release]').addClass('hide')
+  $('a[data-release=' + currentValue + ']').removeClass('hide')
+});
