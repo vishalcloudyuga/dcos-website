@@ -40,6 +40,11 @@
 @import './_pills.scss';
 @import './carousel.scss';
 
+// Basscss add-ons
+@import '../../node_modules/basscss-sass/scss/responsive-padding';
+@import '../../node_modules/basscss-sass/scss/responsive-margin';
+@import './basscss-addons/responsive-layout';
+
 .bg-gray{
   background-color: $snow;
 }
@@ -60,3 +65,28 @@
       opacity: .8;
     }
   }
+
+.row{
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.py5{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.px5{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+@media screen and (max-width: 40rem) {
+  .xs-col-12{
+    width: 100%;
+  }
+
+  .xs-center{
+    text-align: center;
+  }
+}
