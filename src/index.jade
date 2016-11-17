@@ -17,7 +17,7 @@ block head
   meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
 
 block content
-  .container.container--dark-background.clearfix(style="display: block; padding-bottom: 5rem; padding-left: 2rem; padding-right: 2rem;")
+  .container.container--dark-background.clearfix.pb5.px2.sm-pb0(style="display: block;")
     .mx-auto.max-width-4
       +header(style="padding: 0;")
 
@@ -36,8 +36,8 @@ block content
               br
               span in production.
 
-            a(href='/get-started').btn.btn-primary.inline-block.xs-full Get Started
-            a.inline-block.ml3.xs-full(href='#', data-overlay-toggle='video-overlay')
+            a(href='/get-started').btn.btn-primary.block.sm-inline-block Get Started
+            a.inline-block.sm-ml3.block.sm-inline-block(href='#', data-overlay-toggle='video-overlay')
               img.cta--video__icon.inline-block.align-middle(src='/assets/images/icons/playbutton.png')
               p.cta--video__text.inline-block Play Video
           .lg-col-6.xs-hide.align-middle
@@ -59,7 +59,7 @@ block content
 
 
   //- Features
-  .outer-container.bg-gray.clearfix(style="padding: 5rem 1rem;")
+  .outer-container.bg-gray.clearfix.py5.px2
     .row
       .max-width-4.mx-auto
         .mxn2.flex.flex-wrap.flex-auto
