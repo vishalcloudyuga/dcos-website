@@ -38,6 +38,7 @@
 @import './pages/demos';
 @import './_dropdown.scss';
 @import './_pills.scss';
+@import './_inputs.scss';
 
 // Basscss add-ons
 @import '../../node_modules/basscss-sass/scss/responsive-padding';
@@ -46,6 +47,10 @@
 
 .bg-gray {
   background-color: $snow;
+}
+
+.bg-white{
+  background-color: #FFFFFF;
 }
 
 .btn {

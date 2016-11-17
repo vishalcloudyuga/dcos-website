@@ -1,0 +1,19 @@
+select {
+  padding: 0.5rem 0 0.5rem 30px;
+  border-radius: 3px;
+  transition: 0.1s;
+  -webkit-appearance: none;
+  color: $black;
+
+
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  line-height: 1.2;
+  padding-left: 0.75rem;
+  border: 0px solid white;
+  background-color: #F2F2F2;
+  background-image: url('/assets/images/icons/arrow-down-docs-unselected.svg');
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+}
