@@ -31,6 +31,9 @@ const promisify = require("promisify-node")
 const gulpLoadPlugins = require('gulp-load-plugins')
 const $ = gulpLoadPlugins()
 const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.json')['production']
+const browserify = require('browserify')
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
 
 //
 // general build settings
@@ -121,7 +124,7 @@ let nav = navigation(navConfig, navSettings)
 // Gulp tasks
 //
 
-gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'javascript', 'styles', 'nginx-config', 's3-config'])
+gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'browserify', 'styles', 'nginx-config', 's3-config'])
 
 gulp.task('serve', ['build'], () => {
   return readFileLines(paths.redirects.prefixes)
@@ -441,18 +444,40 @@ gulp.task('nginx-config', () => {
     })
 })
 
-gulp.task('javascript', () => {
-  return gulp.src(paths.js.src)
-    .pipe($.babel({
-      presets: ['es2015'],
-      only: './src/scripts/**'
-    }))
-    .pipe($.concat('main.min.js'))
-    .pipe($.if(isProd(), $.uglify()))
-    .pipe(gulp.dest(paths.js.dest))
-})
+gulp.task('browserify', () => {
 
-gulp.task('js-watch', ['javascript'])
+  const browserifyThis = (() => {
+    let bundler = browserify({
+      cache: {}, packageCache: {}, fullPaths: true,
+      entries: './src/scripts/main.js',
+      extensions: ['.js'],
+      debug: !isProd()
+    });
+
+    const bundle = () => {
+      return bundler.bundle()
+        .on('error', (e) => {
+          console.log('error', e)
+          const args = Array.prototype.slice.call(arguments);
+          return $.notify.onError((error) => {
+            console.log('error', error)
+            return error.message
+          }).apply(this, args);
+        })
+        .pipe(source('main.min.js'))
+        .pipe(buffer())
+        .pipe($.uglify())
+        .pipe(gulp.dest(paths.js.dest))
+        .pipe(browserSync.stream({ once: true }));
+    }
+
+    return bundle();
+  })();
+
+
+});
+
+gulp.task('js-watch', ['browserify'])
 
 // TODO: minify in production
 gulp.task('styles', () => {
