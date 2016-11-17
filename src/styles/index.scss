@@ -38,7 +38,25 @@
 @import './pages/demos';
 @import './_dropdown.scss';
 @import './_pills.scss';
+@import './carousel.scss';
 
 .bg-gray{
   background-color: $snow;
 }
+
+.btn{
+  outline: 0;
+  cursor: pointer;
+}
+  .btn-primary{
+    background-color: $heliotrope;
+    color: #FFF;
+    font-weight: 500;
+    padding: .8rem 1.5rem;
+    border-radius: .25rem;
+    transition: opacity .1s ease-in-out;
+
+    &:hover{
+      opacity: .8;
+    }
+  }

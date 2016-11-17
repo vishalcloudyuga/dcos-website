@@ -159,7 +159,7 @@ gulp.task('serve', ['build'], () => {
         }
       })
 
-      watch(['./src/**/*.jade', './src/*.md', './src/events.json'],
+      watch(['./src/**/*.jade', './src/*.md', './src/events.json', './src/scripts/*.js'],
         batch(function (events, done) { gulp.start('build-site', done) }))
       watch(paths.blog.src,
         batch(function (events, done) { gulp.start('build-blog', done) }))
