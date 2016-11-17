@@ -11,64 +11,40 @@ block content
     .row
       .max-width-4.mx-auto
 
-        h2.heading-margin-bottom.center.mx-auto Release Channels
+        h2.heading-margin-bottom.center Release Channels
 
         .cards.flex.flex-auto.flex-wrap
 
-          .stable-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
-            h3.mb0 Stable
-            p.release-version.pb1 DC/OS 1.8
+          .card.card-content.stable.col-4
+            h3 Stable
+            p.release-version DC/OS 1.8
             p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
-            a.cta.cta--text.release-notes.pb2(href='/releases/1.8.7/') Release Notes
+            a.cta.cta--text.release-notes(href='/releases/1.8.7/') Release Notes
 
-            .col-12.flex-end.mt-auto
-              button.absolute.dropdown(style='text-align: left; width: auto; left: 0.6rem; right: 0.6rem;')
-                a.btn.btn-primary.mb0.block.center.no-arrow Get Release
-                ul
-                  li: a(href='https://dcos.io/docs/1.8/administration/installing/cloud/aws/') Amazon Web Services
-                  li: a(href='https://dcos.io/docs/1.8/administration/installing/cloud/azure/') Azure
-                  li: a(href='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh?_ga=1.191046122.1509614140.1478184618') Direct Download
+            //- Release picker
+            select.fit.col-12.block(name="stable")
+              option(value='aws') Amazon Web Services
+              option(value='azure') Microsoft Azure
 
+            a.btn-primary.col-12.mb0(href="#aws" data-release="aws") Install on AWS
+            a.btn-primary.col-12.mb0.hide(href="#azure" data-release="azure") Install on Microsoft Azure
 
-
-          .card.card--inactive.card-content.stable.col-4.relative(style="justify-content: inherit;")
-              h3.mb0 Early Access
-              p.release-version.pb1 DC/OS 1.9
-              p.hero-list__item__copy__paragraph.release-copy Upcoming release. Ready for development and testing.
-
-              .col-12.flex-end.mt-auto
-                a.btn.btn-disabled.block.mb0 Coming Soon
-
-          .master-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
-              h3.mb0 Master
-              p.release-version.pb1 DC/OS master
-              p.hero-list__item__copy__paragraph.release-copy.pb2 Bleeding edge automated release. Only tested with automated tests.
-
-              .col-12.flex-end.mt-auto
-                button.absolute.dropdown(style='text-align: left; width: auto; left: 0.6rem; right: 0.6rem;')
-                  a.btn.btn-primary.mb0.block.center.no-arrow Get Release
-                  ul
-                    li: a(href='https://downloads.dcos.io/dcos/testing/master/aws.html?_ga=1.236685761.1509614140.1478184618') Amazon Web Services
-                    li: a(href='https://downloads.dcos.io/dcos/testing/mastr/azure.html?_ga=1.236685761.1509614140.1478184618') Azure
-                    li: a(href='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
+            a.cta--text(href='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
 
 
-  .outer-container.bg-white.clearfix.pb5.px2
-    .row
-      .max-width-4.mx-auto
-        h2.heading-margin-bottom.center.mx-auto.mt0 Older Releases
+      h2.heading-margin-bottom Older Releases
 
-        .container
-          .container__content(style="padding-top: 0;")
-            .container__content--release-notes.docs-layout__docs-content
-              include:markdown 1.8.6/notes.md
-              include:markdown 1.8.5/notes.md
-              include:markdown 1.8.4/notes.md
-              include:markdown 1.8.3/notes.md
-              include:markdown 1.8.2/notes.md
-              include:markdown 1.8.1/notes.md
-              include:markdown 1.8.0/notes.md
-              include:markdown 1.7-open/notes.md
+      .container
+        .container__content(style="padding-top: 0;")
+          .container__content--release-notes.docs-layout__docs-content
+            include:markdown 1.8.6/notes.md
+            include:markdown 1.8.5/notes.md
+            include:markdown 1.8.4/notes.md
+            include:markdown 1.8.3/notes.md
+            include:markdown 1.8.2/notes.md
+            include:markdown 1.8.1/notes.md
+            include:markdown 1.8.0/notes.md
+            include:markdown 1.7-open/notes.md
 
   .container.container--dark-background
     .container__content
