@@ -47,6 +47,14 @@
 @import '../../node_modules/basscss-sass/scss/responsive-margin';
 @import './basscss-addons/responsive-layout';
 
+.bg-gray {
+  background-color: $snow;
+}
+
+.bg-white{
+  background-color: #FFFFFF;
+}
+
 .btn {
   outline: 0;
   cursor: pointer;
