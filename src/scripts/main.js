@@ -1013,37 +1013,3 @@ if (!Array.prototype.find) {
     lib$es6$promise$polyfill$$default();
 }).call(this);
 
-
-/*******************************
-  Releases dropdown CTA
-*******************************/
-$.fn.dataToggle = function (scope = document) {
-  const $el = $(this)
-  const $scope = $(scope)
-  const selectedVal = $el.val()
-  const possibleValues = Array.from($el.children(), el => el.value)
-
-  function getValEl (val) {
-    return $scope.find(`[data-toggle-value=${val}]`)
-  }
-
-  possibleValues.forEach(v => {
-    if (v === selectedVal) return
-    getValEl(v).addClass('hide')
-  })
-
-  $el.on('change', e => {
-    const $target = $(e.currentTarget)
-    const value = $target.val()
-
-    getValEl(value).removeClass('hide')
-
-    possibleValues.forEach(v => {
-      if (v === value) return
-      getValEl(v).addClass('hide')
-    })
-  })
-}
-
-$('.stable-releases .channelpicker').dataToggle('.stable-releases')
-$('.master-releases .channelpicker').dataToggle('.master-releases')
