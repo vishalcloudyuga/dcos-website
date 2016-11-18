@@ -23,14 +23,11 @@ block content
 
             .col-12.flex-end.mt-auto
               //- Release picker
-              select.fit.col-12.block.channelpicker(name="stable")
-                option(value='aws') Amazon Web Services
-                option(value='azure') Microsoft Azure
-                option(value='download') Direct Download
-
-              a.btn.btn-primary.block.mb0(href="https://dcos.io/docs/1.8/administration/installing/cloud/aws/" data-toggle-value="aws") Get Started
-              a.btn.btn-primary.block.mb0(href="https://dcos.io/docs/1.8/administration/installing/cloud/azure/" data-toggle-value="azure") Get Started
-              a.btn.btn-primary.block.mb0(href="https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh" data-toggle-value="download") Get Started
+              select.btn.btn-primary.fit.col-12.block.bg-heliotrope.text-white.pl1.white-arrow.p0(onchange="if (this.value) window.location.href=this.value"  style="line-height: 42px; height: 42px; padding: 0 1rem;")
+                option(value='') Pick a service
+                option(value='https://dcos.io/docs/1.8/administration/installing/cloud/aws/') Amazon Web Services
+                option(value='https://dcos.io/docs/1.8/administration/installing/cloud/azure/') Microsoft Azure
+                option(value='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
 
           .card.card--inactive.card-content.stable.col-4(style="justify-content: inherit;")
               h3.mb0 Early Access
@@ -47,14 +44,11 @@ block content
 
               .col-12.flex-end.mt-auto
                 //- Release picker
-                select.fit.col-12.block.channelpicker(name="stable")
-                  option(value='aws') Amazon Web Services
-                  option(value='azure') Microsoft Azure
-                  option(value='download') Direct Download
-
-                a.btn.btn-primary.block.mb0(href="https://downloads.dcos.io/dcos/testing/master/aws.html?_ga=1.236685761.1509614140.1478184618" data-toggle-value="aws") Get Started
-                a.btn.btn-primary.block.mb0(href="https://downloads.dcos.io/dcos/testing/master/azure.html?_ga=1.236685761.1509614140.1478184618" data-toggle-value="azure") Get Started
-                a.btn.btn-primary.block.mb0(href="https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh" data-toggle-value="download") Get Started
+                select.btn.btn-primary.fit.col-12.block.bg-heliotrope.text-white.pl1.white-arrow(onchange="if (this.value) window.location.href=this.value" style="line-height: 42px; height: 42px; padding: 0 1rem;")
+                  option(value='') Pick a service
+                  option(value='https://downloads.dcos.io/dcos/testing/master/aws.html?_ga=1.236685761.1509614140.1478184618') Amazon Web Services
+                  option(value='https://downloads.dcos.io/dcos/testing/master/azure.html?_ga=1.236685761.1509614140.1478184618') Microsoft Azure
+                  option(value='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
 
       h2.heading-margin-bottom.center.mx-auto Older Releases
 
