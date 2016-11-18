@@ -24,9 +24,13 @@ block content
 
 
     //- Wallop slider
-    .Wallop.Wallop--fade(style="padding: 5rem 0;")
-      .Wallop-list.max-width-4.mx-auto.left-align
-        .Wallop-item.flex.flex-wrap-flex-auto.items-center
+    //- .Wallop.Wallop--fade(style="padding: 5rem 0;")
+    //-   .Wallop-list.max-width-4.mx-auto.left-align
+    //-     .Wallop-item.flex.flex-wrap-flex-auto.items-center
+
+    div(style="padding: 5rem 0;")
+      .max-width-4.mx-auto.left-align
+        .flex.flex-wrap-flex-auto.items-center
           .lg-col-6.col-12.align-middle.xs-center
             h1.hero-title
               span The easiest way to
@@ -43,18 +47,18 @@ block content
           .lg-col-6.xs-hide.align-middle
             +image('/assets/images/hero-image.png')
 
-        .Wallop-item.flex.flex-wrap-flex-auto.items-center
-          .lg-col-6.col-12.xs-center
-            h1.hero-title.mb2 Get real-time insights sooner;
-            p Deploy your fast data pipeline with DC/OS
-            a(href='/fast-data').btn.btn-primary.inline-block Learn More
-          .lg-col-6.xs-hide
-            +image('/assets/images/hero-fastdata.png')
+        //- .Wallop-item.flex.flex-wrap-flex-auto.items-center
+        //-   .lg-col-6.col-12.xs-center
+        //-     h1.hero-title.mb2 Get real-time insights sooner;
+        //-     p Deploy your fast data pipeline with DC/OS
+        //-     a(href='/fast-data').btn.btn-primary.inline-block Learn More
+        //-   .lg-col-6.xs-hide
+        //-     +image('/assets/images/hero-fastdata.png')
 
-      button.Wallop-buttonPrevious.xs-hide.sm-hide
-        img(src="/assets/images/icons/chevron-white-left.svg")
-      button.Wallop-buttonNext.xs-hide.sm-hide
-        img(src="/assets/images/icons/chevron-white-right.svg")
+      //- button.Wallop-buttonPrevious.xs-hide.sm-hide
+      //-   img(src="/assets/images/icons/chevron-white-left.svg")
+      //- button.Wallop-buttonNext.xs-hide.sm-hide
+      //-   img(src="/assets/images/icons/chevron-white-right.svg")
 
 
 
