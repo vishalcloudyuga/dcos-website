@@ -68,7 +68,7 @@
 }
 
 .btn-disabled {
-  background-color: $dark-gray;
+  background-color: lighten($dark-gray, 10%);
   color: #FFFFFF;
   cursor: default;
 }
