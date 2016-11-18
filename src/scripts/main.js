@@ -1017,17 +1017,33 @@ if (!Array.prototype.find) {
 /*******************************
   Releases dropdown CTA
 *******************************/
-$('.channelpicker').on('change', e => {
-  const $el = $(e.currentTarget)
-  const currentValue = $el.val()
+$.fn.dataToggle = function (scope = document) {
+  const $el = $(this)
+  const $scope = $(scope)
+  const selectedVal = $el.val()
+  const possibleValues = Array.from($el.children(), el => el.value)
 
-  const buttons = $el.siblings('a[data-release]')
+  function getValEl (val) {
+    return $scope.find(`[data-toggle-value=${val}]`)
+  }
 
-  buttons.filter((i, el) => {
-    const $el = $(el)
+  possibleValues.forEach(v => {
+    if (v === selectedVal) return
+    getValEl(v).addClass('hide')
   })
 
+  $el.on('change', e => {
+    const $target = $(e.currentTarget)
+    const value = $target.val()
 
-  // .addClass('hide')
-  // const a = $el.siblings('a[data-release=' + currentValue + ']')
-})
+    getValEl(value).removeClass('hide')
+
+    possibleValues.forEach(v => {
+      if (v === value) return
+      getValEl(v).addClass('hide')
+    })
+  })
+}
+
+$('.stable-releases .channelpicker').dataToggle('.stable-releases')
+$('.master-releases .channelpicker').dataToggle('.master-releases')
