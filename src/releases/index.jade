@@ -11,28 +11,52 @@ block content
     .row
       .max-width-4.mx-auto
 
-        h2.heading-margin-bottom.center Release Channels
+        h2.heading-margin-bottom.center.mx-auto Release Channels
 
         .cards.flex.flex-auto.flex-wrap
 
-          .card.card-content.stable.col-4
-            h3 Stable
-            p.release-version DC/OS 1.8
+          .card.card-content.stable.col-4.relative(style="justify-content: inherit;")
+            h3.mb0 Stable
+            p.release-version.pb1 DC/OS 1.8
             p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
-            a.cta.cta--text.release-notes(href='/releases/1.8.7/') Release Notes
+            a.cta.cta--text.release-notes.pb2(href='/releases/1.8.7/') Release Notes
 
-            //- Release picker
-            select.fit.col-12.block(name="stable")
-              option(value='aws') Amazon Web Services
-              option(value='azure') Microsoft Azure
+            .channelpicker.col-12.flex-end.mt-auto
+              //- Release picker
+              select.fit.col-12.block.channelpicker(name="stable")
+                option(value='aws') Amazon Web Services
+                option(value='azure') Microsoft Azure
+                option(value='download') Direct Download
 
-            a.btn-primary.col-12.mb0(href="#aws" data-release="aws") Install on AWS
-            a.btn-primary.col-12.mb0.hide(href="#azure" data-release="azure") Install on Microsoft Azure
+              a.btn.btn-primary.block.mb0(href="https://dcos.io/docs/1.8/administration/installing/cloud/aws/" data-release="aws") Get Started
+              a.btn.btn-primary.block.mb0.hide(href="https://dcos.io/docs/1.8/administration/installing/cloud/azure/" data-release="azure") Get Started
+              a.btn.btn-primary.block.mb0.hide(href="https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh" data-release="download") Get Started
 
-            a.cta--text(href='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
+          .card.card--inactive.card-content.stable.col-4(style="justify-content: inherit;")
+              h3.mb0 Early Access
+              p.release-version.pb1 DC/OS 1.9
+              p.hero-list__item__copy__paragraph.release-copy Upcoming release. Ready for development and testing.
 
+              .channelpicker.col-12.flex-end.mt-auto
+                a.btn.btn-disabled.block.mb0 Coming Soon
 
-      h2.heading-margin-bottom Older Releases
+          .card.card-content.stable.col-4(style="justify-content: inherit;")
+              h3.mb0 Master
+              p.release-version.pb1 DC/OS master
+              p.hero-list__item__copy__paragraph.release-copy.pb2 Bleeding edge automated release. Only tested with automated tests.
+
+              .channelpicker.col-12.flex-end.mt-auto
+                //- Release picker
+                select.fit.col-12.block.channelpicker(name="stable")
+                  option(value='aws') Amazon Web Services
+                  option(value='azure') Microsoft Azure
+                  option(value='download') Direct Download
+
+                a.btn.btn-primary.block.mb0(href="https://downloads.dcos.io/dcos/testing/master/aws.html?_ga=1.236685761.1509614140.1478184618" data-release="aws") Get Started
+                a.btn.btn-primary.block.mb0.hide(href="https://downloads.dcos.io/dcos/testing/master/azure.html?_ga=1.236685761.1509614140.1478184618" data-release="azure") Get Started
+                a.btn.btn-primary.block.mb0.hide(href="https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh" data-release="download") Get Started
+
+      h2.heading-margin-bottom.center.mx-auto Older Releases
 
       .container
         .container__content(style="padding-top: 0;")
