@@ -45,30 +45,32 @@
 @import '../../node_modules/basscss-sass/scss/responsive-margin';
 @import './basscss-addons/responsive-layout';
 
-.bg-gray {
-  background-color: $snow;
-}
-
-.bg-white{
-  background-color: #FFFFFF;
-}
+.bg-gray { background-color: $snow; }
+.bg-white { background-color: #FFFFFF; }
 
 .btn {
   outline: 0;
   cursor: pointer;
+  font-weight: 500;
+  padding: .8rem 1.5rem;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+  -webkit-font-smoothing: antialiased;
 }
 
 .btn-primary {
   background-color: $heliotrope;
   color: #FFF;
-  font-weight: 500;
-  padding: .8rem 1.5rem;
-  border-radius: .25rem;
-  transition: opacity .1s ease-in-out;
 
   &:hover {
     opacity: .8;
   }
+}
+
+.btn-disabled {
+  background-color: $dark-gray;
+  color: #FFFFFF;
+  cursor: default;
 }
 
 .row {
@@ -81,18 +83,16 @@
   padding-bottom: 5rem;
 }
 
-.pb5 {
-  padding-bottom: 5px;
-}
+.pb5 { padding-bottom: 5px; }
 
-.pt5 {
-  padding-top: 5px;
-}
+.pt5 { padding-top: 5px; }
 
 .px5 {
   padding-left: 5rem;
   padding-right: 5rem;
 }
+
+.mt-auto { margin-top: auto; }
 
 @media screen and (max-width: 40rem) {
   .xs-col-12 {

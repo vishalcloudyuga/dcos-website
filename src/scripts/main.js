@@ -1017,8 +1017,8 @@ if (!Array.prototype.find) {
 /*******************************
   Releases dropdown CTA
 *******************************/
-$( ".stable select" ).click(function() {
+$( ".channelpicker" ).click(function() {
   var currentValue = $( this ).val()
-  $('a[data-release]').addClass('hide')
-  $('a[data-release=' + currentValue + ']').removeClass('hide')
+  $(this).siblings('a[data-release]').addClass('hide')
+  $(this).siblings('a[data-release=' + currentValue + ']').removeClass('hide')
 });
