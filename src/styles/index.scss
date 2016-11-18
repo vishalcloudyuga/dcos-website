@@ -47,13 +47,8 @@
 @import '../../node_modules/basscss-sass/scss/responsive-margin';
 @import './basscss-addons/responsive-layout';
 
-.bg-gray {
-  background-color: $snow;
-}
-
-.bg-white{
-  background-color: #FFFFFF;
-}
+.bg-gray { background-color: $snow; }
+.bg-white { background-color: #FFFFFF; }
 
 .btn {
   outline: 0;
@@ -77,6 +72,7 @@
 .btn-disabled {
   background-color: lighten($dark-gray, 25%);
   color: $black;
+  color: #FFFFFF;
   cursor: default;
 }
 
