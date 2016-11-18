@@ -1017,8 +1017,17 @@ if (!Array.prototype.find) {
 /*******************************
   Releases dropdown CTA
 *******************************/
-$( ".channelpicker" ).click(function() {
-  var currentValue = $( this ).val()
-  $(this).siblings('a[data-release]').addClass('hide')
-  $(this).siblings('a[data-release=' + currentValue + ']').removeClass('hide')
-});
+$('.channelpicker').on('change', e => {
+  const $el = $(e.currentTarget)
+  const currentValue = $el.val()
+
+  const buttons = $el.siblings('a[data-release]')
+
+  buttons.filter((i, el) => {
+    const $el = $(el)
+  })
+
+
+  // .addClass('hide')
+  // const a = $el.siblings('a[data-release=' + currentValue + ']')
+})
