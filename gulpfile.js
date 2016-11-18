@@ -159,7 +159,7 @@ gulp.task('serve', ['build'], () => {
         }
       })
 
-      watch(['./src/**/*.jade', './src/*.md', './src/events.json', './src/scripts/*.js'],
+      watch(['./src/*.jade', './src/**/*.jade', './src/*.md', './src/events.json', './src/scripts/*.js'],
         batch(function (events, done) { gulp.start('build-site', done) }))
       watch(paths.blog.src,
         batch(function (events, done) { gulp.start('build-blog', done) }))
@@ -322,7 +322,7 @@ gulp.task('build-blog', () => {
 })
 
 gulp.task('build-site', () => {
-  return gulp.src(['src/**/*.jade', 'src/*.md'])
+  return gulp.src(['src/*.jade', 'src/**/*.jade', 'src/*.md'])
     .pipe($.frontMatter().on('data', file => {
       Object.assign(file, file.frontMatter)
       delete file.frontMatter
