@@ -35,7 +35,7 @@ A typical Couchbase cluster creation process looks like:
 
 In order to automate Couchbase cluster creation using DC/OS, the process is split into a “startup” and “node” service. 
 
-<img src="/assets/images/blog/2016-11-18-couchbase-cluster.png" alt="Couchbase Cluster using DC/OS" />
+<a href="http://couchbase.com/containers"><img src="/assets/images/blog/2016-11-18-couchbase-cluster.png" alt="Couchbase Cluster using DC/OS" /></a>
 
 The startup service has only one replica and uses VIP with a well-defined name. This provides a single reference point to start the cluster creation. By default a service is visible only from inside the cluster. This service is also exposed as using Elastic Load Balancer (ELB). This allows the [Couchbase Web Console](http://developer.couchbase.com/documentation/server/current/admin/ui-intro.html) to be accessible from outside the cluster.
 
@@ -62,12 +62,12 @@ DC/OS dashboard is available using the address shown for Mesos Master:
 Install and Configure the DC/OS CLI as explained in [CLI](https://docs.mesosphere.com/1.8/usage/cli/). Quick steps are:
 
 ```
-dcos config set core.dcos_url http://DCOS-Couc-ElasticL-X49MAGSXYDXT-1086064776.us-west-1.elb.amazonaws.com
+dcos config set core.dcos_url http://<DnsAddress>
 dcos auth login
 dcos package install marathon-lb
 ```
 
-Make sure to replace the URI for the first parameter to match yours.
+Make sure to replace `<DnsAddress>` with corresponding value from the output of CloudFormation template.
 
 ## Create Couchbase “startup” Service
 
@@ -166,7 +166,7 @@ This shows that the `travel-sample` bucket is created and has 31,591 JSON docume
 
 ## Create Couchbase “node" service
 
-Now, let’s create a node service. This service will add Couchbase nodes to the cluster. It can be created using the following configuration file:
+Now, let’s create a node service. This service will create Couchbase nodes and add them to the cluster. It can be created using the following configuration file:
 
 ```json
 {
@@ -238,19 +238,70 @@ This configuration file is at https://github.com/arun-gupta/couchbase-dcos/blob/
 
 1. Unique name of the service is `couchbase-worker`
 1. `TYPE` environment variable is set to `WORKER`. This ensures that the Couchbase container is added to the cluster.
-1. `COUCHBASE_MASTER` environment variable is set to the fully-qualified name of the startup service.
+1. `COUCHBASE_MASTER` environment variable is set to the fully-qualified name of the startup service. This uses the service discovery mechanism built into DCOS containers to communicate.
 1. Only one instance of the task is created.
 1. Couchbase architecture is homoegeneous. This is confirmed by the fact that the exact same image `arungupta/couchbase:dcos` is used for startup and node service.
 1. Overlay network used for the startup service is used for this service as well.
 
+Updated DC/OS dashboard looks like:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-dcos-dashboard-node-created.png" alt="DC/OS Dashboard with Couchbase Startup and Worker Node" />
+
+It shows one "node" service and one "worker" service, each with one task.
+
+Clicking on the `couchbase-node` service shows the following details:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-node-details-one-task.png" alt="DC/OS Dashboard with Couchase Node Task" />
+
+This shows that only one task is created for the service.
+
+Couchbase Web Console is updated to show that this newly started container is now added to the cluster. This is evident by the number `1` in red circle on `Pending Rebalance` tab:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-console-one-server-pending-balance.png" alt="Couchbase Web Console Pending Rebalance" />
+
+Click on `Pending Rebalance` tab to see the IP address of the newly added container:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-console-one-server-pending-balance2.png" alt="Couchbase Web Console Pending Rebalance 2" />
+
+
+## Scale Couchbase Cluster
+
+Click on the `Scale` button and scale the number of instances to three. Two new tasks are started and the DC/OS dashboard is updated as shown:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-node-details-three-tasks.png" alt="DC/OS Dashboard with Three Node Tasks" />
+
+Couchbase Web Console is updated to show that two more containers are added to the cluster. This is indicated by the number `3` in red circle on `Pending Rebalance` tab:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-console-one-server-pending-balance3.png" alt="Couchbase Web Console Pending Rebalance 3" />
+
+DC/OS updated dashboard looks like:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-dcos-dashboard-updated.png" alt="DC/OS Updated Dashboard" />
+
+
+## Rebalance Couchbase Cluster
+
+Finally, click on `Rebalance` button to rebalance the cluster. This will distribute the `travel-sample` bucket across different containers. A message window showing the current state of rebalance is displayed:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-console-rebalancing.png" alt="Couchbase Web Console Rebalancing Nodes" />
+
+Once all the nodes are rebalanced, Couchbase cluster is ready to serve your requests:
+
+<img src="/assets/images/blog/2016-11-18-couchbase-console-rebalanced.png" alt="Couchbase Web Console Rebalance Complete" />
 
 ## Conclusion
 
-This blog showed how to create a Couchbase cluster on DC/OS.
+This blog showed how to create a Couchbase cluster on DC/OS. The image used here is `arungupta/couchbase:dcos` and configures Couchbase only for a simple development environment. It is recommended to create your own Couchbase image following a similar methodology and setup values more suitable for production.
 
 In addition to creating a cluster, Couchbase Server supports a range of [high availability and disaster recovery](http://developer.couchbase.com/documentation/server/current/ha-dr/ha-dr-intro.html) (HA/DR) strategies. Most HA/DR strategies rely on a multi-pronged approach of maximizing availability, increasing redundancy within and across data centers, and performing regular backups.
 
 Now that your Couchbase cluster is ready, you can run your first [sample application](http://developer.couchbase.com/documentation/server/current/travel-app/index.html).
 
-For further information check out the Couchbase [Developer Portal](http://developer.couchbase.com/server) and [Forums](https://forums.couchbase.com/), or post questions on [Stack Overflow](http://stackoverflow.com/questions/tagged/couchbase). You can also follow us at [@couchbasedev](http://twitter.com/couchbasedev) and [@couchbase](http://twitter.com/couchbase).
+For further information check out:
+
+* Couchbase [Developer Portal](http://developer.couchbase.com/server)
+* Ask questions on [Couchbase Forums](https://forums.couchbase.com/) or [Stack Overflow](http://stackoverflow.com/questions/tagged/couchbase)
+* Download [Couchbase](http://www.couchbase.com/nosql-databases/downloads)
+
+You can also follow us at [@couchbasedev](http://twitter.com/couchbasedev) and [@couchbase](http://twitter.com/couchbase).
 
