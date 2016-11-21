@@ -123,3 +123,41 @@
     text-align: center;
   }
 }
+
+@media #{$breakpoint-md} {
+
+  .md-py5 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .md-px5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .md-pl5 {
+    padding-left: 5rem;
+  }
+  .md-pr5 {
+    padding-right: 5rem;
+  }
+
+}
+
+@media #{$breakpoint-lg} {
+
+  .lg-py5 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .lg-px5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .lg-pl5 {
+    padding-left: 5rem;
+  }
+  .lg-pr5 {
+    padding-right: 5rem;
+  }
+
+}
