@@ -1037,9 +1037,14 @@ var slider = new Wallop(wallopEl);
 
 // Enable touch for Wallop
 var element = document.querySelector('.Wallop');
-Hammer(element).on('swipeleft', function() {
+Hammer(element, {
+  inputClass: Hammer.TouchInput
+}).on('swipeleft', function() {
   slider.next();
 });
-Hammer(element).on('swiperight', function() {
+
+Hammer(element, {
+  inputClass: Hammer.TouchInput
+}).on('swiperight', function() {
   slider.previous();
 });
