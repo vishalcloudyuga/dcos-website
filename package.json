@@ -22,7 +22,14 @@
   "homepage": "https://github.com/dcos/dcos-website#readme",
   "browserify": {
     "transform": [
-      ["babelify", { "presets": ["es2015"] }]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
     ]
   },
   "devDependencies": {
@@ -84,6 +91,7 @@
   },
   "dependencies": {
     "basscss-sass": "^4.0.0",
+    "hammerjs": "^2.0.8",
     "metalsmith-uglify": "^1.2.1",
     "spinkit": "^1.2.5",
     "wallop": "^2.4.1"

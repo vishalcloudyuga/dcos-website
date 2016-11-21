@@ -13,6 +13,7 @@ require('./stackdiagram.js')
 require('./typer.js')
 
 import Wallop from 'wallop';
+import Hammer from 'hammerjs';
 
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
@@ -1033,3 +1034,12 @@ $('.dropdown').click(function(){
 ****************/
 var wallopEl = document.querySelector('.Wallop');
 var slider = new Wallop(wallopEl);
+
+// Enable touch for Wallop
+var element = document.querySelector('.Wallop');
+Hammer(element).on('swipeleft', function() {
+  slider.next();
+});
+Hammer(element).on('swiperight', function() {
+  slider.previous();
+});
