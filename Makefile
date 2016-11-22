@@ -1,0 +1,3 @@
+local:
+	scripts/develop.sh
+
