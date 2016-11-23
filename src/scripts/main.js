@@ -1017,5 +1017,11 @@ if (!Array.prototype.find) {
   Dropdown
 ***********************/
 $('.dropdown').click(function(){
+  $('html').one('click',function() {
+    $('.dropdown').removeClass('is-active')
+  });
+
   $(this).toggleClass('is-active')
+
+  event.stopPropagation();
 })
