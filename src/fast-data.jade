@@ -25,7 +25,7 @@ block content
     .mx-auto.max-width-4
       .container__content.community-hero
         h1 Fast Data on DC/OS
-        //- p.hero-subtitle Data comes from many sources, and is proliferating faster than ever before. Ordinary people are now able to track every click on their website and every beat of their heart. All of this data is collected in real time, but up until recently it was processed after it was collected, in order to find out what had happened in the past(...)
+        p.hero-subtitle Data comes from many sources, and is proliferating faster than ever before. Ordinary people are now able to track every click on their website and every beat of their heart. All of this data is collected in real time, but up until recently it was processed after it was collected, in order to find out what had happened in the past(...)
 
 
 
@@ -34,17 +34,17 @@ block content
   .outer-container.bg-white.clearfix.py5.px2
     .row
       .max-width-4.mx-auto
-        .lg-col-8.col-12.xs-col-12.px2.mx-auto
-          h2.pb4.center DC/OS Enables Fast Data
-
         .flex.flex-auto.flex-wrap
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
             h4 On-demand provisioning
             p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge. DC/OS abstracts away the details and allows you to provision and run all of these pieces on a common set of resources...
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
             h4 Simplified operations
             p Node failure is an expected challenge if you are running in a datacenter. If you are processing big data when a node fails, it can be manually restarted. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running...
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
             h4 Elastic data infrastructure
             p When processing big data, you can gauge, and even control, how much processing power you need at any given time, by running your data through your pipeline in big batches. But fast data is unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale up, down...
 
@@ -57,11 +57,17 @@ block content
       .max-width-4.mx-auto
         .mxn2.flex.flex-auto.flex-wrap.items-center
           .lg-col-8.col-12.xs-col-12.px2.mx-auto
-            h2 Challenges / Solutions
-            p Data comes from many sources, and is proliferating faster than ever before. Ordinary people are now able to track every click on their website and every beat of their heart. All of this data is collected in real time, but up until recently it was processed after it was collected, in order to find out what had happened in the past, not what is happening right now. The huge amount of data collected from clients, devices, and sensors, and processed after the fact was called “big data”.
-            p But, modern apps need to give their users information about what is happening now, not what happened yesterday. Users want to chat with deep-learning powered bots that can triage complex and unexpected issues. They want to know their heart rate in real-time, to optimize their current workout. In order to use big data to deliver real-time insights, you need to process the data as you collect it, and feed it back to the app that will be using that data. When data is processed as it is gathered to provide real time insights, it is called “fast data”.
-          //- .lg-col-6.col-12.xs-col-12.px2
-          //-   +image('/assets/images/hero-image.png')
+
+            h2.pb4.center DC/OS Enables Fast Data
+            h3 On-demand provisioning
+            p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge. DC/OS abstracts away the details and allows you to provision and run all of these pieces on a common set of resources with your containerized or legacy app. You can install most data services in the DC/OS universe with a single click in the GUI or single command from the CLI. When provisioning data services is easy, you can try out multiple options, allowing you to optimize your pipeline for performance; not provisioning time.
+
+            h3 Simplified operations
+            p Node failure is an expected challenge if you are running in a datacenter. If you are processing big data when a node fails, it can be manually restarted. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running on nodes that failed. Logging, debugging, and metrics gathering are essential for smooth operations. Setting up these functions with DC/OS is easy, and with the release of DC/OS 1.9, they will be included with every cluster.
+
+            h3 Elastic data infrastructure
+            p When processing big data, you can gauge, and even control, how much processing power you need at any given time, by running your data through your pipeline in big batches. But fast data is unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale up, down, and out safely. It maximizes server efficiency during peak times, which saves you money and guards against downtime.
+
 
 
 
