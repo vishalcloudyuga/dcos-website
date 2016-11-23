@@ -79,6 +79,17 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 
 1.  Build a local version of the doc site. The DC/OS website can be built locally using Node or run in an Nginx Docker container.
 
+- Using Easy Mode
+    1. [Install Docker Toolkit](https://www.docker.com/products/docker-toolbox)
+
+    1. Run dev server
+
+        ```
+        make
+        ```
+
+    1. Go to [running server](http://localhost:3000)
+
 - Using Node
     1. [Install Node](https://docs.npmjs.com/getting-started/installing-node)
     1. Install dependencies:
@@ -190,7 +201,7 @@ Once changes have been previewed and accepted on <https://dev.dcos.io/>, the mai
 
 ```
 $ git checkout develop
-$ git pull 
+$ git pull
 $ ci/promote.sh
 ```
 
