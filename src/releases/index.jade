@@ -15,20 +15,22 @@ block content
 
         .cards.flex.flex-auto.flex-wrap
 
-          .stable-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit;")
+          .stable-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
             h3.mb0 Stable
             p.release-version.pb1 DC/OS 1.8
             p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
             a.cta.cta--text.release-notes.pb2(href='/releases/1.8.7/') Release Notes
 
-            .col-12.flex-end.mt-auto
-              select.btn.btn-primary.fit.col-12.block.bg-heliotrope.text-white.pl1.white-arrow.p0(onchange="if (this.value) window.location.href=this.value"  style="line-height: 42px; height: 42px; padding: 0 1rem;")
-                option(value='') Get Release
-                option(value='https://dcos.io/docs/1.8/administration/installing/cloud/aws/') Amazon Web Services
-                option(value='https://dcos.io/docs/1.8/administration/installing/cloud/azure/') Microsoft Azure
-                option(value='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
+            button.col-12.flex-end.mt-auto.absolute.dropdown(style='text-align: left; width: auto; left: 0.6rem; right: 0.6rem;')
+              a.btn.btn-primary.mb0.block Get Release
+              ul.absolute
+                li: a(href='#') Amazon Web Services
+                li: a(href='#') Azure
+                li: a(href='#') Direct Download
 
-          .card.card--inactive.card-content.stable.col-4(style="justify-content: inherit;")
+
+
+          .card.card--inactive.card-content.stable.col-4.relative(style="justify-content: inherit;")
               h3.mb0 Early Access
               p.release-version.pb1 DC/OS 1.9
               p.hero-list__item__copy__paragraph.release-copy Upcoming release. Ready for development and testing.
@@ -36,7 +38,7 @@ block content
               .col-12.flex-end.mt-auto
                 a.btn.btn-disabled.block.mb0 Coming Soon
 
-          .master-releases.card.card-content.stable.col-4(style="justify-content: inherit;")
+          .master-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit;")
               h3.mb0 Master
               p.release-version.pb1 DC/OS master
               p.hero-list__item__copy__paragraph.release-copy.pb2 Bleeding edge automated release. Only tested with automated tests.
