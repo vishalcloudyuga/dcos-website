@@ -21,9 +21,10 @@ block content
             p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
             a.cta.cta--text.release-notes.pb2(href='/releases/1.8.7/') Release Notes
 
-            .col-12.flex-end.mt-auto
-              button.absolute.dropdown(style='text-align: left; width: auto; left: 0.6rem; right: 0.6rem;')
-                a.btn.btn-primary.mb0.block Get Release
+            .col-12.flex-end.mt-auto.relative
+              button.absolute.dropdown(style='text-align: left; left: 0; width: 100%;')
+                a.btn.btn-primary.mb0.block.center.no-arrow Get Release
+                  img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
                 ul
                   li: a(href='https://dcos.io/docs/1.8/administration/installing/cloud/aws/') Amazon Web Services
                   li: a(href='https://dcos.io/docs/1.8/administration/installing/cloud/azure/') Azure
@@ -44,9 +45,10 @@ block content
               p.release-version.pb1 DC/OS master
               p.hero-list__item__copy__paragraph.release-copy.pb2 Bleeding edge automated release. Only tested with automated tests.
 
-              .col-12.flex-end.mt-auto
+              .col-12.flex-end.mt-auto.relative
                 button.absolute.dropdown(style='text-align: left; width: auto; left: 0.6rem; right: 0.6rem;')
-                  a.btn.btn-primary.mb0.block Get Release
+                  a.btn.btn-primary.mb0.block.center.no-arrow Get Release
+                    img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
                   ul
                     li: a(href='https://downloads.dcos.io/dcos/testing/master/aws.html?_ga=1.236685761.1509614140.1478184618') Amazon Web Services
                     li: a(href='https://downloads.dcos.io/dcos/testing/mastr/azure.html?_ga=1.236685761.1509614140.1478184618') Azure
