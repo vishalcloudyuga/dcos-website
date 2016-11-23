@@ -297,10 +297,11 @@ Now that your Couchbase cluster is ready, you can run your first [sample applica
 
 For further information check out:
 
+* [Couchbase on Containers](http://www.couchbase.com/containers)
 * Couchbase [Developer Portal](http://developer.couchbase.com/server)
 * Ask questions on [Couchbase Forums](https://forums.couchbase.com/) or [Stack Overflow](http://stackoverflow.com/questions/tagged/couchbase)
 * Download [Couchbase](http://www.couchbase.com/nosql-databases/downloads)
 
 You can also follow us at [@couchbasedev](http://twitter.com/couchbasedev) and [@couchbase](http://twitter.com/couchbase).
 
-Many thanks to [@joerg_schad](https://twitter.com/joerg_schadhttp://www.couchbase.com/containers) for helping with understanding DC/OS concepts and debugging the configuration.
+Many thanks to [@joerg_schad](https://twitter.com/joerg_schad) for helping with understanding DC/OS concepts and debugging the configuration.
