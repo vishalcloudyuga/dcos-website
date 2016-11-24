@@ -25,7 +25,7 @@ block content
     .mx-auto.max-width-4
       .container__content.community-hero
         h1 Fast Data on DC/OS
-        p.hero-subtitle Data comes from many sources, and is proliferating faster than ever before. Ordinary people are now able to track every click on their website and every beat of their heart. All of this data is collected in real time, but up until recently it was processed after it was collected, in order to find out what had happened in the past(...)
+        p.hero-subtitle(style='max-width: 46rem;') Data is collected in real-time from many sources, but up until recently it has been processed after it was collected, in order to find out what had happened in the past. All this data, processed after collection, was called &ldquo;big data&rdquo;. Modern apps, however, need to respond to events as they happen, not to yesterday's news. To do this, they process data as it is collected and provide real-time insights. When data is processed as it is collected, we call it &ldquo;fast data&rdquo;.
 
 
 
@@ -35,18 +35,25 @@ block content
     .row
       .max-width-4.mx-auto
         .flex.flex-auto.flex-wrap
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb4.center
+            h2 DC/OS enables fast data
+            p Implementing a fast data pipeline can enable your modern app do amazing things, but it also poses challenges that aren’t a problem when you’re dealing with big data alone. Building your fast data pipeline &mdash; and the app that it supports &mdash; on top of the Datacenter Operating System (DC/OS) can help alleviate some of these challenges.
+
+        .flex.flex-auto.flex-wrap
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
-            img.hero-list__item__image.larger-icon(src="/assets/images/icons/buildamazingapps.svg")
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/ondemand-provisioning.svg")
             h4 On-demand provisioning
-            p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge. DC/OS abstracts away the details and allows you to provision and run all of these pieces on a common set of resources...
+            p Fast data requires many different components, that each have different requirements and prerequisites. DC/OS allows you to provision these components with a single click or command.
+
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
-            img.hero-list__item__image.larger-icon(src="/assets/images/icons/operatewithconfidence.svg")
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/simplified-operations.svg")
             h4 Simplified operations
-            p Node failure is an expected challenge if you are running in a datacenter. If you are processing big data when a node fails, it can be manually restarted. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running...
+            p When you rely on fast data, every second counts. You need your fast data pipeline to be more resilient than the infrastructure it runs on, and DC/OS provides that resiliency.
+
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
-            img.hero-list__item__image.larger-icon(src="/assets/images/icons/outpacethecompetition.svg")
+            img.hero-list__item__image.larger-icon(src="/assets/images/icons/elastic-data-infrastructure.svg")
             h4 Elastic data infrastructure
-            p When processing big data, you can gauge, and even control, how much processing power you need at any given time, by running your data through your pipeline in big batches. But fast data is unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale up, down...
+            p Maintaining enough infrastructure to handle data-processing peaks can be expensive. DC/OS maximizes server efficiency during peak times, saving you money.
 
 
 
@@ -57,16 +64,16 @@ block content
       .max-width-4.mx-auto
         .mxn2.flex.flex-auto.flex-wrap.items-center
           .lg-col-8.col-12.xs-col-12.px2.mx-auto
+            h2.pb4.center.mx-auto How does DC/OS provide these advantages?
 
-            h2.pb4.center DC/OS Enables Fast Data
             h3 On-demand provisioning
-            p Data services like message queues to track your datastream, processing programs, and databases to store your results all have different requirements. Provisioning them can be a huge challenge. DC/OS abstracts away the details and allows you to provision and run all of these pieces on a common set of resources with your containerized or legacy app. You can install most data services in the DC/OS universe with a single click in the GUI or single command from the CLI. When provisioning data services is easy, you can try out multiple options, allowing you to optimize your pipeline for performance; not provisioning time.
+            p.pb3 Provisioning the different data services that comprise a fast data pipeline (message queues to track data streams, processing programs, and databases to store results) can be a huge challenge, because each has it's own specific requirements. DC/OS abstracts away the details and allows you to provision and run all of these services on a common set of resources with your containerized or legacy app. You can install most data services in the DC/OS universe with a single click in the GUI or single command from the CLI. When provisioning data services is easy, you can experiment with multiple options, allowing you to optimize your pipeline for speed and performance &mdash; not provisioning time.
 
             h3 Simplified operations
-            p Node failure is an expected challenge if you are running in a datacenter. If you are processing big data when a node fails, it can be manually restarted. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running on nodes that failed. Logging, debugging, and metrics gathering are essential for smooth operations. Setting up these functions with DC/OS is easy, and with the release of DC/OS 1.9, they will be included with every cluster.
+            p.pb3 If you are processing big data when a server in your data center fails, you have time to reschedule your process. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running on failed nodes. Even under normal conditions logging, debugging, and metrics gathering are essential for smooth operations. With the release of 1.9, DC/OS will provide easily queryable APIs which will be able to send operational data to your choice of visualization tools.
 
             h3 Elastic data infrastructure
-            p When processing big data, you can gauge, and even control, how much processing power you need at any given time, by running your data through your pipeline in big batches. But fast data is unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale up, down, and out safely. It maximizes server efficiency during peak times, which saves you money and guards against downtime.
+            p Big data data is processed in batches, which gives you control over the amount of processing power that you need at any given time. But fast data can be unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale apps up, down, and out safely. It maximizes server efficiency during peak times, which saves you money and guards against downtime.
 
 
 
@@ -82,41 +89,42 @@ block content
 
       .max-width-4.mx-auto.pb3
         .mxn2.flex.flex-auto.flex-wrap
-          h4.col-12.mx2 Learn More
+          h3.col-12.mx2 Learn More
           a.card.col-4.left-align.px3.py3(style="display: block")
             h4.my0 Fast Data 101
-            //- ul.inherit-ul
-            //-   li.text-dark-gray.pb1 Standard deck with no voice over
-            //-   li.text-dark-gray Demo possible but not specified
+            p See examples of fast data use cases and services.
+            span(style='color: #9351E5') View the deck
 
       .max-width-4.mx-auto.pb3
         .mxn2.flex.flex-auto.flex-wrap
-          h4.col-12.mx2 Get Started
+          h3.col-12.mx2 Get Started
           a.card.col-4.left-align.px3.py3(style="display: block")
             h4.my0 Fast Data 201
-            //- ul.inherit-ul
-            //-   li.text-dark-gray.pb1 Youtube video
+            p See how DC/OS interacts with fast data pipelines.
+            span(style='color: #9351E5') View the deck
+
           a.card.col-4.left-align.px3.py3(style="display: block")
             h4.my0 Developing Elastic Data Pipelines
-            //- ul.inherit-ul
-            //-   li.text-dark-gray.pb1 Developing Elastic Data Pipelines
-            //-   li.text-dark-gray Demo possible but not specified
+            p Hear about fast data service options, and watch a demo.
+            span(style='color: #9351E5') Watch the video
+
           a.card.col-4.left-align.px3.py3(style="display: block")
             h4.my0 KairosDB Example
-            //- ul.inherit-ul
-            //-   li.text-dark-gray.pb1 GitHub repo walk through
+            p Set up a basic fast data pipeline.
+            span(style='color: #9351E5') Start the example
 
       .max-width-4.mx-auto.pb3
         .mxn2.flex.flex-auto.flex-wrap
-          h4.col-12.mx2 Deep Dive
+          h3.col-12.mx2 Deep Dive
           a.card.col-4.left-align.px3.py3(style="display: block")
             h4.my0 Internet of Things Example
-            //- ul.inherit-ul
-            //-   li.text-dark-gray.pb1 GitHub repo walk through
+            p Configure a full stack geo-enabled IoT solution.
+            span(style='color: #9351E5') Start the example
+
           a.card.col-4.left-align.px3.py3(style="display: block")
             h4.my0 Time Series Example
-            //- ul.inherit-ul
-            //-   li.text-dark-gray.pb1 GitHub repo walk through
+            p Process data and visualize it both on and off line.
+            span(style='color: #9351E5') Start the example
 
 
   //- Footer
