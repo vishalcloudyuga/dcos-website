@@ -1012,3 +1012,16 @@ if (!Array.prototype.find) {
 
     lib$es6$promise$polyfill$$default();
 }).call(this);
+
+/***********************
+  Dropdown
+***********************/
+$('.dropdown').click(function(){
+  $('html').one('click',function() {
+    $('.dropdown').removeClass('is-active')
+  });
+
+  $(this).toggleClass('is-active')
+
+  event.stopPropagation();
+})

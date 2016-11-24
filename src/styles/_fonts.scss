@@ -111,6 +111,11 @@ cite {
 	flex-flow: column;
 }
 
+.release-version {
+  margin-top: 0;
+  color: $dark-gray;
+}
+
 // Breakpoints
 
 @include break($tablet-landscape) {
