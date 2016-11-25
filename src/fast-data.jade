@@ -31,7 +31,7 @@ block content
 
 
   //- DC/OS enables fast data
-  .outer-container.bg-white.clearfix.py5.px2
+  .outer-container.bg-white.clearfix.pt5.pb2.px2
     .row
       .max-width-4.mx-auto
         .flex.flex-auto.flex-wrap
@@ -40,12 +40,12 @@ block content
             p Implementing a fast data pipeline can enable your modern app do amazing things, but it also poses challenges that aren’t a problem when you’re dealing with big data alone. Building your fast data pipeline&mdash;and the app that it supports&mdash;on top of the Datacenter Operating System (DC/OS) can help alleviate some of these challenges.
 
         .flex.flex-auto.flex-wrap
-          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
             img(src="/assets/images/icons/ondemand-provisioning.svg")
             h4 On-demand provisioning
             p Fast data requires many different components, which each have different requirements and prerequisites. DC/OS allows you to provision these components with a single click or command.
 
-          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
             img(src="/assets/images/icons/simplified-operations.svg")
             h4 Simplified operations
             p When you rely on fast data, every second counts. You need your fast data pipeline to be more resilient than the infrastructure it runs on, and DC/OS provides that resiliency.
@@ -67,10 +67,10 @@ block content
             h2.pb4.center.mx-auto How does DC/OS provide these advantages?
 
             h3 On-demand provisioning
-            p(style='padding-bottom: 5rem;') Provisioning the different data services that comprise a fast data pipeline (message queues to track data streams, processing programs, and databases to store results) can be a huge challenge, because each has it's own specific requirements. DC/OS abstracts away the details and allows you to provision and run all of these services on a common set of resources with your containerized or legacy app. You can install most data services in the DC/OS universe with a single click in the GUI or single command from the CLI. When provisioning data services is easy, you can experiment with multiple options, allowing you to optimize your pipeline for speed and performance&mdash;not provisioning time.
+            p.pb5 Provisioning the different data services that comprise a fast data pipeline (message queues to track data streams, processing programs, and databases to store results) can be a huge challenge, because each has it's own specific requirements. DC/OS abstracts away the details and allows you to provision and run all of these services on a common set of resources with your containerized or legacy app. You can install most data services in the DC/OS universe with a single click in the GUI or single command from the CLI. When provisioning data services is easy, you can experiment with multiple options, allowing you to optimize your pipeline for speed and performance&mdash;not provisioning time.
 
             h3 Simplified operations
-            p(style='padding-bottom: 5rem;') If you are processing big data when a server in your data center fails, you have time to reschedule your process. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running on failed nodes. Even under normal conditions logging, debugging, and metrics gathering are essential for smooth operations. With the release of 1.9, DC/OS will provide easily queryable APIs which will be able to send operational data to your choice of visualization tools.
+            p.pb5 If you are processing big data when a server in your data center fails, you have time to reschedule your process. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running on failed nodes. Even under normal conditions logging, debugging, and metrics gathering are essential for smooth operations. With the release of 1.9, DC/OS will provide easily queryable APIs which will be able to send operational data to your choice of visualization tools.
 
             h3 Elastic data infrastructure
             p Big data data is processed in batches, which gives you control over the amount of processing power that you need at any given time. But fast data can be unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale apps up, down, and out safely. It maximizes server efficiency during peak times, which saves you money and guards against downtime.
