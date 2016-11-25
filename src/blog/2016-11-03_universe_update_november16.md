@@ -13,8 +13,34 @@ lunr: true
 
 ## New Packages
 
-<img style="float: left;margin-right: 27px;margin-top: 4px;" src="/assets/images/blog/2016-11-03_registry-logo.png" alt="docker Registry Logo"/> docker Registry : The docker Registry is a stateless, highly scalable server side application that stores and lets you distribute Docker images. This DC/OS package provides a private registry that can be made available to any other component in the system. [Learn more](https://github.com/dcos/examples/tree/master/1.8/registry)
-<br/><br/><br/><br/>
+Note that these new packages are currently `EXPERIMENTAL`. There may be bugs, incomplete features, incorrect documentation, or other discrepancies
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-03_registry-logo.png" alt="docker Registry Logo"/> docker Registry : The docker Registry is a stateless, highly scalable server side application that stores and lets you distribute Docker images. This DC/OS package provides a private registry that can be made available to any other component in the system. [Learn more](https://github.com/dcos/examples/tree/master/1.8/registry)
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_nexus_logo.png" alt="Nexus Logo"/> Nexus Repository Manager : Nexus 3 is a repository manager that supports a broad variety of package managers, namely Bower, Docker, Maven 2, npm, NuGet, PyPI, and Raw site repositories. [Learn more](https://github.com/dcos/examples/tree/master/1.8/nexus)
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_scale_logo.png" alt="Scale Logo"/> Scale : Scale enables on-demand, near real-time, automated processing of large datasets (satellite, medical, audio, video) using a dynamic bank of algorithms. [Learn more](https://github.com/dcos/examples/tree/master/1.8/scale)
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_bookkeeper_logo.png" alt="docker Bookkeeper Logo"/> Apache Bookkeeper : Bookkeeper is a replicated log service which can be used to build replicated state machines. A log contains a sequence of events which can be applied to a state machine. [Learn more](https://github.com/dcos/examples/tree/master/1.8/bookkeeper)
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_koding_logo.png" alt="Koding Logo"/> Koding: is a web based collaborative software development tool. Through the use of stacks, you can define server environments which include all of the necessary software for you to develop your code. [Learn more](https://github.com/dcos/examples/tree/master/1.8/koding)
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_cadvisor-logo.png" alt="cAdvisor Logo"/> cAdvisor (Container Advisor): cAdvisor provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running containers.
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_influxdb-logo.png" alt="InfluxDB Logo"/> InfluxDB: is an open source time series database with no external dependencies. It's useful for recording metrics, events, and performing analytics.
+<br/><br/>
+
+<img style="float: left;margin-right: 27px;margin-top: 4px;" width="90" height="90" src="/assets/images/blog/2016-11-24_grafana-logo.png" alt="Grafana Logo"/> Grafana: is an open source application for visualizing large-scale measurement data. It provides a powerful and elegant way to create, share, and explore data and dashboards from your disparate metric databases. [Learn more](https://github.com/dcos/examples/tree/master/1.8/cadvisor-influxdb-grafana) about cAdvisor, InfluxDB and Grafana.
+<br/><br/>
+
+
+
 
 ## Updates to existing packages
 
