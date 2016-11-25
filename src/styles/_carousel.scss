@@ -1,7 +1,12 @@
-button.Wallop-buttonPrevious, button.Wallop-buttonNext{
+.Wallop-item.has-bg {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+button.Wallop-buttonPrevious, button.Wallop-buttonNext {
   -webkit-appearance: none;
-  -moz-appearance:    none;
-  appearance:         none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: transparent;
   border: 0;
   padding: 0;
@@ -12,14 +17,22 @@ button.Wallop-buttonPrevious, button.Wallop-buttonNext{
   margin-top: -22px;
   opacity: .5;
   transition: opacity .2s ease-in-out;
+  z-index: 500;
 
-  &:hover{
+  &:hover {
     opacity: 1;
   }
 }
-  button.Wallop-buttonPrevious{
-    left: 0px;
+button.Wallop-buttonPrevious {
+  left: 0px;
+}
+button.Wallop-buttonNext {
+  right: 0px;
+}
+
+@media (max-width: 63.99em) {
+  .has-bg {
+    background-image: inherit !important;
+    min-height: inherit !important;
   }
-  button.Wallop-buttonNext{
-    right: 0px;
-  }
+}

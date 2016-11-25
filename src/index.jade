@@ -17,44 +17,50 @@ block head
   meta(name='twitter:description', content='Based on the production proven Apache Mesos, combining years of  experience, and best practices of building and running modern applications in production.')
 
 block content
-  .container.container--dark-background.clearfix.pb5.px2.sm-pb0(style="display: block;")
+  .container.container--dark-background.clearfix.px2.sm-pb0(style="display: block;")
     .mx-auto.max-width-4
       +header(style="padding: 0;")
 
 
 
     //- Wallop slider
-    .Wallop.Wallop--fade.md-py5.py2.px0
-      .Wallop-list.max-width-4.mx-auto.left-align
-        .Wallop-item.flex.flex-wrap.flex-auto.items-center
-          .sm-col-6.col-12.align-middle.xs-center
-            h1.hero-title
-              span The easiest way to
-              br
-              span run&nbsp;
-              span.typer containers
-              br
-              span in production.
+    .Wallop.Wallop--fade.px0
+      .Wallop-list.mx-auto.left-align
+        .Wallop-item.flex.flex-wrap.flex-auto.md-py5.py2
+          .max-width-4.mx-auto.flex.flex-wrap.flex-auto.items-center
+            .sm-col-6.col-12.xs-center
+              h1.hero-title
+                span The easiest way to
+                br
+                span run&nbsp;
+                span.typer containers
+                br
+                span in production.
 
-            a(href='/get-started').btn.btn-primary.block.sm-inline-block Get Started
-            a.inline-block.sm-ml3.block.sm-inline-block(href='#', data-overlay-toggle='video-overlay')
-              img.cta--video__icon.inline-block.align-middle(src='/assets/images/icons/playbutton.png')
-              p.cta--video__text.inline-block.mt0.mb2 Play Video
-          .sm-col-6.col-12.align-middle
-            +image('/assets/images/hero-image.png')
+              a(href='/get-started').btn.btn-primary.block.sm-inline-block Get Started
+              a.inline-block.sm-ml3.block.sm-inline-block(href='#', data-overlay-toggle='video-overlay')
+                img.cta--video__icon.inline-block.align-middle(src='/assets/images/icons/playbutton.png')
+                p.cta--video__text.inline-block.mt0.mb2 Play Video
+            .sm-col-6.col-12
+              +image('/assets/images/hero-image.png')
 
-      //-   .Wallop-item.flex.flex-wrap.flex-auto.items-center
-      //-     .sm-col-6.col-12.xs-center
-      //-       h1.hero-title.mb2 Deploy your fast data pipeline with DC/OS;
-      //-       h4 Get real-time insights sooner;
-      //-       a(href='/fast-data').btn.btn-primary.inline-block Learn More
-      //-     .sm-col-6.col-12
-      //-       +image('/assets/images/hero-fastdata.png')
+        .Wallop-item.flex.flex-wrap.flex-auto.has-bg.md-py5.py2(style='background-image: url(/assets/images/illustrations/fast-data-header.svg); background-size: 1920px 720px; min-height: 531px; background-position: calc(50% - 10px) calc(50% + 65px);')
+          .max-width-4.mx-auto.flex.flex-wrap.flex-auto.items-center
+            .sm-col-6.col-12.xs-center
+              h1.hero-title
+                span Deploy your fast
+                br.sm-hide.md-hide
+                span data pipeline
+                br.sm-hide.md-hide
+                span with DC/OS
+              a(href='/fast-data').btn.btn-primary.inline-block Learn More
+            .sm-col-6.col-12.lg-hide
+              +image('/assets/images/fast-data.png')
 
-      //- button.Wallop-buttonPrevious.xs-hide.sm-hide
-      //-   img(src="/assets/images/icons/chevron-white-left.svg")
-      //- button.Wallop-buttonNext.xs-hide.sm-hide
-      //-   img(src="/assets/images/icons/chevron-white-right.svg")
+      button.Wallop-buttonPrevious.xs-hide.sm-hide
+        img(src="/assets/images/icons/chevron-white-left.svg")
+      button.Wallop-buttonNext.xs-hide.sm-hide
+        img(src="/assets/images/icons/chevron-white-right.svg")
 
 
 
