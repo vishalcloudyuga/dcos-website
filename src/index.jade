@@ -26,6 +26,19 @@ block content
     //- Wallop slider
     .Wallop.Wallop--fade.px0
       .Wallop-list.mx-auto.left-align
+        .Wallop-item.flex.flex-wrap.flex-auto.has-bg.md-py5.py2(style='background-image: url(/assets/images/illustrations/fast-data-header.svg); background-size: 1920px 720px; min-height: 531px; background-position: calc(50% - 10px) calc(50% + 65px);')
+          .max-width-4.mx-auto.flex.flex-wrap.flex-auto.items-center
+            .sm-col-6.col-12.xs-center
+              h1.hero-title
+                span Deploy your fast
+                br.sm-hide.md-hide
+                span data pipeline
+                br.sm-hide.md-hide
+                span with DC/OS
+              a(href='/fast-data').btn.btn-primary.inline-block Learn More
+            .sm-col-6.col-12.lg-hide
+              +image('/assets/images/fast-data.png')
+
         .Wallop-item.flex.flex-wrap.flex-auto.md-py5.py2
           .max-width-4.mx-auto.flex.flex-wrap.flex-auto.items-center
             .sm-col-6.col-12.xs-center
@@ -43,19 +56,6 @@ block content
                 p.cta--video__text.inline-block.mt0.mb2 Play Video
             .sm-col-6.col-12
               +image('/assets/images/hero-image.png')
-
-        .Wallop-item.flex.flex-wrap.flex-auto.has-bg.md-py5.py2(style='background-image: url(/assets/images/illustrations/fast-data-header.svg); background-size: 1920px 720px; min-height: 531px; background-position: calc(50% - 10px) calc(50% + 65px);')
-          .max-width-4.mx-auto.flex.flex-wrap.flex-auto.items-center
-            .sm-col-6.col-12.xs-center
-              h1.hero-title
-                span Deploy your fast
-                br.sm-hide.md-hide
-                span data pipeline
-                br.sm-hide.md-hide
-                span with DC/OS
-              a(href='/fast-data').btn.btn-primary.inline-block Learn More
-            .sm-col-6.col-12.lg-hide
-              +image('/assets/images/fast-data.png')
 
       button.Wallop-buttonPrevious.xs-hide.sm-hide
         img(src="/assets/images/icons/chevron-white-left.svg")
