@@ -57,6 +57,6 @@ Note that these new packages are currently `EXPERIMENTAL`. There may be bugs, in
 
 Try [DC/OS](https://dcos.io/get-started/)
 
-Contribute your package to Universe on [GitHub](https://github.com/mesosphere/universe). Get more involved in the future of our packaging format by joining the [Working Group](www.google.com) for packaging.
+Contribute your package to Universe on [GitHub](https://github.com/mesosphere/universe). 
 
 Engage with the DC/OS community on [Slack](http://chat.dcos.io/) or our mailing list.
