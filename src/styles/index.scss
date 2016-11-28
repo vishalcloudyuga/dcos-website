@@ -1,6 +1,8 @@
 // @import 'ace';
 @import './variables';
 @import '../../node_modules/basscss-sass/scss/basscss';
+@import '../../node_modules/basscss-sass/scss/responsive-padding';
+@import '../../node_modules/basscss-sass/scss/responsive-margin';
 @import '../../node_modules/spinkit/scss/spinners/7-three-bounce';
 @import './webfonts';
 @import './normalize/normalize';
@@ -41,11 +43,30 @@
 @import './_inputs.scss';
 @import './_bgcolors.scss';
 @import './_textcolors.scss';
+@import './_carousel.scss';
 
 // Basscss add-ons
 @import '../../node_modules/basscss-sass/scss/responsive-padding';
 @import '../../node_modules/basscss-sass/scss/responsive-margin';
 @import './basscss-addons/responsive-layout';
+
+// Wallop slider
+@import './wallop/wallop';
+@import './wallop/wallop--fade';
+@import './wallop/wallop--fold';
+@import './wallop/wallop--rotate';
+@import './wallop/wallop--scale';
+@import './wallop/wallop--slide';
+@import './wallop/wallop--vertical-slide';
+
+// Basscss add-ons
+@import '../../node_modules/basscss-sass/scss/responsive-padding';
+@import '../../node_modules/basscss-sass/scss/responsive-margin';
+@import './basscss-addons/responsive-layout';
+
+.bg-gray {
+  background-color: $snow;
+}
 
 .btn {
   outline: 0;
@@ -103,4 +124,52 @@
   .xs-center {
     text-align: center;
   }
+
+  .xs-full {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media #{$breakpoint-sm} {
+
+}
+
+@media #{$breakpoint-md} {
+
+  .md-py5 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .md-px5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .md-pl5 {
+    padding-left: 5rem;
+  }
+  .md-pr5 {
+    padding-right: 5rem;
+  }
+
+}
+
+@media #{$breakpoint-lg} {
+
+  .lg-py5 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .lg-px5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .lg-pl5 {
+    padding-left: 5rem;
+  }
+  .lg-pr5 {
+    padding-right: 5rem;
+  }
+
 }
