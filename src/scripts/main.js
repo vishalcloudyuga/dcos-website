@@ -1046,6 +1046,10 @@ function Timer(callback, delay) {
     timerId = window.setTimeout(callback, remaining);
   };
 
+  this.cancel = function() {
+    window.clearTimeout(timerId);
+  };
+
   this.resume();
 }
 
@@ -1068,7 +1072,7 @@ slider.on('change', function() {
 });
 
 slider.on('mouseenter', function(){
-  nextTimeout.pause();
+  nextTimeout.cancel();
 })
 
 slider.on('mouseleave', function(){
