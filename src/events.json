@@ -1,20 +1,4 @@
 [
   { "title": "AWS re:Invent", "image": "/assets/images/events/2016-11-28_Amazon-ReInvent.jpeg", "date": "2016-11-28", "url": "https://reinvent.awsevents.com/" },
-  { "title": "Flink Forward", "image": "/assets/images/events/2017-04-10_San_Francisco.jpg", "date": "2017-04-10", "url": "http://sf.flink-forward.org/" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" },
-  { "title": "Event title here", "image": "/assets/images/events/file.jpg", "date": "2000-00-00", "url": "" }
+  { "title": "Flink Forward", "image": "/assets/images/events/2017-04-10_San_Francisco.jpg", "date": "2017-04-10", "url": "http://sf.flink-forward.org/" }
 ]
