@@ -1,3 +1,20 @@
+require('./blog.js')
+require('./case-study-carousel.js')
+require('./docs.js')
+require('./events-carousel.js')
+require('./fetch.js')
+require('./get-started.js')
+require('./install.js')
+require('./modal.js')
+require('./overlay.js')
+require('./quotes-carousel.js')
+require('./smooth-scroll.js')
+require('./stackdiagram.js')
+require('./typer.js')
+
+import Wallop from 'wallop';
+import Hammer from 'hammerjs';
+
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
   e.preventDefault();
@@ -998,3 +1015,79 @@ if (!Array.prototype.find) {
 
     lib$es6$promise$polyfill$$default();
 }).call(this);
+
+/***********************
+  Dropdown
+***********************/
+$('.dropdown').click(function(){
+  $('html').one('click',function() {
+    $('.dropdown').removeClass('is-active')
+  });
+
+  $(this).toggleClass('is-active')
+
+  event.stopPropagation()
+})
+
+/***********************
+  Set timeout function
+***********************/
+function Timer(callback, delay) {
+  var timerId, start, remaining = delay;
+
+  this.pause = function() {
+    window.clearTimeout(timerId);
+    remaining -= new Date() - start;
+  };
+
+  this.resume = function() {
+    start = new Date();
+    window.clearTimeout(timerId);
+    timerId = window.setTimeout(callback, remaining);
+  };
+
+  this.cancel = function() {
+    window.clearTimeout(timerId);
+  };
+
+  this.resume();
+}
+
+/****************
+  Slider
+****************/
+var wallopEl = document.querySelector('.Wallop');
+var slider = new Wallop(wallopEl);
+
+// Add auto-play functionality
+var autoPlayMs = 6000;
+var nextTimeout;
+var loadNext = function() {
+  var nextIndex = (slider.currentItemIndex + 1) % slider.allItemsArray.length;
+  slider.goTo(nextIndex);
+}
+nextTimeout = new Timer(function() { loadNext(); }, autoPlayMs);
+slider.on('change', function() {
+  nextTimeout.resume();
+});
+
+slider.on('mouseenter', function(){
+  nextTimeout.cancel();
+})
+
+slider.on('mouseleave', function(){
+  nextTimeout.resume();
+})
+
+// Enable touch for Wallop
+Hammer(wallopEl, {
+  inputClass: Hammer.TouchInput
+}).on('swipeleft', function() {
+  slider.next();
+});
+
+Hammer(wallopEl, {
+  inputClass: Hammer.TouchInput
+}).on('swiperight', function() {
+  slider.previous();
+});

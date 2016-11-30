@@ -42,6 +42,12 @@ include ../mixins/head.jade
     }
   }
 
+  var capitalize = function (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  var docsVersionsReversed = docsVersions.slice().reverse()
+
 mixin icon(child)
   if(child.type === 'dir')
     if(findPath(child.name))
@@ -117,12 +123,13 @@ html
               input(type='search').docs-search__input
 
             select(name="docs-version").docs-version-select.dropdown#docs-version-select Select version
-              option(selected, value="#{docsVersion}") DC/OS #{docsVersion}
-              each version in docsVersions
-                if (version != docsVersion)
-                  option(value="#{version}") DC/OS #{version}
+              each version in docsVersionsReversed
+                //- empty string will add the `selected` attribute, `undefined` will _not_ add the selected attribute
+                option(selected=(version === docsVersion ? "" : undefined), value="#{version}") DC/OS #{version}
 
-            +renderMenu(locals.navs.header)
+            +renderMenu(locals.navs.header).docs-menu
+
+            nav.docs-in-this-post
 
           // Search results
           .docs-layout__docs-content.docs-layout__docs-results(style='display: none;')
@@ -132,7 +139,14 @@ html
             .docs-search.docs-search--mobile
               input(type='search').docs-search__input
             h1.docs-heading!= locals.post_title
-            article!= contents
+
+            .docs-tags
+              if locals.feature_maturity == 'preview'
+                a.pill(class='pill-pink', href='/docs/#{docsVersion}/overview/feature-maturity/#preview')!= capitalize(locals.feature_maturity)
+              if locals.feature_maturity == 'experimental'
+                a.pill(class='pill-blue', href='/docs/#{docsVersion}/overview/feature-maturity/#experimental')!= capitalize(locals.feature_maturity)
+
+            article#docs-content!= contents
 
             .docs-content__footer
               ul.docs-content__footer__actions

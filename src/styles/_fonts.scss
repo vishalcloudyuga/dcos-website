@@ -111,6 +111,23 @@ cite {
 	flex-flow: column;
 }
 
+.release-version {
+  margin-top: 0;
+  color: $dark-gray;
+}
+
+.inherit-ul {
+  list-style: inherit;
+  padding-left: 1em;
+}
+
+
+// text colors
+.text-dark-gray {
+  color: $dark-gray;
+}
+
+
 // Breakpoints
 
 @include break($tablet-landscape) {

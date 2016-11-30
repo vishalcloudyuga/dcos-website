@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Creates S3 redirect files based on redirect-files.
+
 set -e
 set -u
 
@@ -20,4 +22,4 @@ while read line; do
   to="${arr[1]}"
   echo "Redirect: ${from} -> ${to}"
   aws s3 cp --website-redirect="${to}" "${tmpfile}" "s3://${current_bucket}${from}"
-done < "${REPO_ROOT}/redirects"
+done < "${REPO_ROOT}/redirect-files"
