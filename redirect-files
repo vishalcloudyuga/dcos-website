@@ -55,3 +55,10 @@
 /docs/1.8/usage/service-discovery/marathon-lb/quickstart/index.html /docs/1.8/usage/service-discovery/marathon-lb/marathon-lb-basic-tutorial/
 /docs/1.9/usage/service-discovery/marathon-lb/quickstart/index.html /docs/1.9/usage/service-discovery/marathon-lb/marathon-lb-basic-tutorial/
 /docs/1.8/usage/registry/index.html https://github.com/dcos/examples/tree/master/1.8/registry
+/docs/1.9/usage/pods/pods-cli.md /docs/1.9/usage/pods/using-pods/
+n
+q
+/docs/
+n
+q
+/docs/
