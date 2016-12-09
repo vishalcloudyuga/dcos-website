@@ -212,7 +212,7 @@ function getDocsBuildTask (version) {
       .pipe($.ignore(file => (file.published == false)))
       .pipe(
         gulpsmith()
-          .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}`, title: `docs-${version}` }})
+          .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}/`, title: `docs-${version}` }})
           .use(addTimestampToMarkdownFiles)
           .use(markdown({
             smartypants: true,
