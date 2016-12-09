@@ -212,7 +212,7 @@ function getDocsBuildTask (version) {
       .pipe($.ignore(file => (file.published == false)))
       .pipe(
         gulpsmith()
-          .metadata({ docsVersion: version, docsVersions, currentDevVersion })
+          .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}`, title: `docs-${version}` }})
           .use(addTimestampToMarkdownFiles)
           .use(markdown({
             smartypants: true,
@@ -225,6 +225,20 @@ function getDocsBuildTask (version) {
             engine: 'jade',
             directory: path.join('layouts'),
             default: 'docs.jade'
+          }))
+          .use(collections({
+            [`docs-${version}`]: {
+              pattern: '**/*.html'
+            }
+          }))
+          .use(permalinks({
+            pattern: ':title',
+            linksets: [{
+              match: { collection: `docs-${version}` },
+            }]
+          }))
+          .use(feed({
+            collection: `docs-${version}`,
           }))
           .use(each(updatePaths))
           .use(jade({
