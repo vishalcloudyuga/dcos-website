@@ -206,6 +206,7 @@ function getDocsBuildTask (version) {
   gulp.task(name, () => {
     return gulp.src(src)
       .pipe($.frontMatter().on('data', file => {
+        file.title = file.frontMatter.post_title
         Object.assign(file, file.frontMatter)
         delete file.frontMatter
       }))
