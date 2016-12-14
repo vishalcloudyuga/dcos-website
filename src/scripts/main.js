@@ -12,6 +12,7 @@ require('./quotes-carousel.js')
 require('./smooth-scroll.js')
 require('./stackdiagram.js')
 require('./typer.js')
+require('swagger-ui-browserify')
 
 import Wallop from 'wallop';
 import Hammer from 'hammerjs';
@@ -102,37 +103,61 @@ function Timer(callback, delay) {
   Slider
 ****************/
 var wallopEl = document.querySelector('.Wallop');
-var slider = new Wallop(wallopEl);
+if(wallopEl){
+  var slider = new Wallop(wallopEl);
 
-// Add auto-play functionality
-var autoPlayMs = 6000;
-var nextTimeout;
-var loadNext = function() {
-  var nextIndex = (slider.currentItemIndex + 1) % slider.allItemsArray.length;
-  slider.goTo(nextIndex);
+  // Add auto-play functionality
+  var autoPlayMs = 6000;
+  var nextTimeout;
+  var loadNext = function() {
+    var nextIndex = (slider.currentItemIndex + 1) % slider.allItemsArray.length;
+    slider.goTo(nextIndex);
+  }
+  nextTimeout = new Timer(function() { loadNext(); }, autoPlayMs);
+  slider.on('change', function() {
+    nextTimeout.resume();
+  });
+
+  slider.on('mouseenter', function(){
+    nextTimeout.cancel();
+  })
+
+  slider.on('mouseleave', function(){
+    nextTimeout.resume();
+  })
+
+  // Enable touch for Wallop
+  Hammer(wallopEl, {
+    inputClass: Hammer.TouchInput
+  }).on('swipeleft', function() {
+    slider.next();
+  });
+
+  Hammer(wallopEl, {
+    inputClass: Hammer.TouchInput
+  }).on('swiperight', function() {
+    slider.previous();
+  });
 }
-nextTimeout = new Timer(function() { loadNext(); }, autoPlayMs);
-slider.on('change', function() {
-  nextTimeout.resume();
+
+/****************
+  Clickable headers
+****************/
+$('#docs-content h2, #docs-content h3, #docs-content h4, #docs-content h5, #docs-content h6').each(function( index ) {
+  var hashURL = $(this).attr('id')
+  $(this).wrapInner('<a href="#' + hashURL + '"></a>')
 });
 
-slider.on('mouseenter', function(){
-  nextTimeout.cancel();
+/****************
+  SwaggerUI
+****************/
+$(document).ready(function() {
+  var yamlFile = $('[data-api]').data('api');
+
+  var swaggerUi = new SwaggerUi({
+    url: yamlFile,
+    dom_id: 'swagger-ui-container'
+  });
+
+  swaggerUi.load();
 })
-
-slider.on('mouseleave', function(){
-  nextTimeout.resume();
-})
-
-// Enable touch for Wallop
-Hammer(wallopEl, {
-  inputClass: Hammer.TouchInput
-}).on('swipeleft', function() {
-  slider.next();
-});
-
-Hammer(wallopEl, {
-  inputClass: Hammer.TouchInput
-}).on('swiperight', function() {
-  slider.previous();
-});
