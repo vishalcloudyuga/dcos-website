@@ -131,11 +131,15 @@ html
             .docs-search
               input(type='search').docs-search__input
 
-            button.dropdown.z-500.relative.mb2.left-align(style='width: calc(100% - 30px);')
-                a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
-                ul
-                  each version in docsVersionsReversed
-                    li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+            .version-container.col.col-12
+              button.dropdown.z-500.relative.mb2.left-align.col.col-8(style='width: calc(100% - 82px);')
+                  a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
+                  ul
+                    each version in docsVersionsReversed
+                      li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+              .rss-button-container.col.col-2
+                a(href='./rss.xml', style='width: 42px; height: 42px;').cta.cta--button.rss-button
+                  span.rss-icon
 
             +renderMenu(locals.navs.header).docs-menu
 
