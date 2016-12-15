@@ -128,18 +128,19 @@ html
       .container.container--docs-content
         .container__content.docs-layout
           .docs-layout__docs-nav#docs-nav
-            .docs-search
-              input(type='search').docs-search__input
-
-            .version-container.col.col-12
-              button.dropdown.z-500.relative.mb2.left-align.col.col-8(style='width: calc(100% - 82px);')
-                  a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
-                  ul
-                    each version in docsVersionsReversed
-                      li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+            .rss-wrapper(style='width: calc(100% - 30px);')
+              .docs-search.col.col-10
+                input(type='search').docs-search__input
               .rss-button-container.col.col-2
-                a(href='./rss.xml', style='width: 42px; height: 42px;').cta.cta--button.rss-button
+                a(href='./rss.xml').cta.cta--button.rss-button
                   span.rss-icon
+
+            button.dropdown.z-500.relative.mb2.left-align(style='width: calc(100% - 30px);')
+                a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
+                ul
+                  each version in docsVersionsReversed
+                    li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+
 
             +renderMenu(locals.navs.header).docs-menu
 
