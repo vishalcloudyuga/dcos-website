@@ -145,7 +145,7 @@ if(wallopEl){
 ****************/
 $('#docs-content h2, #docs-content h3, #docs-content h4, #docs-content h5, #docs-content h6').each(function( index ) {
   var hashURL = $(this).attr('id')
-  $(this).wrapInner('<a href="#' + hashURL + '"></a>')
+  $(this).wrapInner('<a href="#' + hashURL + '" class="show-anchor"></a>')
 });
 
 /****************

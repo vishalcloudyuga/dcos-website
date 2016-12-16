@@ -335,6 +335,22 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
 #docs-content{
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
     color: $black;
+    position: relative;
+
+    &.show-anchor {
+      &::before {
+        content: ' ';
+        width: 32px;
+        height: 16px;
+        position: absolute;
+        left: -32px;
+        top: 3px;
+      }
+
+      &:hover:before {
+        background: url('/assets/images/icons/anchor-indicator.svg') no-repeat left center;
+      }
+    }
   }
 }
 
