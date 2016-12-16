@@ -18,11 +18,11 @@ lunr: true
 
 # Our Next Working Group Meeting---January 6th
 
-**When: **January 6th at 08:30 am PT
+**When**: January 6th at 08:30 am PT
 
-**Where:** [Google Hangouts](https://hangouts.google.com/hangouts/_/dcos.io/packaging-wg)
+**Where**: [Google Hangouts](https://hangouts.google.com/hangouts/_/dcos.io/packaging-wg)
 
-**Proposed Agenda****:**
+**Proposed Agenda**:
 
 * Charter for this working group
 
