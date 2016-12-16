@@ -574,6 +574,7 @@ img.docs-content__footer__share-icon {
 
 .aa-dropdown-menu {
   border: 1px solid $light-gray;
+  z-index: 750 !important;
 }
 
 .aa-suggestion:first-child .algolia-docsearch-suggestion__secondary {
