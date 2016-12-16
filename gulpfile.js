@@ -227,20 +227,22 @@ function getDocsBuildTask (version) {
             directory: path.join('layouts'),
             default: 'docs.jade'
           }))
+          .use(permalinks({
+            pattern: ':title'
+          }))
           .use(collections({
             [`docs-${version}`]: {
-              pattern: '**/*.html'
+              pattern: '**/*'
             }
-          }))
-          .use(permalinks({
-            pattern: ':title',
-            linksets: [{
-              match: { collection: `docs-${version}` },
-            }]
           }))
           .use(feed({
             collection: `docs-${version}`,
           }))
+          // .use(function (files, metalsmith, done) {
+          //   console.log('files', files)
+          //   console.log('metadata', metalsmith.metadata())
+          //   done()
+          // })
           .use(each(updatePaths))
           .use(jade({
             locals: { cssTimestamp, docsVersions, currentDevVersion },
