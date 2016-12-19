@@ -14,7 +14,7 @@ echo "Fetching new code..."
 git fetch origin
 
 echo "Checking out master branch..."
-git checkout origin master
+git checkout origin/master
 
 cd "${REPO_ROOT}"
 
