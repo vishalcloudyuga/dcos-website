@@ -130,4 +130,9 @@ $(document).ready(() => {
 
   calculateDocsNavHeight();
   $('.docs-nav__item a').on('click', calculateDocsNavHeight);
+
+  // in this post width fix
+  $('.scroll-nav').width($('nav.docs-in-this-post').width());
+
+
 })
