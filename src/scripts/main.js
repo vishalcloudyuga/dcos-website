@@ -161,3 +161,13 @@ $(document).ready(function() {
 
   swaggerUi.load();
 })
+
+/****************
+  Add Github edit link to docs
+****************/
+const docPathName = window.location.pathname
+const strippedDocPathName = docPathName.replace('/docs', '')
+
+console.log(strippedDocPathName)
+
+$('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '.md')
