@@ -17,8 +17,12 @@ require('swagger-ui-browserify')
 import Wallop from 'wallop';
 import Hammer from 'hammerjs';
 
+
+// globals
 const compareVersions = require('compare-versions');
 window.compareVersions = compareVersions;
+
+const docPathName = window.location.pathname
 
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
@@ -165,9 +169,16 @@ $(document).ready(function() {
 /****************
   Add Github edit link to docs
 ****************/
-const docPathName = window.location.pathname
 const strippedDocPathName = docPathName.replace('/docs', '')
-
-console.log(strippedDocPathName)
-
 $('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '.md')
+
+/****************
+  Add proper submit feedback link to docs
+****************/
+const docPageTitle = ($('h1.docs-heading').text()).replace(' ', '+')
+const jPid = 10101 // pid
+const jIssueType = 10100 // issuetype
+const jSummary = `Feedback+for+${docPageTitle}` // summary
+const jDescription = `Source: ${window.location.href}` // description
+
+$('#submit-feedback').attr('href', `https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}`)
