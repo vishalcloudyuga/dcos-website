@@ -215,6 +215,12 @@ function getDocsBuildTask (version) {
         gulpsmith()
           .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}/`, title: `docs-${version}` }})
           .use(addTimestampToMarkdownFiles)
+          .use(collections({
+            [`docs-${version}`]: '**/*.md'
+          }))
+          .use(feed({
+            collection: `docs-${version}`,
+          }))
           .use(markdown({
             smartypants: true,
             gfm: true,
@@ -226,12 +232,6 @@ function getDocsBuildTask (version) {
             engine: 'jade',
             directory: path.join('layouts'),
             default: 'docs.jade'
-          }))
-          .use(collections({
-            [`docs-${version}`]: '**/*.html'
-          }))
-          .use(feed({
-            collection: `docs-${version}`,
           }))
           .use(jade({
             locals: { cssTimestamp, docsVersions, currentDevVersion },
