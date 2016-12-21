@@ -33,7 +33,7 @@ block content
     .container__content.blog-article-wrapper
       .post-meta
         if locals.author_url
-          a.post-meta__author(href=author_url)!= author
+          a.post-meta__author(href=author_url, target='_blank')!= author
         else
           .post-meta__author!= author
 
