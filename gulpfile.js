@@ -202,6 +202,7 @@ gulp.task('test', ['serve'], () => {
 function getDocsBuildTask (version) {
   const name = `build-docs-${version}`
   const src = `./dcos-docs/${version}/**/*.md`
+  const collectionName = `docs-${version}`
 
   gulp.task(name, () => {
     return gulp.src(src)
@@ -216,15 +217,29 @@ function getDocsBuildTask (version) {
           .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}/`, title: `docs-${version}` }})
           .use(addTimestampToMarkdownFiles)
           .use(collections({
-            [`docs-${version}`]: '**/*.md'
-          }))
-          .use(feed({
-            collection: `docs-${version}`,
+            [collectionName]: '**/*.md'
           }))
           .use(markdown({
             smartypants: true,
             gfm: true,
             tables: true
+          }))
+          .use((files, ms, done) => {
+            const metadata = ms.metadata()
+            const collection = metadata.collections[collectionName]
+            collection.forEach((file) => {
+              const p = file.path.includes('index.md')
+                ? file.path.split('index.md')[0]
+                : file.path.split('.md')[0]
+
+              Object.assign(file, {
+                url: `${CONFIG.root_url}/docs/${version}/${p}`
+              })
+            })
+            done()
+          })
+          .use(feed({
+            collection: collectionName,
           }))
           .use(nav)
           .use(layouts({
