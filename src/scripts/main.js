@@ -170,7 +170,11 @@ $(document).ready(function() {
   Add Github edit link to docs
 ****************/
 const strippedDocPathName = docPathName.replace('/docs', '')
-$('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '.md')
+if($('.docs-nav__item__title.active').attr('href') == docPathName) {
+  $('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '/index.md')
+} else {
+  $('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '.md')
+}
 
 /****************
   Add proper submit feedback link to docs
