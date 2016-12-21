@@ -32,7 +32,11 @@ block content
   .container
     .container__content.blog-article-wrapper
       .post-meta
-        .post-meta__author!= author
+        if locals.author_url
+          a.post-meta__author(href=author_url, target='_blank')!= author
+        else
+          .post-meta__author!= author
+
         .post-meta__date= moment(date).format("MMM Do, YYYY")
         .post-divider
 
