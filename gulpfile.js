@@ -227,28 +227,18 @@ function getDocsBuildTask (version) {
             directory: path.join('layouts'),
             default: 'docs.jade'
           }))
-          .use(permalinks({
-            pattern: ':title'
-          }))
           .use(collections({
-            [`docs-${version}`]: {
-              pattern: '**/*'
-            }
+            [`docs-${version}`]: '**/*.html'
           }))
           .use(feed({
             collection: `docs-${version}`,
           }))
-          // .use(function (files, metalsmith, done) {
-          //   console.log('files', files)
-          //   console.log('metadata', metalsmith.metadata())
-          //   done()
-          // })
-          .use(each(updatePaths))
           .use(jade({
             locals: { cssTimestamp, docsVersions, currentDevVersion },
             useMetadata: true,
             pretty: true
           }))
+          //.use(each(docsRSSPaths))
           .use(reloadInMetalsmithPipeline)
       )
       .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
@@ -551,6 +541,15 @@ function updatePaths (file, filename) {
 
   if (path.extname(filename) === '.html' && path.extname(filename) !== '') {
     return filename.split('.html')[0] + '/index.html'
+  }
+  return filename
+}
+
+function docsRSSPaths (file, filename) {
+  if (path.basename(filename) === 'index.html') { return filename }
+
+  if (path.extname(filename) === '.html' && path.extname(filename) !== '') {
+    return filename.split('.html')[0]
   }
   return filename
 }
