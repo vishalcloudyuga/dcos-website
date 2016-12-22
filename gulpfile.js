@@ -202,22 +202,44 @@ gulp.task('test', ['serve'], () => {
 function getDocsBuildTask (version) {
   const name = `build-docs-${version}`
   const src = `./dcos-docs/${version}/**/*.md`
+  const collectionName = `docs-${version}`
 
   gulp.task(name, () => {
     return gulp.src(src)
       .pipe($.frontMatter().on('data', file => {
+        file.title = file.frontMatter.post_title
         Object.assign(file, file.frontMatter)
         delete file.frontMatter
       }))
       .pipe($.ignore(file => (file.published == false)))
       .pipe(
         gulpsmith()
-          .metadata({ docsVersion: version, docsVersions, currentDevVersion })
+          .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}/`, title: `docs-${version}` }})
           .use(addTimestampToMarkdownFiles)
+          .use(collections({
+            [collectionName]: '**/*.md'
+          }))
           .use(markdown({
             smartypants: true,
             gfm: true,
             tables: true
+          }))
+          .use((files, ms, done) => {
+            const metadata = ms.metadata()
+            const collection = metadata.collections[collectionName]
+            collection.forEach((file) => {
+              const p = file.path.includes('index.md')
+                ? file.path.split('index.md')[0]
+                : file.path.split('.md')[0]
+
+              Object.assign(file, {
+                url: `${CONFIG.root_url}/docs/${version}/${p}`
+              })
+            })
+            done()
+          })
+          .use(feed({
+            collection: collectionName,
           }))
           .use(nav)
           .use(layouts({
@@ -226,12 +248,12 @@ function getDocsBuildTask (version) {
             directory: path.join('layouts'),
             default: 'docs.jade'
           }))
-          .use(each(updatePaths))
           .use(jade({
             locals: { cssTimestamp, docsVersions, currentDevVersion },
             useMetadata: true,
             pretty: true
           }))
+          //.use(each(docsRSSPaths))
           .use(reloadInMetalsmithPipeline)
       )
       .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
@@ -534,6 +556,15 @@ function updatePaths (file, filename) {
 
   if (path.extname(filename) === '.html' && path.extname(filename) !== '') {
     return filename.split('.html')[0] + '/index.html'
+  }
+  return filename
+}
+
+function docsRSSPaths (file, filename) {
+  if (path.basename(filename) === 'index.html') { return filename }
+
+  if (path.extname(filename) === '.html' && path.extname(filename) !== '') {
+    return filename.split('.html')[0]
   }
   return filename
 }

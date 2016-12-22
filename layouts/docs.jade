@@ -128,14 +128,19 @@ html
       .container.container--docs-content
         .container__content.docs-layout
           .docs-layout__docs-nav#docs-nav
-            .docs-search
-              input(type='search').docs-search__input
+            .rss-wrapper(style='width: calc(100% - 30px);')
+              .docs-search.col.col-10
+                input(type='search').docs-search__input
+              .rss-button-container.col.col-2
+                a(href='/docs/#{docsVersion}/rss.xml').cta.cta--button.rss-button
+                  span.rss-icon
 
             button.dropdown.z-500.relative.mb2.left-align(style='width: calc(100% - 30px);')
                 a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
                 ul
                   each version in docsVersionsReversed
                     li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+
 
             +renderMenu(locals.navs.header).docs-menu
 

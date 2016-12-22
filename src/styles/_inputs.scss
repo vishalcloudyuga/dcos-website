@@ -20,3 +20,13 @@ select {
 select.white-arrow {
   background-image: url('/assets/images/icons/arrow-down-docs-unselected-white.svg');
 }
+
+.docs-layout {
+  .docs-search {
+    width: 82% !important;
+
+    .algolia-autocomplete, .docs-search__input {
+      width: 100% !important;
+    }
+  }
+}
