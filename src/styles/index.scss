@@ -130,6 +130,7 @@
   background-color: #A1A1A1;
   border-color: #A1A1A1;
   transition: all .3s;
+  opacity: 1 !important;
 
   &:hover {
     background-color: $heliotrope;
