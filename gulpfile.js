@@ -248,6 +248,7 @@ function getDocsBuildTask (version) {
             directory: path.join('layouts'),
             default: 'docs.jade'
           }))
+          .use(each(updatePaths))
           .use(jade({
             locals: { cssTimestamp, docsVersions, currentDevVersion },
             useMetadata: true,
