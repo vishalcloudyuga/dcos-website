@@ -181,7 +181,7 @@ if($('.docs-nav__item__title.active').attr('href') == docPathName) {
 ****************/
 const docPageTitle = ($('h1.docs-heading').text()).replace(' ', '+')
 const jPid = 10101 // pid
-const jIssueType = 10100 // issuetype
+const jIssueType = 10201 // issuetype
 const jSummary = `Feedback+for+${docPageTitle}` // summary
 const jDescription = `Source: ${window.location.href}` // description
 
