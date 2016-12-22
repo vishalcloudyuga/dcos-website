@@ -1,144 +1,126 @@
 extends ../layouts/base-whitefooter.jade
 
 block head
-  title Get Started | DC/OS
+  title Fast Data | DC/OS
   meta(property='og:locale', content='en_US')
   meta(property='og:type', content='article')
-  meta(property='og:title', content='Get Started | DC/OS')
+  meta(property='og:title', content='Fast Data | DC/OS')
   meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
-  meta(property='og:description', content='Launch DC/OS and run Marathon, Kafka, Spark, Cassandra, Jenkins, ArangoDB, Chronos in minutes in the cloud, on-prem, hybrid or just on your laptop.')
+  meta(property='og:description', content='Fast Data on DC/OS')
   meta(property='og:url', content='https://dcos.io/')
   meta(property='og:site_name', content='DC/OS')
   meta(name='twitter:card', content='summary')
   meta(name='twitter:site', content='@dcos')
-  meta(name='twitter:title', content='Get Started | DC/OS')
+  meta(name='twitter:title', content='Fast Data | DC/OS')
   meta(name='twitter:card', content='summary_large_image')
   meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
-  meta(name='twitter:description', content='Launch DC/OS and run Marathon, Kafka, Spark, Cassandra, Jenkins, ArangoDB, Chronos in minutes in the cloud, on-prem, hybrid or just on your laptop.')
+  meta(name='twitter:description', content='Fast Data on DC/OS')
 
 block content
 
-  .container.container--dark-background
-    +header
+  .container.container--dark-background.pb5.px2.sm-pb0(style='display: block;')
+    .mx-auto.max-width-4
+      +header(style='padding: 0;')
 
-    .container__content.get-started-heading-container
-      .getstarted-heading
-        .getstarted-heading__service
-          span.getstarted-heading__copy Run
-          .services-list
+    .mx-auto.max-width-4
+      .container__content.community-hero
+        h1 Get Started
 
-        .getstarted-heading__platform
-          span.getstarted-heading__copy on
-          .platform-list
 
-    .container__content.getstarted-tabs
-        a.getstarted-tabs__step.step1(href='#')
-          p Step 1
-          h3 Select a service
 
-        a.getstarted-tabs__step.step2.step-inactive(href='#')
-          p Step 2
-          h3 Select a platform
 
-        a.getstarted-tabs__step.step3.step-inactive
-          p Step 3
-          h3 Run DC/OS
+  //- DC/OS enables fast data
+  .outer-container.bg-white.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-auto.flex-wrap.items-center
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb2
+            h2 DC/OS 101 tutorial
+            p
+              | If you already have a DC/OS cluster up and running, walk through the
+              a(href='#')  101 tutorial
+              | , which is designed to give you hands-on experience with the essential pieces of DC/OS right away. Follow the simple recipes, or read and try the optional "deep dives" to learn how DC/OS works behind the scenes.
 
-    .container__content.arrow-container.step1
-      .arrow
-        .arrow-up
+        .flex.flex-auto.flex-wrap.lg-col-8.col-12.xs-col-12.mx-auto
+          h4(style='max-width: inherit;') The DC/OS 101 tutorial covers the following topics
+          .lg-col-6.col-6.xs-col-12.xs-center.px2.pb3
+            ul.inherit-ul
+              li Installing services
+              li Deploying apps (containerized and non-containerized)
+              li Connecting multiple applications
+              li Service discovery
 
-  .container.get-started-content
-    .container__content.service-select
+          .lg-col-6.col-6.xs-col-12.xs-center.px2.pb3
+            ul.inherit-ul
+              li Load-balancing (within the cluster and externally)
+              li Make applications accessible from outside the cluster
+              li Investigating/debug common problems
 
-      h2.heading-margin-bottom Select a service
 
-      .card-container
-        a.card(href="#", data-name="Marathon", data-doc="service/marathon")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/marathon.png')
-            h3.card-title Marathon
-            p.card-copy Use to launch long-running apps, for example a webserver.
-        a.card(href="#", data-name="Spark", data-doc="service/spark")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/spark.png')
-            h3.card-title Spark
-            p.card-copy Use for elastic data processing, batch or streaming.
-        a.card(href="#", data-name="ArangoDB", data-doc="service/arangodb")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/arangodb.png')
-            h3.card-title ArangoDB
-            p.card-copy Use to store and query tree-like data as well as graphs.
-        a.card(href="#", data-name="Cassandra", data-doc="service/cassandra")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/cassandra.png')
-            h3.card-title Cassandra
-            p.card-copy Use to store and query semi-structured data in wide tables.
-        a.card(href="#", data-name="Chronos", data-doc="service/chronos")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/chronos.png')
-            h3.card-title Chronos
-            p.card-copy Use to launch scheduled batch jobs in a distributed way.
-        a.card(href="#", data-name="Jenkins", data-doc="service/jenkins")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/jenkins.png')
-            h3.card-title Jenkins
-            p.card-copy Use to build your scalable and fault-tolerant CI/CD pipeline.
-        a.card(href="#", data-name="Kafka", data-doc="service/kafka")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/kafka.png')
-            h3.card-title Kafka
-            p.card-copy Use Kafka by Confluent to queue messages and distributed to others.
 
-    .container__content.platform-select
-      h2.heading-margin-bottom Choose a platform
 
-      .card-container
-        a.card(href="#", data-name="AWS", data-doc="platform/aws")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/aws.png')
-            h3.card-title AWS
-            p.card-copy Deploy on AWS using templates or custom install.
-        a.card(href="#", data-name="CentOS", data-doc="platform/centos")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/centos.png')
-            h3.card-title CentOS
-            p.card-copy Deploy on CentOS using custom install.
-        a.card(href="#", data-name="Azure", data-doc="platform/azure")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/azure.png')
-            h3.card-title Microsoft Azure
-            p.card-copy Deploy on Azure using templates or custom install.
-        a.card(href="#", data-name="CoreOS", data-doc="platform/coreos")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/coreos.png')
-            h3.card-title CoreOS
-            p.card-copy Deploy on CoreOS using custom install.
-        a.card(href="#", data-name="Packet", data-doc="platform/packet")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/packet.png')
-            h3.card-title Packet
-            p.card-copy Deploy on Packet using templates.
-        a.card(href="#", data-name="Vagrant", data-doc="platform/vagrant")
-          .card-content
-            .card-logo
-              +image('/assets/images/icons/get-started/vagrant.png')
-            h3.card-title Vagrant
-            p.card-copy Deploy on Vagrant using custom install.
+  //- Challenges / Solutions
+  .outer-container.bg-gray.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-auto.flex-wrap.items-center
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto
+            h2.pb2.center.mx-auto Choose a provider and install DC/OS
+            p.center.mx-auto.pb4
+              | If you don't have a DC/OS cluster you will need to choose your infrastructure and install DC/OS.
+              a(href='https://dcos.io/docs/latest/administration/installing/')  Installation&nbsp;
+              | involves configuring the infrastructure and installing DC/OS bits on top, so the infrastructure provider you choose determines your installation method.
 
-    .container__content.install(style='display: none;')
+        .mxn2.flex.flex-auto.flex-wrap.flex-start
+          a.lg-col-4.col-6.xs-col-12.xs-center.px3.py3.center.card.bg-white.relative(href="https://dcos.io/docs/1.8/administration/installing/cloud/" style="justify-content: inherit; padding-bottom: 2.45rem;")
+            img.hero-list__item__image(src="/assets/images/icons/cloud.svg")
+            h4 Cloud
+            p.hero-list__item__copy__paragraph.small.pb3 The easiest option. Automatically configure your infrastructure and install DC/OS with a few clicks or commands.
+            .flex.flex-end.mt-auto(style='width: 100%')
+              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Start with cloud
 
+          a.lg-col-4.col-6.xs-col-12.xs-center.px3.py3.center.card.bg-white.relative(href="https://dcos.io/docs/1.8/administration/installing/local/" style="justify-content: inherit; padding-bottom: 2.45rem;")
+            img.hero-list__item__image(src="/assets/images/icons/local.svg")
+            h4 Local
+            p.hero-list__item__copy__paragraph.small.pb3 The cheapest option, with limited functionality. Run DC/OS on a Vagrant cluster on your machine.
+            .flex.flex-end.mt-auto(style='width: 100%')
+              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Start with local
+
+          a.lg-col-4.col-6.xs-col-12.xs-center.px3.py3.center.card.bg-white.relative(href="https://dcos.io/docs/1.8/administration/installing/custom/system-requirements/" style="justify-content: inherit; padding-bottom: 2.45rem;")
+            img.hero-list__item__image(src="/assets/images/icons/on-premesis.svg")
+            h4 On-premises
+            p.hero-list__item__copy__paragraph.small.pb3 The most nuanced option. Control everything about your installation. The other install methods are automated versions of this process.
+            .flex.flex-end.mt-auto(style='width: 100%')
+              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Start with on-premises
+
+
+
+
+
+
+  //- Section 2
+  .outer-container.bg-white.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-auto.flex-wrap
+          h2.pb4.center.mx-auto Additional resources for beginners
+
+      .max-width-4.mx-auto.pb4
+        .mxn2.flex.flex-auto.flex-wrap
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://dcos.io/docs/1.8/overview/')
+            p.mb2.mt0 Read the documentation's overview of DC/OS for a conceptual description of DC/OS's inner workings.
+            span(style='color: #9351E5') Read documentation
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://dcos.io/community')
+            p.mb2.mt0 Get help by joining the DC/OS community mailing list or Slack channel.
+            span(style='color: #9351E5') Checkout the community
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://dcos.io/releases/')
+            p.mb2.mt0 Visit DC/OS releases for access to the most recent stable, early access, and untested versions of DC/OS, as well as previous versions and release notes.
+
+            span(style='color: #9351E5') View releases
+
+
+  //- Footer
   .container
-      +footer
+    +footer
