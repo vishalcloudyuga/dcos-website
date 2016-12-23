@@ -233,7 +233,8 @@ function getDocsBuildTask (version) {
                 : file.path.split('.md')[0]
 
               Object.assign(file, {
-                url: `${CONFIG.root_url}/docs/${version}/${p}`
+                url: `${CONFIG.root_url}/docs/${version}/${p}`,
+                githubURL: `https://github.com/dcos/dcos-docs/tree/master/${version}/${file.path}`
               })
             })
             done()

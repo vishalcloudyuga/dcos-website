@@ -167,22 +167,13 @@ $(document).ready(function() {
 })
 
 /****************
-  Add Github edit link to docs
-****************/
-const strippedDocPathName = docPathName.replace('/docs', '')
-if($('.docs-nav__item__title.active').attr('href') == docPathName) {
-  $('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '/index.md')
-} else {
-  $('#edit-post-on-github').attr('href', 'https://github.com/dcos/dcos-docs/tree/master' + strippedDocPathName.substring(0, strippedDocPathName.length - 1) + '.md')
-}
-
-/****************
   Add proper submit feedback link to docs
 ****************/
 const docPageTitle = ($('h1.docs-heading').text()).replace(' ', '+')
-const jPid = 10201 // pid
+const jPid = 10001 // pid
 const jIssueType = 10100 // issuetype
 const jSummary = `Feedback+for+${docPageTitle}` // summary
 const jDescription = `Source: ${window.location.href}` // description
+const jLabels = 'documentation'
 
-$('#submit-feedback').attr('href', `https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}`)
+$('#submit-feedback').attr('href', `https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}&labels=${jLabels}`)
