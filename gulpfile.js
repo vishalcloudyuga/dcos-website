@@ -289,7 +289,8 @@ gulp.task('build-blog-templates', () => {
       gulpsmith()
         .metadata({
           site: {
-            url: CONFIG.root_url
+            url: CONFIG.root_url,
+            title: 'DC/OS Blog'
           }
         })
         .use(addTimestampToMarkdownFiles)
