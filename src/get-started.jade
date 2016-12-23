@@ -37,11 +37,11 @@ block content
           .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb2
             h2 DC/OS 101 tutorial
             p
-              | If you already have a DC/OS cluster up and running, walk through the
-              a(href='#')  101 tutorial
-              | , which is designed to give you hands-on experience with the essential pieces of DC/OS right away. Follow the simple recipes, or read and try the optional "deep dives" to learn how DC/OS works behind the scenes.
+              | If you already have DC/OS
+              a(href='/install')  installed
+              |  on your cluster, which is designed to give you hands-on experience with the essential pieces of DC/OS right away. Follow the simple recipes, or read and try the optional "deep dives" to learn how DC/OS works behind the scenes.
 
-        .flex.flex-auto.flex-wrap.lg-col-8.col-12.xs-col-12.mx-auto
+        .flex.flex-auto.flex-wrap.lg-col-8.col-12.xs-col-12.mx-auto.pb2
           h4(style='max-width: inherit;') The DC/OS 101 tutorial covers the following topics
           .lg-col-6.col-6.xs-col-12.xs-center.px2.pb3
             ul.inherit-ul
@@ -55,6 +55,9 @@ block content
               li Load-balancing (within the cluster and externally)
               li Make applications accessible from outside the cluster
               li Investigating/debug common problems
+
+          .col-12.px2
+            a(href='#', style='width: 100%;').btn.btn-primary.center Start the 101 Tutorial
 
 
 
@@ -77,21 +80,21 @@ block content
             h4 Cloud
             p.hero-list__item__copy__paragraph.small.pb3 The easiest option. Automatically configure your infrastructure and install DC/OS with a few clicks or commands.
             .flex.flex-end.mt-auto(style='width: 100%')
-              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Start with cloud
+              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Install in the cloud
 
           a.lg-col-4.col-6.xs-col-12.xs-center.px3.py3.center.card.bg-white.relative(href="https://dcos.io/docs/1.8/administration/installing/local/" style="justify-content: inherit; padding-bottom: 2.45rem;")
             img.hero-list__item__image(src="/assets/images/icons/local.svg")
             h4 Local
             p.hero-list__item__copy__paragraph.small.pb3 The cheapest option, with limited functionality. Run DC/OS on a Vagrant cluster on your machine.
             .flex.flex-end.mt-auto(style='width: 100%')
-              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Start with local
+              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Install locally
 
           a.lg-col-4.col-6.xs-col-12.xs-center.px3.py3.center.card.bg-white.relative(href="https://dcos.io/docs/1.8/administration/installing/custom/system-requirements/" style="justify-content: inherit; padding-bottom: 2.45rem;")
             img.hero-list__item__image(src="/assets/images/icons/on-premesis.svg")
             h4 On-premises
             p.hero-list__item__copy__paragraph.small.pb3 The most nuanced option. Control everything about your installation. The other install methods are automated versions of this process.
             .flex.flex-end.mt-auto(style='width: 100%')
-              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Start with on-premises
+              span(href='/get-started', style='width: 100%;').btn.btn-primary.center Install on premises
 
 
 
