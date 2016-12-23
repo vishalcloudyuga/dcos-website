@@ -57,6 +57,7 @@ include ../mixins/head.jade
 
   var docsVersionsReversed = docsVersions.slice().reverse()
 
+
 mixin icon(child)
   if(child.type === 'dir')
     if(findPath(child.name))
@@ -171,9 +172,12 @@ html
                     span Share
 
               ul.docs-content__footer__actions
+                li.docs-content__footer__action(style='margin-right: 1.5rem')
+                  img(src='/assets/images/icons/icon-edit.svg')
+                  a(href=`${githubURL}` id='edit-post-on-github' target='blank') Edit this doc
                 li.docs-content__footer__action
                   img.docs-content__footer__feedback-icon(src='/assets/images/icons/feedback.svg')
-                  a(href='https://dcosjira.atlassian.net' id='submit-feedback' target='blank') Submit feedback
+                  a(href='https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10101&issuetype=10100&summary=issue+created%20via+link' id='submit-feedback' target='blank') Submit feedback
 
       .container
         +footer

@@ -17,8 +17,12 @@ require('swagger-ui-browserify')
 import Wallop from 'wallop';
 import Hammer from 'hammerjs';
 
+
+// globals
 const compareVersions = require('compare-versions');
 window.compareVersions = compareVersions;
+
+const docPathName = window.location.pathname
 
 // Mobile menu
 $('#nav-icon').on('click', function (e) {
@@ -161,3 +165,15 @@ $(document).ready(function() {
 
   swaggerUi.load();
 })
+
+/****************
+  Add proper submit feedback link to docs
+****************/
+const docPageTitle = ($('h1.docs-heading').text()).replace(' ', '+')
+const jPid = 10001 // pid
+const jIssueType = 10100 // issuetype
+const jSummary = `Feedback+for+${docPageTitle}` // summary
+const jDescription = `Source: ${window.location.href}` // description
+const jLabels = 'documentation'
+
+$('#submit-feedback').attr('href', `https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}&labels=${jLabels}`)
