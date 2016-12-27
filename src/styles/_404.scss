@@ -20,7 +20,7 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .container.container--404, .container__content.container__content--404, .container--footer-404 {
     position: inherit;
   }
