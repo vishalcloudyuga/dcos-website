@@ -25,7 +25,7 @@ block content
     .mx-auto.max-width-4
       .container__content.community-hero
         h1 Fast Data on DC/OS
-        p.hero-subtitle(style='max-width: 46rem;').mb0 &ldquo;Big data&rdquo; is collected from many sources in real-time, but is processed after collection in batches to provide information about the past. Modern apps, however, need to respond to events happening now, not to yesterday's news. To do this they use &ldquo;fast data&rdquo;, which is processed as it is collected to provide real-time insights.
+        p.hero-subtitle(style='max-width: 46rem;').mb0 &ldquo;Big data&rdquo; is collected from many sources in real-time, but is processed after collection in batches to provide information about the past. Modern apps, however, need to respond to events happening now, not to yesterday's news. To do this they use a &ldquo;fast data&rdquo; pipeline, which processes data as it is collected to provide real-time insights.
 
 
 
@@ -52,8 +52,8 @@ block content
 
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
             img(src='/assets/images/icons/elastic-data-infrastructure.svg')
-            h4 Elastic data infrastructure
-            p Maintaining enough infrastructure to handle data-processing peaks can be expensive. DC/OS maximizes server efficiency during peak times, saving you money.
+            h4 Elastic infrastructure
+            p Maintaining enough infrastructure to handle data-processing peaks can be expensive. DC/OS allows you to scale up critical micro-services during peaks, and schedules extra resources efficiently during troughs.
 
 
 
@@ -72,7 +72,7 @@ block content
             h3 Simplified operations
             p.pb5 If you are processing big data when a server in your data center fails, you have time to reschedule your process. But when you depend on fast data, every second counts. DC/OS provides a resilient architecture that automatically reschedules tasks that were running on failed nodes. Even under normal conditions logging, debugging, and metrics gathering are essential for smooth operations. With the release of 1.9, DC/OS will provide easily queryable APIs which will be able to send operational data to your choice of visualization tools.
 
-            h3 Elastic data infrastructure
+            h3 Elastic infrastructure
             p Big data data is processed in batches, which gives you control over the amount of processing power that you need at any given time. But fast data can be unpredictable, and the amount of processing power you need can vary from moment to moment. DC/OS allows you to scale apps up, down, and out safely. It maximizes server efficiency during peak times, which saves you money and guards against downtime.
 
 
@@ -125,6 +125,11 @@ block content
             h4.my0 Time Series Example
             p Process data and visualize it both on and off line.
             span(style='color: #9351E5') Start the example
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://channel9.msdn.com/Series/MSDEVNO/Stream-processing-with-Apache-Kafka-on-DCOS-on-Azure')
+            h4.my0 Stream Processing
+            p Learn to stream process with Kafka and Azure.
+            span(style='color: #9351E5') Watch the video
 
 
   //- Footer
