@@ -1,7 +1,7 @@
 ---
 title: Huawei takes DC/OS where nobody has gone before
 date: 2017-01-03
-authors: Borisa Zivkovic, Marko Milenkovic - Huawei Ireland Research Center
+authors: Borisa Zivkovic and Marko Milenkovic (Huawei Ireland Research Center)
 category: community
 description: How Huawei is using DC/OS on top of SLES in its Irish research center
 layout: article.jade
