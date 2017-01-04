@@ -61,3 +61,4 @@
 /docs/1.8/usage/tutorials/registry/index.html https://github.com/dcos/examples/tree/master/1.8/registry
 /docs/1.8/administration/id-and-access-mgt/auth-api/index.html  /docs/1.8/administration/id-and-access-mgt/iam-api/
 /docs/1.9/administration/id-and-access-mgt/auth-api/index.html  /docs/1.9/administration/id-and-access-mgt/iam-api/
+/docs/1.9/administration/opt-out/index.html /docs/1.9/administration/installing/opt-out/
