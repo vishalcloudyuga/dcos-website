@@ -13,7 +13,7 @@ The Networking Working Group is responsible for all networking functionality acr
 
 **When**: December 19th at 10:30 am PT
 
-**Where**: [Google Hangouts](https://hangouts.google.com/hangouts/_/dcos.io/networking-wg)
+**Where**: [Zoom](https://t.co/tKTRE6xDzs)
 
 **Proposed Agenda:**
 
@@ -27,7 +27,7 @@ The Networking Working Group is responsible for all networking functionality acr
 
 1. Join the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/networking-wg). It is where we will share longer-form content and make announcements about the working group.
 2. Join the #networking-wg channel in the [DC/OS Slack community](http://chat.dcos.io/). It is where to ask questions and share shorter-form ideas.
-3. We look forward to seeing you on [the Hangout](https://hangouts.google.com/hangouts/_/dcos.io/networking-wg) on December 19th at 10:30 am PT.
+3. We look forward to seeing you on [Zoom](https://t.co/tKTRE6xDzs) on December 19th at 10:30 am PT.
 
 # Working Group Leaders
 
