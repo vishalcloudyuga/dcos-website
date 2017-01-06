@@ -20,7 +20,7 @@ lunr: true
 
 **When**: January 6th at 08:30 am PT
 
-**Where**: [Google Hangouts](https://hangouts.google.com/hangouts/_/dcos.io/packaging-wg)
+**Where**: [Zoom](https://t.co/tKTRE6xDzs)
 
 **Proposed Agenda**:
 
@@ -42,7 +42,7 @@ lunr: true
 
 2. Join the #packaging-wg channel in the [DC/OS Slack community](http://chat.dcos.io/) to ask questions and share shorter-form ideas.
 
-3. We look forward to seeing you on [the Hangout](https://hangouts.google.com/hangouts/_/dcos.io/packaging-wg) on January 6th at 08:30 am PT.
+3. We look forward to seeing you on [Zoom](https://t.co/tKTRE6xDzs) on January 6th at 08:30 am PT.
 
 # Working Group Leaders
 
