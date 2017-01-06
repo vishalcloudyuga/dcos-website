@@ -62,3 +62,9 @@
 /docs/1.8/administration/id-and-access-mgt/auth-api/index.html  /docs/1.8/administration/id-and-access-mgt/iam-api/
 /docs/1.9/administration/id-and-access-mgt/auth-api/index.html  /docs/1.9/administration/id-and-access-mgt/iam-api/
 /docs/1.9/administration/opt-out/index.html /docs/1.9/administration/installing/opt-out/
+/docs/1.8/administration/overlay-networks/index.html /docs/1.8/administration/virtual-networks/
+/docs/1.8/administration/overlay-networks/ip-per-container/index.html /docs/1.8/administration/virtual-networks/ip-per-container/
+/docs/1.8/administration/overlay-networks/isolation/index.html /docs/1.8/administration/virtual-networks/isolation/
+/docs/1.9/administration/overlay-networks/ip-per-container/index.html /docs/1.9/administration/virtual-networks/ip-per-container/
+/docs/1.9/administration/overlay-networks/isolation/index.html /docs/1.9/administration/virtual-networks/isolation/
+/docs/1.9/administration/overlay-networks/index.html /docs/1.9/administration/virtual-networks/
