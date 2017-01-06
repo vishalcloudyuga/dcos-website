@@ -3,7 +3,7 @@ title: Huawei takes DC/OS where nobody has gone before
 date: 2017-01-03
 author: Borisa Zivkovic, Marko Milenkovic - Huawei Ireland Research Center
 category: community
-description: How Huawei is experimenting with DC/OS on top of SLES in its Irish research center
+description: How Huawei is experimenting with DC/OS to isolate testing environments at its Ireland Research Center
 layout: article.jade
 collection: posts
 lunr: true
@@ -17,17 +17,17 @@ When DC/OS was open-sourced few months ago we immediately decided to start using
 
 # Our first test environment
 
-The test environment we created is a small 12+ server cluster, with 750+ cores and 5.5+ TB of main memory in total. We automated the installation process using set of custom-made SaltStack scripts, so we can tear-down and re-role whole cluster in a matter of minutes. Our SaltStack scripts provide zero-configuration installation: they install DC/OS bootstrap node, all required dependencies and all DC/OS nodes. Initially we used the DC/OS web installer to roll out new machines, but we needed a more robust way to make the installation process repeatable. 
+The test environment we created is a small 12+ server cluster, with 750+ cores and 5.5+ TB of main memory in total. We automated the installation process using set of custom-made SaltStack scripts, so we can tear-down and re-role whole cluster in a matter of minutes. Our SaltStack scripts provide zero-configuration installation: they install DC/OS bootstrap node, all required dependencies and all DC/OS nodes. Initially we used the DC/OS web installer to roll out new machines, but we needed a more robust way to make the installation process repeatable.
 
 DC/OS can’t install master and slave nodes on the same physical machine. To save on hardware costs (our average server is 48 cores and 360+ GB RAM) we decided to use virtual machines for master servers. In practice this works well most of the time and saves resources. However, sudden load increases can cause problems when the masters run on VMs, and master server latency increases. For these reasons we will gradually migrate masters from VMs to physical hardware in the near future.
 
-Our clusters currently run mixed workloads; we run some micro services, stream and batch processing, and our CI environment all on the same hardware. DC/OS supports these mixed workloads, and with the Mesosphere Universe we can bootstrap our CI environment with a single click. DC/OS enables us to spend more time solving our core business problems, and less time setting up our cloud native environment. 
+Our clusters currently run mixed workloads; we run some micro services, stream and batch processing, and our CI environment all on the same hardware. DC/OS supports these mixed workloads, and with the Mesosphere Universe we can bootstrap our CI environment with a single click. DC/OS enables us to spend more time solving our core business problems, and less time setting up our cloud native environment.
 
 # Initial challenges
 
 Everything was going well, but as we started promoting DC/OS internally, we hit our first serious problem. The official Linux distribution used by Huawei is Suse Enterprise Linux (SLES) – which isn't currently supported by DC/OS. So, we had to bite the bullet and attempt to run DC/OS on top of this Linux distribution. (Spoiler alert: in the end it was successful.)
 
-We installed SLES on few VMs and rolled up our sleeves. SLES 12SP1 (or later) is required in order to run Docker successfully, and Docker is not installed on SLES by default, so first we needed to install it manually before attempting to install DC/OS. 
+We installed SLES on few VMs and rolled up our sleeves. SLES 12SP1 (or later) is required in order to run Docker successfully, and Docker is not installed on SLES by default, so first we needed to install it manually before attempting to install DC/OS.
 
 Our first attempt to install DC/OS was with the GUI installer, which runs preflight compatibility checks to make sure that you are using supported hardware and software. To pass these checks we had to modify a few parameters so that SLES looked like Centos to the installer. In the file /etc/os-release we changed the VERSION_ID to an integer value (for SLES it looks something like 12.1) and the ID to "centos" from “sles”. These small changes, and installation of some additional prerequisites (ipset and se-linux), plus other minor tweaks allowed us to get DC/OS running on few VMs with SLES. This was great encouragement.
 
@@ -63,12 +63,12 @@ Hint: edit /etc/sysctl.conf
 
 + Setup sudoers, no password access
 
-Hint: 
-~~~~ 
-sudo visudo 
+Hint:
 ~~~~
- 
-For SLES we also had to stop and disable apparmor. Doing so can interfere with the security of your system, but since our cluster was running in a sandboxed environment it was safe for us to do. 
+sudo visudo
+~~~~
+
+For SLES we also had to stop and disable apparmor. Doing so can interfere with the security of your system, but since our cluster was running in a sandboxed environment it was safe for us to do.
 
 ~~~~
 sudo yast runlevel delete service=boot.apparmor
@@ -110,7 +110,7 @@ As already mentioned we really love the concept of Universe and how easy it is t
 
 As part of our investigation we created following JIRAs:
 
-+ https://dcosjira.atlassian.net/browse/DCOS-494 
++ https://dcosjira.atlassian.net/browse/DCOS-494
 + https://dcosjira.atlassian.net/browse/DCOS-492
 
 In the end we have two fully usable clusters with DC/OS running on top of SLES 12SP1 and one on top of Centos. And there are few more installations planned. So, we are very happy.
