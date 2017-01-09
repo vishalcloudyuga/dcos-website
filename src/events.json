@@ -1,4 +1,12 @@
 [
-  { "title": "AWS re:Invent", "image": "/assets/images/events/2016-11-28_Amazon-ReInvent.jpeg", "date": "2016-11-28", "url": "https://reinvent.awsevents.com/" },
+  { "title": "Apache Mesos für Java-Entwickler", "image": "/assets/images/events/Berlin.jpg", "date": "2017-01-11", "url": "https://www.meetup.com/jug-bb/events/236433416/" },
+  { "title": "FOSDEM", "image": "/assets/images/events/Brussels.jpg", "date": "2017-02-04", "url": "https://fosdem.org/2017/" },
+  { "title": "Spark Summit East", "image": "/assets/images/events/New_York.jpg", "date": "2017-02-07", "url": "https://spark-summit.org/east-2017/" },
+  { "title": "Big Data Poland", "image": "/assets/images/events/Warsaw.jpg", "date": "2017-02-09", "url": "http://bigdatatechwarsaw.eu/" },
+  { "title": "Open Source Leadership Summit", "image": "/assets/images/events/Lake_Tahoe.jpg", "date": "2017-02-14", "url": "http://events.linuxfoundation.org/events/open-source-leadership-summit" },
+  { "title": "Container World", "image": "/assets/images/events/Santa_Clara.jpg", "date": "2017-02-21", "url": "https://tmt.knect365.com/container-world/" },
+  { "title": "QCon London", "image": "/assets/images/events/London.jpg", "date": "2017-03-06", "url": "https://qconlondon.com/" },
+  { "title": "Strata + Hadoop World San Jose", "image": "/assets/images/events/San_Jose.jpg", "date": "2017-03-13", "url": "http://conferences.oreilly.com/strata/strata-ca" },
+  { "title": "Javaland", "image": "/assets/images/events/Bruehl.jpg", "date": "2017-03-28", "url": "https://www.javaland.eu/en/home/" },
   { "title": "Flink Forward", "image": "/assets/images/events/2017-04-10_San_Francisco.jpg", "date": "2017-04-10", "url": "http://sf.flink-forward.org/" }
 ]
