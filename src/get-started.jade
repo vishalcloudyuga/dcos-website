@@ -1,20 +1,20 @@
 extends ../layouts/base-whitefooter.jade
 
 block head
-  title Fast Data | DC/OS
+  title Get Started | DC/OS
   meta(property='og:locale', content='en_US')
   meta(property='og:type', content='article')
   meta(property='og:title', content='Get Started | DC/OS')
   meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
-  meta(property='og:description', content='Fast Data on DC/OS')
+  meta(property='og:description', content='Get Started on DC/OS')
   meta(property='og:url', content='https://dcos.io/')
   meta(property='og:site_name', content='DC/OS')
   meta(name='twitter:card', content='summary')
   meta(name='twitter:site', content='@dcos')
-  meta(name='twitter:title', content='Fast Data | DC/OS')
+  meta(name='twitter:title', content='Get Started | DC/OS')
   meta(name='twitter:card', content='summary_large_image')
   meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
-  meta(name='twitter:description', content='Fast Data on DC/OS')
+  meta(name='twitter:description', content='Get Started on DC/OS')
 
 block content
 
@@ -29,20 +29,20 @@ block content
 
 
 
-  //- DC/OS enables fast data
+  //- DC/OS enables Get Started
   .outer-container.bg-white.clearfix.py5.px2
     .row
       .max-width-4.mx-auto
-        .mxn2.flex.flex-auto.flex-wrap.items-center
-          .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb2
+        .mxn2.flex.flex-auto.flex-wrap.center
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb2.center
             h2 DC/OS 101 tutorial
             p
               | If you already have DC/OS
-              a(href='/install')  installed
-              |  on your cluster, which is designed to give you hands-on experience with the essential pieces of DC/OS right away. Follow the simple recipes, or read and try the optional "deep dives" to learn how DC/OS works behind the scenes.
+              a(href='#install')  installed
+              |  on your cluster, walk through the 101 tutorial, which is designed to give you hands-on experience with the essential pieces of DC/OS right away. Follow the simple recipes, or read and try the optional "deep dives" to learn how DC/OS works behind the scenes.
 
         .flex.flex-auto.flex-wrap.lg-col-8.col-12.xs-col-12.mx-auto.pb2
-          h4(style='max-width: inherit;') The DC/OS 101 tutorial covers the following topics
+          h4(style='max-width: inherit;') The DC/OS 101 tutorial covers the following topics:
           .lg-col-6.col-6.xs-col-12.xs-center.px2.pb3
             ul.inherit-ul.left-align
               li Installing services
@@ -53,11 +53,11 @@ block content
           .lg-col-6.col-6.xs-col-12.xs-center.px2.pb3
             ul.inherit-ul.left-align
               li Load-balancing (within the cluster and externally)
-              li Make applications accessible from outside the cluster
-              li Investigating/debug common problems
+              li Making applications accessible from outside the cluster
+              li Investigating/debugging common problems
 
           .col-12.px2.pt2.center
-            a(href='#install', style='width: 100%;').btn.btn-primary Start the 101 Tutorial
+            a(href='https://dcos.io/docs/latest/usage/tutorials/dcos-101/', style='width: 100%;').btn.btn-primary Start the 101 Tutorial
 
 
 
@@ -112,11 +112,11 @@ block content
         .mxn2.flex.flex-auto.flex-wrap
           a.card.col-4.left-align.px3.py3(style='display: block' href='https://dcos.io/docs/1.8/overview/')
             p.mb2.mt0 Read the documentation's overview of DC/OS for a conceptual description of DC/OS's inner workings.
-            span(style='color: #9351E5') Read documentation
+            span(style='color: #9351E5') Read the overview
 
           a.card.col-4.left-align.px3.py3(style='display: block' href='https://dcos.io/community')
             p.mb2.mt0 Get help by joining the DC/OS community mailing list or Slack channel.
-            span(style='color: #9351E5') Checkout the community
+            span(style='color: #9351E5') Join the community
 
           a.card.col-4.left-align.px3.py3(style='display: block' href='https://dcos.io/releases/')
             p.mb2.mt0 Visit DC/OS releases for access to the most recent stable, early access, and untested versions of DC/OS, as well as previous versions and release notes.
