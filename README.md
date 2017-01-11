@@ -140,6 +140,11 @@ Once changes are accepted and merged to the develop branch, CI will push the upd
 **Prerequisite:**
 
 - You must have administrator privileges for the https://github.com/dcos/dcos-website repo.
+- The dcos-docs submodule: must be updated.
+
+    ```
+    git submodule update --init --recursive
+    ```
 
 1.  Check out the `develop` branch.
 
