@@ -32,7 +32,11 @@ block content
   .container
     .container__content.blog-article-wrapper
       .post-meta
-        .post-meta__author!= author
+        if locals.author_url
+          a.post-meta__author(href=author_url, target='_blank')!= author
+        else
+          .post-meta__author!= author
+
         .post-meta__date= moment(date).format("MMM Do, YYYY")
         .post-divider
 
@@ -54,6 +58,27 @@ block content
         a(href="http://news.ycombinator.com/submit", target="_blank").blog__social-share
           img(src='/assets/images/icons/hackernews-icon.svg')
           p Vote
+
+      #disqus_thread(style='width: 100%')
+      script.
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//dcos-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      noscript
+        | Please enable JavaScript to view the
+        a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
 
   .container
     +footer

@@ -2,6 +2,7 @@
 
 set -e
 set -u
+set -o nounset
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE}")/.." && pwd -P)"
 cd "${REPO_ROOT}"
@@ -9,25 +10,7 @@ cd "${REPO_ROOT}"
 echo "Fetching new code..."
 git fetch origin
 
-if ! git diff-files --quiet ; then
-  echo "Found unstaged changes - Exiting" >&2
-  exit 1
-fi
-
-if ! git diff-index --quiet --cached HEAD ; then
-  echo "Found staged changes - Exiting" >&2
-  exit 1
-fi
-
-if ! git ls-files --exclude-standard --others ; then
-  echo "Found untracked and unignored files - Exiting" >&2
-  exit 1
-fi
-
-if [[ -n "$(git cherry -v)" ]]; then
-  echo "Found unpushed commits - Exiting" >&2
-  exit 1
-fi
+ci/validate-clean-workspace.sh
 
 echo "Checking out master branch..."
 git checkout master

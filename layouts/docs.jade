@@ -26,6 +26,15 @@ include ../mixins/head.jade
   }
 
   var isValidChild = function  (child) {
+
+    if (child.type === 'file' && (child.file.published == false)) {
+      return false
+    }
+
+    if (child.type === 'dir' && (child.children.every(child => child.type === 'file' && (child.file.published == false)))) {
+      return false
+    }
+
     return (((child.type === 'file' && (child.file.nav_tile !== undefined || child.file.post_title !== undefined)) || (child.type === 'dir' && child.name !== 'img')) && child.name !== 'index.html')
   }
 
@@ -47,6 +56,7 @@ include ../mixins/head.jade
   }
 
   var docsVersionsReversed = docsVersions.slice().reverse()
+
 
 mixin icon(child)
   if(child.type === 'dir')
@@ -119,13 +129,19 @@ html
       .container.container--docs-content
         .container__content.docs-layout
           .docs-layout__docs-nav#docs-nav
-            .docs-search
-              input(type='search').docs-search__input
+            .rss-wrapper(style='width: calc(100% - 30px);')
+              .docs-search.col.col-10
+                input(type='search').docs-search__input
+              .rss-button-container.col.col-2
+                a(href='/docs/#{docsVersion}/rss.xml').cta.cta--button.rss-button
+                  span.rss-icon
 
-            select(name="docs-version").docs-version-select.dropdown#docs-version-select Select version
-              each version in docsVersionsReversed
-                //- empty string will add the `selected` attribute, `undefined` will _not_ add the selected attribute
-                option(selected=(version === docsVersion ? "" : undefined), value="#{version}") DC/OS #{version}
+            button.dropdown.z-500.relative.mb2.left-align(style='width: calc(100% - 30px);')
+                a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
+                ul
+                  each version in docsVersionsReversed
+                    li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+
 
             +renderMenu(locals.navs.header).docs-menu
 
@@ -156,9 +172,12 @@ html
                     span Share
 
               ul.docs-content__footer__actions
+                li.docs-content__footer__action(style='margin-right: 1.5rem')
+                  img(src='/assets/images/icons/icon-edit.svg')
+                  a(href=`${githubURL}` id='edit-post-on-github' target='blank') Edit this doc
                 li.docs-content__footer__action
                   img.docs-content__footer__feedback-icon(src='/assets/images/icons/feedback.svg')
-                  a(href='https://dcosjira.atlassian.net' id='submit-feedback' target='blank') Submit feedback
+                  a(href='https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10101&issuetype=10100&summary=issue+created%20via+link' id='submit-feedback' target='blank') Submit feedback
 
       .container
         +footer

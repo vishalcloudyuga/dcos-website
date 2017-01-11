@@ -19,3 +19,15 @@
   bottom: 0;
   width: 100%;
 }
+
+@media (max-width: 48rem) {
+  .container.container--404, .container__content.container__content--404, .container--footer-404 {
+    position: inherit;
+  }
+
+  .container__content.container__content--404 {
+    top: 0;
+    left: 0;
+    transform: translateY(0) translateX(0);
+  }
+}

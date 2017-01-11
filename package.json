@@ -9,7 +9,9 @@
     "build": "NODE_ENV=production gulp build",
     "clean": "rm -r ./build",
     "eslint": "eslint",
-    "dev": "gulp serve"
+    "dev": "NODE_ENV=production gulp serve",
+    "dev:site": "NODE_ENV=production gulp serve-site",
+    "dev:docs": "NODE_ENV=production gulp serve-docs"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,14 @@
   "homepage": "https://github.com/dcos/dcos-website#readme",
   "browserify": {
     "transform": [
-      ["babelify", { "presets": ["es2015"] }]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
     ]
   },
   "devDependencies": {
@@ -39,10 +48,12 @@
     "gulp": "^3.8.11",
     "gulp-babel": "^6.1.2",
     "gulp-batch": "^1.0.5",
+    "gulp-changed": "^1.3.2",
     "gulp-clean-css": "^2.0.11",
     "gulp-concat": "^2.6.0",
     "gulp-front-matter": "^1.3.0",
     "gulp-if": "^2.0.1",
+    "gulp-ignore": "^2.0.2",
     "gulp-load-plugins": "^1.2.4",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
@@ -75,7 +86,6 @@
     "metalsmith-writemetadata": "^0.4.5",
     "moment": "^2.13.0",
     "nginx-conf": "^1.3.0",
-    "node-bourbon": "^4.2.8",
     "normalize-scss": "^4.0.3",
     "promisify-node": "^0.4.0",
     "support-for": "^1.0.4",
@@ -84,8 +94,12 @@
   },
   "dependencies": {
     "basscss-sass": "^4.0.0",
+    "compare-versions": "3.0.0",
+    "es6-promise": "^4.0.5",
+    "hammerjs": "^2.0.8",
     "metalsmith-uglify": "^1.2.1",
     "spinkit": "^1.2.5",
+    "swagger-ui-browserify": "^2.2.3-a",
     "wallop": "^2.4.1"
   }
 }

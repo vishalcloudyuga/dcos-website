@@ -6,7 +6,6 @@ const jade = require('metalsmith-jade')
 const markdown = require('metalsmith-markdown')
 const layouts = require('metalsmith-layouts')
 const permalinks = require('metalsmith-permalinks')
-const bourbon = require('node-bourbon')
 const path = require('path')
 const autoprefixer = require('autoprefixer')
 const each = require('metalsmith-each')
@@ -40,6 +39,8 @@ const buffer = require('vinyl-buffer')
 //
 
 const docsVersions = ['1.7', '1.8', '1.9']
+const currentDevVersion = '1.9'
+
 const cssTimestamp = new Date().getTime()
 const paths = {
   build: './build',
@@ -63,6 +64,10 @@ const paths = {
   },
   s3: {
     config: './s3-config.json'
+  },
+  yaml: {
+  	src: './dcos-docs/**/*.yaml',
+  	dest: './build/docs'
   },
   redirects: {
     files: './redirect-files',
@@ -120,13 +125,7 @@ const navSettings = {
 
 let nav = navigation(navConfig, navSettings)
 
-//
-// Gulp tasks
-//
-
-gulp.task('build', ['build-site', ...docsVersions.map(getDocsBuildTask), 'build-blog', ...docsVersions.map(getDocsCopyTask), 'copy', 'browserify', 'styles', 'nginx-config', 's3-config'])
-
-gulp.task('serve', ['build'], () => {
+const serveTask = () => {
   return readFileLines(paths.redirects.prefixes)
     .then(parseRedirects)
     .then((redirects) => {
@@ -160,27 +159,41 @@ gulp.task('serve', ['build'], () => {
       })
 
       watch(['./src/*.jade', './src/**/*.jade', './src/*.md', './src/events.json', './src/scripts/*.js'],
-        batch(function (events, done) { gulp.start('build-site', done) }))
+        batch(function (events, done) { gulp.start('build-site-templates', done) }))
       watch(paths.blog.src,
-        batch(function (events, done) { gulp.start('build-blog', done) }))
+        batch(function (events, done) { gulp.start('build-blog-templates', done) }))
       watch(paths.styles.src,
         batch(function (events, done) { gulp.start('styles', done) }))
       watch(paths.js.src,
-        batch(function (events, done) { gulp.start('js-watch', done) }))
+        batch(function (events, done) { gulp.start('browserify', done) }))
       watch(paths.assets.src,
         batch(function (events, done) { gulp.start('copy', done) }))
       watch(['./layouts/**/*.*', './mixins/**/*.*', './includes/**/*.*'],
         batch(function (events, done) {
-          gulp.start(['build-site', 'build-blog'], done)
+          gulp.start(['build-site-templates', 'build-blog-templates'], done)
         }))
 
       docsVersions.forEach(function (version) {
-        watch(`./dcos-docs/${version}/**/*.md`, batch(function (events, done) {
+        watch([`./dcos-docs/${version}/**/*.md`], batch(function (events, done) {
           gulp.start(`build-docs-${version}`, done)
         }))
       })
     })
-})
+}
+
+//
+// Gulp tasks
+//
+
+const sharedDocsSiteTasks = ['copy', 'browserify', 'styles', 'nginx-config', 's3-config']
+
+gulp.task('build', ['build-site', 'build-docs'])
+gulp.task('build-site', ['build-site-templates', 'build-blog-templates', ...sharedDocsSiteTasks])
+gulp.task('build-docs', [...docsVersions.map(getDocsBuildTask), ...docsVersions.map(getDocsCopyTask), ...sharedDocsSiteTasks, 'swagger-yaml'])
+
+gulp.task('serve', ['build'], serveTask)
+gulp.task('serve-site', ['build-site'], serveTask)
+gulp.task('serve-docs', ['build-docs'], serveTask)
 
 gulp.task('test', ['serve'], () => {
   process.exit(0)
@@ -189,21 +202,45 @@ gulp.task('test', ['serve'], () => {
 function getDocsBuildTask (version) {
   const name = `build-docs-${version}`
   const src = `./dcos-docs/${version}/**/*.md`
+  const collectionName = `docs-${version}`
 
   gulp.task(name, () => {
     return gulp.src(src)
       .pipe($.frontMatter().on('data', file => {
+        file.title = file.frontMatter.post_title
         Object.assign(file, file.frontMatter)
         delete file.frontMatter
       }))
+      .pipe($.ignore(file => (file.published == false)))
       .pipe(
         gulpsmith()
-          .metadata({ docsVersion: version, docsVersions })
+          .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}/`, title: `docs-${version}` }})
           .use(addTimestampToMarkdownFiles)
+          .use(collections({
+            [collectionName]: '**/*.md'
+          }))
           .use(markdown({
             smartypants: true,
             gfm: true,
             tables: true
+          }))
+          .use((files, ms, done) => {
+            const metadata = ms.metadata()
+            const collection = metadata.collections[collectionName]
+            collection.forEach((file) => {
+              const p = file.path.includes('index.md')
+                ? file.path.split('index.md')[0]
+                : file.path.split('.md')[0]
+
+              Object.assign(file, {
+                url: `${CONFIG.root_url}/docs/${version}/${p}`,
+                githubURL: `https://github.com/dcos/dcos-docs/tree/master/${version}/${file.path}`
+              })
+            })
+            done()
+          })
+          .use(feed({
+            collection: collectionName,
           }))
           .use(nav)
           .use(layouts({
@@ -214,10 +251,11 @@ function getDocsBuildTask (version) {
           }))
           .use(each(updatePaths))
           .use(jade({
-            locals: { cssTimestamp, docsVersions },
+            locals: { cssTimestamp, docsVersions, currentDevVersion },
             useMetadata: true,
             pretty: true
           }))
+          //.use(each(docsRSSPaths))
           .use(reloadInMetalsmithPipeline)
       )
       .pipe(gulp.dest(path.join(paths.build, 'docs', version)))
@@ -237,7 +275,12 @@ function getDocsCopyTask (version) {
   return name
 }
 
-gulp.task('build-blog', () => {
+gulp.task('swagger-yaml', () => {
+	gulp.src(paths.yaml.src)
+		.pipe(gulp.dest(paths.yaml.dest))
+})
+
+gulp.task('build-blog-templates', () => {
   return gulp.src(paths.blog.src)
     .pipe($.frontMatter().on('data', file => {
       Object.assign(file, file.frontMatter)
@@ -247,7 +290,8 @@ gulp.task('build-blog', () => {
       gulpsmith()
         .metadata({
           site: {
-            url: CONFIG.root_url
+            url: CONFIG.root_url,
+            title: 'DC/OS Blog'
           }
         })
         .use(addTimestampToMarkdownFiles)
@@ -321,8 +365,9 @@ gulp.task('build-blog', () => {
     .pipe(gulp.dest(paths.build))
 })
 
-gulp.task('build-site', () => {
+gulp.task('build-site-templates', () => {
   return gulp.src(['src/*.jade', 'src/**/*.jade', 'src/*.md'])
+    .pipe($.changed(paths.build, { extension: '.html' }))
     .pipe($.frontMatter().on('data', file => {
       Object.assign(file, file.frontMatter)
       delete file.frontMatter
@@ -445,7 +490,6 @@ gulp.task('nginx-config', () => {
 })
 
 gulp.task('browserify', () => {
-
   const browserifyThis = (() => {
     let bundler = browserify({
       cache: {}, packageCache: {}, fullPaths: true,
@@ -473,11 +517,7 @@ gulp.task('browserify', () => {
 
     return bundle();
   })();
-
-
 });
-
-gulp.task('js-watch', ['browserify'])
 
 // TODO: minify in production
 gulp.task('styles', () => {
@@ -491,7 +531,7 @@ gulp.task('styles', () => {
       includePaths: [
         '/node_modules/',
         path.join(__dirname, 'node_modules/support-for/sass')
-      ].concat(bourbon.includePaths)
+      ]
     }).on('error', $.sass.logError))
     .pipe($.postcss(processors))
     .pipe($.if(isProd(), $.cleanCss()))
@@ -519,6 +559,15 @@ function updatePaths (file, filename) {
 
   if (path.extname(filename) === '.html' && path.extname(filename) !== '') {
     return filename.split('.html')[0] + '/index.html'
+  }
+  return filename
+}
+
+function docsRSSPaths (file, filename) {
+  if (path.basename(filename) === 'index.html') { return filename }
+
+  if (path.extname(filename) === '.html' && path.extname(filename) !== '') {
+    return filename.split('.html')[0]
   }
   return filename
 }

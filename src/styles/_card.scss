@@ -44,6 +44,7 @@ a.card:hover {
   align-items: center;
   padding: 1rem;
   text-align: center;
+  width: 100%;
 
   &.card-copy {
     height: 210px;
@@ -108,6 +109,7 @@ a.card:hover {
   align-items: center;
   background: white;
   border-radius: 1px;
+  align-self: flex-start;
 
   p {
     margin: 0;
