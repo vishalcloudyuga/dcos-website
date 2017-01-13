@@ -58,8 +58,8 @@
 /docs/1.8/usage/service-discovery/marathon-lb/quickstart/index.html /docs/1.8/usage/service-discovery/marathon-lb/marathon-lb-basic-tutorial/
 /docs/1.9/usage/service-discovery/marathon-lb/quickstart/index.html /docs/1.9/usage/service-discovery/marathon-lb/marathon-lb-basic-tutorial/
 /docs/1.8/usage/registry.html https://github.com/dcos/examples/tree/master/1.8/registry
-/docs/1.8/usage/managing-services/list/index.html 1.8/usage/managing-services/monitoring/
-/docs/1.9/usage/managing-services/list/index.html 1.9/usage/managing-services/monitoring/
+/docs/1.8/usage/managing-services/list/index.html /docs/1.8/usage/managing-services/monitoring/
+/docs/1.9/usage/managing-services/list/index.html /docs/1.9/usage/managing-services/monitoring/
 /docs/1.9/usage/pods/pods-cli/index.html /docs/1.9/usage/pods/using-pods/
 /docs/1.8/usage/tutorials/registry/index.html https://github.com/dcos/examples/tree/master/1.8/registry
 /docs/1.8/administration/id-and-access-mgt/auth-api/index.html  /docs/1.8/administration/id-and-access-mgt/iam-api/
