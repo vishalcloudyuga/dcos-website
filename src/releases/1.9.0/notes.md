@@ -31,8 +31,8 @@ The release notes provide a list of useful topics and links for DC/OS.
 
 ## CLI
 
-- Service account login support (useful for unattended scripts/automation)
-- New command for discovering why applications aren’t starting: `dcos marathon debug list`
+- Service account login support (useful for unattended scripts/automation).
+- New command for discovering why applications aren’t starting: `dcos marathon debug list`.
 - Subcommands for package management and service management. <!-- [maturity-badge status='experimental'] -->
 - Logging commands `dcos task log` and `dcos node log` use the new [logging API](/docs/1.9/administration/logging/logging-api/) backend. This is a big improvement over using the Files API because you can now stream systemd unit logs for DC/OS system services and logs from tasks that are deployed by Mesos.
 - New debugging command: `dcos task exec`. For more information, See the debugging [documentation](/docs/1.9/administration/debugging/).
@@ -49,9 +49,9 @@ For more information, see the [documentation](/docs/1.9/administration/logging/)
 
 ## Metrics <!-- [maturity-badge status='experimental'] -->
 
-- Node-level HTTP API which returns metrics from frameworks, cgroup allocations per container and host level metrics such as load and memory allocation.
+- Node-level HTTP API that returns metrics from frameworks, cgroup allocations per container and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
-- Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP API’s `/container/<container_id>/app` endpoint.
+- Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP APIs `/container/<container_id>/app` endpoint.
 
 For more information, see the [documentation](/docs/1.9/administration/metrics/).
 
