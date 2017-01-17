@@ -67,7 +67,7 @@ For more information, see the [documentation](/docs/1.9/administration/metrics/)
 
 - Debug why your application isn’t starting from the GUI.
 
-  ![UI](../images/releases/ui-services-expanded.gif)
+  ![UI](../../assets/images/releases/ui-services-expanded.gif)
 
 ## Networking Services
 
