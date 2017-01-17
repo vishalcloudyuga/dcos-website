@@ -9,7 +9,6 @@ The release notes provide a list of useful topics and links for DC/OS.
 - Container exec/attach for debugging
 - v1 Master/Agent Operator API
 - HTTP(S) and TCP Health Checks
-- Java shim for v1 scheduler API (doesn’t work in strict mode yet) <!-- [maturity-badge status='experimental'] -->
 - Support for agent-partition-aware frameworks <!-- [maturity-badge status='experimental'] -->
 - Shared persistent volumes across task instances on the same node
 - Improved isolation
