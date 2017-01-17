@@ -60,17 +60,15 @@ For more information, see the [documentation](/docs/1.9/administration/metrics/)
 
 - Brand new look and feel, better navigation.
 
-  ![UI](../img/ui-relnotes-1-9.png)
+  ![UI](/docs/1.9/usage/img/dcos-gui.png)
 
 - Significant improvements to how services are created.
 
-  ![UI](../img/ui-relnotes-1-9-2.png)
+  ![UI](/docs/1.9/usage/img/dcos-services.png)
 
 - Debug why your application isn’t starting from the GUI.
 
-  ![UI](../img/ui-relnotes-1-9-3.png)
-
-- Add all the permissions at once instead of individually (Enterprise Only)
+  ![UI](../images/releases/ui-services-expanded.gif)
 
 ## Networking Services
 
@@ -92,13 +90,7 @@ For more information, see the [documentation](/docs/1.9/administration/debugging
 
 ## Developer Agility
 
-- Jenkins
-
-    - The Jenkins DC/OS service will now work with DC/OS clusters in strict mode. (Enterprise Only)
-    - Marathon plugin now supports service accounts, allowing easy automated and secure deploys to DC/OS clusters. (Enterprise Only)
-
 - GitLab Runner (CI) is now available as a DC/OS Service in the Universe.
-- Updated Artifactory package that will work in strict and permissive mode DC/OS clusters (Enterprise Only)
 - Updates to Shakedown, the DC/OS testing harness:
 
     - Pods support
