@@ -214,7 +214,14 @@ function getDocsBuildTask (version) {
       .pipe($.ignore(file => (file.published == false)))
       .pipe(
         gulpsmith()
-          .metadata({docsVersion: version, docsVersions, currentDevVersion, site: { url: `${CONFIG.root_url}/docs/${version}/`, title: `docs-${version}` }})
+          .metadata({
+            docsVersion: version, docsVersions, currentDevVersion,
+            site: {
+              url: `${CONFIG.root_url}/docs/${version}/`,
+              title: `docs-${version}`,
+              image_url: '/assets/images/rss-logo.png'
+            }
+          })
           .use(addTimestampToMarkdownFiles)
           .use(collections({
             [collectionName]: '**/*.md'
@@ -291,7 +298,8 @@ gulp.task('build-blog-templates', () => {
         .metadata({
           site: {
             url: CONFIG.root_url,
-            title: 'DC/OS Blog'
+            title: 'DC/OS Blog',
+            image_url: './assets/images/rss-logo.png'
           }
         })
         .use(addTimestampToMarkdownFiles)
