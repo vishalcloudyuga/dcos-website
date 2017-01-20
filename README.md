@@ -234,7 +234,7 @@ The "current" version of DC/OS that corresponds to `/docs/latest/` is managed in
 
 ## Link checking
 
-Validating links requires building and running a local site.You can run a local site as a standalone process or alternatively as a part of a [docs build](#updating-the-documentation).
+Validating links requires building and running a local site. You can run a local site as a standalone process or alternatively as a part of a [docs build](#updating-the-documentation).
 
 1. Build the website server Docker image:
 
