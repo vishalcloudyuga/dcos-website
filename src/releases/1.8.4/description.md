@@ -44,7 +44,7 @@ For more information, see the [documentation](/docs/1.8/usage/containerizers/).
 #### IP per Container with VxLAN based Virtual Networks
 DC/OS comes with built-in support for Virtual Networks leveraging the Container Network Interface (CNI) standard, and one default Virtual Network named `dcos`. Any container that attaches to a Virtual Network receives its own dedicated IP. This allows users to run workloads that are not friendly to dynamically assigned ports and would rather bind to the ports in their existing app configuration. Now, with dedicated IP/Container, workloads are free to bind to any port as every container has access to the entire available port range.
 
-For more information, see the [documentation](/docs/1.8/administration/overlay-networks/).
+For more information, see the [documentation](/docs/1.8/administration/virtual-networks/).
 
 #### DNS Based Service Addresses for Load Balanced Virtual IPs
 DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation.
@@ -54,7 +54,7 @@ For more information, see the [documentation](/docs/1.8/usage/service-discovery/
 #### Network Isolation of Virtual Network Subnets
 DC/OS now supports the creation of multiple virtual networks at install time and will associate non-overlapping subnets with each of the virtual networks. Further, DC/OS users can program Network Isolation rules across DC/OS agent nodes to ensure that traffic across Virtual Network subnets is isolated.
 
-For more information, see the [documentation](/docs/1.8/administration/overlay-networks/).
+For more information, see the [documentation](/docs/1.8/administration/virtual-networks/).
 
 ## CLI
 #### Binary CLIs for Linux, Windows, and Mac
