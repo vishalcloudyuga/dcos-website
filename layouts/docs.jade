@@ -170,11 +170,13 @@ html
             article#docs-content!= contents
 
             if relatedPages.length
-              each p in relatedPages
-                h3
-                  a(href='#{p.link}' title='#{p.title}')
-                    != p.title
-                p!= p.excerpt
+              .flex.flex-wrap.flex-auto.mxn2.mt3
+                each p in relatedPages
+                  .col-12.md-col-6.px2.border-box
+                    h3
+                      a(href='#{p.link}' title='#{p.title}')
+                        != p.title
+                    p!= p.excerpt
 
             .docs-content__footer
               ul.docs-content__footer__actions
