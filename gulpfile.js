@@ -33,6 +33,8 @@ const CONFIG = require('./env.json')[process.env.NODE_ENV] || require('./env.jso
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
+const ancestry = require('metalsmith-ancestry')
+const excerpts = require('metalsmith-excerpts')
 
 //
 // general build settings
@@ -250,6 +252,8 @@ function getDocsBuildTask (version) {
             collection: collectionName,
           }))
           .use(nav)
+          .use(excerpts())
+          .use(ancestry())
           .use(layouts({
             pattern: '**/*.html',
             engine: 'jade',
@@ -262,7 +266,6 @@ function getDocsBuildTask (version) {
             useMetadata: true,
             pretty: true
           }))
-          //.use(each(docsRSSPaths))
           .use(reloadInMetalsmithPipeline)
       )
       .pipe(gulp.dest(path.join(paths.build, 'docs', version)))

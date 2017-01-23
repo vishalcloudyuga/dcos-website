@@ -97,6 +97,8 @@
     "compare-versions": "3.0.0",
     "es6-promise": "^4.0.5",
     "hammerjs": "^2.0.8",
+    "metalsmith-ancestry": "^1.0.0",
+    "metalsmith-excerpts": "^1.1.0",
     "metalsmith-uglify": "^1.2.1",
     "mini-lightbox": "^3.0.3",
     "spinkit": "^1.2.5",
