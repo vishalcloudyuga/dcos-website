@@ -177,3 +177,30 @@ const jDescription = `Source: ${window.location.href}` // description
 const jLabels = 'documentation'
 
 $('#submit-feedback').attr('href', `https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}&labels=${jLabels}`)
+
+
+/****************
+  Docs version switch 404 prevention
+****************/
+
+const currentUrlPath = window.location.pathname
+var pathArray = currentUrlPath.split('/')
+
+$('button.dropdown a.option').click(function(event){
+  event.preventDefault()
+  pathArray[2] = $(this).attr('data-version')
+  var newUrlPath = window.location.origin + pathArray.join('/')
+
+  $.ajax({
+      type: "HEAD",
+      async: true,
+      url: newUrlPath,
+      success: function(message){
+        location.assign(newUrlPath)
+      },
+      error: function(message){
+        location.assign(`${window.location.origin}/docs/${pathArray[2]}`)
+      }
+  })
+
+})
