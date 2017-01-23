@@ -140,7 +140,7 @@ html
                 a.btn.mb0.block DC/OS #{(docsVersion === currentDevVersion ? `${docsVersion} Development` : docsVersion)}
                 ul
                   each version in docsVersionsReversed
-                    li: a(href='/docs/#{version}', class=(version === docsVersion ? "text-heliotrope current" : undefined)) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
+                    li: a(href='/docs/#{version}', data-version='#{version}', class=(version === docsVersion ? 'text-heliotrope current option' : 'option')) DC/OS #{(version === currentDevVersion ? `${version} Development` : version)}
 
 
             +renderMenu(locals.navs.header).docs-menu
