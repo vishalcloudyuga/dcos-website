@@ -16,8 +16,10 @@ require('swagger-ui-browserify')
 
 import Wallop from 'wallop';
 import Hammer from 'hammerjs';
-import MiniLightbox from 'mini-lightbox';
 
+// Zoom.js
+require('./zoom.js')
+require('./transition.js')
 
 // globals
 const compareVersions = require('compare-versions');
@@ -209,21 +211,4 @@ $('button.dropdown a.option').click(function(event){
 /****************
   Open docs images in lightboxes
 ****************/
-new MiniLightbox('#docs-content img');
-
-function waitForAnimationEnd (element, callback) {
-  var animationEnd = "animationend";
-  var handleAnimationEnd = function (event) {
-    event.target.removeEventListener(animationEnd, handleAnimationEnd);
-    return callback(event);
-  };
-  element.addEventListener(animationEnd, handleAnimationEnd);
-}
-
-MiniLightbox.customClose = function (self) {
-  // Closing animation fadeout should come here (display none should be applied after the animation has ended)
-};
-
-MiniLightbox.customOpen = function (self) {
-  // Opening animation fadeIin should come here
-};
+$('#docs-content img').attr('data-action', 'zoom');
