@@ -209,6 +209,7 @@ $('button.dropdown a.option').click(function(event){
 ****************/
 $('#docs-content img').each(function(index) {
   var imgUrl = $(this).attr('src')
+  $(this).addClass('cursor-pointer')
 
   $(this).click(function(){
     window.open(imgUrl, '_blank');
