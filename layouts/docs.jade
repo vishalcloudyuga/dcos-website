@@ -98,7 +98,7 @@ mixin renderMenu(tree)
           if(child.children)
             +renderMenu(child.children)
 
-- let relatedPages = []
+- var relatedPages = []
 - if (locals.ancestry.self.path.substr(-8) === 'index.md') {
 -   locals.ancestry.children && locals.ancestry.children.forEach(child => relatedPages.push({ title: child.title, excerpt: child.excerpt, link: `/docs/#{docsVersion}/#{stripExtname(child.path)}` }))
 -   locals.ancestry.siblings && locals.ancestry.siblings.forEach(sibling => relatedPages.push({ title: sibling.title, excerpt: sibling.excerpt, link: `/docs/#{docsVersion}/#{stripExtname(subling.path)}` }))
