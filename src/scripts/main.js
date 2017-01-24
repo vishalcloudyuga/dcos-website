@@ -17,7 +17,6 @@ require('swagger-ui-browserify')
 import Wallop from 'wallop';
 import Hammer from 'hammerjs';
 
-
 // globals
 const compareVersions = require('compare-versions');
 window.compareVersions = compareVersions;
@@ -203,4 +202,16 @@ $('button.dropdown a.option').click(function(event){
       }
   })
 
+})
+
+/****************
+  Open docs images in lightboxes
+****************/
+$('#docs-content img').each(function(index) {
+  var imgUrl = $(this).attr('src')
+  $(this).addClass('cursor-pointer')
+
+  $(this).click(function(){
+    window.open(imgUrl, '_blank');
+  })
 })
