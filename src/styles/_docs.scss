@@ -659,3 +659,21 @@ img.docs-content__footer__share-icon {
   color: $heliotrope;
   opacity: 1;
 }
+
+.related-pages > div {
+  position: relative;
+  max-height: 240px;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    z-index: 2000;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 1%, #FFFFFF 98%);
+  }
+}

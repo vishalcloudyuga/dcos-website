@@ -169,10 +169,12 @@ html
 
             article#docs-content!= contents
 
+            hr.mt3(style='width: 100%;')
+
             if relatedPages.length
-              .flex.flex-wrap.flex-auto.mxn2.mt3
+              .flex.flex-wrap.flex-auto.mxn2.mt3.related-pages
                 each p in relatedPages
-                  .col-12.md-col-6.px2.border-box
+                  .col-12.md-col-6.px2.mb3.border-box
                     h3
                       a(href='#{p.link}' title='#{p.title}')
                         != p.title
