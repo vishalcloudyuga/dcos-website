@@ -29,7 +29,6 @@
 /docs/1.7/usage/services/uninstall/index.html /docs/1.7/usage/managing-services/uninstall/
 /docs/1.7/usage/services/repo/index.html /docs/1.7/usage/repo/
 /docs/1.7/usage/services/uninstall/#framework-cleaner /docs/1.7/usage/managing-services/uninstall/#framework-cleaner
-/docs/1.8/administration/opt-out/index.html /docs/1.8/administration/opt-out/
 /docs/1.8/administration/sshcluster/index.html /docs/1.8/administration/access-node/sshcluster/
 /docs/1.8/administration/telemetry/index.html /docs/1.8/overview/telemetry/
 /blog/2016/dc-os-1-8-is-now-available/index.html /blog/2016/dc-os-1-8-early-access/
@@ -64,7 +63,6 @@
 /docs/1.8/usage/tutorials/registry/index.html https://github.com/dcos/examples/tree/master/1.8/registry
 /docs/1.8/administration/id-and-access-mgt/auth-api/index.html  /docs/1.8/administration/id-and-access-mgt/iam-api/
 /docs/1.9/administration/id-and-access-mgt/auth-api/index.html  /docs/1.9/administration/id-and-access-mgt/iam-api/
-/docs/1.9/administration/opt-out/index.html /docs/1.9/administration/opt-out/
 /docs/1.9/overview/components/index.html /docs/1.9/overview/architecture/components/
 /docs/1.8/administration/overlay-networks/index.html /docs/1.8/administration/virtual-networks/
 /docs/1.8/administration/overlay-networks/ip-per-container/index.html /docs/1.8/administration/virtual-networks/ip-per-container/
