@@ -288,6 +288,7 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
     font-size: 0.8rem;
     vertical-align: text-top;
     word-break: normal;
+    vertical-align: middle;
 
     &:not(.hljs) {
       color: $heliotrope;
