@@ -287,7 +287,9 @@ ul > li > .nav-wrapper > .docs-nav__item__arrow {
     font-family: Menlo,'Bitstream Vera Sans Mono','DejaVu Sans Mono',Monaco,Consolas,monospace;
     font-size: 0.8rem;
     vertical-align: text-top;
-    word-break: break-all;
+    word-break: normal;
+    vertical-align: middle;
+    word-wrap: break-word;
 
     &:not(.hljs) {
       color: $heliotrope;
