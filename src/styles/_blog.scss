@@ -413,6 +413,7 @@
     vertical-align: text-top;
     word-break: normal;
     vertical-align: middle;
+    word-wrap: break-word;
 
     &:not(.hljs) {
       color: $heliotrope;
