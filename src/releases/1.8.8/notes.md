@@ -1,4 +1,4 @@
-The release notes provide a list of useful topics and links for DC/OS. Click [here](#1-8-7) to see the updates for 1.8.7.
+The release notes provide a list of useful topics and links for DC/OS. Click [here](#1-8-8) to see the updates for 1.8.8.
 
 # Breaking Changes
 
@@ -122,6 +122,9 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 - See the CLI [release notes](https://github.com/dcos/dcos-cli/releases).
 
 # <a name="minor"></a>Minor releases
+
+## <a name="1-8-8"></a>1.8.8 - Feb 1, 2017
+
 
 ## <a name="1-8-7"></a>1.8.7 - Nov 14, 2016
 
