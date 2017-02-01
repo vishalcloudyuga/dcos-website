@@ -21,6 +21,14 @@ The release notes provide a list of useful topics and links for DC/OS.
     - New `volume/sandbox_path` isolator for `Volume::Source::SANDBOX_PATH`.
     - Support Container Network Interface (CNI), and experimental port-mapper CNI plugin: users can now expose container ports through host ports using DNAT. <!-- [maturity-badge status='experimental'] -->
 
+## Expanded OS Support
+
+- CentOS [7.3](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.3_Release_Notes/index.html)
+- CoreOS [1235.8.0](https://coreos.com/releases/#1235.8.0)
+
+## Expanded Docker Engine Support
+
+- Docker [1.12 and 1.13](https://github.com/docker/docker/releases)
 
 ## Container Orchestration
 
