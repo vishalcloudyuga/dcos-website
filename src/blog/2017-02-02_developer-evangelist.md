@@ -3,6 +3,7 @@ title: Meet Our New Developer Advocate
 date: 2017-02-02
 author: Elizabeth K. Joseph, Mesosphere
 category: community
+descroption: New DC/OS Developer Advocate, Elizabeth K. Joseph, is excited about creating transparency in OSS projects. Learn about her background and reach out to say hello!
 layout: article.jade
 collection: posts
 lunr: true
