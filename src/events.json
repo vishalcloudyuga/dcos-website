@@ -8,5 +8,6 @@
   { "title": "QCon London", "image": "/assets/images/events/London.jpg", "date": "2017-03-06", "url": "https://qconlondon.com/" },
   { "title": "Strata + Hadoop World San Jose", "image": "/assets/images/events/San_Jose.jpg", "date": "2017-03-13", "url": "http://conferences.oreilly.com/strata/strata-ca" },
   { "title": "Javaland", "image": "/assets/images/events/Bruehl.jpg", "date": "2017-03-28", "url": "https://www.javaland.eu/en/home/" },
-  { "title": "Flink Forward", "image": "/assets/images/events/2017-04-10_San_Francisco.jpg", "date": "2017-04-10", "url": "http://sf.flink-forward.org/" }
+  { "title": "Flink Forward", "image": "/assets/images/events/2017-04-10_San_Francisco.jpg", "date": "2017-04-10", "url": "http://sf.flink-forward.org/" },
+  { "title": "J on the Beach", "image": "/assets/images/events/Malaga.jpg", "date": "2017-05-17", "url": "http://jonthebeach.com/" }
 ]
