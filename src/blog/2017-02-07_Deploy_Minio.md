@@ -1,8 +1,8 @@
 ---
 title: Deploy Minio cloud storage to DC/OS
 date: 2017-02-07
-author: Garima Kapoor, Minio
-author_url: https://twitter.com/garimakap
+author: Nitesh Tiwari, Minio
+author_url: https://twitter.com/tiwari_nitish
 category: universe
 description: Learn what makes Minio truly cloud native, and how to deploy it to DC/OS.
 layout: article.jade
