@@ -1,0 +1,152 @@
+extends ../layouts/base-whitefooter.jade
+
+block head
+  title Fast Data | DC/OS
+  meta(property='og:locale', content='en_US')
+  meta(property='og:type', content='article')
+  meta(property='og:title', content='Fast Data | DC/OS')
+  meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(property='og:description', content='Day 2 Operations on DC/OS')
+  meta(property='og:url', content='https://dcos.io/')
+  meta(property='og:site_name', content='DC/OS')
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:site', content='@dcos')
+  meta(name='twitter:title', content='Fast Data | DC/OS')
+  meta(name='twitter:card', content='summary_large_image')
+  meta(name='twitter:image', content='https://dcos.io/assets/images/social-img.png')
+  meta(name='twitter:description', content='Fast Data on DC/OS')
+
+block content
+
+  .container.container--dark-background.pb5.px2.sm-pb0(style='display: block;')
+    .mx-auto.max-width-4
+      +header(style='padding: 0;')
+
+    .mx-auto.max-width-4
+      .container__content.community-hero
+        h1 Day 2 Operations on DC/OS
+        p.hero-subtitle(style='max-width: 46rem;').mb0 Once you have DC/OS #[a.bold(href='http://dcos.io/get-started') installed] and all your services deployed, then the work of operating your cluster begins. Day 2 Operations describes the monitoring, maintenance, and troubleshooting that keeps apps, services, and hosts up and running.
+
+
+
+
+  //- DC/OS enables fast data
+  .outer-container.bg-white.clearfix.pt5.pb2.px2
+    .row
+      .max-width-4.mx-auto
+        .flex.flex-auto.flex-wrap
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb4.center
+            h2 DC/OS enables Day 2 Operations
+            p DC/OS supports Day 2 Operations by lending  transparency, resilience, and accessibility to your containers, services, and other workloads, making them easy to monitor, maintain, and troubleshoot.
+
+        .flex.flex-auto.flex-wrap
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            img(src='/assets/images/icons/monitoring.svg')
+            h4 Monitoring
+            p DC/OS logs and metrics are easily accessible, which makes it simple for operators to monitor the status and performance of their stack from top to bottom.
+
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            img(src='/assets/images/icons/maintenance.svg')
+            h4 Maintenance
+            p DC/OS makes cluster maintenance easy by providing resilience to your cluster, enabling common deployment patterns for app upgrades, and more.
+
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+            img(src='/assets/images/icons/troubleshooting.svg')
+            h4 Troubleshooting
+            p DC/OS finds and gives users access to misbehaving tasks in a cluster, allowing them to troubleshoot their containers without the use of ssh.
+
+
+
+
+  //- Challenges / Solutions
+  .outer-container.bg-gray.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-auto.flex-wrap.items-center
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto
+            h2.pb4.center.mx-auto How does DC/OS facilitate Day 2 Operations
+
+            h3 Monitoring
+            p.pb5 Starting with DC/OS version 1.9 logs and metrics are easily accessible to operators. Task, container, service, node, and host level logs are sent to journald, where they can be collected and filtered by the logging aggregator of your choice, giving operators the flexibility to account for their specific security and privacy concerns. Metrics are accessible via an HTTP API.
+
+            h3 Maintenance
+            p.pb5 DC/OS makes cluster maintenance easy. It provides resilience by detecting node failures and enabling automatic recovery. By providing a layer of abstraction between your hardware and services, DC/OS makes it easy to plan for and react to the routine failures that are part of operating in a data center. DC/OS enables zero downtime upgrade patterns including rolling, blue-green, or canary deployments.
+
+            h3 Troubleshooting
+            p DC/OS allows users to run containers on pooled resources, without specifying which specific node those containers should run on. Starting with DC/OS 1.9, users can also troubleshoot short tasks or long-running jobs without having to track down the container or node where the task or job is running. DC/OS gives users access to misbehaving tasks and jobs inside containers launched with the Universal container runtime, without requiring SSH.
+
+
+
+
+
+
+  //- Section 2
+  .outer-container.bg-white.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-auto.flex-wrap
+          h2.pb4.center.mx-auto Resources for Day 2 Operations
+
+      .max-width-4.mx-auto.pb4
+        .mxn2.flex.flex-auto.flex-wrap
+          h3.col-12.mx2 Learn More
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://youtu.be/gqwcUgZOoyI')
+            h4.my0 2nd Day Operations: Your Checklist for Cloud Native World
+            p Ben Hindman discusses the challenges of Day 2 Operations in the cloud.
+            span(style='color: #9351E5') Watch the video
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://youtu.be/gqwcUgZOoyI')
+            h4.my0 Day 2 Operations 101 Deck
+            p Learn about common logging, monitoring, maintenance, and troubleshooting tools.
+            span(style='color: #9351E5') View the deck
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://youtu.be/gqwcUgZOoyI')
+            h4.my0 Day 2 Ops office hour
+            p Hear Jeff Malnick discuss the logging, metrics, and debugging functionality new in DC/OS 1.9
+            span(style='color: #9351E5') View the deck
+
+      .max-width-4.mx-auto.pb4
+        .mxn2.flex.flex-auto.flex-wrap
+          h3.col-12.mx2 Get Started
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://docs.google.com/presentation/d/1e7RlXyyhlCOavw39hNXkM80cQEi-4NB3ZjhHdnH7L1Q')
+            h4.my0 Day 2 Operations 201 Deck
+            p t.b.d.
+            span(style='color: #9351E5') t.b.d.
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='http://some.ops4devs.info/')
+            h4.my0 Ops for Devs
+            p Click through a compilation of operations resources targeted for developers.
+            span(style='color: #9351E5') Visit the website
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://mesosphere.com/blog/2016/10/05/delivering-day-2-operations-with-dcos/')
+            h4.my0 Delivering ‘Day 2’ operations with DC/OS (Pt. 1: Logging)
+            p Learn about the DC/OS logging API and your choices for logging integrations.
+            span(style='color: #9351E5') Read the blog post
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='https://mesosphere.com/blog/2016/10/12/day-2-operations-metrics/')
+            h4.my0 Delivering ‘Day 2’ operations with DC/OS (Pt. 2: Metrics)
+            p Learn how metrics are collected, tagged, and forwarded in DC/OS 1.9
+            span(style='color: #9351E5') Read the blog post
+
+      .max-width-4.mx-auto.pb4
+        .mxn2.flex.flex-auto.flex-wrap
+          h3.col-12.mx2 Deep Dive
+          a.card.col-4.left-align.px3.py3(style='display: block' href='#')
+            h4.my0 Day 2 Operations 301 Deck(s)
+            p t.b.d.
+            span(style='color: #9351E5') t.b.d.
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='#')
+            h4.my0 Operations Guide
+            p t.b.d.
+            span(style='color: #9351E5') t.b.d.
+
+          a.card.col-4.left-align.px3.py3(style='display: block' href='#')
+            h4.my0 Packaging Storage blog post
+            p t.b.d.
+            span(style='color: #9351E5') t.b.d.
+
+
+  //- Footer
+  .container
+    +footer
