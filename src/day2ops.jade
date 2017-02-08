@@ -4,7 +4,7 @@ block head
   title Fast Data | DC/OS
   meta(property='og:locale', content='en_US')
   meta(property='og:type', content='article')
-  meta(property='og:title', content='Fast Data | DC/OS')
+  meta(property='og:title', content='Day 2 Operations | DC/OS')
   meta(property='og:image', content='https://dcos.io/assets/images/social-img.png')
   meta(property='og:description', content='Day 2 Operations on DC/OS')
   meta(property='og:url', content='https://dcos.io/')
@@ -42,17 +42,17 @@ block content
         .flex.flex-auto.flex-wrap
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
             img(src='/assets/images/icons/monitoring.svg')
-            h4 Monitoring
+            h4 #[a.text-black(href='#monitoring') Monitoring]
             p DC/OS logs and metrics are easily accessible, which makes it simple for operators to monitor the status and performance of their stack from top to bottom.
 
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
             img(src='/assets/images/icons/maintenance.svg')
-            h4 Maintenance
+            h4 #[a.text-black(href='#maintenance') Maintenance]
             p DC/OS makes cluster maintenance easy by providing resilience to your cluster, enabling common deployment patterns for app upgrades, and more.
 
           .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
             img(src='/assets/images/icons/troubleshooting.svg')
-            h4 Troubleshooting
+            h4 #[a.text-black(href='#troubleshooting') Troubleshooting]
             p DC/OS finds and gives users access to misbehaving tasks in a cluster, allowing them to troubleshoot their containers without the use of ssh.
 
 
@@ -66,13 +66,13 @@ block content
           .lg-col-8.col-12.xs-col-12.px2.mx-auto
             h2.pb4.center.mx-auto How does DC/OS facilitate Day 2 Operations
 
-            h3 Monitoring
+            h3#monitoring Monitoring
             p.pb5 Starting with DC/OS version 1.9 logs and metrics are easily accessible to operators. Task, container, service, node, and host level logs are sent to journald, where they can be collected and filtered by the logging aggregator of your choice, giving operators the flexibility to account for their specific security and privacy concerns. Metrics are accessible via an HTTP API.
 
-            h3 Maintenance
+            h3#maintenance Maintenance
             p.pb5 DC/OS makes cluster maintenance easy. It provides resilience by detecting node failures and enabling automatic recovery. By providing a layer of abstraction between your hardware and services, DC/OS makes it easy to plan for and react to the routine failures that are part of operating in a data center. DC/OS enables zero downtime upgrade patterns including rolling, blue-green, or canary deployments.
 
-            h3 Troubleshooting
+            h3#troubleshooting Troubleshooting
             p DC/OS allows users to run containers on pooled resources, without specifying which specific node those containers should run on. Starting with DC/OS 1.9, users can also troubleshoot short tasks or long-running jobs without having to track down the container or node where the task or job is running. DC/OS gives users access to misbehaving tasks and jobs inside containers launched with the Universal container runtime, without requiring SSH.
 
 
