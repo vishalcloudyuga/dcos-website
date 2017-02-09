@@ -162,12 +162,8 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 ### Fixed issues Mesos
 
-- DCOS-11629- Masters continuously restarting, cannot recover.
-- DCOS-11860 - Agents cannot join after upgrade from 1.8.4 to 1.8.7.
-- DCOS-12412 - Agents disconnected from the cluster after installing Kafka service.
-- DCOS-13203 - Segfault when the executor sets an invalid UUID when sending a status update.
-
-
+- MESOS-6621 - Masters continuously restarting, cannot recover.
+- MESOS-6917 - Segfault when the executor sets an invalid UUID when sending a status update.
 
 ## <a name="1-8-7"></a>1.8.7 - Nov 14, 2016
 
