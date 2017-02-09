@@ -162,7 +162,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 ### Fixed issues Mesos
 
-- MESOS-6621 - Masters continuously restarting, cannot recover.
+- MESOS-6621 - Nodes continuously restarting, cannot recover.
 - MESOS-6917 - Segfault when the executor sets an invalid UUID when sending a status update.
 
 ## <a name="1-8-7"></a>1.8.7 - Nov 14, 2016
