@@ -66,7 +66,7 @@ We simply need to deploy the following Marathon app definition by using either t
   ]}
 ```
 
-This might leave some wondering when to use which of the two runtimes/containerizers. Although in DC/OS 1.8 the universal container runtime is still labeled as experimental (which means that it is not considered stable, and we would much appreciate [bug reports](https://dcosjira.atlassian.net/secure/Dashboard.jspa)), it is worth evaluating the differences between it and the Docker containerizer. In order to determine which containerizer/runtime will be appropriate for your use case, consider the following points:
+This might leave some wondering when to use which of the two runtimes/containerizers. Although in DC/OS 1.8 the universal container runtime is still labeled as experimental (which means that it is not considered stable, and we would much appreciate [bug reports](https://jira.dcos.io/secure/Dashboard.jspa)), it is worth evaluating the differences between it and the Docker containerizer. In order to determine which containerizer/runtime will be appropriate for your use case, consider the following points:
 * Using the Mesos containerizer with universal container runtime will give you the most uniform user experience.
 * New features such as GPUS and pods will first be implemented for Mesos containerizer.
 * Unless you rely on some specific Docker runtime feature that is not covered by the universal container runtime, we would recommend using the universal container runtime.
