@@ -113,7 +113,7 @@ In this example, `install_package_and_wait`, `package_installed`, `get_service` 
 As shown above, Shakedown aims to help speed up and improve framework authoring and testing. As with the rest of DC/OS, Shakedown is an open-source project and contributions and enhancements are welcome!
 
 * [Shakedown GitHub repository](https://github.com/dcos/shakedown)
-* [DC/OS issue tracker](https://dcosjira.atlassian.net)
+* [DC/OS issue tracker](https://jira.dcos.io)
 
 [wikipedia]: https://en.wikipedia.org/wiki/Shakedown_(testing)
 
