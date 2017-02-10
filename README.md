@@ -5,7 +5,7 @@
 | Production | <https://dcos.io> | [![Prod Build Status](https://jenkins.mesosphere.com/service/jenkins/buildStatus/icon?job=public-dcos-website-deploy-prod)](https://jenkins.mesosphere.com/service/jenkins/job/public-dcos-website-deploy-prod/) |
 | Development | <https://dev.dcos.io> | [![Dev Build Status](https://jenkins.mesosphere.com/service/jenkins/buildStatus/icon?job=public-dcos-website-deploy-dev)](https://jenkins.mesosphere.com/service/jenkins/job/public-dcos-website-deploy-dev/) |
 
-**Issue tracking is moving to the [DCOS JIRA](https://dcosjira.atlassian.net/) (Project: [SITE](https://dcosjira.atlassian.net/projects/SITE/issues)).
+**Issue tracking is moving to the [DCOS JIRA](https://jira.dcos.io/) (Project: [SITE](https://jira.dcos.io/projects/SITE/issues)).
 Issues on GitHub will be disabled soon.**
 
 Table of contents:
