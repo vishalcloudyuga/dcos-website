@@ -129,8 +129,8 @@ Issues fixed:
 
 - Bug fixes to the [mesos-overlay-modules](https://github.com/dcos/mesos-overlay-modules).
 - Bug fixes to the [Navstar component](https://github.com/dcos/navstar).
-- [DCOS-321](https://dcosjira.atlassian.net/browse/DCOS-321) - Bug fixes to configuring OAuth in the AWS advanced templates.
-- [DCOS-326](https://dcosjira.atlassian.net/browse/DCOS-326) - Azure downloads URL is fixed.
+- [DCOS-321](https://jira.dcos.io/browse/DCOS-321) - Bug fixes to configuring OAuth in the AWS advanced templates.
+- [DCOS-326](https://jira.dcos.io/browse/DCOS-326) - Azure downloads URL is fixed.
 
 New features and changes:
 
