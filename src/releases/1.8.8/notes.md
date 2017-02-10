@@ -123,7 +123,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 # <a name="minor"></a>Minor releases
 
-## <a name="1-8-8"></a>1.8.8 - Feb 9, 2017
+## <a name="1-8-8"></a>1.8.8 - Feb 10, 2017
 
 ### New and changed features
 
