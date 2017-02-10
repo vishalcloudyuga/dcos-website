@@ -2,7 +2,7 @@
 
 Overall, the process to contribute code to DC/OS is modelled after the [ASF process](https://community.apache.org/contributors/) with a strong emphasis on individual contributors. The following are the four pillars of the DC/OS governance:
 
-(1) Everyone who uses DC/OS is a contributor and is encouraged to provide feedback on the usage of DC/OS, for example by raising a [Jira](https://dcosjira.atlassian.net/) ticket or via [Slack](http://chat.dcos.io).
+(1) Everyone who uses DC/OS is a contributor and is encouraged to provide feedback on the usage of DC/OS, for example by raising a [Jira](https://jira.dcos.io/) ticket or via [Slack](http://chat.dcos.io).
 
 (2) Any contributor can also eventually be selected as a committer, with the difference that a committer has push access to all the DC/OS repos.
 
