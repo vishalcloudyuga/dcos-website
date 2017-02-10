@@ -175,7 +175,7 @@ const jSummary = `Feedback+for+${docPageTitle}` // summary
 const jDescription = `Source: ${window.location.href}` // description
 const jLabels = 'documentation'
 
-$('#submit-feedback').attr('href', `https://dcosjira.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}&labels=${jLabels}`)
+$('#submit-feedback').attr('href', `https://jira.dcos.io/secure/CreateIssueDetails!init.jspa?pid=${jPid}&issuetype=${jIssueType}&summary=${jSummary}&description=${jDescription}&labels=${jLabels}`)
 
 
 /****************
