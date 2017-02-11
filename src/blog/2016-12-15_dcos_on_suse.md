@@ -94,13 +94,13 @@ Then we restarted one of the nodes in our DC/OS cluster. For some reason (we're 
 
 We created following JIRA detailing the challenges we faced running DC/OS on SLES:
 
-https://dcosjira.atlassian.net/browse/DCOS-483
+https://jira.dcos.io/browse/DCOS-483
 
 Http proxy authentication, which is required within Huawei, has also posed some problems for us.
 
 The first problem is a structural one: to use HTTP proxy with DC/OS you have to bake proxy configuration into the installation binary (configured in config.yaml as of version 1.8). It cannot be modified without reinstallation of DC/OS. This means that each time an HTTP password expires we have to reinstall our whole cluster to reset it. This is not an ideal solution so we asked for a better one here:
 
-https://dcosjira.atlassian.net/browse/DCOS-482
+https://jira.dcos.io/browse/DCOS-482
 
 Our second HTTP proxy problem was functional: we have not yet been able to get DC/OS to work with HTTP proxy authentication at all. We are still investigating the issue here, and we hope we can resolve it soon. For now we are working around it by creating our own local universe, which contains packages from the public universe combined with our custom software. The upside of this solution is the ease of installation---one click install for open source software and our own internal packages. The downside is that we have to transfer ~10GB+ of data in order to be able to install HDFS, Kafka etc.
 
@@ -110,8 +110,8 @@ As already mentioned we really love the concept of Universe and how easy it is t
 
 As part of our investigation we created following JIRAs:
 
-+ https://dcosjira.atlassian.net/browse/DCOS-494
-+ https://dcosjira.atlassian.net/browse/DCOS-492
++ https://jira.dcos.io/browse/DCOS-494
++ https://jira.dcos.io/browse/DCOS-492
 
 In the end we have two fully usable clusters with DC/OS running on top of SLES 12SP1 and one on top of Centos. And there are few more installations planned. So, we are very happy.
 
