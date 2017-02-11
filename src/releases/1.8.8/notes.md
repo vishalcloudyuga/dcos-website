@@ -127,7 +127,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 
 ### New and changed features
 
-- Marathon 1.3.8 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.3.8).
+- Marathon 1.3.9 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.3.9).
 - Apache Mesos 1.0.3 [CHANGELOG](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.0.3-rc1/CHANGELOG).
 
 ### Fixed issues DC/OS
@@ -135,7 +135,7 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 #### DC/OS UI
 
 - DCOS-9310 - Default memory for jobs is too low.
-- DCOS-11482 - Jobs UI wipes "artefacts" part from the JSON job descriptor.
+- DCOS-11482 - Jobs UI wipes "artifacts" part from the JSON job descriptor.
 - DCOS-11559 - Switching from Bridge to Host Networking leaves portDefinitions that can cause conflicts with Marathon-LB.
 - DCOS-11599 - Jobs attributes are stripped out and not available in UI.
 - DCOS-11781 - Zeppelin package is missing from Universe in UI.
