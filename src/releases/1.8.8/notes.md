@@ -1,4 +1,4 @@
-The release notes provide a list of useful topics and links for DC/OS. Click [here](#1-8-7) to see the updates for 1.8.7.
+The release notes provide a list of useful topics and links for DC/OS. Click [here](#1-8-8) to see the updates for 1.8.8.
 
 # Breaking Changes
 
@@ -122,6 +122,48 @@ For more information, see the [documentation](https://docs.mesosphere.com/1.8/us
 - See the CLI [release notes](https://github.com/dcos/dcos-cli/releases).
 
 # <a name="minor"></a>Minor releases
+
+## <a name="1-8-8"></a>1.8.8 - Feb 10, 2017
+
+### New and changed features
+
+- Marathon 1.3.9 [release notes](https://github.com/mesosphere/marathon/releases/tag/v1.3.9).
+- Apache Mesos 1.0.3 [CHANGELOG](https://github.com/mesosphere/mesos/blob/dcos-mesos-1.0.3-rc1/CHANGELOG).
+
+### Fixed issues DC/OS
+
+#### DC/OS UI
+
+- DCOS-9310 - Default memory for jobs is too low.
+- DCOS-11482 - Jobs UI wipes "artifacts" part from the JSON job descriptor.
+- DCOS-11559 - Switching from Bridge to Host Networking leaves portDefinitions that can cause conflicts with Marathon-LB.
+- DCOS-11599 - Jobs attributes are stripped out and not available in UI.
+- DCOS-11781 - Zeppelin package is missing from Universe in UI.
+- DCOS-11887 - Cron example in the Jobs UI is wrong.
+- DCOS-11984 - Error destroying a service.
+- DCOS-13243 - Unable to revert Marathon app configuration to older version or switch between versions in the UI.
+- DCOS-13530 - Label keys in the service create form are converted to uppercase.
+- DCOS-13692 - DC/OS UI server connection errors because of 10s timeout for the Universe, and 2s timeout everywhere else.
+
+#### Networking Services
+
+- DCOS-10809 - DNS unavailable during DC/OS upgrade.
+- DCOS-11704 - Agent node does not report virtual network logging errors.
+- DCOS-12706 - LIBPROCESS_PORT must be explicitly set with Marathon (and other DC/OS services).
+- DCOS-13192 - Virtual network agent modules have dependency on the Docker daemon at startup.
+- DCOS-13193 - EDNS issues.
+- DCOS-13211 - Cosmos admin and http ports are accessible from all interfaces in DC/OS. <!-- OSS -->
+- DCOS-13430 - Virtual network service crashes after installing Marathon-LB.
+
+### Fixed issues Marathon
+
+- MARATHON-1309 - App groups are not structured properly for upgrades.
+- DCOS-11560 - ZooKeeper Connection Timeout is not configurable.
+
+### Fixed issues Mesos
+
+- MESOS-6621 - Nodes continuously restarting, cannot recover.
+- MESOS-6917 - Segfault when the executor sets an invalid UUID when sending a status update.
 
 ## <a name="1-8-7"></a>1.8.7 - Nov 14, 2016
 
