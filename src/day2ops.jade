@@ -30,27 +30,50 @@ block content
 
 
 
+  //- DC/OS enables fast data
+  .outer-container.bg-white.clearfix.pt5.pb2.px2
+    .row
+      .max-width-4.mx-auto
+        .flex.flex-auto.flex-wrap
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto.pb4.center
+            h2 DC/OS enables Day 2 Operations
+            p DC/OS supports Day 2 Operations by lending  transparency, resilience, and accessibility to your containers, services, and other workloads, making them easy to monitor, maintain, and troubleshoot.
 
-  .outer-container.clearfix.py5.px2.bg-gray
-    .row.max-width-4.mx-auto.mxn2.flex.flex-auto.flex-wrap.items-center
-      .lg-col-8.col-12.xs-col-12.px2.mx-auto
-        img(src='/assets/images/icons/monitoring.svg')
-        h3#monitoring Monitoring
-        p Starting with DC/OS version 1.9 logs and metrics are easily accessible to operators. Task, container, service, node, and host level logs are sent to journald, where they can be collected and filtered by the logging aggregator of your choice, giving operators the flexibility to account for their specific security and privacy concerns. Metrics are accessible via an HTTP API.
+        .flex.flex-auto.flex-wrap
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            img(src='/assets/images/icons/monitoring.svg')
+            h4 #[a.text-black(href='#monitoring') Monitoring]
+            p DC/OS makes it simple for operators to track host, service, and container level metrics, allowing them to head off potential problems and avoid downtime.
 
-  .outer-container.clearfix.py5.px2
-    .row.max-width-4.mx-auto.mxn2.flex.flex-auto.flex-wrap.items-center
-      .lg-col-8.col-12.xs-col-12.px2.mx-auto
-        img(src='/assets/images/icons/maintenance.svg')
-        h3#maintenance Maintenance
-        p DC/OS makes cluster maintenance easy. It provides resilience by detecting node failures and enabling automatic recovery. By providing a layer of abstraction between your hardware and services, DC/OS makes it easy to plan for and react to the routine failures that are part of operating in a data center. DC/OS enables zero downtime upgrade patterns including rolling, blue-green, or canary deployments.
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb3
+            img(src='/assets/images/icons/maintenance.svg')
+            h4 #[a.text-black(href='#maintenance') Maintenance]
+            p Microservices allow developers to improve apps faster than ever, and DC/OS helps operators keep pace. Spend less time on triage, and focus on deploying changes to production.
 
-  .outer-container.clearfix.py5.px2.bg-gray
-    .row.max-width-4.mx-auto.mxn2.flex.flex-auto.flex-wrap.items-center
-      .lg-col-8.col-12.xs-col-12.px2.mx-auto
-        img(src='/assets/images/icons/troubleshooting.svg')
-        h3#troubleshooting Troubleshooting
-        p DC/OS allows users to run containers on pooled resources, without specifying which specific node those containers should run on. Starting with DC/OS 1.9, users can also troubleshoot short tasks or long-running jobs without having to track down the container or node where the task or job is running. DC/OS gives users access to misbehaving tasks and jobs inside containers launched with the Universal container runtime, without requiring SSH.
+          .lg-col-4.col-6.xs-col-12.xs-center.px2.pb0
+            img(src='/assets/images/icons/troubleshooting.svg')
+            h4 #[a.text-black(href='#troubleshooting') Troubleshooting]
+            p DC/OS allows operators to deploy containers to a pool of resources. Now operators can debug those containers while remaining blissfully agnostic to their location.
+
+
+
+
+  //- Challenges / Solutions
+  .outer-container.bg-gray.clearfix.py5.px2
+    .row
+      .max-width-4.mx-auto
+        .mxn2.flex.flex-auto.flex-wrap.items-center
+          .lg-col-8.col-12.xs-col-12.px2.mx-auto
+            h2.pb4.center.mx-auto How does DC/OS facilitate Day 2 Operations
+
+            h3#monitoring Monitoring
+            p.pb5 Starting with DC/OS version 1.9 logs and metrics are easily accessible to operators. Task, container, service, node, and host level logs are sent to journald, where they can be collected and filtered by the logging aggregator of your choice, giving operators the flexibility to account for their specific security and privacy concerns. Metrics are accessible via an HTTP API.
+
+            h3#maintenance Maintenance
+            p.pb5 DC/OS makes cluster maintenance easy. It provides resilience by detecting node failures and enabling automatic recovery. By providing a layer of abstraction between your hardware and services, DC/OS makes it easy to plan for and react to the routine failures that are part of operating in a data center. DC/OS enables zero downtime upgrade patterns including rolling, blue-green, or canary deployments.
+
+            h3#troubleshooting Troubleshooting
+            p DC/OS allows users to run containers on pooled resources, without specifying which specific node those containers should run on. Starting with DC/OS 1.9, users can also troubleshoot short tasks or long-running jobs without having to track down the container or node where the task or job is running. DC/OS gives users access to misbehaving tasks and jobs inside containers launched with the Universal container runtime, without requiring SSH.
 
 
 
