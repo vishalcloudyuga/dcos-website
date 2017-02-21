@@ -35,11 +35,17 @@ block content
           .card.card-content.stable.col-4.relative(style="justify-content: inherit;")
               h3.mb0 Early Access
               p.release-version.pb1 DC/OS 1.9
-              p.hero-list__item__copy__paragraph.release-copy Upcoming release. <!-- Ready for development and testing. -->
+              p.hero-list__item__copy__paragraph.release-copy Upcoming release. Ready for development and testing.
               a.cta.cta--text.release-notes.pb2(href='/releases/1.9.0/') Release Notes
 
-              .col-12.flex-end.mt-auto
-                a.btn.btn-disabled.block.mb0 Coming Soon
+              .col-12.flex-end.mt-auto.relative
+                button.absolute.dropdown.z-500(style='text-align: left; left: 0; width: 100%;')
+                  a.btn.btn-primary.mb0.block.center.no-arrow.text-white.bg-heliotrope Get Release
+                    img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
+                  ul
+                    li: a(href='https://dcos.io/docs/1.9/administration/installing/cloud/aws/') Amazon Web Services
+                    li: a(href='https://dcos.io/docs/1.9/administration/installing/cloud/azure/') Azure
+                    li: a(href='https://downloads.dcos.io/dcos/master/dcos_generate_config.sh') Direct Download
 
           .master-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
               h3.mb0 Master
