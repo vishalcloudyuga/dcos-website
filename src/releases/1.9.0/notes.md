@@ -40,7 +40,7 @@ For more information, see the [documentation](/docs/1.9/administration/logging/)
 
 - Node-level HTTP API that returns metrics from frameworks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
-- Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP API’s `/container/<container_id>/app` endpoint.
+- Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP API `/container/<container_id>/app` endpoint.
 
 For more information, see the [documentation](/docs/1.9/administration/metrics/).
 
