@@ -1,127 +1,109 @@
-The release notes provide a list of useful topics and links for DC/OS.
+DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
+
+- Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
+- Broader Workload Support - From traditional apps to machine learning.
+- New data and developer services. <!-- NEED A LINK -->
 
 # What's New
 
-## Apache Mesos 1.2
+## Apache Mesos 1.2 and Marathon 1.4 integrated
 
-- GPU Support
-- TaskGroups and Nested Containers (Pods)
-- Container exec/attach for debugging
-- v1 Master/Agent Operator API
-- HTTP(S) and TCP Health Checks
-- Support for agent-partition-aware frameworks <!-- [maturity-badge status='experimental'] -->
-- Shared persistent volumes across task instances on the same node
-- Improved isolation
+- Apache Mesos 1.2 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
+- Marathon 1.4 [release notes](https://github.com/mesosphere/marathon/releases).
 
-    - Linux capabilities and rlimit support for UCR
-    - Cgroups unified isolator
-    - Docker volume isolation
-    - New `xfs/disk` isolator to isolate disk resources more efficiently
-    - New IPC Namespace isolator to place tasks in a distinct IPC namespace
-    - New `volume/sandbox_path` isolator for `Volume::Source::SANDBOX_PATH`.
-    - Support Container Network Interface (CNI), and experimental port-mapper CNI plugin: users can now expose container ports through host ports using DNAT. <!-- [maturity-badge status='experimental'] -->
+# Container Orchestration
 
-## Expanded OS Support
+- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/docs/1.9/usage/pods/).
+- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/docs/1.9/usage/gpu/).
+- Significant scalability improvements.
 
-- CentOS [7.3](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.3_Release_Notes/index.html)
-- CoreOS [1235.8.0](https://coreos.com/releases/#1235.8.0)
+# DC/OS Monitoring and Operations
 
-## Expanded Docker Engine Support
+## Remote Process Injection for Debugging
 
-- Docker [1.12 and 1.13](https://github.com/docker/docker/releases)
+- Remotely execute a process inside a deployed Mesos container with the new CLI `dcos task exec` command. .
+- CLI feature can accept `--tty` and `--interactive` which allow attaching a PTY to the remotely executed process and streaming of STDIN back from the executed process respectively.
 
-## Container Orchestration
+For more information, see the [documentation](/docs/1.9/administration/debugging/quickstart/).
 
-- Marathon 1.4 [release notes](https://github.com/mesosphere/marathon/releases)
-- Multiple containers per instance, scheduled on the same host (pods) <!-- [maturity-badge status='experimental'] -->
-- Debug why your applications aren’t starting from the GUI and CLI
-- Marathon scale improvements
-
-## CLI
-
-- Service account login support (useful for unattended scripts/automation).
-- New command for discovering why applications aren’t starting: `dcos marathon debug list`.
-- Subcommands for package management and service management. <!-- [maturity-badge status='experimental'] -->
-- Logging commands `dcos task log` and `dcos node log` use the new [logging API](/docs/1.9/administration/logging/logging-api/) backend. This is a big improvement over using the Files API because you can now stream systemd unit logs for DC/OS system services and logs from tasks that are deployed by Mesos.
-- New debugging command: `dcos task exec`. For more information, See the debugging [documentation](/docs/1.9/administration/debugging/).
-
-## Logging <!-- [maturity-badge status='experimental'] -->
+## Logging
 
 - All logs now ship to journald for both Mesos tasks (STDOUT/ERR) and DC/OS system logs.
 - Logs from Mesos tasks are tagged with appropriate metadata to allow easy searching by container ID.
 - New logging API that sits on top of journald to allow queries to these logs from the DC/OS CLI dcos node log and dcos task log commands.
 - Because all logs are going to journald, you can easily setup log aggregation solutions such as logstash to get logs into their aggregated storage solutions.
-- The new DC/OS CLI changes allow users to query Mesos task logs as well as DC/OS system service logs from one consolidated tool.
+- The updated DC/OS CLI allow you to query Mesos task logs as well as DC/OS system service logs from one consolidated tool.
 
 For more information, see the [documentation](/docs/1.9/administration/logging/).
 
-## Metrics <!-- [maturity-badge status='experimental'] -->
+## Metrics
 
-- Node-level HTTP API that returns metrics from frameworks, cgroup allocations per container and host level metrics such as load and memory allocation.
+- Node-level HTTP API that returns metrics from frameworks, cgroup allocations per container, and host level metrics such as load and memory allocation.
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
-- Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP APIs `/container/<container_id>/app` endpoint.
+- Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP API `/container/<container_id>/app` endpoint.
 
 For more information, see the [documentation](/docs/1.9/administration/metrics/).
 
+## Tool for Troubleshooting Service Deployment Failures
+
+- The new service deployment troubleshooting tool allows you to find out why your applications aren’t starting from the GUI and CLI.
+
+  ![Service deploy GUI](../img/serv-deploy-troubleshoot.png)
+
 ## Improved GUI
 
-- Brand new look and feel, better navigation.
+- New look and feel and improved navigation.
 
-  ![UI](/docs/1.9/usage/img/dcos-gui.png)
+  ![New GUI](../img/new-1-9-ui.png)
 
-- Significant improvements to how services are created.
+- Usability improvements to the service create workflow.
 
-  ![UI](/docs/1.9/usage/img/dcos-services.png)
+  ![Improved GUI](../img/improved-gui.png)
 
-- Debug why your application isn’t starting from the GUI.
+# Networking Services
 
-  ![UI](../../assets/images/releases/ui-services-expanded.gif)
+- CNI support for 3rd party CNI plugins.
+- Performance improvements across all networking features.
 
-## Networking Services
+# Developer Services
 
-- CNI Support
-- Performance improvements
+- GitLab Runner (CI) is now available as a DC/OS service in the Universe.
+- Updates to the DC/OS testing harness ([shakedown](https://github.com/dcos/shakedown)):
 
-## Package Manager <!-- [maturity-badge status='experimental'] -->
+    - Pods support.
+    - Support for testing against clusters with OAuth.
+    - Better help output.
+    - Updated documentation.
+    - Utility methods for using Mesos-DNS, waiting on cluster actions and partitioning and reconnecting to DC/OS masters.
 
-- Support for single binary packages.
-- Support for uploading package metadata directly to DC/OS.
-- Support for starting services from uploaded packages.
-
-## Debugging
-
-- Remotely execute a process inside a deployed Mesos container with the new CLI `dcos task exec` command.
-- CLI feature can accept `--tty` and `--interactive` which allow attaching a PTY to the remotely executed process and streaming of STDIN back from the executed process respectively.
-
-For more information, see the [documentation](/docs/1.9/administration/debugging/).
-
-## Developer Agility
-
-- GitLab Runner (CI) is now available as a DC/OS Service in the Universe.
-- Updates to Shakedown, the DC/OS testing harness:
-
-    - Pods support
-    - Support for testing against clusters with OAuth
-    - Better help output
-    - Updated documentation
-    - Utility methods for using Mesos-DNS, waiting on cluster actions and partitioning and reconnecting to DC/OS masters
-
-## Upgrades
-
-Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS API’s to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
-
-## DC/OS Data Services
-
-- ElasticSearch DC/OS Service <!-- [maturity-badge status='experimental'] -->
-- Marathon-style placement constraints for Apache Cassandra Service
-- Apache Cassandra schema backup and restore
-- Python and R support in the Apache Spark service for DC/OS
-- Support for cooperative scheduling in the Apache Cassandra and Apache Kafka services for DC/OS
+# Other Improvements
 
 ## DC/OS Internals
 
 - Update DC/OS internal JDK to 8u112 for security [fixes](http://www.oracle.com/technetwork/java/javase/2col/8u112-bugfixes-3124974.html).
 - Update DC/OS internal Python from 3.4 to 3.5.
-- `dcos_generate_config.sh --aws-cloudformation` will now figure out the region of the s3 bucket automatically, saving some accidental mistakes of getting the region wrong.
-- Added `dcos_add_user.py` which adds and invites users to a DC/OS cluster from the command line.
+- The `dcos_generate_config.sh --aws-cloudformation` command will now determine the region of the s3 bucket automatically, preventing region mistakes.
+- Added the `dcos_add_user.py` script, which you can use to add or invites users to a DC/OS cluster from the command line. For more information, see the [documentation](dcos.io/docs/1.9/administration/id-and-access-mgt/add-user-script/). <!-- OSS only -->
 - Added `dcos-shell` which activates the DC/OS environment for running other DC/OS command line tools.
+
+## Expanded OS Support
+
+- CentOS [7.3](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.3_Release_Notes/index.html).
+- CoreOS [1235.8.0](https://coreos.com/releases/#1235.8.0).
+
+## Expanded Docker Engine Support
+
+- Docker 1.12 and 1.13 are now [supported](/docs/1.9/administration/installing/custom/system-requirements/).
+
+## Upgrades
+
+Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
+
+<!-- For more information, see the [documentation](). -->
+
+# Known Issues and Limitations
+
+- If you install DC/OS 1.9 by using the [GUI](/docs/1.9/administration/installing/custom/gui/) or [CLI](/docs/1.9/administration/installing/custom/cli/) install methods, your system will be automatically upgraded to CentOS 7.3.
+- The next 1.9 release candidate will use CentOS 7.3 as the default version.
+- The next 1.9 release candidate will use Docker 1.13 as the default version.
+- The next 1.9 release candidate will have the [logging features](/docs/1.9/administration/logging/) disabled by default.
