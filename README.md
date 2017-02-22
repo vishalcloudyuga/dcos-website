@@ -231,6 +231,16 @@ Both types of redirects are processed and used in the S3, npm/gulp, and docker/n
 
 The "current" version of DC/OS that corresponds to `/docs/latest/` is managed in the `redirect-prefixes` file.
 
+## Versioning
+
+- To create a new version picker dropdown item, modify `layouts/docs.jade`.
+
+-  When a new version GAs, modify the `redirect-prefixes` file. For example, this denotes that 1.8 is the default version:
+
+   ```
+   /docs/latest/ /docs/1.8/
+   ```
+
 
 ## Link checking
 
@@ -264,7 +274,7 @@ Built using [Metalsmith](http://metalsmith.io).
 
 ## License and Authors
 
-Copyright 2016 Mesosphere, Inc.
+Copyright 2017 Mesosphere, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this repository except in compliance with the License.
