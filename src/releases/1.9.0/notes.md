@@ -24,8 +24,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
 - An optional `--interactive` flag for interactive sessions.
 - Attach to a remote pseudoterminal (aka PTY) inside a container via the optional `--tty` flag.
-- Combine the `--interactive` and `--tty` flags to launch an interactive bash session.
-- Run `top` to see the resource usage of your container in real time.
+- Combine the `--interactive` and `--tty` flags to launch an interactive bash session or to run `top` and see the resource usage of your container in real time.
 
 For more information, see the documentation for the `dcos task exec` command [here](/docs/1.9/administration/debugging/). 
 
@@ -109,3 +108,4 @@ Improved upgrade tooling and experience for on-premise installations. Upgrades n
 - The next 1.9 release candidate will use CentOS 7.3 as the default version.
 - The next 1.9 release candidate will use Docker 1.13 as the default version.
 - The next 1.9 release candidate will have the [logging features](/docs/1.9/administration/logging/) disabled by default.
+- [4137](https://github.com/mesosphere/marathon/issues/4137) - Volumes do not persist.
