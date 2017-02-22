@@ -21,18 +21,20 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 
 ## Remote Process Injection for Debugging
 
-- Remotely execute a process inside a deployed Mesos container with the new CLI `dcos task exec` command. .
-- CLI feature can accept `--tty` and `--interactive` which allow attaching a PTY to the remotely executed process and streaming of STDIN back from the executed process respectively.
+The new `dcos task exec` command allows you to remotely execute a process inside the container of a deployed Mesos task, providing the following features.
+- An optional `--interactive` flag for interactive sessions.
+- Attach to a remote pseudoterminal (aka PTY) inside a container via the optional `--tty` flag.
+- Combine the `--interactive` and `--tty` flags to launch an interactive bash session.
+- Run `top` to see the resource usage of your container in real time.
 
-For more information, see the [documentation](/docs/1.9/administration/debugging/quickstart/).
+For more information, see the documentation for the `dcos task exec` command [here](/docs/1.9/administration/debugging/). 
 
 ## Logging
 
-- All logs now ship to journald for both Mesos tasks (STDOUT/ERR) and DC/OS system logs.
-- Logs from Mesos tasks are tagged with appropriate metadata to allow easy searching by container ID.
-- New logging API that sits on top of journald to allow queries to these logs from the DC/OS CLI dcos node log and dcos task log commands.
-- Because all logs are going to journald, you can easily setup log aggregation solutions such as logstash to get logs into their aggregated storage solutions.
-- The updated DC/OS CLI allow you to query Mesos task logs as well as DC/OS system service logs from one consolidated tool.
+Stream task and system logs to journald by setting the `mesos_container_log_sink` install-time parameter to `journald` or `journald+logrotate`. This allows you to:
+- Include task metadata like container ID in your queries to more easily locate the logs that you want.
+- Use new DC/OS CLI commands `dcos node log` and `dcos task log` DC/OS CLI commands to query the logs. You can also make requests directly against the new Logging API.
+- Set up log aggregation solutions such as Logstash to get logs into their aggregated storage solutions.
 
 For more information, see the [documentation](/docs/1.9/administration/logging/).
 
