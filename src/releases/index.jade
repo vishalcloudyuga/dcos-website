@@ -15,14 +15,14 @@ block content
 
         .cards.flex.flex-auto.flex-wrap
 
-          .stable-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
+          .stable-releases.card.card-content.stable.col-4.relative(style="padding-bottom: 3.75rem;")
             h3.mb0 Stable
             p.release-version.pb1 DC/OS 1.8
             p.hero-list__item__copy__paragraph.release-copy Latest stable release. Ready for production use.
             a.cta.cta--text.release-notes.pb2(href='/releases/1.8.8/#1-8-8') Release Notes
 
             .col-12.flex-end.mt-auto.relative
-              button.absolute.dropdown.z-500(style='text-align: left; left: 0; width: 100%;')
+              button.absolute.dropdown.z-500.left-align.left-0.right-0
                 a.btn.btn-primary.mb0.block.center.no-arrow.text-white.bg-heliotrope Get Release
                   img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
                 ul
@@ -30,35 +30,28 @@ block content
                   li: a(href='https://downloads.dcos.io/dcos/stable/azure.html', target='_blank') Azure
                   li: a(href='https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh') Direct Download
 
-          .card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
-            h3.mb0 Early Access
-            p.release-version.pb1 DC/OS 1.9
-            p.hero-list__item__copy__paragraph.release-copy Upcoming release. Ready for development and testing.
-            a.cta.cta--text.release-notes.pb2(href='/releases/1.9.0/') Release Notes
+          .card.card-content.stable.col-4.relative
+              h3.mb0 Early Access
+              p.release-version.pb1 DC/OS 1.9
+              p.hero-list__item__copy__paragraph.release-copy Upcoming release. <!-- Ready for development and testing. -->
+              a.cta.cta--text.release-notes.pb2(href='/releases/1.9.0/') Release Notes
 
-            .col-12.flex-end.mt-auto.relative
-              button.absolute.dropdown.z-500(style='text-align: left; left: 0; width: 100%;')
-                a.btn.btn-primary.mb0.block.center.no-arrow.text-white.bg-heliotrope Get Release
-                  img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
-                ul
-                  li: a(href='https://downloads.dcos.io/dcos/EarlyAccess/aws.html', target='_blank') Amazon Web Services
-                  li: a(href='https://downloads.dcos.io/dcos/EarlyAccess/azure.html', target='_blank') Azure
-                  li: a(href='https://downloads.dcos.io/dcos/EarlyAccess/dcos_generate_config.sh') Direct Download
+              .col-12.flex-end.mt-auto
+                a.btn.btn-disabled.block.mb0 Coming Soon
 
-          .master-releases.card.card-content.stable.col-4.relative(style="justify-content: inherit; padding-bottom: 3.75rem;")
-            h3.mb0 Master
-            p.release-version.pb1 DC/OS master
-            p.hero-list__item__copy__paragraph.release-copy.pb2 Bleeding edge automated release. Only tested with automated tests.
+          .master-releases.card.card-content.stable.col-4.relative(style="padding-bottom: 3.75rem;")
+              h3.mb0 Master
+              p.release-version.pb1 DC/OS master
+              p.hero-list__item__copy__paragraph.release-copy.pb2 Bleeding edge automated release. Only tested with automated tests.
 
-            .col-12.flex-end.mt-auto.relative
-              button.absolute.dropdown.z-500(style='text-align: left; left: 0; width: 100%;')
-                a.btn.btn-primary.mb0.block.center.no-arrow.text-white.bg-heliotrope Get Release
-                  img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
-                ul
-                  li: a(href='https://downloads.dcos.io/dcos/testing/master/aws.html', target='_blank') Amazon Web Services
-                  li: a(href='https://downloads.dcos.io/dcos/testing/master/azure.html', target='_blank') Azure
-                  li: a(href='https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh') Direct Download
-
+              .col-12.flex-end.mt-auto.relative
+                button.absolute.dropdown.z-500.left-align.left-0.right-0
+                  a.btn.btn-primary.mb0.block.center.no-arrow.text-white.bg-heliotrope Get Release
+                    img.ml1.align-middle(src='/assets/images/icons/arrow-down-docs-unselected-white.svg' style='margin-top: -2px;')
+                  ul
+                    li: a(href='https://downloads.dcos.io/dcos/testing/master/aws.html') Amazon Web Services
+                    li: a(href='https://downloads.dcos.io/dcos/testing/master/azure.html') Azure
+                    li: a(href='https://downloads.dcos.io/dcos/testing/master/dcos_generate_config.sh') Direct Download
 
   .outer-container.bg-white.clearfix.pb5.px2
     .row
