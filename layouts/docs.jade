@@ -197,7 +197,7 @@ html
                       a(href='#{p.link}' title='#{p.title}')
                         != p.title
                     p!= p.excerpt
-                    ul
+                    ul.list-reset
                       each c in p.children
                         li
                           a(href='#{c.link}')
