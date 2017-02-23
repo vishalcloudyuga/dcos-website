@@ -49,17 +49,17 @@ For more information, see the [documentation](/docs/1.9/administration/metrics/)
 
 - The new service deployment troubleshooting tool allows you to find out why your applications aren’t starting from the GUI and CLI.
 
-  ![Service deploy GUI](/assets/images/serv-deploy-troubleshoot.gif)
+  ![Service deploy GUI](/assets/images/releases/serv-deploy-troubleshoot.gif)
 
 ## Improved GUI
 
 - New look and feel and improved navigation.
 
-  ![New GUI](/assets/images/new-1-9-ui.gif)
+  ![New GUI](/assets/images/releases/new-1-9-ui.gif)
 
 - Usability improvements to the service create workflow.
 
-  ![Improved GUI](/assets/images/improved-gui.gif)
+  ![Improved GUI](/assets/images/releases/improved-gui.gif)
 
 # Networking Services
 
