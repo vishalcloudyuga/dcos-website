@@ -146,7 +146,7 @@ if(wallopEl){
 /****************
   Clickable headers
 ****************/
-$('#docs-content h2, #docs-content h3, #docs-content h4, #docs-content h5, #docs-content h6').each(function( index ) {
+$('#docs-content h1, #docs-content h2, #docs-content h3, #docs-content h4, #docs-content h5, #docs-content h6').each(function( index ) {
   var hashURL = $(this).attr('id')
   $(this).wrapInner('<a href="#' + hashURL + '" class="show-anchor"></a>')
 });
@@ -214,4 +214,11 @@ $('#docs-content img').each(function(index) {
   $(this).click(function(){
     window.open(imgUrl, '_blank');
   })
+})
+
+/****************
+  Excerpt length Docs
+****************/
+$('.related-pages > div').children().eq(1).each(function(index) {
+  console.log(this)
 })

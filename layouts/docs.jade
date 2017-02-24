@@ -60,8 +60,8 @@ include ../mixins/head.jade
   }
 
   var sortByMenuOrder = function (fileA, fileB) {
-    const menu_order_a = fileA.menu_order ? parseFloat(fileA.menu_order) : 0
-    const menu_order_b = fileB.menu_order ? parseFloat(fileB.menu_order) : 0
+    var menu_order_a = fileA.menu_order ? parseFloat(fileA.menu_order) : 0
+    var menu_order_b = fileB.menu_order ? parseFloat(fileB.menu_order) : 0
 
     return menu_order_a - menu_order_b
   }
@@ -86,6 +86,45 @@ mixin navItem(child)
     - var isActive = findPath(child.name) ? 'active' : '';
     a.docs-nav__item__title(href='#{routeForIndexPath(child)}', data-path='#{child.name}' class=isActive) #{nameForIndexPath(child)}
 
+-
+  var getChildrenFromAncestors = child => {
+    var children = []
+    child.ancestry.children && child.ancestry.children.forEach(child => {
+      children.push({
+        menu_order: child.menu_order,
+        title: child.nav_title || child.title,
+        link: `/docs/${docsVersion}/${stripExtnameFromString(child.path)}`
+      })
+    })
+    return children.sort(sortByMenuOrder)
+  }
+
+  var relatedPages = []
+  if (locals.ancestry.self.path.substr(-8) === 'index.md') {
+    locals.ancestry.children && locals.ancestry.children.forEach(child => {
+      if (locals.ancestry.self.path !== child.path) {
+        relatedPages.push({
+          menu_order: child.menu_order,
+          title: child.nav_title || child.title,
+          excerpt: child.excerpt,
+          link: `/docs/${docsVersion}/${stripExtnameFromString(child.path)}`,
+          children: getChildrenFromAncestors(child)
+        })
+      }
+    })
+    locals.ancestry.siblings && locals.ancestry.siblings.forEach(sibling => {
+      if (locals.ancestry.self.path !== sibling.path) {
+        relatedPages.push({
+          menu_order: sibling.menu_order,
+          title: sibling.nav_title || sibling.title,
+          excerpt: sibling.excerpt,
+          link: `/docs/${docsVersion}/${stripExtnameFromString(sibling.path)}`,
+          children: getChildrenFromAncestors(sibling)
+        })
+      }
+    })
+    relatedPages = relatedPages.sort(sortByMenuOrder)
+  }
 
 mixin renderMenu(tree)
   ul(class!=attributes.class)
@@ -108,19 +147,6 @@ mixin renderMenu(tree)
 
           if(child.children)
             +renderMenu(child.children)
-
-- const getChildrenFromAncestors = child => {
--   const children = []
--   child.ancestry.children && child.ancestry.children.forEach(child => children.push({ menu_order: child.menu_order, title: child.nav_title || child.title, link: `/docs/${docsVersion}/${stripExtnameFromString(child.path)}` }))
--   return children.sort(sortByMenuOrder)
-- }
-
-- let relatedPages = []
-- if (locals.ancestry.self.path.substr(-8) === 'index.md') {
--   locals.ancestry.children && locals.ancestry.children.forEach(child => relatedPages.push({ menu_order: child.menu_order, title: child.nav_title || child.title, excerpt: child.excerpt, link: `/docs/${docsVersion}/${stripExtnameFromString(child.path)}`, children: getChildrenFromAncestors(child) }))
--   locals.ancestry.siblings && locals.ancestry.siblings.forEach(sibling => locals.ancestry.self.path !== sibling.path && relatedPages.push({ menu_order: sibling.menu_order, title: sibling.nav_title || sibling.title, excerpt: sibling.excerpt, link: `/docs/${docsVersion}/${stripExtnameFromString(sibling.path)}`, children: getChildrenFromAncestors(sibling) }))
--   relatedPages = relatedPages.sort(sortByMenuOrder)
-- }
 html
   head
     +head
@@ -192,16 +218,17 @@ html
             if relatedPages.length
               .flex.flex-wrap.flex-auto.mxn2.mt3.related-pages
                 each p in relatedPages
-                  .col-12.md-col-6.px2.mb3.border-box
-                    h3
-                      a(href='#{p.link}' title='#{p.title}')
-                        != p.title
-                    p!= p.excerpt
-                    ul.list-reset
-                      each c in p.children
-                        li
-                          a(href='#{c.link}')
-                            != c.title
+                  if p.title && p.link
+                    .col-12.md-col-6.px2.mb3.border-box
+                      h3
+                        a(href='#{p.link}' title='#{p.title}')
+                          != p.title
+                      p!= p.excerpt
+                      ul.list-reset
+                        each c in p.children
+                          li
+                            a(href='#{c.link}')
+                              != c.title
 
             .docs-content__footer
               ul.docs-content__footer__actions
