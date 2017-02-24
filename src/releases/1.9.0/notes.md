@@ -8,7 +8,7 @@ DC/OS 1.9 includes many new capabilities for Operators, and expands the collecti
 
 ## Apache Mesos 1.2 and Marathon 1.4 integrated
 
-- Apache Mesos 1.2 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
+- Apache Mesos 1.2 [CHANGELOG](https://github.com/apache/mesos/blob/1.2.x/CHANGELOG).
 - Marathon 1.4 [release notes](https://github.com/mesosphere/marathon/releases).
 
 # Container Orchestration
@@ -26,7 +26,7 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 - Attach to a remote pseudoterminal (aka PTY) inside a container via the optional `--tty` flag.
 - Combine the `--interactive` and `--tty` flags to launch an interactive bash session or to run `top` and see the resource usage of your container in real time.
 
-For more information, see the documentation for the `dcos task exec` command [here](/docs/1.9/administration/debugging/). 
+For more information, see the documentation for the `dcos task exec` command [here](/docs/1.9/administration/debugging/).
 
 ## Logging
 
