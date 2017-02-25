@@ -159,7 +159,8 @@ $(document).ready(function() {
 
   var swaggerUi = new SwaggerUi({
     url: yamlFile,
-    dom_id: 'swagger-ui-container'
+    dom_id: 'swagger-ui-container',
+    docExpansion: 'list'
   });
 
   swaggerUi.load();
